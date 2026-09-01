@@ -1,0 +1,1008 @@
+/* ========== 基础 ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --color-bg: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-sub: #6B7280;
+  --color-border: #E5E7EB;
+  --color-primary: #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --color-amber: #F59E0B;
+  --color-emerald: #10B981;
+  --color-gray-bg: #F3F4F6;
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei", "Noto Sans JP", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 日文文本统一用 Noto Sans JP */
+.jp { font-family: "Noto Sans JP", sans-serif; }
+
+/* 数字等宽 */
+.num {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+#app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 100vh;
+}
+
+.page { display: none; padding: 32px 0 64px; }
+.page.active { display: block; }
+
+.dot { color: var(--color-text-sub); margin: 0 6px; }
+
+/* ========== 首页头部 ========== */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.home-date {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.home-streak {
+  font-size: 0.875rem;
+  color: var(--color-text-sub);
+}
+
+.streak-num {
+  color: var(--color-amber);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ========== 任务卡片 ========== */
+.task-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.task-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.task-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+  margin-bottom: 16px;
+}
+
+/* 未开放状态（周末考试平日灰显） */
+.task-card.is-closed {
+  background: #FAFAFA;
+}
+
+.task-card.is-closed .task-title,
+.task-card.is-closed .task-meta {
+  color: var(--color-text-sub);
+}
+
+/* ========== 按钮 ========== */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.btn-primary:hover { background: var(--color-primary-hover); }
+
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
+  background: var(--color-gray-bg);
+  color: var(--color-text-sub);
+  cursor: not-allowed;
+}
+
+/* 灰色小按钮（今日宜休） */
+.btn-ghost {
+  width: auto;
+  padding: 6px 14px;
+  background: var(--color-gray-bg);
+  color: var(--color-text-sub);
+  font-size: 0.8rem;
+}
+
+.btn-ghost:hover { background: #E5E7EB; }
+
+/* ========== 其他入口（小字不抢眼） ========== */
+.quick-links {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 28px 0 40px;
+}
+
+.quick-links a {
+  color: var(--color-text-sub);
+  text-decoration: none;
+}
+
+.quick-links a:hover { color: var(--color-text); }
+
+/* ========== 首页底部 ========== */
+.home-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.db-status {
+  font-size: 0.75rem;
+  color: var(--color-text-sub);
+}
+
+/* ========== 子页面 ========== */
+.sub-header { margin-bottom: 24px; }
+
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.back-link:hover { color: var(--color-primary); }
+
+.sub-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.placeholder {
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--color-text-sub);
+  font-size: 0.9rem;
+}
+
+/* ========== 响应式：PC 端略放大间距 ========== */
+@media (min-width: 768px) {
+  .page { padding-top: 48px; }
+  .task-card { padding: 24px; }
+}
+
+/* ========== 今日新词（第 2 步） ========== */
+
+/* --- 新词预览 --- */
+.preview-tip {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-bottom: 12px;
+}
+
+.wtable {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 96px; /* 给底部固定按钮让位 */
+}
+
+.wrow {
+  display: grid;
+  grid-template-columns: 70px 1fr 44px 1.4fr;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.wrow:last-child { border-bottom: none; }
+
+.wrow-word { font-weight: 600; }
+.wrow-reading { color: var(--color-text-sub); }
+.wrow-pos { color: var(--color-text-sub); font-size: 0.72rem; }
+.wrow-meaning { color: var(--color-text); }
+
+/* 底部固定的红色「开始测试」按钮 */
+.cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
+}
+
+.cta-inner { max-width: 640px; margin: 0 auto; }
+
+.btn-danger {
+  background: #DC2626;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.btn-danger:hover { background: #B91C1C; }
+
+.btn-secondary {
+  background: var(--color-gray-bg);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover { background: #E5E7EB; }
+
+/* --- 分组做题 --- */
+.quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-bottom: 14px;
+}
+
+.quiz-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 24px 20px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* 答对反馈：卡片轻微上浮 + 绿色 */
+.quiz-card.pop {
+  transform: translateY(-4px);
+  border-color: var(--color-emerald);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.15);
+}
+
+.quiz-type {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin-bottom: 12px;
+}
+
+.quiz-prompt {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  margin: 8px 0 22px;
+  word-break: break-all;
+}
+
+.quiz-prompt-zh { font-size: 1.15rem; font-weight: 500; }
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.option:hover { border-color: var(--color-primary); }
+
+.option.correct {
+  border-color: var(--color-emerald);
+  background: #ECFDF5;
+}
+
+.option.wrong {
+  border-color: #DC2626;
+  background: #FEF2F2;
+}
+
+.opt-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+}
+
+/* --- 组间小结 / 当日总结 --- */
+.summary-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 24px 20px;
+}
+
+.summary-head {
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+  margin-bottom: 6px;
+}
+
+.summary-score {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.score-em { color: var(--color-emerald); }
+
+.weak-title {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin: 12px 0 8px;
+}
+
+.summary-card .wtable { margin-bottom: 16px; }
+
+.summary-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.summary-btns .btn { flex: 1; }
+
+.done-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.done-item {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+
+.done-num { font-size: 1.5rem; font-weight: 700; }
+
+.done-label {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin-top: 2px;
+}
+
+.done-status {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.num.ok { color: var(--color-emerald); }
+
+#btn-retry-save { margin-bottom: 10px; }
+
+/* ========== 今日复习（第 3 步） ========== */
+
+.review-note {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin: 12px 0 16px;
+  text-align: center;
+}
+
+.summary-card .btn-primary { margin-top: 8px; }
+
+/* 总结页：与昨日正确率对比 */
+.compare-line {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+  margin: 4px 0 12px;
+}
+
+.cmp-up { color: var(--color-emerald); font-weight: 700; }
+.cmp-down { color: #DC2626; font-weight: 700; }
+
+/* ========== 模式 A 卡片自测（第 4 步） ========== */
+
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+  min-height: 240px;
+  margin-bottom: 14px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  transition: transform 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  padding: 24px 20px;
+}
+
+.flip-back { transform: rotateY(180deg); }
+
+.card-main {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-all;
+}
+
+.card-zh { font-size: 1.2rem; font-weight: 500; }
+
+.card-back-main { font-size: 1.6rem; }
+
+.card-sub {
+  font-size: 0.95rem;
+  color: var(--color-text-sub);
+  text-align: center;
+}
+
+.card-interval {
+  font-size: 0.75rem;
+  color: var(--color-text-sub);
+  margin-top: 12px;
+}
+
+.flip-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin-bottom: 14px;
+}
+
+/* 翻面后才显示自评按钮 */
+.card-btns {
+  display: flex;
+  gap: 10px;
+  visibility: hidden;
+}
+
+.card-btns.revealed { visibility: visible; }
+
+.card-btns .btn { flex: 1; }
+
+/* ========== 周末考试 + 错题本（第 5 步） ========== */
+
+/* 考试结果：分数 + 评级徽章 */
+.exam-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 8px 0 16px;
+}
+
+.exam-score {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rating-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+}
+
+.rating-S { background: #FEF3C7; color: #B45309; }  /* 琥珀：成就 */
+.rating-A { background: #D1FAE5; color: #047857; }  /* 翡翠：通过 */
+.rating-B { background: #ECFDF5; color: #059669; }
+.rating-C { background: var(--color-gray-bg); color: var(--color-text-sub); }
+
+/* 错题本 */
+.wb-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-bottom: 12px;
+}
+
+.wb-head .btn { width: auto; }
+
+.wb-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.wb-info { flex: 1; min-width: 0; }
+
+.wb-line1 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.wb-word { font-weight: 600; font-size: 1.05rem; }
+
+.wb-reading { color: var(--color-text-sub); font-size: 0.85rem; }
+
+.wb-count {
+  font-size: 0.75rem;
+  color: #DC2626;
+}
+
+.wb-line2 {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-top: 2px;
+}
+
+.wb-go { flex-shrink: 0; }
+
+/* ========== 查单词（第 6 步） ========== */
+
+.search-bar { margin-bottom: 16px; }
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.search-input:focus { border-color: var(--color-primary); }
+
+.search-row { cursor: pointer; }
+.search-row:hover { border-color: var(--color-primary); }
+
+.lv-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: var(--color-gray-bg);
+  color: var(--color-text-sub);
+  font-size: 0.72rem;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+}
+
+/* 详情页 */
+.detail-word {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.detail-reading {
+  text-align: center;
+  color: var(--color-text-sub);
+  font-size: 1.05rem;
+  margin: 4px 0 12px;
+}
+
+.detail-tags {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.detail-block { margin-bottom: 16px; }
+
+.detail-label {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin-bottom: 4px;
+}
+
+.detail-example { font-size: 1rem; line-height: 1.8; }
+
+.detail-example-zh {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-top: 4px;
+}
+
+.detail-status {
+  border-top: 1px solid var(--color-border);
+  padding-top: 14px;
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+}
+
+.status-weak {
+  color: #DC2626;
+  font-size: 0.8rem;
+}
+
+/* ========== 我的数据（第 6 步） ========== */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.stat-block { margin-bottom: 28px; }
+
+.stat-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.stat-title-sub {
+  font-weight: 400;
+  color: var(--color-text-sub);
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+/* 进度条 */
+.pbar {
+  flex: 1;
+  height: 8px;
+  background: var(--color-gray-bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pbar-big { height: 12px; border-radius: 6px; }
+
+.pbar-fill {
+  height: 100%;
+  background: var(--color-emerald);
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.pbar-text {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+.lv-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.lv-name { width: 28px; font-weight: 600; font-size: 0.85rem; }
+
+.lv-text {
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+/* 徽章墙 */
+.badge-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.badge {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.badge.on {
+  opacity: 1;
+  filter: none;
+  border-color: var(--color-amber);
+  background: #FFFBEB;
+}
+
+.badge-name { font-size: 0.85rem; font-weight: 600; }
+
+.badge-desc {
+  font-size: 0.72rem;
+  color: var(--color-text-sub);
+  margin-top: 2px;
+}
+
+.badge-date {
+  font-size: 0.68rem;
+  color: var(--color-amber);
+  margin-top: 4px;
+}
+
+/* 成就解锁祝贺弹窗（克制的琥珀色） */
+.ach-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 20px);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-amber);
+  border-left: 4px solid var(--color-amber);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.ach-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.ach-toast-title {
+  color: var(--color-amber);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.ach-toast-name { font-weight: 600; }
+
+@media (max-width: 480px) {
+  .badge-wall { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========== 打卡月历 + 宜休（第 7 步） ========== */
+
+/* 顶部统计 */
+.cal-stats {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-bottom: 20px;
+}
+
+/* 月份切换 */
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cal-head .btn { width: auto; }
+
+.cal-month { font-weight: 600; font-size: 0.95rem; }
+
+/* 星期表头 + 格子 */
+.cal-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--color-text-sub);
+  margin-bottom: 4px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  color: var(--color-text-sub);
+  background: #F3F4F6; /* 默认：未学习 */
+}
+
+.cal-cell[data-date] { cursor: pointer; }
+
+.cal-blank { background: transparent; }
+
+.cal-done { background: var(--color-emerald); color: #FFFFFF; }      /* 完成 */
+.cal-high { background: #047857; color: #FFFFFF; }                    /* 周末高分：深绿 */
+.cal-rest { background: #CBD5E1; color: #475569; }                    /* 休息日：蓝灰 */
+.cal-future { background: #FAFAFA; color: #D1D5DB; cursor: default; } /* 未来 */
+
+.cal-today { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+
+/* 图例 */
+.cal-legend {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--color-text-sub);
+}
+
+.cal-legend .sw {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: -1px;
+}
+
+/* 通用弹窗（宜休确认 / 打卡详情共用） */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal {
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.modal-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.modal-text {
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+  margin-bottom: 20px;
+}
+
+.modal-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-sub);
+}
+
+.modal-row:last-of-type { border-bottom: none; margin-bottom: 16px; }
+
+.modal-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.modal-btns .btn { flex: 1; }
+
+.rest-tag {
+  font-size: 0.75rem;
+  color: #475569;
+  background: #CBD5E1;
+  border-radius: 4px;
+  padding: 1px 8px;
+  margin-left: 6px;
+}
+
+/* 休息模式横幅 */
+.rest-banner {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.rest-text {
+  font-size: 1.05rem;
+  color: var(--color-text-sub);
+  margin-bottom: 14px;
+}
+
+/* ========== 第 8 步：移动端与细节打磨 ========== */
+
+/* 触屏优化：去掉点击高亮与 300ms 延迟 */
+button, .option, .search-row, .cal-cell, .flip-card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 移动端内容字号不小于 14px（0.875rem） */
+.wrow, .wb-line2, .task-meta, .modal-row, .preview-tip, .weak-title { font-size: 0.875rem; }
+
+/* iOS 搜索框原生样式修正 */
+.search-input { -webkit-appearance: none; appearance: none; }
+
+/* 连击数字跳动（完成时刻的克制动效，只在数字刷新时触发一次） */
+@keyframes streak-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.streak-num.pop {
+  display: inline-block;
+  animation: streak-pop 0.4s ease;
+}
+
+/* 小屏适配：题干与分数略收 */
+@media (max-width: 480px) {
+  .quiz-prompt { font-size: 1.6rem; }
+  .card-main { font-size: 1.6rem; }
+  .exam-score { font-size: 2.4rem; }
+  .cal-stats { font-size: 0.8rem; }
+}

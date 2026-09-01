@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日语备考 · JLPT N5–N2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ========== 首页 ========== -->
+    <main id="page-home" class="page">
+      <header class="home-header">
+        <div class="home-date" id="home-date">—</div>
+        <div class="home-streak">连续打卡 <span class="num streak-num" id="home-streak">0</span> 天</div>
+      </header>
+
+      <!-- 任务卡片① 今日新词 -->
+      <section class="task-card" id="card-new">
+        <div class="task-title">今日新词</div>
+        <div class="task-meta" id="new-meta">
+          今日 <span class="num">50</span> 词 <span class="dot">·</span>约 <span class="num">50</span> 分钟
+        </div>
+        <button class="btn btn-primary" id="btn-new">开始学习</button>
+      </section>
+
+      <!-- 任务卡片② 今日复习 -->
+      <section class="task-card" id="card-review">
+        <div class="task-title">今日复习</div>
+        <div class="task-meta" id="review-meta">
+          待复习 <span class="num" id="review-count">—</span> 词
+          <span class="dot">·</span>约 <span class="num" id="review-time">—</span> 分钟
+        </div>
+        <button class="btn btn-primary" id="btn-review">开始复习</button>
+      </section>
+
+      <!-- 任务卡片③ 周末考试 -->
+      <section class="task-card" id="card-exam">
+        <div class="task-title">周末考试</div>
+        <div class="task-meta" id="exam-meta">仅周六、周日开放</div>
+        <button class="btn btn-primary" id="btn-exam">进入考试</button>
+      </section>
+
+      <!-- 休息模式横幅（点「今日宜休」后显示，替代所有任务卡片） -->
+      <div id="rest-banner" class="rest-banner" style="display:none">
+        <div class="rest-text">今日休息，明日再战</div>
+        <button class="btn btn-ghost" id="btn-cancel-rest">取消休息</button>
+      </div>
+
+      <!-- 其他入口 -->
+      <nav class="quick-links">
+        <a href="#/wrongbook">错题本</a><span class="dot">·</span>
+        <a href="#/search">查单词</a><span class="dot">·</span>
+        <a href="#/stats">我的数据</a><span class="dot">·</span>
+        <a href="#/checkin">打卡</a>
+      </nav>
+
+      <footer class="home-footer">
+        <button class="btn btn-ghost" id="btn-rest">今日宜休</button>
+        <div class="db-status" id="db-status">正在连接词库…</div>
+      </footer>
+    </main>
+
+    <!-- ========== 今日新词（预览 / 做题 / 小结 / 总结 都渲染在 #new-body 里） ========== -->
+    <main id="page-new" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">今日新词</h1>
+      </header>
+      <div id="new-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <!-- ========== 今日复习（模式 B + 抽检 + 模式 A 卡片，渲染在 #review-body 里） ========== -->
+    <main id="page-review" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">今日复习</h1>
+      </header>
+      <div id="review-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <!-- ========== 周末考试（渲染在 #exam-body 里） ========== -->
+    <main id="page-exam" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">周末考试</h1>
+      </header>
+      <div id="exam-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <!-- ========== 子页面（占位） ========== -->
+    <main id="page-wrongbook" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">错题本</h1>
+      </header>
+      <div id="wrongbook-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-search" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">查单词</h1>
+      </header>
+      <div id="search-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-stats" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">我的数据</h1>
+      </header>
+      <div id="stats-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-checkin" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/">← 返回首页</a>
+        <h1 class="sub-title">打卡</h1>
+      </header>
+      <div id="checkin-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/newwords.js"></script>
+  <script src="js/review.js"></script>
+  <script src="js/exam.js"></script>
+  <script src="js/wrongbook.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/checkin.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
