@@ -69,20 +69,36 @@ window.Home = (function () {
     }
   }
 
-  // 「今日新词」卡片：根据本地会话显示 待开始 / 进行中 / 已完成
-  function renderNewCard() {
+  // 「今日新词」卡片：完成状态以 Supabase 为准（跨设备一致）——
+  // 今天 daily_logs.new_words_count > 0 即视为已完成，禁用按钮；
+  // 未完成时才看 localStorage 会话显示 待开始 / 进行中。
+  async function renderNewCard() {
     const meta = $('new-meta');
     const btn = $('btn-new');
+
+    try {
+      const log = await DB.getDailyLog(DB.todayISO());
+      if (log && log.new_words_count > 0) {
+        meta.innerHTML = `今日 <span class="num">${log.new_words_count}</span> 词已完成`;
+        btn.textContent = '已完成';
+        btn.disabled = true;
+        return;
+      }
+    } catch (e) {
+      // 网络失败时回落到本地会话状态，避免卡片整个挂掉
+      console.warn('[Home] 新词状态查询失败，按本地会话显示', e);
+    }
+
     let s = null;
     try { s = JSON.parse(localStorage.getItem('n5n2_newwords_session')); } catch (e) { /* 忽略损坏存档 */ }
 
     btn.disabled = false;
     if (s && s.stage === 'done') {
       if (s.date === DB.todayISO()) {
+        // 本地显示已完成但数据库没有记录：成绩未保存成功，允许进入补保存
         const acc = s.stats && s.stats.answered ? Math.round((s.stats.correct / s.stats.answered) * 100) : 100;
-        meta.innerHTML = `今日 <span class="num">${s.words.length}</span> 词已完成 <span class="dot">·</span>正确率 <span class="num ok">${acc}%</span>`;
-        btn.textContent = '已完成';
-        btn.disabled = true;
+        meta.innerHTML = `今日 <span class="num">${s.words.length}</span> 词已完成 <span class="dot">·</span>正确率 <span class="num ok">${acc}%</span> <span class="dot">·</span>成绩待同步`;
+        btn.textContent = '同步成绩';
         return;
       }
       s = null; // 更早某天已完成的会话，不影响今天

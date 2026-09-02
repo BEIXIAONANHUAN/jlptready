@@ -215,12 +215,14 @@ window.DB = (function () {
     if (error) throw error;
   }
 
-  // 更新当天日志的 new_words_count：有当天记录就只更新这一个字段，没有则新建
+  // 更新当天日志的 new_words_count：在当天已有值上累加（不是覆盖），没有则新建。
+  // 正常流程每天只会完成一次新词，累加是对"同一天重复完成"的保底口径。
   async function upsertDailyLogNewWords(date, count) {
-    const { data, error } = await client.from('daily_logs').select('id').eq('date', date).maybeSingle();
+    const { data, error } = await client.from('daily_logs').select('id,new_words_count').eq('date', date).maybeSingle();
     if (error) throw error;
     if (data) {
-      const { error: e } = await client.from('daily_logs').update({ new_words_count: count }).eq('date', date);
+      const { error: e } = await client.from('daily_logs')
+        .update({ new_words_count: (data.new_words_count || 0) + count }).eq('date', date);
       if (e) throw e;
     } else {
       const { error: e } = await client.from('daily_logs').insert({ date, new_words_count: count });
@@ -242,17 +244,20 @@ window.DB = (function () {
     return data;
   }
 
-  // 复习完成后写入日志：review_count 在当天已有值上累加，review_acc 记录本次正确率
+  // 复习完成后写入日志：review_count 在当天已有值上累加，review_acc 记录本次做题正确率。
+  // acc 传 null（纯翻卡场次、没有做题词）时只累加 review_count，
+  // 不覆盖当天已有的 review_acc，避免把真实的做题正确率刷成 100%。
   async function addReviewResult(date, wordsCount, acc) {
     const log = await getDailyLog(date);
     if (log) {
-      const { error } = await client
-        .from('daily_logs')
-        .update({ review_count: (log.review_count || 0) + wordsCount, review_acc: acc })
-        .eq('date', date);
+      const fields = { review_count: (log.review_count || 0) + wordsCount };
+      if (acc != null) fields.review_acc = acc;
+      const { error } = await client.from('daily_logs').update(fields).eq('date', date);
       if (error) throw error;
     } else {
-      const { error } = await client.from('daily_logs').insert({ date, review_count: wordsCount, review_acc: acc });
+      const row = { date, review_count: wordsCount };
+      if (acc != null) row.review_acc = acc;
+      const { error } = await client.from('daily_logs').insert(row);
       if (error) throw error;
     }
   }

@@ -197,7 +197,9 @@ window.Exam = (function () {
   // ---------- 考试做题 ----------
   const TYPE_LABEL = { reading: '读音题', writing: '写法题', meaning: '释义题' };
 
-  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案
+  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案。
+  // 读音题/写法题排除 reading 不含任何假名的词（词库里部分片假名词的
+  // reading 存的是英文罗马字，如 hamburger，混进选项等于送分）；释义题不受影响。
   function buildOptions(word, type) {
     const field = type === 'reading' ? 'reading' : 'word';
     const seen = new Set([word[field]]);
@@ -210,6 +212,7 @@ window.Exam = (function () {
     for (const tier of tiers) {
       for (const p of shuffle(tier)) {
         if (picks.length >= 3) break;
+        if (type !== 'meaning' && !/[぀-ヿ]/.test(p.reading)) continue;
         const t = p[field];
         if (!t || seen.has(t)) continue;
         seen.add(t);

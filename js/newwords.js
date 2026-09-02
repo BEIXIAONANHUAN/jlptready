@@ -2,8 +2,10 @@
 // 今日新词（强制做题）
 // 流程：新词预览 → 分组做题（5 组 × 10 词，每词 3 题）→ 组间小结 → 当日总结
 //
-// 持久化：当日会话整体存在 localStorage（键 n5n2_newwords_session），
-// 中途退出后下次点「今日新词」从断点继续；数据库只在当日全部完成时写入一次。
+// 持久化：当日会话断点（preview/quiz/summary 阶段、组进度）存 localStorage
+// （键 n5n2_newwords_session），供本机中途退出后续学；但「今天是否已完成」
+// 一律以 Supabase 为准（daily_logs.new_words_count > 0），跨设备状态一致——
+// 进入本页时先查库，已完成则丢弃本地断点，防止跨设备重复学习。
 //
 // 数据口径：
 // - 一个词「通过」= 该词的 3 道题都答对过（答错的题会重新插回当前组的剩余
@@ -141,6 +143,22 @@ window.NewWords = (function () {
       return;
     }
 
+    // 完成状态以 Supabase 为准（跨设备一致）：今天 daily_logs 已有新词记录，
+    // 说明今天已完成过——以数据库为准，丢弃本地未完成断点，不再重复出题。
+    try {
+      const log = await DB.getDailyLog(DB.todayISO());
+      if (log && log.new_words_count > 0) {
+        if (session) { session = null; localStorage.removeItem(LS_KEY); }
+        renderAlreadyDone(log.new_words_count);
+        return;
+      }
+    } catch (e) {
+      // 查库失败无法确认今日状态：宁可挡住也不冒重复学习的风险
+      console.error('[NewWords] 今日状态查询失败', e);
+      body.innerHTML = '<div class="placeholder">网络异常，无法确认今日学习状态<br>请检查网络后重新进入</div>';
+      return;
+    }
+
     if (session && session.stage === 'done') {
       if (session.date === DB.todayISO()) {
         // 今天已完成：若上次关闭时成绩没存上，补一次保存
@@ -161,6 +179,18 @@ window.NewWords = (function () {
       console.error('[NewWords] 建会话失败', e);
       body.innerHTML = '<div class="placeholder">词库加载失败，请检查网络后重新进入</div>';
     }
+  }
+
+  // 数据库显示今天已完成时的静态视图（此时没有本地会话可展示成绩）
+  function renderAlreadyDone(count) {
+    $('new-body').innerHTML = `
+      <div class="summary-card">
+        <div class="summary-head">今日新词已完成</div>
+        <div class="summary-score">今日 <span class="num">${count}</span> 词已完成</div>
+        <div class="done-status">以服务器记录为准，明天再来</div>
+        <button class="btn btn-primary" id="btn-back-home">回首页</button>
+      </div>`;
+    $('btn-back-home').addEventListener('click', () => { location.hash = '#/'; });
   }
 
   function render() {
@@ -199,7 +229,9 @@ window.NewWords = (function () {
   // ---------- 步骤 2：分组做题 ----------
   const TYPE_LABEL = { reading: '读音题', writing: '写法题', meaning: '释义题' };
 
-  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案
+  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案。
+  // 读音题/写法题排除 reading 不含任何假名的词（词库里部分片假名词的
+  // reading 存的是英文罗马字，如 hamburger，混进选项等于送分）；释义题不受影响。
   function buildOptions(word, type) {
     const field = type === 'reading' ? 'reading' : 'word';
     const seen = new Set([word[field]]);
@@ -212,6 +244,7 @@ window.NewWords = (function () {
     for (const tier of tiers) {
       for (const p of shuffle(tier)) {
         if (picks.length >= 3) break;
+        if (type !== 'meaning' && !/[぀-ヿ]/.test(p.reading)) continue;
         const t = p[field];
         if (!t || seen.has(t)) continue;
         seen.add(t);

@@ -33,6 +33,9 @@
 // 每个词/每张卡判定后立即更新对应 user_words 行（中途退出只损失当前项）；
 // 全部完成后更新 daily_logs：review_count 累加（做题词数+卡片张数）、
 // review_acc 记本次做题正确率（卡片自测不计入正确率）。
+// 正确率在「全部判定写库完成后」计算（writeOutcome 里判定时刻同步计数），
+// 确保首次答错的词必然不计入 wordsCorrect；纯翻卡场次（无做题词）acc 为 null，
+// 不更新 review_acc，保留当天已有的做题正确率。
 // ============================================================
 window.Review = (function () {
   const INTERVALS = [1, 2, 4];            // 模式 B 艾宾浩斯阶梯（天）
@@ -243,7 +246,9 @@ window.Review = (function () {
   // ---------- 做题环节（模式 B + 抽检混排） ----------
   const TYPE_LABEL = { reading: '读音题', writing: '写法题', meaning: '释义题' };
 
-  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案
+  // 四选一选项：干扰项优先同 level、同词性，互不重复且不等于正确答案。
+  // 读音题/写法题排除 reading 不含任何假名的词（词库里部分片假名词的
+  // reading 存的是英文罗马字，如 hamburger，混进选项等于送分）；释义题不受影响。
   function buildOptions(word, type) {
     const field = type === 'reading' ? 'reading' : 'word';
     const seen = new Set([word[field]]);
@@ -256,6 +261,7 @@ window.Review = (function () {
     for (const tier of tiers) {
       for (const p of shuffle(tier)) {
         if (picks.length >= 3) break;
+        if (type !== 'meaning' && !/[぀-ヿ]/.test(p.reading)) continue;
         const t = p[field];
         if (!t || seen.has(t)) continue;
         seen.add(t);
@@ -382,7 +388,10 @@ window.Review = (function () {
       return;
     }
 
-    // 模式 B 判定
+    // 模式 B 判定。
+    // 统计口径：wordsDone/wordsCorrect 在【判定时刻】同步累加（先于写库），
+    // 保证队列清空触发 finish() 时统计已完整——若放在 await 之后，
+    // 最后一个词的异步写库未完成时 acc 会算成 wordsCorrect/少算的 wordsDone。
     let fields;
     if (allCorrect) {
       const newCount = (uw.mode_b_count || 0) + 1;
@@ -411,8 +420,8 @@ window.Review = (function () {
         weak_reason: '复习做错',
       };
     }
+    session.stats.wordsDone++; // 先计数再写库，见上方口径注释
     await DB.updateUserWord(uw.id, fields);
-    session.stats.wordsDone++;
   }
 
   // ---------- 翻卡环节（模式 A 卡片自测） ----------
@@ -517,16 +526,18 @@ window.Review = (function () {
     if (session.finished) return;
     session.finished = true;
     session.phase = 'done';
-    session.acc = session.stats.wordsDone
-      ? Math.round((session.stats.wordsCorrect / session.stats.wordsDone) * 100)
-      : 100;
-    renderSummary(true);
+    renderSummary(true); // 先渲染"正在保存结果…"（此时正确率还没算，显示 —）
     await saveResults();
   }
 
   async function saveResults() {
     try {
-      await Promise.all(pendingWrites); // 确保所有判定都已落库
+      await Promise.all(pendingWrites); // 确保所有判定都已落库、统计已完整
+      // 全部写库完成后再算正确率（双保险，配合 writeOutcome 里的同步计数）。
+      // 纯翻卡场次（没有做题词）acc 为 null：addReviewResult 不会覆盖当天已有的 review_acc。
+      session.acc = session.stats.wordsDone
+        ? Math.round((session.stats.wordsCorrect / session.stats.wordsDone) * 100)
+        : null;
       await DB.addReviewResult(session.date, session.stats.wordsDone + session.stats.cardsDone, session.acc);
       const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
       renderSummary(false, yLog && yLog.review_acc != null ? yLog.review_acc : null);
@@ -547,7 +558,7 @@ window.Review = (function () {
     }
 
     let compareHtml = '';
-    if (!saving && !saveError && yesterdayAcc != null) {
+    if (!saving && !saveError && yesterdayAcc != null && session.acc != null) {
       const diff = session.acc - yesterdayAcc;
       const sign = diff >= 0 ? '+' : '';
       const cls = diff >= 0 ? 'cmp-up' : 'cmp-down';
@@ -559,7 +570,7 @@ window.Review = (function () {
         <div class="summary-head">今日复习完成</div>
         <div class="done-grid">
           <div class="done-item"><div class="done-num num">${s.wordsDone}</div><div class="done-label">复习词数</div></div>
-          <div class="done-item"><div class="done-num num">${session.acc}%</div><div class="done-label">正确率</div></div>
+          <div class="done-item"><div class="done-num num">${session.acc == null ? '—' : session.acc + '%'}</div><div class="done-label">正确率</div></div>
           <div class="done-item"><div class="done-num num">${s.graduated}</div><div class="done-label">毕业词数</div></div>
           <div class="done-item"><div class="done-num num">${mins}</div><div class="done-label">用时（分钟）</div></div>
         </div>
