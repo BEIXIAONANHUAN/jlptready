@@ -846,59 +846,116 @@ body {
 .cal-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
+  gap: 3px;
   text-align: center;
   font-size: 0.72rem;
   color: var(--color-text-sub);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .cal-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
+  gap: 3px;
 }
 
 .cal-cell {
   aspect-ratio: 1;
-  border-radius: 4px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
+  font-size: 0.875rem; /* 移动端不小于 14px */
   font-family: ui-monospace, "SF Mono", Consolas, monospace;
-  color: var(--color-text-sub);
-  background: #F3F4F6; /* 默认：未学习 */
+  color: #CBD5E1;            /* 未学习：浅灰文字 */
+  background: #F8FAFC;       /* 未学习：极浅灰白 */
+  border: 1px solid #EEF2F7; /* 极淡边框增加层次 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cal-cell[data-date] { cursor: pointer; }
 
-.cal-blank { background: transparent; }
+.cal-blank { background: transparent; border: none; box-shadow: none; }
 
-.cal-done { background: var(--color-emerald); color: #FFFFFF; }      /* 完成 */
-.cal-high { background: #047857; color: #FFFFFF; }                    /* 周末高分：深绿 */
-.cal-rest { background: #CBD5E1; color: #475569; }                    /* 休息日：蓝灰 */
-.cal-future { background: #FAFAFA; color: #D1D5DB; cursor: default; } /* 未来 */
+/* 四态（类名与 checkin.js 的 dayState 对应，勿改名）：
+   完成=绿色渐变 / 周末高分=金色渐变+斜纹 / 休息日=蓝紫渐变 / 未来=浅灰不可点 */
+.cal-done {
+  background: linear-gradient(135deg, #34d399, #059669);
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
 
-.cal-today { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+.cal-high {
+  /* 叠加极淡斜纹：色盲/灰度模式下凭纹理即可与纯绿的「完成」区分 */
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.10) 0 5px, rgba(255, 255, 255, 0) 5px 10px),
+    linear-gradient(135deg, #fbbf24, #d97706);
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
 
-/* 图例 */
+.cal-rest {
+  background: linear-gradient(135deg, #a5b4fc, #6366f1);
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.cal-future {
+  background: #F8FAFC;
+  color: #CBD5E1;
+  border-color: #F1F5F9;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* 今日：粗发光边框（替代原 outline），可与状态渐变叠加 */
+.cal-today {
+  box-shadow: 0 0 0 3px var(--color-primary), 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* 图例：移动端 2x2 网格；色块复用四态类，渐变自动生效 */
 .cal-legend {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
-  gap: 14px;
+  gap: 8px 20px;
   margin-top: 16px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--color-text-sub);
 }
 
 .cal-legend .sw {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  margin-right: 4px;
-  vertical-align: -1px;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: -2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.cal-legend .sw.cal-none {
+  background: #F8FAFC;
+  border: 1px solid #EEF2F7;
+  box-shadow: none;
+}
+
+/* 桌面端：更大圆角/字号/间距，hover 阴影加深 + 轻微上浮（未来与空位不响应） */
+@media (min-width: 768px) {
+  .cal-week, .cal-grid { gap: 6px; }
+  .cal-cell { border-radius: 14px; font-size: 0.95rem; }
+  .cal-cell[data-date]:not(.cal-future):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  .cal-today:hover {
+    box-shadow: 0 0 0 3px var(--color-primary), 0 8px 16px rgba(37, 99, 235, 0.25);
+  }
+  .cal-legend { display: flex; gap: 18px; }
 }
 
 /* 通用弹窗（宜休确认 / 打卡详情共用） */

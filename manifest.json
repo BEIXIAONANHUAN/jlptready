@@ -1,0 +1,13 @@
+{
+  "name": "日语备考",
+  "short_name": "JLPT备考",
+  "start_url": "/jlptready/",
+  "scope": "/jlptready/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563EB",
+  "icons": [
+    { "src": "icon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
