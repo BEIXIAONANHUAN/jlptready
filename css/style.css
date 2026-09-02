@@ -18,8 +18,11 @@ html { font-size: 16px; }
 body {
   background: var(--color-bg);
   color: var(--color-text);
+  /* 中文用系统中文字体；栈里不放 Noto Sans JP——手机端（尤其 Android）没有
+     苹方/雅黑，会命中它并用日文字形渲染简体字（如「复」偏窄）。
+     日文一律由 .jp 类显式指定 Noto Sans JP（见下）。 */
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
-               "Microsoft YaHei", "Noto Sans JP", sans-serif;
+               "Microsoft YaHei", sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
