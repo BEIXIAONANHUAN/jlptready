@@ -327,6 +327,16 @@ window.Exam = (function () {
     try {
       await Promise.all(pendingWrites);
       await DB.setExamResult(session.date, session.score, session.rating);
+      // 考试做题统计累加进当天 quiz_correct/quiz_total（quizLogged 防重试重复累加；
+      // 失败只告警，不影响考试成绩保存）
+      if (!session.quizLogged) {
+        try {
+          await DB.addQuizStats(session.date, session.stats.correct, session.stats.answered);
+          session.quizLogged = true;
+        } catch (e) {
+          console.warn('[Exam] 做题统计写入失败（不影响成绩保存）', e);
+        }
+      }
       const history = await DB.getExamHistory();
       session.persisted = true;
       saveSession();

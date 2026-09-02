@@ -35,7 +35,11 @@ window.Share = (function () {
       rows.push({ label: '今日新词', value: `${(log && log.new_words_count) || 0} 词` });
     }
     rows.push({ label: '今日复习', value: `${(log && log.review_count) || 0} 词` });
-    rows.push({ label: '正确率', value: log && log.review_acc != null ? `${log.review_acc}%` : '—' });
+    // 当天综合正确率：全部模块作答的 quiz_correct/quiz_total 加权，无数据则 —
+    const accText = log && (log.quiz_total || 0) > 0
+      ? `${Math.round((100 * log.quiz_correct) / log.quiz_total)}%`
+      : '—';
+    rows.push({ label: '正确率', value: accText });
     rows.push({ label: '累计学习', value: `${totalDays || 0} 天` });
 
     return {

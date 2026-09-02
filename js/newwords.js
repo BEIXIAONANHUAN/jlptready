@@ -431,6 +431,13 @@ window.NewWords = (function () {
       }));
     if (rows.length) await DB.insertUserWords(rows);
     await DB.upsertDailyLogNewWords(session.date, session.words.length);
+    // 新词做题统计累加进当天 quiz_correct/quiz_total（分享卡片正确率用；含重练的全部作答口径）。
+    // 失败（如列未建）只告警，不影响新词成绩本身。
+    try {
+      await DB.addQuizStats(session.date, session.stats.correct, session.stats.answered);
+    } catch (e) {
+      console.warn('[NewWords] 做题统计写入失败（不影响成绩保存）', e);
+    }
     session.persisted = true;
     if (window.CheckIn) CheckIn.maybeCompleteToday(); // 新词完成 → 尝试自动打卡
   }

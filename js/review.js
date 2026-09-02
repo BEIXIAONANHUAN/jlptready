@@ -196,7 +196,7 @@ window.Review = (function () {
         finished: false,
         acc: null,
         elapsedMs: 0, lastTick: Date.now(),
-        stats: { wordsDone: 0, wordsCorrect: 0, graduated: 0, cardsDone: 0, know: 0, vague: 0, forgot: 0 },
+        stats: { wordsDone: 0, wordsCorrect: 0, graduated: 0, cardsDone: 0, know: 0, vague: 0, forgot: 0, qAnswered: 0, qCorrect: 0 },
       };
       renderStart();
     } catch (e) {
@@ -328,6 +328,9 @@ window.Review = (function () {
     const at = session.attempts[q.i];
     const firstTry = !(q.qid in at); // 重练的题不再计入判定与统计
     const correct = idx === current.answerIdx;
+    // 全量作答统计（含重练）：累加进当天 quiz_correct/quiz_total，分享卡片正确率用
+    session.stats.qAnswered++;
+    if (correct) session.stats.qCorrect++;
     if (window.Achievements) Achievements.noteAnswer(correct); // 连对计数（铜墙铁壁徽章）
 
     const optEls = document.querySelectorAll('#review-body .option');
@@ -539,6 +542,16 @@ window.Review = (function () {
         ? Math.round((session.stats.wordsCorrect / session.stats.wordsDone) * 100)
         : null;
       await DB.addReviewResult(session.date, session.stats.wordsDone + session.stats.cardsDone, session.acc);
+      // 做题统计累加进当天 quiz_correct/quiz_total（quizLogged 防止保存重试时重复累加；
+      // 失败只告警并允许重试，不影响复习结果保存）
+      if (!session.quizLogged) {
+        try {
+          await DB.addQuizStats(session.date, session.stats.qCorrect, session.stats.qAnswered);
+          session.quizLogged = true;
+        } catch (e) {
+          console.warn('[Review] 做题统计写入失败（不影响复习结果保存）', e);
+        }
+      }
       const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
       renderSummary(false, yLog && yLog.review_acc != null ? yLog.review_acc : null);
       if (window.CheckIn) CheckIn.maybeCompleteToday(); // 复习清零 → 尝试自动打卡

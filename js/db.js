@@ -306,6 +306,27 @@ window.DB = (function () {
     }
   }
 
+  // 当天做题统计累加（quiz_correct / quiz_total）：新词、复习、周末考试
+  // 各自把本场「全部作答（含重练）」的正确数与总题数累加进去。
+  // 分享卡片的当天正确率 = quiz_correct / quiz_total，有什么数据算什么。
+  async function addQuizStats(date, correct, total) {
+    if (!total) return; // 没有作答就不写
+    const log = await getDailyLog(date);
+    if (log) {
+      const { error } = await client
+        .from('daily_logs')
+        .update({
+          quiz_correct: (log.quiz_correct || 0) + correct,
+          quiz_total: (log.quiz_total || 0) + total,
+        })
+        .eq('date', date);
+      if (error) throw error;
+    } else {
+      const { error } = await client.from('daily_logs').insert({ date, quiz_correct: correct, quiz_total: total });
+      if (error) throw error;
+    }
+  }
+
   // ---------- 查单词 + 我的数据（第 6 步） ----------
 
   // 汉字/假名/中文模糊搜索（最多 50 条）
@@ -397,7 +418,7 @@ window.DB = (function () {
     getAllWordIdFreq, getUserWordIds, getWordsByIds, getDistractorPool,
     getExistingUserWordIds, insertUserWords, upsertDailyLogNewWords,
     updateUserWord, getDailyLog, addReviewResult,
-    getWeakRows, getLearningRows, getExamHistory, setExamResult,
+    getWeakRows, getLearningRows, getExamHistory, setExamResult, addQuizStats,
     searchWords, getUserWordByWordId, getUserWordStatsRows, getAllWordLevels, getAllLogs,
     updateDailyLogFields, getMonthLogs, getStudyDaysTotal, getMasteredCount,
   };
