@@ -66,6 +66,11 @@
         <a href="#/checkin">打卡</a>
       </nav>
 
+      <!-- 分享今日（当日任务全部完成后由 home.js 显示） -->
+      <div id="share-today-wrapper" style="display:none;">
+        <button id="btn-share" class="btn btn-share">📸 分享今日</button>
+      </div>
+
       <footer class="home-footer">
         <button class="btn btn-ghost" id="btn-rest">今日宜休</button>
         <div class="db-status" id="db-status">正在连接词库…</div>
@@ -145,6 +150,7 @@
   <script src="js/search.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/checkin.js"></script>
+  <script src="js/share.js"></script>
   <script src="js/home.js"></script>
   <script src="js/router.js"></script>
   <script src="js/app.js"></script>

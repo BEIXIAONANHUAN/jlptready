@@ -6,7 +6,7 @@
 //
 // 【重要】每次修改部署任何 js/css/html 后，把下面 CACHE 版本号 +1，
 // 否则用户端会继续用旧缓存，新代码不生效。
-const CACHE = 'jlptready-v1';
+const CACHE = 'jlptready-v2';
 
 const CORE = [
   './',
@@ -23,6 +23,7 @@ const CORE = [
   'js/search.js',
   'js/stats.js',
   'js/checkin.js',
+  'js/share.js',
   'js/home.js',
   'js/router.js',
   'js/app.js',

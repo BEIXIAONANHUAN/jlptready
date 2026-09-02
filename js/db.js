@@ -379,6 +379,16 @@ window.DB = (function () {
     return count;
   }
 
+  // 已掌握词数（分享卡片的词库进度用）
+  async function getMasteredCount() {
+    const { count, error } = await client
+      .from('user_words')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'mastered');
+    if (error) throw error;
+    return count;
+  }
+
   return {
     todayISO, tomorrowISO, datePlusDays,
     getWordTotal, getNewWordCount, getStreak, getStreakRows,
@@ -389,6 +399,6 @@ window.DB = (function () {
     updateUserWord, getDailyLog, addReviewResult,
     getWeakRows, getLearningRows, getExamHistory, setExamResult,
     searchWords, getUserWordByWordId, getUserWordStatsRows, getAllWordLevels, getAllLogs,
-    updateDailyLogFields, getMonthLogs, getStudyDaysTotal,
+    updateDailyLogFields, getMonthLogs, getStudyDaysTotal, getMasteredCount,
   };
 })();

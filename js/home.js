@@ -156,6 +156,21 @@ window.Home = (function () {
     }
   }
 
+  // ---------- 分享今日 ----------
+  // 显示口径与自动打卡一致：当天 streak>0（全部任务完成已打卡）且非休息日。
+  // 次日自然重置（新的一天 streak 尚未写入，按钮自动隐藏）。
+  async function renderShareButton() {
+    const wrap = $('share-today-wrapper');
+    if (!wrap) return;
+    try {
+      const log = await DB.getDailyLog(DB.todayISO());
+      const done = !!(log && (log.streak || 0) > 0 && !log.is_rest);
+      wrap.style.display = done ? '' : 'none';
+    } catch (e) {
+      wrap.style.display = 'none';
+    }
+  }
+
   // ---------- 今日宜休 / 休息模式 ----------
   async function renderRestState() {
     const resting = await CheckIn.isRestToday();
@@ -218,6 +233,7 @@ window.Home = (function () {
     }
     renderReviewCard();
     renderRestState();
+    renderShareButton();
   }
 
   // 连通性测试：读取 words 表总数，输出到控制台并显示在页脚
@@ -238,6 +254,7 @@ window.Home = (function () {
     $('btn-exam').addEventListener('click', () => { if (isWeekend()) location.hash = '#/exam'; });
     $('btn-rest').addEventListener('click', openRestConfirm);
     $('btn-cancel-rest').addEventListener('click', cancelRest);
+    $('btn-share').addEventListener('click', () => { if (window.Share) Share.open(); });
   }
 
   function init() {
@@ -256,6 +273,7 @@ window.Home = (function () {
     renderNewCard();
     renderReviewCard();
     renderRestState();
+    renderShareButton();
     DB.getStreak().then((s) => setStreak(s)).catch(() => {});
   }
 
