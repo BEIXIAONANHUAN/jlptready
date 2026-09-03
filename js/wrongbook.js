@@ -4,6 +4,7 @@
 // - 默认按做错次数降序，可点击切换升/降序。
 // - 「去强化」直接在本页对这一个词出 2 道题（界面与判定复用模式 B 复习的
 //   做题交互：四选一、答完即判对错、只看【首次作答】、答错的题插回重练到对为止）。
+//   作答后题目卡下方显示详情卡（释义/日汉字+假名/词性），点击题目卡继续。
 //   · 两题首次全对 → 移出薄弱池：weak_reason 置空、wrong_count 清零
 //     （口径含 wrong_count>0，只置空 weak_reason 词仍会留在池里，故一并清零）、
 //     mode_b_due 顺延一天（learning 词明天照常到期复习；对 mastered 词该字段无影响）。
@@ -11,8 +12,6 @@
 //   强化结果立即写库，完成后返回错题本并重新查库刷新列表。
 // ============================================================
 window.WrongBook = (function () {
-  const MS_CORRECT = 550;   // 答对后反馈停留时间（与复习一致）
-  const MS_WRONG = 1200;    // 答错后停留时间（要展示正确答案，稍长）
   const TYPE_LABEL = { reading: '读音题', writing: '写法题', meaning: '释义题' };
 
   let rows = [];       // [{uw, word}]
@@ -182,11 +181,19 @@ window.WrongBook = (function () {
         <div class="quiz-type">${TYPE_LABEL[q.type]} · ${hint}</div>
         ${promptHtml}
         <div class="options">${optsHtml}</div>
-      </div>`;
+        <div class="tap-continue" id="tap-continue" style="display:none">点击继续</div>
+      </div>
+      <div class="word-detail" id="word-detail" style="display:none"></div>`;
 
     document.querySelectorAll('#wrongbook-body .option').forEach((el) => {
-      el.addEventListener('click', () => drillAnswer(Number(el.dataset.idx)));
+      el.addEventListener('click', (e) => {
+        if (drill.inputLock) return; // 已作答：不拦截，冒泡到题目卡触发「点击继续」
+        e.stopPropagation();         // 未作答：作答，不触发卡片点击
+        drillAnswer(Number(el.dataset.idx));
+      });
     });
+    // 作答后点击题目卡任意位置进入下一题
+    $('quiz-card').addEventListener('click', drillProceed);
   }
 
   function drillAnswer(idx) {
@@ -194,6 +201,7 @@ window.WrongBook = (function () {
     drill.inputLock = true;
 
     const q = drill.queue[0];
+    const w = drill.item.word;
     const correct = idx === drill.current.answerIdx;
     const firstTry = !(q.qid in drill.attempts); // 重练的题不再计入判定
     const optEls = document.querySelectorAll('#wrongbook-body .option');
@@ -213,10 +221,31 @@ window.WrongBook = (function () {
     }
     if (firstTry) drill.attempts[q.qid] = correct;
 
-    setTimeout(() => {
-      drill.inputLock = false;
-      renderDrill();
-    }, correct ? MS_CORRECT : MS_WRONG);
+    showDetail(w); // 显示单词详情卡，等用户点击题目卡继续（不再自动跳转）
+  }
+
+  // 作答后：题目卡下方显示单词详情卡 + 「点击继续」提示（2 秒后淡出，仅提示，点击始终有效）
+  function showDetail(w) {
+    const card = $('quiz-card');
+    card.classList.add('awaiting');
+    const tip = $('tap-continue');
+    tip.style.display = '';
+    setTimeout(() => tip.classList.add('fade'), 2000);
+
+    const kanaOnly = w.word === w.reading; // 纯假名词没有汉字写法，只显示假名
+    $('word-detail').innerHTML = `
+      <div class="wd-meaning">${esc(w.meaning)}</div>
+      <div class="wd-jp jp">${kanaOnly ? esc(w.reading) : `${esc(w.word)}&nbsp;&nbsp;${esc(w.reading)}`}</div>
+      ${w.pos ? `<div class="wd-pos">${esc(w.pos)}</div>` : ''}`;
+    $('word-detail').style.display = '';
+  }
+
+  // 点击题目卡 → 下一题（队列空时 renderDrill 内部会进 finalizeDrill）
+  function drillProceed() {
+    if (!drill || !drill.inputLock || !drill.current) return; // 未作答时点击无效
+    drill.inputLock = false;
+    drill.current = null;
+    renderDrill();
   }
 
   // 两题都完成首次作答 → 按首次作答结果判定并写库

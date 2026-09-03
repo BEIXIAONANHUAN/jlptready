@@ -22,8 +22,6 @@ window.NewWords = (function () {
   const LS_KEY = 'n5n2_newwords_session';
   const DAILY_COUNT = 50;   // 每个工作日的新词数量（周末不出新词）
   const GROUP_SIZE = 10;    // 每组词数
-  const MS_CORRECT = 550;   // 答对后反馈停留时间
-  const MS_WRONG = 1200;    // 答错后停留时间（要展示正确答案，稍长）
 
   let session = null;   // 当日会话（与 localStorage 同步）
   let current = null;   // 当前题目 { q, options, answerIdx }，不持久化，重进时按队首重建
@@ -168,7 +166,16 @@ window.NewWords = (function () {
       }
       session = null; // 更早某天已完成的会话，开始新的一天
     }
-    if (session) { tick(); render(); return; } // 断点续学（preview / quiz / summary / empty）
+    if (session) {
+      // 断点续学：回到做题阶段时，把当前组剩余题目重新洗牌（每次进入都是新顺序）
+      if (session.stage === 'quiz' && session.groups[session.groupIndex]) {
+        shuffle(session.groups[session.groupIndex].queue);
+        saveSession();
+      }
+      tick();
+      render();
+      return;
+    } // 断点续学（preview / quiz / summary / empty）
 
     body.innerHTML = '<div class="placeholder">正在准备今日新词…</div>';
     try {
@@ -292,11 +299,19 @@ window.NewWords = (function () {
         <div class="quiz-type">${TYPE_LABEL[q.type]} · ${hint}</div>
         ${promptHtml}
         <div class="options">${optsHtml}</div>
-      </div>`;
+        <div class="tap-continue" id="tap-continue" style="display:none">点击继续</div>
+      </div>
+      <div class="word-detail" id="word-detail" style="display:none"></div>`;
 
     document.querySelectorAll('#new-body .option').forEach((el) => {
-      el.addEventListener('click', () => answer(Number(el.dataset.idx)));
+      el.addEventListener('click', (e) => {
+        if (inputLock) return;   // 已作答：不拦截，冒泡到题目卡触发「点击继续」
+        e.stopPropagation();     // 未作答：作答，不触发卡片点击
+        answer(Number(el.dataset.idx));
+      });
     });
+    // 作答后点击题目卡任意位置进入下一题
+    $('quiz-card').addEventListener('click', proceed);
   }
 
   function answer(idx) {
@@ -307,6 +322,7 @@ window.NewWords = (function () {
     const g = session.groups[session.groupIndex];
     const q = g.queue[0];
     const st = g.qstates[q.w];
+    const w = session.words[q.w];
     const correct = idx === current.answerIdx;
 
     session.stats.answered++;
@@ -330,16 +346,37 @@ window.NewWords = (function () {
       optEls[current.answerIdx].classList.add('correct'); // 同时标出正确答案
     }
     saveSession(); // 每答一题都存档，随时退出都能续上
+    showDetail(w); // 显示单词详情卡，等用户点击题目卡继续（不再自动跳转）
+  }
 
-    setTimeout(() => {
-      inputLock = false;
-      tick();
-      if (!g.queue.length) {
-        session.stage = 'summary';
-        saveSession();
-      }
-      render();
-    }, correct ? MS_CORRECT : MS_WRONG);
+  // 作答后：题目卡下方显示单词详情卡 + 「点击继续」提示（2 秒后淡出，仅提示，点击始终有效）
+  function showDetail(w) {
+    const card = $('quiz-card');
+    card.classList.add('awaiting');
+    const tip = $('tap-continue');
+    tip.style.display = '';
+    setTimeout(() => tip.classList.add('fade'), 2000);
+
+    const kanaOnly = w.word === w.reading; // 纯假名词没有汉字写法，只显示假名
+    $('word-detail').innerHTML = `
+      <div class="wd-meaning">${esc(w.meaning)}</div>
+      <div class="wd-jp jp">${kanaOnly ? esc(w.reading) : `${esc(w.word)}&nbsp;&nbsp;${esc(w.reading)}`}</div>
+      ${w.pos ? `<div class="wd-pos">${esc(w.pos)}</div>` : ''}`;
+    $('word-detail').style.display = '';
+  }
+
+  // 点击题目卡 → 下一题（本组题尽则进小结）
+  function proceed() {
+    if (!inputLock || !current) return; // 未作答时点击无效
+    inputLock = false;
+    current = null;
+    tick();
+    const g = session.groups[session.groupIndex];
+    if (!g.queue.length) {
+      session.stage = 'summary';
+      saveSession();
+    }
+    render();
   }
 
   // ---------- 步骤 3：组间小结 ----------
@@ -381,6 +418,8 @@ window.NewWords = (function () {
       } else {
         session.groupIndex++;
         session.stage = 'quiz';
+        // 进入新一组时重新洗牌，不复用建会话时的顺序
+        shuffle(session.groups[session.groupIndex].queue);
         saveSession();
         render();
       }

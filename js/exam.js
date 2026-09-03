@@ -2,11 +2,14 @@
 // 周末考试（仅周六、周日开放）
 //
 // 规则：
-// - 每天 60 题，四选一，题型与平时一致（读音/写法/释义随机混合，每词 1 题）。
-// - 题目构成：50 道薄弱词（wrong_count>0 或 weak_reason 非空，优先 wrong_count 高的）
-//   + 10 道已掌握词（mastered，随机）。薄弱词不足 50 时用 learning 词补足，
-//   再不足用 mastered 词补足；mastered 不足 10 个则全用。所有题完全随机穿插。
-// - 考试没有重练：每题一次作答机会，答错多停留一会看清答案。
+// - 每天 60 个词，每词随机抽 2 种题型各出 1 题，共 120 题，四选一
+//   （纯假名词只有释义题，出 2 道释义题）。
+// - 选词构成：50 个薄弱词（wrong_count>0 或 weak_reason 非空，优先 wrong_count 高的）
+//   + 10 个已掌握词（mastered，随机）。薄弱词不足 50 时用 learning 词补足，
+//   再不足用 mastered 词补足；mastered 不足 10 个时用薄弱词（再拼 learning）补齐差额，
+//   保证组卷 60 词（总词池不足 60 的极端情况除外，此时全用）。
+// - 120 题整体 Fisher-Yates 洗牌：不分段、同词 2 题不连出，每次组卷重新随机。
+// - 考试没有重练：每题一次作答机会，答错显示正确答案与详情卡，点击题目卡继续。
 // - 答错的词：weak_reason='周末考试做错'、wrong_count+1（mastered 词不降级，
 //   只进薄弱词池口径）；答对不写库。
 // - 评分：score = 正确率（0–100 整数），评级 S≥95 / A≥85 / B≥70 / C<70，
@@ -19,8 +22,6 @@ window.Exam = (function () {
   const EXAM_SIZE = 60;
   const WEAK_TARGET = 50;
   const MASTERED_TARGET = 10;
-  const MS_CORRECT = 450;
-  const MS_WRONG = 1400; // 考试无重练，答错停留稍久看清正确答案
   const RATING_ORDER = { S: 4, A: 3, B: 2, C: 1 };
 
   let session = null;
@@ -99,6 +100,14 @@ window.Exam = (function () {
       for (const r of fill) { masteredSide.push(r); pickedIds.add(r.word_id); }
     }
 
+    // ⑤ 已掌握侧不足 10 → 用薄弱词（再不够拼 learning）补齐差额，保证总数 60。
+    // 极端情况：三类词去重后的总池不足 60 时只能全用（无法凭空造词）。
+    if (masteredSide.length < MASTERED_TARGET) {
+      const fill = shuffle(weak.concat(learning).filter((r) => !pickedIds.has(r.word_id)))
+        .slice(0, MASTERED_TARGET - masteredSide.length);
+      for (const r of fill) { masteredSide.push(r); pickedIds.add(r.word_id); }
+    }
+
     const rows = [...weakSide, ...masteredSide];
     if (!rows.length) {
       session = { date: DB.todayISO(), stage: 'empty', items: [], queue: [], stats: { answered: 0, correct: 0 }, elapsedMs: 0, lastTick: Date.now(), persisted: true };
@@ -109,14 +118,16 @@ window.Exam = (function () {
     const byId = {};
     for (const w of words) byId[w.id] = w;
 
+    // 每词随机抽 2 种题型出 2 题（纯假名词只有释义题，出 2 道释义题），
+    // 全部题目混在一起 Fisher-Yates 洗牌：不分薄弱/掌握段、同词 2 题不连出
     const items = [];
     const queue = [];
-    rows.forEach((uw, i) => {
+    rows.forEach((uw) => {
       const word = byId[uw.word_id];
       if (!word) return;
       const idx = items.length;
       items.push({ uw, word });
-      queue.push({ i: idx, type: pickType(word) });
+      pickTypes(word, 2).forEach((type) => queue.push({ i: idx, type }));
     });
     shuffle(queue); // 完全随机穿插
 
@@ -127,6 +138,7 @@ window.Exam = (function () {
       date: DB.todayISO(),
       stage: 'start',
       items, queue, pool,
+      totalQ: queue.length,
       stats: { answered: 0, correct: 0 },
       elapsedMs: 0, lastTick: Date.now(),
       persisted: false,
@@ -134,10 +146,13 @@ window.Exam = (function () {
     };
   }
 
-  // 每词随机 1 种题型（纯假名词只有释义题）
-  function pickType(w) {
+  // 每词随机抽 n 种题型（纯假名词只有释义题，不足 n 种则用释义题补齐）
+  function pickTypes(w, n) {
     const valid = w.word === w.reading ? ['meaning'] : ['reading', 'writing', 'meaning'];
-    return valid[Math.floor(Math.random() * valid.length)];
+    shuffle(valid);
+    const types = valid.slice(0, n);
+    while (types.length < n) types.push(valid[0]);
+    return types;
   }
 
   // ---------- 入口 ----------
@@ -183,7 +198,7 @@ window.Exam = (function () {
     $('exam-body').innerHTML = `
       <div class="summary-card">
         <div class="summary-head">周末考试</div>
-        <div class="summary-score"><span class="num">${session.items.length}</span> 题</div>
+        <div class="summary-score"><span class="num">${session.totalQ || session.items.length}</span> 题</div>
         <div class="preview-tip">50 道薄弱词 + 10 道已掌握词随机穿插，每题只有一次作答机会</div>
         <button class="btn btn-primary" id="btn-start-exam">开始考试</button>
       </div>`;
@@ -252,18 +267,26 @@ window.Exam = (function () {
 
     $('exam-body').innerHTML = `
       <div class="quiz-progress">
-        <span>第 <span class="num">${session.stats.answered + 1}</span>/<span class="num">${session.items.length}</span> 题</span>
+        <span>第 <span class="num">${session.stats.answered + 1}</span>/<span class="num">${session.totalQ || session.items.length}</span> 题</span>
         <span>答对 <span class="num">${session.stats.correct}</span></span>
       </div>
       <div class="quiz-card" id="quiz-card">
         <div class="quiz-type">${TYPE_LABEL[q.type]} · ${hint}</div>
         ${promptHtml}
         <div class="options">${optsHtml}</div>
-      </div>`;
+        <div class="tap-continue" id="tap-continue" style="display:none">点击继续</div>
+      </div>
+      <div class="word-detail" id="word-detail" style="display:none"></div>`;
 
     document.querySelectorAll('#exam-body .option').forEach((el) => {
-      el.addEventListener('click', () => answer(Number(el.dataset.idx)));
+      el.addEventListener('click', (e) => {
+        if (inputLock) return;   // 已作答：不拦截，冒泡到题目卡触发「点击继续」
+        e.stopPropagation();     // 未作答：作答，不触发卡片点击
+        answer(Number(el.dataset.idx));
+      });
     });
+    // 作答后点击题目卡任意位置进入下一题
+    $('quiz-card').addEventListener('click', proceed);
   }
 
   function answer(idx) {
@@ -299,11 +322,32 @@ window.Exam = (function () {
     session.queue.shift();
     saveSession(); // 每题存档，中途退出可续考
 
-    setTimeout(() => {
-      inputLock = false;
-      tick();
-      renderQuiz();
-    }, correct ? MS_CORRECT : MS_WRONG);
+    showDetail(item.word); // 显示单词详情卡，等用户点击题目卡继续（不再自动跳转）
+  }
+
+  // 作答后：题目卡下方显示单词详情卡 + 「点击继续」提示（2 秒后淡出，仅提示，点击始终有效）
+  function showDetail(w) {
+    const card = $('quiz-card');
+    card.classList.add('awaiting');
+    const tip = $('tap-continue');
+    tip.style.display = '';
+    setTimeout(() => tip.classList.add('fade'), 2000);
+
+    const kanaOnly = w.word === w.reading; // 纯假名词没有汉字写法，只显示假名
+    $('word-detail').innerHTML = `
+      <div class="wd-meaning">${esc(w.meaning)}</div>
+      <div class="wd-jp jp">${kanaOnly ? esc(w.reading) : `${esc(w.word)}&nbsp;&nbsp;${esc(w.reading)}`}</div>
+      ${w.pos ? `<div class="wd-pos">${esc(w.pos)}</div>` : ''}`;
+    $('word-detail').style.display = '';
+  }
+
+  // 点击题目卡 → 下一题（队列空时 renderQuiz 内部会进收尾）
+  function proceed() {
+    if (!inputLock || !current) return; // 未作答时点击无效
+    inputLock = false;
+    current = null;
+    tick();
+    renderQuiz();
   }
 
   // ---------- 评分与收尾 ----------
@@ -349,7 +393,7 @@ window.Exam = (function () {
   }
 
   function renderDone(saving, saveError, history) {
-    const total = session.items.length;
+    const total = session.totalQ || session.items.length;
     const wrong = session.stats.answered - session.stats.correct;
     const mins = Math.max(1, Math.round(session.elapsedMs / 60000));
 

@@ -54,16 +54,16 @@ window.Home = (function () {
         btn.textContent = '查看成绩';
         btn.disabled = false;
       } else if (s.stage === 'quiz') {
-        meta.innerHTML = `进行中 <span class="dot">·</span> 第 <span class="num">${s.stats.answered + 1}</span>/<span class="num">${s.items.length}</span> 题`;
+        meta.innerHTML = `进行中 <span class="dot">·</span> 第 <span class="num">${s.stats.answered + 1}</span>/<span class="num">${s.totalQ || s.items.length}</span> 题`;
         btn.textContent = '继续考试';
         btn.disabled = false;
       } else {
-        meta.innerHTML = `<span class="num">${s.items.length}</span> 题 <span class="dot">·</span> 已组卷，待开始`;
+        meta.innerHTML = `<span class="num">${s.totalQ || s.items.length}</span> 题 <span class="dot">·</span> 已组卷，待开始`;
         btn.textContent = '开始考试';
         btn.disabled = false;
       }
     } else {
-      meta.innerHTML = `<span class="num">60</span> 题 <span class="dot">·</span> 约 <span class="num">30</span> 分钟`;
+      meta.innerHTML = `<span class="num">120</span> 题 <span class="dot">·</span> 约 <span class="num">40</span> 分钟`;
       btn.textContent = '进入考试';
       btn.disabled = false;
     }

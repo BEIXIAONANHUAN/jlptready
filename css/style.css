@@ -292,6 +292,50 @@ body {
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.15);
 }
 
+/* 作答后：题目卡片可点击继续 */
+.quiz-card.awaiting { cursor: pointer; }
+
+.tap-continue {
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  margin-top: 16px;
+  transition: opacity 0.5s ease;
+}
+
+.tap-continue.fade { opacity: 0; }
+
+/* 单词详情卡（作答后显示在题目卡下方） */
+.word-detail {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.wd-meaning { font-size: 18px; color: #1A1A1A; margin-bottom: 10px; }
+
+.wd-jp { font-size: 24px; font-weight: 700; color: #1A1A1A; margin-bottom: 10px; }
+
+.wd-pos { font-size: 14px; color: #6B7280; }
+
+/* 桌面端：题目卡与详情卡限宽居中、字号放大 */
+@media (min-width: 768px) {
+  .quiz-card, .word-detail {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .word-detail { padding: 28px; margin-top: 20px; }
+  .wd-meaning { font-size: 20px; }
+  .wd-jp { font-size: 28px; }
+  .wd-pos { font-size: 16px; }
+  .tap-continue { font-size: 1rem; }
+}
+
 .quiz-type {
   font-size: 0.8rem;
   color: var(--color-text-sub);

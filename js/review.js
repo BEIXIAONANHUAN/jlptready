@@ -41,8 +41,6 @@ window.Review = (function () {
   const INTERVALS = [1, 2, 4];            // 模式 B 艾宾浩斯阶梯（天）
   const A_LADDER = [1, 3, 7, 15, 30];     // 模式 A 间隔档位（天）
   const SPOT_KEY = 'n5n2_spotcheck';      // 抽检名单的 localStorage 键
-  const MS_CORRECT = 550;
-  const MS_WRONG = 1200;
 
   let session = null;
   let current = null;      // 当前选择题 { q, options, answerIdx }
@@ -135,7 +133,10 @@ window.Review = (function () {
     // 内存中有今天未完成的会话 → 按阶段直接续上
     if (session && !session.finished && session.date === DB.todayISO()) {
       tick();
-      if (session.phase === 'quiz') renderQuiz();
+      if (session.phase === 'quiz') {
+        shuffle(session.queue); // 每次进入重新随机剩余题目顺序
+        renderQuiz();
+      }
       else if (session.phase === 'cards') renderCard();
       else renderStart();
       return;
@@ -312,11 +313,19 @@ window.Review = (function () {
         <div class="quiz-type">${TYPE_LABEL[q.type]} · ${hint}</div>
         ${promptHtml}
         <div class="options">${optsHtml}</div>
-      </div>`;
+        <div class="tap-continue" id="tap-continue" style="display:none">点击继续</div>
+      </div>
+      <div class="word-detail" id="word-detail" style="display:none"></div>`;
 
     document.querySelectorAll('#review-body .option').forEach((el) => {
-      el.addEventListener('click', () => answer(Number(el.dataset.idx)));
+      el.addEventListener('click', (e) => {
+        if (inputLock) return;   // 已作答：不拦截，冒泡到题目卡触发「点击继续」
+        e.stopPropagation();     // 未作答：作答，不触发卡片点击
+        answer(Number(el.dataset.idx));
+      });
     });
+    // 作答后点击题目卡任意位置进入下一题
+    $('quiz-card').addEventListener('click', proceed);
   }
 
   function answer(idx) {
@@ -361,11 +370,32 @@ window.Review = (function () {
       }
     }
 
-    setTimeout(() => {
-      inputLock = false;
-      tick();
-      renderQuiz();
-    }, correct ? MS_CORRECT : MS_WRONG);
+    showDetail(session.items[q.i].word); // 显示单词详情卡，等用户点击题目卡继续（不再自动跳转）
+  }
+
+  // 作答后：题目卡下方显示单词详情卡 + 「点击继续」提示（2 秒后淡出，仅提示，点击始终有效）
+  function showDetail(w) {
+    const card = $('quiz-card');
+    card.classList.add('awaiting');
+    const tip = $('tap-continue');
+    tip.style.display = '';
+    setTimeout(() => tip.classList.add('fade'), 2000);
+
+    const kanaOnly = w.word === w.reading; // 纯假名词没有汉字写法，只显示假名
+    $('word-detail').innerHTML = `
+      <div class="wd-meaning">${esc(w.meaning)}</div>
+      <div class="wd-jp jp">${kanaOnly ? esc(w.reading) : `${esc(w.word)}&nbsp;&nbsp;${esc(w.reading)}`}</div>
+      ${w.pos ? `<div class="wd-pos">${esc(w.pos)}</div>` : ''}`;
+    $('word-detail').style.display = '';
+  }
+
+  // 点击题目卡 → 下一题（队列空时 renderQuiz 内部会进翻卡或收尾）
+  function proceed() {
+    if (!inputLock || !current) return; // 未作答时点击无效
+    inputLock = false;
+    current = null;
+    tick();
+    renderQuiz();
   }
 
   // 判定一个词（模式 B 或抽检），立即写库
