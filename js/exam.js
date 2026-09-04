@@ -14,7 +14,8 @@
 //   只进薄弱词池口径）；答对不写库。
 // - 评分：score = 正确率（0–100 整数），评级 S≥95 / A≥85 / B≥70 / C<70，
 //   写入 daily_logs 当天的 test_score、test_rating。
-// - 会话存 localStorage（键 n5n2_exam_session）：中途退出可续考，
+// - 会话存 localStorage（键 n5n2_exam_session）：中途退出可续考——题目队列
+//   顺序与已答统计按存档原样恢复，不重新洗牌；跨天作废。
 //   当天完成后重进显示成绩页，一天只考一次。
 // ============================================================
 window.Exam = (function () {
@@ -140,6 +141,7 @@ window.Exam = (function () {
       items, queue, pool,
       totalQ: queue.length,
       stats: { answered: 0, correct: 0 },
+      wronged: {},   // 已答错词的待写库字段（断点恢复时幂等补写用）
       elapsedMs: 0, lastTick: Date.now(),
       persisted: false,
       score: null, rating: null,
@@ -167,6 +169,10 @@ window.Exam = (function () {
 
     loadSession();
     if (session) {
+      // 幂等补写：上次关闭页面时答错题目的薄弱池写库可能未落地（绝对值字段，重复写无副作用）
+      pendingWrites = Object.entries(session.wronged || {}).map(([uwId, fields]) =>
+        DB.updateUserWord(uwId, fields).catch((e) => console.error('[Exam] 断点补写失败 user_word_id=' + uwId, e))
+      );
       tick();
       render();
       return;
@@ -311,12 +317,14 @@ window.Exam = (function () {
       optEls[idx].classList.add('wrong');
       optEls[current.answerIdx].classList.add('correct');
       // 答错的词进薄弱池口径：weak_reason='周末考试做错'、wrong_count+1
-      //（mastered 词不降级，只记薄弱标记）
+      //（mastered 词不降级，只记薄弱标记）。字段入存档，断点恢复时幂等补写。
+      session.wronged[item.uw.id] = {
+        weak_reason: '周末考试做错',
+        wrong_count: (item.uw.wrong_count || 0) + 1,
+      };
       pendingWrites.push(
-        DB.updateUserWord(item.uw.id, {
-          weak_reason: '周末考试做错',
-          wrong_count: (item.uw.wrong_count || 0) + 1,
-        }).catch((e) => console.error('[Exam] 写库失败 word_id=' + item.uw.word_id, e))
+        DB.updateUserWord(item.uw.id, session.wronged[item.uw.id])
+          .catch((e) => console.error('[Exam] 写库失败 word_id=' + item.uw.word_id, e))
       );
     }
     session.queue.shift();
@@ -431,5 +439,15 @@ window.Exam = (function () {
     if (retry) retry.addEventListener('click', saveResult);
   }
 
-  return { enter };
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）。
+  // 已完成的存档保留——成绩页展示和「一天只考一次」都依赖它。
+  function discard() {
+    if (session && session.stage !== 'done') session = null;
+    try {
+      const s = JSON.parse(localStorage.getItem(LS_KEY));
+      if (s && s.stage !== 'done') localStorage.removeItem(LS_KEY);
+    } catch (e) { localStorage.removeItem(LS_KEY); }
+  }
+
+  return { enter, discard };
 })();

@@ -91,6 +91,7 @@ window.Home = (function () {
 
     let s = null;
     try { s = JSON.parse(localStorage.getItem('n5n2_newwords_session')); } catch (e) { /* 忽略损坏存档 */ }
+    if (s && s.date !== DB.todayISO()) s = null; // 跨天断点作废，不显示「继续学习」
 
     btn.disabled = false;
     if (s && s.stage === 'done') {
@@ -122,6 +123,17 @@ window.Home = (function () {
   async function renderReviewCard() {
     const meta = $('review-meta');
     const btn = $('btn-review');
+    // 有今天未完成的复习断点 → 优先显示「继续复习」：到期词可能已随判定清零，
+    // 但做题/卡片还没走完、结果尚未汇总，不能因 due=0 挡住续作入口
+    try {
+      const rs = JSON.parse(localStorage.getItem('n5n2_review_session'));
+      if (rs && rs.date === DB.todayISO() && !rs.finished && rs.stats && rs.items) {
+        meta.innerHTML = `进行中 <span class="dot">·</span>已判定 <span class="num">${rs.stats.wordsDone}</span>/<span class="num">${rs.items.length}</span> 词`;
+        btn.disabled = false;
+        btn.textContent = '继续复习';
+        return;
+      }
+    } catch (e) { /* 忽略损坏存档 */ }
     try {
       const [dueB, dueA] = await Promise.all([DB.getReviewDueCount(), DB.getModeADueCount()]);
       const due = dueB + dueA;
@@ -206,6 +218,10 @@ window.Home = (function () {
       overlay.remove();
       try {
         await CheckIn.setRestToday(true);
+        // 清除三个模块「进行中」的断点（内存 + localStorage）；已完成的存档保留
+        if (window.NewWords) NewWords.discard();
+        if (window.Review) Review.discard();
+        if (window.Exam) Exam.discard();
         renderRestState();
       } catch (e) {
         console.error('[Home] 宜休设置失败', e);

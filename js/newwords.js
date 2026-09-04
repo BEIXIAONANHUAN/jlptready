@@ -2,10 +2,11 @@
 // 今日新词（强制做题）
 // 流程：新词预览 → 分组做题（5 组 × 10 词，每词 3 题）→ 组间小结 → 当日总结
 //
-// 持久化：当日会话断点（preview/quiz/summary 阶段、组进度）存 localStorage
-// （键 n5n2_newwords_session），供本机中途退出后续学；但「今天是否已完成」
-// 一律以 Supabase 为准（daily_logs.new_words_count > 0），跨设备状态一致——
-// 进入本页时先查库，已完成则丢弃本地断点，防止跨设备重复学习。
+// 持久化：当日会话断点（preview/quiz/summary 阶段、组进度、每组题目队列顺序、
+// 每题作答状态）存 localStorage（键 n5n2_newwords_session）。中途退出/刷新后
+// 重进按存档原样恢复——题目顺序不重新洗牌、已答统计不丢失；跨天断点作废重来。
+// 但「今天是否已完成」一律以 Supabase 为准（daily_logs.new_words_count > 0），
+// 跨设备状态一致——进入本页时先查库，已完成则丢弃本地断点，防止跨设备重复学习。
 //
 // 数据口径：
 // - 一个词「通过」= 该词的 3 道题都答对过（答错的题会重新插回当前组的剩余
@@ -157,21 +158,20 @@ window.NewWords = (function () {
       return;
     }
 
+    // 跨天作废：昨天未完成的断点不带入今天，重新开始（重新抽词、重新洗牌）
+    if (session && session.date !== DB.todayISO()) {
+      session = null;
+      localStorage.removeItem(LS_KEY);
+    }
+
     if (session && session.stage === 'done') {
-      if (session.date === DB.todayISO()) {
-        // 今天已完成：若上次关闭时成绩没存上，补一次保存
-        if (session.persisted) renderDone();
-        else finishDay();
-        return;
-      }
-      session = null; // 更早某天已完成的会话，开始新的一天
+      // 今天已完成（跨天会话已在上面作废）：若上次关闭时成绩没存上，补一次保存
+      if (session.persisted) renderDone();
+      else finishDay();
+      return;
     }
     if (session) {
-      // 断点续学：回到做题阶段时，把当前组剩余题目重新洗牌（每次进入都是新顺序）
-      if (session.stage === 'quiz' && session.groups[session.groupIndex]) {
-        shuffle(session.groups[session.groupIndex].queue);
-        saveSession();
-      }
+      // 断点续学：题目队列顺序、组进度、已答统计按存档原样恢复，不重新洗牌
       tick();
       render();
       return;
@@ -505,5 +505,15 @@ window.NewWords = (function () {
     if (retry) retry.addEventListener('click', finishDay);
   }
 
-  return { enter };
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）。
+  // 已完成的存档保留——done 状态承担着「成绩待同步」的补保存入口。
+  function discard() {
+    if (session && session.stage !== 'done') session = null;
+    try {
+      const s = JSON.parse(localStorage.getItem(LS_KEY));
+      if (s && s.stage !== 'done') localStorage.removeItem(LS_KEY);
+    } catch (e) { localStorage.removeItem(LS_KEY); }
+  }
+
+  return { enter, discard };
 })();

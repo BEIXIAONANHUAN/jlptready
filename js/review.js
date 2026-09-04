@@ -29,6 +29,12 @@
 //   仅 weak_reason='抽检做错'）。
 // - 抽检名单与已完成的词存 localStorage（键 n5n2_spotcheck），当天不重复出现。
 //
+// ---------- 断点持久化 ----------
+// 会话（题目队列顺序、每题首次作答、判定结果、卡片进度、统计）存 localStorage
+//（键 n5n2_review_session，与新词 n5n2_newwords_session、考试 n5n2_exam_session
+// 互不覆盖）。中途退出/刷新后重进按存档原样恢复，不重新洗牌、不丢已答统计；
+// finish 时清除，跨天作废；「今日宜休」会调 discard() 清除未完成的断点。
+//
 // ---------- 写库时机 ----------
 // 每个词/每张卡判定后立即更新对应 user_words 行（中途退出只损失当前项）；
 // 全部完成后更新 daily_logs：review_count 累加（做题词数+卡片张数）、
@@ -41,6 +47,7 @@ window.Review = (function () {
   const INTERVALS = [1, 2, 4];            // 模式 B 艾宾浩斯阶梯（天）
   const A_LADDER = [1, 3, 7, 15, 30];     // 模式 A 间隔档位（天）
   const SPOT_KEY = 'n5n2_spotcheck';      // 抽检名单的 localStorage 键
+  const LS_KEY = 'n5n2_review_session';   // 当日复习断点的 localStorage 键
 
   let session = null;
   let current = null;      // 当前选择题 { q, options, answerIdx }
@@ -96,6 +103,32 @@ window.Review = (function () {
     try { localStorage.setItem(SPOT_KEY, JSON.stringify(s)); } catch (e) { /* 忽略 */ }
   }
 
+  // ---------- 断点持久化（键独立于新词/考试，互不覆盖） ----------
+  function loadSession() {
+    try {
+      const s = JSON.parse(localStorage.getItem(LS_KEY));
+      if (!s) return;
+      if (s.date !== DB.todayISO() || s.finished || !Array.isArray(s.items) || !Array.isArray(s.queue)) {
+        localStorage.removeItem(LS_KEY); // 跨天/已完成/残缺存档一律作废
+        return;
+      }
+      session = s;
+      // 对已判定的词幂等补写一次：防上次关闭页面时判定后的异步写库未落地
+      //（字段都是绝对值，重复写无副作用；replay 模式不重复计数统计/抽检名单）
+      pendingWrites = [];
+      for (const key of Object.keys(session.decided || {})) {
+        pendingWrites.push(
+          writeOutcome(Number(key), true).catch((e) => console.error('[Review] 断点补写失败 item_idx=' + key, e))
+        );
+      }
+    } catch (e) { session = null; }
+  }
+  function saveSession() {
+    if (!session || session.finished) return;
+    session.lastTick = Date.now();
+    try { localStorage.setItem(LS_KEY, JSON.stringify(session)); } catch (e) { console.warn('[Review] 存档失败', e); }
+  }
+
   // 返回今日待抽检的 mastered 记录（user_words 行）
   async function resolveSpotChecks(dueA) {
     const today = DB.todayISO();
@@ -130,17 +163,22 @@ window.Review = (function () {
     const body = $('review-body');
     if (!body) return;
 
-    // 内存中有今天未完成的会话 → 按阶段直接续上
-    if (session && !session.finished && session.date === DB.todayISO()) {
+    // 内存里的会话已跨天 → 作废（localStorage 存档由 loadSession 兜底清理）
+    if (session && session.date !== DB.todayISO()) session = null;
+
+    // 内存为空（页面刷新过）→ 从 localStorage 恢复今天的断点：
+    // 题目队列顺序、答题进度、统计按存档原样恢复，不重新洗牌
+    if (!session) loadSession();
+
+    // 今天未完成的会话 → 按阶段直接续上
+    if (session && !session.finished) {
       tick();
-      if (session.phase === 'quiz') {
-        shuffle(session.queue); // 每次进入重新随机剩余题目顺序
-        renderQuiz();
-      }
+      if (session.phase === 'quiz') renderQuiz();
       else if (session.phase === 'cards') renderCard();
       else renderStart();
       return;
     }
+    session = null; // 已完成或没有断点 → 重新查库
 
     body.innerHTML = '<div class="placeholder">正在加载今日复习…</div>';
     try {
@@ -199,6 +237,7 @@ window.Review = (function () {
         elapsedMs: 0, lastTick: Date.now(),
         stats: { wordsDone: 0, wordsCorrect: 0, graduated: 0, cardsDone: 0, know: 0, vague: 0, forgot: 0, qAnswered: 0, qCorrect: 0 },
       };
+      saveSession(); // 建队即存档：之后每答一题/每评一卡都会更新断点
       renderStart();
     } catch (e) {
       console.error('[Review] 加载失败', e);
@@ -229,13 +268,10 @@ window.Review = (function () {
       </div>`;
     $('btn-start-review').addEventListener('click', () => {
       tick();
-      if (session.queue.length) {
-        session.phase = 'quiz';
-        renderQuiz();
-      } else {
-        session.phase = 'cards';
-        renderCard();
-      }
+      session.phase = session.queue.length ? 'quiz' : 'cards';
+      saveSession();
+      if (session.phase === 'quiz') renderQuiz();
+      else renderCard();
     });
   }
 
@@ -276,7 +312,7 @@ window.Review = (function () {
   function renderQuiz() {
     const q = session.queue[0];
     if (!q) { // 做题环节结束 → 进入翻卡或收尾
-      if (session.cards.length) { session.phase = 'cards'; renderCard(); }
+      if (session.cards.length) { session.phase = 'cards'; saveSession(); renderCard(); }
       else finish();
       return;
     }
@@ -370,6 +406,7 @@ window.Review = (function () {
       }
     }
 
+    saveSession(); // 每答一题都存断点（队列顺序/首次作答/统计），随时退出都能原样续上
     showDetail(session.items[q.i].word); // 显示单词详情卡，等用户点击题目卡继续（不再自动跳转）
   }
 
@@ -398,8 +435,10 @@ window.Review = (function () {
     renderQuiz();
   }
 
-  // 判定一个词（模式 B 或抽检），立即写库
-  async function writeOutcome(i) {
+  // 判定一个词（模式 B 或抽检），立即写库。
+  // replay=true 用于断点恢复时的幂等补写：只重发数据库写（字段都是绝对值，
+  // 重复写无副作用），不重复计数统计、不重复标抽检名单。
+  async function writeOutcome(i, replay) {
     const item = session.items[i];
     const { uw } = item;
     const results = Object.values(session.attempts[i]);
@@ -407,7 +446,7 @@ window.Review = (function () {
 
     if (item.kind === 'spot') {
       // 抽检：做对不写库（不影响 mode_a 间隔）；做错立即降级回模式 B
-      markSpotDone(uw.word_id);
+      if (!replay) markSpotDone(uw.word_id);
       if (!allCorrect) {
         await DB.updateUserWord(uw.id, {
           status: 'learning',
@@ -428,7 +467,7 @@ window.Review = (function () {
     let fields;
     if (allCorrect) {
       const newCount = (uw.mode_b_count || 0) + 1;
-      session.stats.wordsCorrect++;
+      if (!replay) session.stats.wordsCorrect++;
       if (newCount >= 3) {
         // 毕业：连续 3 次复习做对 → mastered，进入模式 A 已掌握池
         fields = {
@@ -438,7 +477,7 @@ window.Review = (function () {
           mode_a_interval: 1,
           mode_a_due: DB.tomorrowISO(),
         };
-        session.stats.graduated++;
+        if (!replay) session.stats.graduated++;
       } else {
         fields = {
           mode_b_count: newCount,
@@ -453,7 +492,7 @@ window.Review = (function () {
         weak_reason: '复习做错',
       };
     }
-    session.stats.wordsDone++; // 先计数再写库，见上方口径注释
+    if (!replay) session.stats.wordsDone++; // 先计数再写库，见上方口径注释
     await DB.updateUserWord(uw.id, fields);
   }
 
@@ -550,6 +589,7 @@ window.Review = (function () {
 
     session.stats.cardsDone++;
     session.cardIndex++;
+    saveSession(); // 卡片进度也入断点
     tick();
     renderCard(); // 无卡可翻时 renderCard 内部会调 finish()
   }
@@ -559,6 +599,7 @@ window.Review = (function () {
     if (session.finished) return;
     session.finished = true;
     session.phase = 'done';
+    localStorage.removeItem(LS_KEY); // 完成即清断点：下次进入是新一轮，重新洗牌
     renderSummary(true); // 先渲染"正在保存结果…"（此时正确率还没算，显示 —）
     await saveResults();
   }
@@ -628,5 +669,14 @@ window.Review = (function () {
     if (retry) retry.addEventListener('click', saveResults);
   }
 
-  return { enter };
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）
+  function discard() {
+    if (session && !session.finished) session = null;
+    try {
+      const s = JSON.parse(localStorage.getItem(LS_KEY));
+      if (s && !s.finished) localStorage.removeItem(LS_KEY);
+    } catch (e) { localStorage.removeItem(LS_KEY); }
+  }
+
+  return { enter, discard };
 })();

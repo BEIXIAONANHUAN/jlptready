@@ -6,8 +6,9 @@
 // 每次点击重新生成，页面刷新即消失。
 //
 // 卡片数据口径：
-// - 平时四行：今日新词 / 今日复习 / 正确率(review_acc) / 累计学习天数；
-// - 周末把第一行换成「周末考试」（分数 · 评级）。
+// - 平日四行：今日新词 / 今日复习 / 正确率 / 累计学习天数；
+// - 周末没有新词，第一行固定换成「周末测试」（琥珀色标签），数值为当天
+//   考试评级 S/A/B/C（daily_logs.test_rating），未参加显示 —。
 // - 词库进度：mastered 词数 / 词库总数。
 // ============================================================
 window.Share = (function () {
@@ -29,8 +30,9 @@ window.Share = (function () {
     ]);
 
     const rows = [];
-    if (isWeekend && log && log.test_score != null) {
-      rows.push({ label: '周末考试', value: `${log.test_score} 分 · ${log.test_rating || '—'} 级` });
+    if (isWeekend) {
+      // 周末不出新词：第一行固定为「周末测试」，显示当天考试评级（未参加显示 —）
+      rows.push({ label: '周末测试', value: (log && log.test_rating) || '—', labelColor: '#F59E0B' });
     } else {
       rows.push({ label: '今日新词', value: `${(log && log.new_words_count) || 0} 词` });
     }
@@ -99,11 +101,11 @@ window.Share = (function () {
 
     hline(ctx, 360);
 
-    // 数据行：左标签右数值，行高 90
+    // 数据行：左标签右数值，行高 90；标签默认灰，可用 row.labelColor 覆盖（如周末测试的琥珀色）
     let y = 460;
     for (const row of d.rows) {
       ctx.font = `400 48px ${FONT}`;
-      ctx.fillStyle = '#6B7280';
+      ctx.fillStyle = row.labelColor || '#6B7280';
       ctx.textAlign = 'left';
       ctx.fillText(row.label, 120, y);
       ctx.font = `700 48px ${FONT}`;
