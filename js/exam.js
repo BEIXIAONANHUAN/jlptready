@@ -14,8 +14,10 @@
 //   只进薄弱词池口径）；答对不写库。
 // - 评分：score = 正确率（0–100 整数），评级 S≥95 / A≥85 / B≥70 / C<70，
 //   写入 daily_logs 当天的 test_score、test_rating。
-// - 会话存 Supabase 表 user_session_progress（module_type='exam'）：中途退出可续考——
-//   题目队列顺序与已答统计按存档原样恢复，不重新洗牌；跨天作废（按今天日期查询）。
+// - 「今天是否已考」的唯一事实来源是 daily_logs.test_score（首页卡片同源）：
+//   有分数 → 结算页；快照仅作明细补充与断点续考。会话存 Supabase 表
+//   user_session_progress（module_type='exam'）：中途退出可续考——题目队列
+//   顺序与已答统计按存档原样恢复，不重新洗牌；跨天作废（按今天日期查询）。
 //   当天完成后重进显示成绩页，一天只考一次。
 //   旧的 localStorage 断点由「我的数据」页的「同步本机数据到云端」按钮迁移。
 // ============================================================
@@ -181,11 +183,45 @@ window.Exam = (function () {
     }
 
     await loadSession();
-    if (session) {
-      // 幂等补写：上次关闭页面时答错题目的薄弱池写库可能未落地（绝对值字段，重复写无副作用）
-      pendingWrites = Object.entries(session.wronged || {}).map(([uwId, fields]) =>
+
+    // 幂等补写（任何已恢复的会话都做）：上次关闭页面时答错题目的薄弱池写库
+    // 可能未落地（绝对值字段，重复写无副作用）
+    if (session && session.wronged) {
+      pendingWrites = Object.entries(session.wronged).map(([uwId, fields]) =>
         DB.updateUserWord(uwId, fields).catch((e) => console.error('[Exam] 断点补写失败 user_word_id=' + uwId, e))
       );
+    }
+
+    // 「今天是否已考」的唯一事实来源：daily_logs.test_score（与首页卡片同一数据源）。
+    // 有分数 → 直接结算页；快照缺失的历史考试（如迁移双轨期在旧代码上完成的）
+    // 用 daily_logs 的 quiz 统计重建结算数据。
+    let log = null;
+    try { log = await DB.getDailyLog(DB.todayISO()); } catch (e) { console.warn('[Exam] 今日成绩查询失败', e); }
+    if (log && log.test_score != null) {
+      if (!session || session.stage !== 'done') {
+        session = {
+          date: DB.todayISO(), stage: 'done', persisted: true, items: [], wronged: {},
+          score: log.test_score, rating: log.test_rating,
+          totalQ: log.quiz_total || 0,
+          stats: { answered: log.quiz_total || 0, correct: log.quiz_correct || 0 },
+          elapsedMs: null, // 历史数据无用时记录，结算页用时显示 —
+        };
+      }
+      const history = await DB.getExamHistory();
+      renderDone(false, null, history);
+      return;
+    }
+    // 快照 done 但 daily_logs 缺分数（上次成绩保存失败）：补写分数后再进结算页，
+    // 保证首页卡片与本页状态一致
+    if (session && session.stage === 'done') {
+      DB.setExamResult(session.date, session.score, session.rating)
+        .catch((e) => console.warn('[Exam] 成绩补写失败', e));
+      const history = await DB.getExamHistory();
+      renderDone(false, null, history);
+      return;
+    }
+
+    if (session) {
       tick();
       render();
       return;
@@ -414,9 +450,10 @@ window.Exam = (function () {
   }
 
   function renderDone(saving, saveError, history) {
-    const total = session.totalQ || session.items.length;
+    const total = session.totalQ || (session.items && session.items.length) || 0;
     const wrong = session.stats.answered - session.stats.correct;
-    const mins = Math.max(1, Math.round(session.elapsedMs / 60000));
+    // 历史数据（daily_logs 重建）没有用时记录 → 显示 —
+    const mins = session.elapsedMs == null ? null : Math.max(1, Math.round(session.elapsedMs / 60000));
 
     // 历史最高（含今天）
     let bestHtml = '';
@@ -440,7 +477,7 @@ window.Exam = (function () {
           <div class="done-item"><div class="done-num num">${total}</div><div class="done-label">总题数</div></div>
           <div class="done-item"><div class="done-num num">${session.stats.correct}</div><div class="done-label">答对</div></div>
           <div class="done-item"><div class="done-num num">${wrong}</div><div class="done-label">答错（已入薄弱池）</div></div>
-          <div class="done-item"><div class="done-num num">${mins}</div><div class="done-label">用时（分钟）</div></div>
+          <div class="done-item"><div class="done-num num">${mins == null ? '—' : mins}</div><div class="done-label">用时（分钟）</div></div>
         </div>
         ${bestHtml}
         <div class="done-status">${saveError || (saving ? '正在保存成绩…' : '成绩已保存')}</div>

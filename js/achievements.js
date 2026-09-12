@@ -84,12 +84,24 @@ window.Achievements = (function () {
     }, 2800);
   }
 
-  function unlock(id) {
+  // 全部成就的唯一触发入口（evaluate 的 12 项条件 + noteAnswer 的连对）：
+  // 内存判重 + 云端插入判重，任何一层表明已解锁都不弹窗；插入成功才算新解锁。
+  // 云端已有而内存没有（本机镜像缺失/其他设备解锁过）：以云端为准回补内存，绝不改日期。
+  async function unlock(id) {
+    await load(); // 内存须先与云端/本机合并，空档不会把已解锁误判成未解锁
     if (unlocks[id]) return false;
+    let inserted = null;
+    try {
+      inserted = await DB.unlockAchievement(id);
+    } catch (e) {
+      console.warn('[Achievements] 解锁写入失败 ' + id, e); // 离线等情况按成功处理（内存已记，云端可后补）
+    }
+    if (inserted === false) {
+      try { unlocks = mergeUnlocks(unlocks, await DB.getAchievements()); saveLocal(unlocks); } catch (e) { /* 忽略 */ }
+      return false;
+    }
     unlocks[id] = DB.todayISO();
-    // 先写内存（立即生效）+ 本机镜像；云端异步插入（已存在则 23505 忽略，绝不改日期）
     saveLocal(unlocks);
-    DB.unlockAchievement(id).catch((e) => console.warn('[Achievements] 解锁写入失败 ' + id, e));
     const def = DEFS.find((d) => d.id === id);
     if (def) toast(def.name);
     return true;
@@ -151,7 +163,7 @@ window.Achievements = (function () {
     };
 
     for (const [id, ok] of Object.entries(checks)) {
-      if (ok) unlock(id);
+      if (ok) await unlock(id);
     }
     return unlocks;
   }
