@@ -5,7 +5,7 @@
 //   开始页 → 做题环节（模式 B 到期题 + 抽检题，混排无感知）→ 翻卡环节（模式 A 到期卡片）→ 总结页
 //
 // ---------- 模式 B 口径（第 3 步已定） ----------
-// - 到期词：status='learning' 且 mode_b_due <= 今天。每词随机抽 2 种题型各 1 题。
+// - 到期词：status='learning' 且 mode_b_due <= 今天。每词随机抽 1 种题型出 1 题。
 // - 「本次做对/做错」只看每题【首次作答】：全对=做对，任一首次答错=做错。
 //   答错的题插回队列重练到对为止，但重练不影响判定、不计入统计。
 // - 做对：mode_b_count+1，按 1/2/4 天阶梯设 mode_b_due；count 到 3 毕业 →
@@ -74,7 +74,7 @@ window.Review = (function () {
     session.lastTick = now;
   }
 
-  // 选择题题型：模式 B 抽 2 种，抽检抽 1 种；纯假名词只有释义题
+  // 选择题题型：模式 B 抽 1 种，抽检抽 1 种；纯假名词只有释义题
   function pickTypes(w, n) {
     const valid = w.word === w.reading ? ['meaning'] : ['reading', 'writing', 'meaning'];
     shuffle(valid);
@@ -197,7 +197,7 @@ window.Review = (function () {
       const byId = {};
       for (const w of words) byId[w.id] = w;
 
-      // 做题环节：模式 B（每词 2 题）+ 抽检（每词 1 题），混排
+      // 做题环节：模式 B（每词 1 题）+ 抽检（每词 1 题），混排
       const items = [];
       const queue = [];
       const attempts = {};
@@ -205,7 +205,7 @@ window.Review = (function () {
       for (const uw of dueB) {
         if (!byId[uw.word_id]) continue;
         items.push({ kind: 'b', uw, word: byId[uw.word_id] });
-        pickTypes(byId[uw.word_id], 2).forEach((type, k) => queue.push({ i: idx, qid: idx + '-' + k, type }));
+        pickTypes(byId[uw.word_id], 1).forEach((type, k) => queue.push({ i: idx, qid: idx + '-' + k, type }));
         attempts[idx] = {};
         idx++;
       }
@@ -396,8 +396,8 @@ window.Review = (function () {
 
     if (firstTry) {
       at[q.qid] = correct;
-      // 该词的题都已完成首次作答（模式 B 2 题、抽检 1 题）→ 判定并立即写库
-      const expected = session.items[q.i].kind === 'b' ? 2 : 1;
+      // 该词的题都已完成首次作答（模式 B 1 题、抽检 1 题）→ 判定并立即写库
+      const expected = 1;
       if (Object.keys(at).length >= expected && !session.decided[q.i]) {
         session.decided[q.i] = true;
         pendingWrites.push(
