@@ -1,9 +1,13 @@
 {
+  "id": "/jlptready/",
   "name": "日语备考",
   "short_name": "JLPT备考",
+  "description": "日语JLPT N5-N2备考学习系统",
   "start_url": "/jlptready/",
   "scope": "/jlptready/",
   "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "categories": ["education"],
   "background_color": "#ffffff",
   "theme_color": "#2563EB",
   "icons": [
