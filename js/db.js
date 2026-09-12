@@ -181,15 +181,26 @@ window.DB = (function () {
     return map;
   }
 
-  // 解锁（幂等）：badge_id 有唯一约束，重复解锁被 23505 兜底拦截
-  async function unlockAchievement(badgeId) {
+  // 解锁（幂等，只插不改）：badge_id 有唯一约束，重复解锁被 23505 兜底拦截。
+  // date 可传历史日期（修复用）；绝不 UPDATE 已有记录的 unlocked_at。
+  async function unlockAchievement(badgeId, date) {
     const { error } = await client.from('user_achievements')
-      .insert({ badge_id: badgeId, unlocked_at: todayISO() });
+      .insert({ badge_id: badgeId, unlocked_at: date || todayISO() });
     if (error) {
       if (error.code === '23505') return false; // 已解锁
       throw error;
     }
     return true;
+  }
+
+  // 清空并重建徽章表（一次性修复用）：rows = [{ badge_id, unlocked_at }]
+  async function replaceAchievements(rows) {
+    const { error: e1 } = await client.from('user_achievements').delete().neq('badge_id', '');
+    if (e1) throw e1;
+    if (rows && rows.length) {
+      const { error: e2 } = await client.from('user_achievements').insert(rows);
+      if (e2) throw e2;
+    }
   }
 
   // ---------- 断点续学（云端 user_session_progress，按 date + module_type 一行） ----------
@@ -219,54 +230,66 @@ window.DB = (function () {
     if (error) throw error;
   }
 
-  // 迁移：本机 localStorage（徽章 + 3 个会话断点）→ 云端。
-  // 云端徽章已有数据时返回 null（不迁移）；否则迁移并清掉本机旧 key。
-  // 返回 { badges, sessions } 迁移数量。
-  async function migrateLocalData() {
+  // 迁移/合并：本机 localStorage（徽章 + 3 个会话断点）与云端双向合并。
+  // force=false（默认）：徽章取并集、日期早者胜，只 INSERT 云端缺的，绝不改云端已有日期；
+  // 断点仅补缺（该日期该模块云端已有记录则跳过）。
+  // force=true（需用户二次确认）：本机为准，徽章清空重插、断点覆盖。
+  // 合并结果写回本机徽章镜像。返回 { badges, sessions }。
+  async function migrateLocalData(force) {
     const LS = {
       ach: 'n5n2_achievements',
       new: 'n5n2_newwords_session',
       review: 'n5n2_review_session',
       exam: 'n5n2_exam_session',
     };
+    let localBadges = {};
+    try { localBadges = JSON.parse(localStorage.getItem(LS.ach)) || {}; } catch (e) { /* 忽略 */ }
     const cloud = await getAchievements();
-    if (Object.keys(cloud).length > 0) return null; // 云端已有数据，不覆盖
-
     const report = { badges: 0, sessions: 0 };
-    // 徽章：{ 徽章id: 解锁日期 }
-    let local = {};
-    try { local = JSON.parse(localStorage.getItem(LS.ach)) || {}; } catch (e) { /* 忽略 */ }
-    for (const [badgeId, date] of Object.entries(local)) {
-      const { error } = await client.from('user_achievements')
-        .insert({ badge_id: badgeId, unlocked_at: date });
-      if (error) throw error;
-      report.badges++;
+
+    if (force) {
+      const rows = Object.entries(localBadges).map(([badge_id, d]) => ({ badge_id, unlocked_at: d }));
+      await replaceAchievements(rows);
+      report.badges = rows.length;
+    } else {
+      for (const [badgeId, date] of Object.entries(localBadges)) {
+        if (!cloud[badgeId]) {
+          await unlockAchievement(badgeId, date); // 云端缺的才补，日期取本机值
+          report.badges++;
+        }
+      }
     }
-    // 三个模块的断点：按会话自带日期落库，该日期已有记录则跳过
+
+    // 三个模块的断点：按会话自带日期落库
     for (const mt of ['new', 'review', 'exam']) {
       let s = null;
       try { s = JSON.parse(localStorage.getItem(LS[mt])); } catch (e) { /* 忽略 */ }
       if (!s || !s.date) continue;
       const existing = await getSessionProgress(mt, s.date);
-      if (!existing) {
-        const st = s.stats || {};
-        const answered = st.qAnswered != null ? st.qAnswered : (st.answered || 0);
-        const correct = st.qCorrect != null ? st.qCorrect : (st.correct || 0);
-        const { error } = await client.from('user_session_progress').insert({
-          module_type: mt,
-          date: s.date,
-          status: (s.stage === 'done' || s.finished) ? 'completed' : 'in_progress',
-          queue_snapshot: s,
-          current_index: answered,
-          correct_count: correct,
-          wrong_count: answered - correct,
-        });
-        if (error) throw error;
-        report.sessions++;
-      }
+      if (existing && !force) continue;
+      if (existing && force) await deleteSessionProgress(mt, s.date);
+      const st = s.stats || {};
+      const answered = st.qAnswered != null ? st.qAnswered : (st.answered || 0);
+      const correct = st.qCorrect != null ? st.qCorrect : (st.correct || 0);
+      const { error } = await client.from('user_session_progress').insert({
+        module_type: mt,
+        date: s.date,
+        status: (s.stage === 'done' || s.finished) ? 'completed' : 'in_progress',
+        queue_snapshot: s,
+        current_index: answered,
+        correct_count: correct,
+        wrong_count: answered - correct,
+      });
+      if (error) throw error;
+      report.sessions++;
     }
-    // 迁移成功后清掉本机旧 key（n5n2_combo 连对计数不在迁移范围，保留）
-    Object.values(LS).forEach((k) => localStorage.removeItem(k));
+
+    // 回写合并后的徽章镜像到本机（早者胜）
+    const merged = { ...cloud };
+    for (const [badgeId, date] of Object.entries(localBadges)) {
+      if (!merged[badgeId] || date < merged[badgeId]) merged[badgeId] = date;
+    }
+    try { localStorage.setItem(LS.ach, JSON.stringify(merged)); } catch (e) { /* 忽略 */ }
     return report;
   }
 
@@ -520,7 +543,7 @@ window.DB = (function () {
     getWeakRows, getLearningRows, getExamHistory, setExamResult, addQuizStats,
     searchWords, getUserWordByWordId, getUserWordStatsRows, getAllWordLevels, getAllLogs,
     updateDailyLogFields, getMonthLogs, getStudyDaysTotal, getMasteredCount,
-    getAchievements, unlockAchievement,
+    getAchievements, unlockAchievement, replaceAchievements,
     getSessionProgress, saveSessionProgress, deleteSessionProgress, migrateLocalData,
   };
 })();

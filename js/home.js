@@ -41,35 +41,51 @@ window.Home = (function () {
     $('card-exam').style.display = '';
   }
 
-  // 「周末考试」卡片（仅周末显示真实状态）：待考 / 进行中 / 已完成（断点存云端）
+  // 「周末考试」卡片（仅周末显示真实状态）：待考 / 进行中 / 已完成。
+  // 完成判定 daily_logs 优先（分数/评级都在这里，且跨版本最可靠）；
+  // 云端断点快照兜底（兼容迁移前完成、分数行缺失等场景）。
   async function renderExamCard() {
     const meta = $('exam-meta');
     const btn = $('btn-exam');
-    let s = null;
+    let log = null, s = null;
+    try { log = await DB.getDailyLog(DB.todayISO()); } catch (e) { console.warn('[Home] 今日日志读取失败', e); }
     try {
       const row = await DB.getSessionProgress('exam', DB.todayISO());
       if (row && row.queue_snapshot) s = row.queue_snapshot;
     } catch (e) { console.warn('[Home] 考试断点读取失败', e); }
 
-    if (s) {
-      if (s.stage === 'done') {
-        meta.innerHTML = `今日已完成 <span class="dot">·</span> 得分 <span class="num ok">${s.score}</span> <span class="dot">·</span> 评级 <span class="num ok">${s.rating}</span>`;
-        btn.textContent = '查看成绩';
-        btn.disabled = false;
-      } else if (s.stage === 'quiz') {
-        meta.innerHTML = `进行中 <span class="dot">·</span> 第 <span class="num">${s.stats.answered + 1}</span>/<span class="num">${s.totalQ || s.items.length}</span> 题`;
-        btn.textContent = '继续考试';
-        btn.disabled = false;
-      } else {
-        meta.innerHTML = `<span class="num">${s.totalQ || s.items.length}</span> 题 <span class="dot">·</span> 已组卷，待开始`;
-        btn.textContent = '开始考试';
-        btn.disabled = false;
-      }
-    } else {
-      meta.innerHTML = `<span class="num">120</span> 题 <span class="dot">·</span> 约 <span class="num">40</span> 分钟`;
-      btn.textContent = '进入考试';
+    // ① daily_logs 有分数 → 今日已完成（最权威）
+    if (log && log.test_score != null) {
+      meta.innerHTML = `今日已完成 <span class="dot">·</span> 得分 <span class="num ok">${log.test_score}</span> <span class="dot">·</span> 评级 <span class="num ok">${log.test_rating || '—'}</span>`;
+      btn.textContent = '查看成绩';
       btn.disabled = false;
+      return;
     }
+    // ② 云端快照 done → 已完成（分数以快照为准）
+    if (s && s.stage === 'done') {
+      meta.innerHTML = `今日已完成 <span class="dot">·</span> 得分 <span class="num ok">${s.score != null ? s.score : '—'}</span> <span class="dot">·</span> 评级 <span class="num ok">${s.rating || '—'}</span>`;
+      btn.textContent = '查看成绩';
+      btn.disabled = false;
+      return;
+    }
+    // ③ 做到一半 → 继续考试
+    if (s && s.stage === 'quiz') {
+      meta.innerHTML = `进行中 <span class="dot">·</span> 第 <span class="num">${(s.stats && s.stats.answered || 0) + 1}</span>/<span class="num">${s.totalQ || (s.items && s.items.length) || 120}</span> 题`;
+      btn.textContent = '继续考试';
+      btn.disabled = false;
+      return;
+    }
+    // ④ 已组卷待开始
+    if (s) {
+      meta.innerHTML = `<span class="num">${s.totalQ || (s.items && s.items.length) || 120}</span> 题 <span class="dot">·</span> 已组卷，待开始`;
+      btn.textContent = '开始考试';
+      btn.disabled = false;
+      return;
+    }
+    // ⑤ 默认
+    meta.innerHTML = `<span class="num">120</span> 题 <span class="dot">·</span> 约 <span class="num">40</span> 分钟`;
+    btn.textContent = '进入考试';
+    btn.disabled = false;
   }
 
   // 「今日新词」卡片：完成状态以 Supabase 为准（跨设备一致）——

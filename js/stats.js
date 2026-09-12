@@ -3,6 +3,7 @@
 // ============================================================
 window.Stats = (function () {
   const LEVELS = ['N5', 'N4', 'N3', 'N2'];
+  let datesFixed = false;   // 本次页面生命周期内徽章日期已修复（修复按钮随之隐藏）
 
   const $ = (id) => document.getElementById(id);
 
@@ -103,28 +104,75 @@ window.Stats = (function () {
       </div>
 
       <div class="stat-block">
-        <button class="btn btn-secondary" id="btn-migrate">同步本机数据到云端</button>
+        <div class="stat-title">数据工具</div>
+        ${datesFixed
+          ? '<div class="stat-title-sub">徽章日期已修复</div>'
+          : '<button class="btn btn-secondary" id="btn-fix-dates">修复徽章日期</button>'}
+        <div style="margin-top:8px;">
+          <button class="btn btn-secondary" id="btn-migrate">同步本机数据到云端</button>
+        </div>
+        <div style="margin-top:8px;">
+          <button class="btn btn-secondary" id="btn-migrate-force">强制覆盖云端（本机为准）</button>
+        </div>
         <div id="migrate-tip" style="font-size:0.8rem;color:var(--color-text-sub);margin-top:8px;"></div>
       </div>`;
 
-    // 旧 localStorage（徽章 + 三个模块断点）→ 云端的一次性迁移
+    // 一次性修复：徽章日期被覆盖成错误值时，按 daily_logs 反推真实解锁日期
+    const fixBtn = $('btn-fix-dates');
+    if (fixBtn) fixBtn.addEventListener('click', async () => {
+      const tip = $('migrate-tip');
+      fixBtn.disabled = true;
+      tip.textContent = '正在修复…';
+      try {
+        const fixed = await Achievements.restoreDates();
+        const names = Object.entries(fixed)
+          .map(([id, d]) => `${(Achievements.DEFS.find((x) => x.id === id) || {}).name || id} ${d}`)
+          .join(' · ');
+        tip.textContent = names ? `已修复：${names}` : '无可推断的徽章日期';
+        datesFixed = true;
+        await Achievements.reload();
+        enter(); // 刷新徽章墙（按钮随之消失）
+      } catch (e) {
+        console.error('[Stats] 修复失败', e);
+        tip.textContent = '修复失败，请检查网络后重试';
+        fixBtn.disabled = false;
+      }
+    });
+
+    // 合并同步：徽章取并集（日期早者胜，只补云端缺的），断点仅补缺
     $('btn-migrate').addEventListener('click', async () => {
       const btn = $('btn-migrate');
       const tip = $('migrate-tip');
       btn.disabled = true;
       tip.textContent = '正在同步…';
       try {
-        const report = await DB.migrateLocalData();
-        if (report === null) {
-          tip.textContent = '云端数据已存在，未同步';
-        } else {
-          tip.textContent = `同步完成：徽章 ${report.badges} 枚，断点 ${report.sessions} 条`;
-          await Achievements.reload(); // 重新加载云端徽章
-          enter();                     // 刷新徽章墙
-        }
+        const report = await DB.migrateLocalData(false);
+        tip.textContent = `同步完成：补徽章 ${report.badges} 枚，断点 ${report.sessions} 条`;
+        await Achievements.reload();
+        enter();
       } catch (e) {
         console.error('[Stats] 同步失败', e);
         tip.textContent = '同步失败，请检查网络后重试';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // 强制覆盖：本机为准，云端徽章清空重插、断点覆盖（需二次确认）
+    $('btn-migrate-force').addEventListener('click', async () => {
+      const btn = $('btn-migrate-force');
+      const tip = $('migrate-tip');
+      if (!confirm('将以本机数据覆盖云端：徽章日期和断点都会被本机内容替换，云端现有数据丢失。确定？')) return;
+      btn.disabled = true;
+      tip.textContent = '正在覆盖…';
+      try {
+        const report = await DB.migrateLocalData(true);
+        tip.textContent = `覆盖完成：徽章 ${report.badges} 枚，断点 ${report.sessions} 条`;
+        await Achievements.reload();
+        enter();
+      } catch (e) {
+        console.error('[Stats] 覆盖失败', e);
+        tip.textContent = '覆盖失败，请检查网络后重试';
       } finally {
         btn.disabled = false;
       }

@@ -1,9 +1,11 @@
 // ============================================================
 // 成就徽章（12 枚）
 //
-// 持久化：Supabase 表 user_achievements（badge_id 唯一，解锁日期 unlocked_at），
-// 跨设备一致。运行时持内存镜像 unlocks，首次 evaluate 时从云端加载。
-// 「同步本机数据到云端」按钮（我的数据页）负责把旧 localStorage 数据迁上来。
+// 持久化：Supabase 表 user_achievements 为准（badge_id 唯一，解锁日期
+// unlocked_at 只增不改），本机 localStorage（键 n5n2_achievements）是镜像缓存。
+// 加载时双向合并：云端 ∪ 本机，同一徽章保留更早的日期，差异写回两端——
+// 任何设备、任何顺序打开都不会覆盖已有徽章日期。
+// 「修复徽章日期」按钮（我的数据页）按 daily_logs 反推历史日期一次性校正。
 //
 // 「铜墙铁壁」（连续 20 题全对）的连对计数仍在 localStorage（键 n5n2_combo），
 // 仅本机运行时状态，丢失无碍、不在迁移范围。
@@ -11,6 +13,7 @@
 // 达成时立即解锁并弹祝贺提示；其余徽章在「我的数据」页评估解锁。
 // ============================================================
 window.Achievements = (function () {
+  const LS_KEY = 'n5n2_achievements';     // 本机镜像（合并语义，不是唯一数据源）
   const COMBO_KEY = 'n5n2_combo';
 
   const DEFS = [
@@ -28,18 +31,40 @@ window.Achievements = (function () {
     { id: 'perfect10',    name: '满分王者',  desc: '累计 10 次考试满分' },
   ];
 
-  // 内存镜像 { 徽章id: 解锁日期 }；首次使用时从云端加载，解锁时先写内存再异步落库
+  // 内存镜像 { 徽章id: 解锁日期 }；首次使用时云端+本机合并加载
   let unlocks = {};
   let loaded = false;
 
+  // ---------- 本机镜像 ----------
+  function readLocal() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveLocal(map) {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(map)); } catch (e) { /* 忽略 */ }
+  }
+  // 并集合并：同一徽章保留更早的 unlocked_at
+  function mergeUnlocks(a, b) {
+    const out = { ...a };
+    for (const [id, date] of Object.entries(b)) {
+      if (!out[id] || date < out[id]) out[id] = date;
+    }
+    return out;
+  }
+
   async function load() {
     if (loaded) return;
-    try {
-      unlocks = await DB.getAchievements();
-      loaded = true;
-    } catch (e) {
-      console.warn('[Achievements] 云端加载失败，按空表处理', e);
+    let cloud = {};
+    try { cloud = await DB.getAchievements(); } catch (e) { console.warn('[Achievements] 云端加载失败，先按本机镜像', e); }
+    const local = readLocal();
+    unlocks = mergeUnlocks(local, cloud);
+    // 差异写回（只增不改）：云端缺的按本机日期补插；本机缺的/日期更晚的校正为更早值
+    let dirty = false;
+    for (const [id, date] of Object.entries(unlocks)) {
+      if (!cloud[id]) DB.unlockAchievement(id, date).catch((e) => console.warn('[Achievements] 云端回补失败 ' + id, e));
+      if (!local[id] || local[id] !== date) dirty = true;
     }
+    if (dirty) saveLocal(unlocks);
+    loaded = true;
   }
 
   function getCombo() {
@@ -62,11 +87,36 @@ window.Achievements = (function () {
   function unlock(id) {
     if (unlocks[id]) return false;
     unlocks[id] = DB.todayISO();
-    // 先写内存（立即生效），云端异步落库；失败仅告警，徽章条件可再次评估解锁
+    // 先写内存（立即生效）+ 本机镜像；云端异步插入（已存在则 23505 忽略，绝不改日期）
+    saveLocal(unlocks);
     DB.unlockAchievement(id).catch((e) => console.warn('[Achievements] 解锁写入失败 ' + id, e));
     const def = DEFS.find((d) => d.id === id);
     if (def) toast(def.name);
     return true;
+  }
+
+  // 一次性修复：徽章日期被错误覆盖（如全部记成同一天）时，按 daily_logs 反推
+  // 真实解锁日期，清空云端重插正确值，并同步本机镜像与内存。
+  // 规则：first_day=最早学习日；combo20=最早有做题记录的日期；perfect_once=最早
+  // 考试满分日；streak7=streak 首次≥7 的日期。返回修好的 { 徽章id: 日期 }。
+  async function restoreDates() {
+    await load();
+    const logs = await DB.getAllLogs(); // 按日期升序
+    const fixed = {};
+    if (logs.length) fixed.first_day = logs[0].date;
+    const withQuiz = logs.find((l) => (l.quiz_total || 0) > 0);
+    if (withQuiz) fixed.combo20 = withQuiz.date;
+    const perfect = logs.find((l) => l.test_score === 100);
+    if (perfect) fixed.perfect_once = perfect.date;
+    const s7 = logs.find((l) => (l.streak || 0) >= 7);
+    if (s7) fixed.streak7 = s7.date;
+    if (!Object.keys(fixed).length) return fixed;
+
+    const rows = Object.entries(fixed).map(([badge_id, d]) => ({ badge_id, unlocked_at: d }));
+    await DB.replaceAchievements(rows);
+    unlocks = mergeUnlocks(unlocks, fixed); // 修复值都是更早的真实日期，覆盖错误值
+    saveLocal(unlocks);
+    return fixed;
   }
 
   // 每次作答后调用（correct=本次是否答对）：维护连对计数，达成即解锁
@@ -113,5 +163,5 @@ window.Achievements = (function () {
     return unlocks;
   }
 
-  return { DEFS, unlock, noteAnswer, evaluate, reload };
+  return { DEFS, unlock, noteAnswer, evaluate, reload, restoreDates };
 })();
