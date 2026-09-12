@@ -30,10 +30,11 @@
 // - 抽检名单与已完成的词存 localStorage（键 n5n2_spotcheck），当天不重复出现。
 //
 // ---------- 断点持久化 ----------
-// 会话（题目队列顺序、每题首次作答、判定结果、卡片进度、统计）存 localStorage
-//（键 n5n2_review_session，与新词 n5n2_newwords_session、考试 n5n2_exam_session
-// 互不覆盖）。中途退出/刷新后重进按存档原样恢复，不重新洗牌、不丢已答统计；
-// finish 时清除，跨天作废；「今日宜休」会调 discard() 清除未完成的断点。
+// 会话整体存云端 user_session_progress 的 queue_snapshot（按 date+module_type
+// 一行，与新词/考试互不干扰）。中途退出/刷新后重进按存档原样恢复，不重新洗牌、
+// 不丢已答统计；finish 时置 completed，跨天作废（按今天日期查询）；
+// 「今日宜休」会调 discard() 清除未完成的断点。
+// 旧的 localStorage 断点由「我的数据」页的「同步本机数据到云端」按钮迁移。
 //
 // ---------- 写库时机 ----------
 // 每个词/每张卡判定后立即更新对应 user_words 行（中途退出只损失当前项）；
@@ -47,7 +48,6 @@ window.Review = (function () {
   const INTERVALS = [1, 2, 4];            // 模式 B 艾宾浩斯阶梯（天）
   const A_LADDER = [1, 3, 7, 15, 30];     // 模式 A 间隔档位（天）
   const SPOT_KEY = 'n5n2_spotcheck';      // 抽检名单的 localStorage 键
-  const LS_KEY = 'n5n2_review_session';   // 当日复习断点的 localStorage 键
 
   let session = null;
   let current = null;      // 当前选择题 { q, options, answerIdx }
@@ -103,16 +103,17 @@ window.Review = (function () {
     try { localStorage.setItem(SPOT_KEY, JSON.stringify(s)); } catch (e) { /* 忽略 */ }
   }
 
-  // ---------- 断点持久化（键独立于新词/考试，互不覆盖） ----------
-  function loadSession() {
+  // ---------- 断点持久化（云端 user_session_progress，键空间与新词/考试按 module_type 区分） ----------
+  // 会话（题目队列顺序、每题首次作答、判定结果、卡片进度、统计）整体存
+  // queue_snapshot，按 date+module_type 一行。中途退出/刷新后重进按存档原样恢复，
+  // 不重新洗牌、不丢已答统计；finish 时置 completed，跨天作废（按今天日期查询）；
+  // 「今日宜休」会调 discard() 清除未完成的断点。
+  // 旧的 localStorage 断点由「我的数据」页的「同步本机数据到云端」按钮迁移。
+  async function loadSession() {
     try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (!s) return;
-      if (s.date !== DB.todayISO() || s.finished || !Array.isArray(s.items) || !Array.isArray(s.queue)) {
-        localStorage.removeItem(LS_KEY); // 跨天/已完成/残缺存档一律作废
-        return;
-      }
-      session = s;
+      const row = await DB.getSessionProgress('review', DB.todayISO());
+      if (!row || row.status !== 'in_progress' || !row.queue_snapshot) return; // 完成/无记录不恢复
+      session = row.queue_snapshot;
       // 对已判定的词幂等补写一次：防上次关闭页面时判定后的异步写库未落地
       //（字段都是绝对值，重复写无副作用；replay 模式不重复计数统计/抽检名单）
       pendingWrites = [];
@@ -121,12 +122,21 @@ window.Review = (function () {
           writeOutcome(Number(key), true).catch((e) => console.error('[Review] 断点补写失败 item_idx=' + key, e))
         );
       }
-    } catch (e) { session = null; }
+    } catch (e) {
+      console.warn('[Review] 云端断点读取失败，按无断点处理', e);
+    }
   }
   function saveSession() {
     if (!session || session.finished) return;
     session.lastTick = Date.now();
-    try { localStorage.setItem(LS_KEY, JSON.stringify(session)); } catch (e) { console.warn('[Review] 存档失败', e); }
+    const st = session.stats || {};
+    DB.saveSessionProgress('review', session.date, {
+      status: 'in_progress',
+      queue_snapshot: session,
+      current_index: st.qAnswered || 0,
+      correct_count: st.qCorrect || 0,
+      wrong_count: (st.qAnswered || 0) - (st.qCorrect || 0),
+    }).catch((e) => console.warn('[Review] 断点保存失败', e));
   }
 
   // 返回今日待抽检的 mastered 记录（user_words 行）
@@ -163,12 +173,12 @@ window.Review = (function () {
     const body = $('review-body');
     if (!body) return;
 
-    // 内存里的会话已跨天 → 作废（localStorage 存档由 loadSession 兜底清理）
+    // 内存里的会话已跨天 → 作废（云端按今天日期查询，跨天存档天然取不到）
     if (session && session.date !== DB.todayISO()) session = null;
 
-    // 内存为空（页面刷新过）→ 从 localStorage 恢复今天的断点：
+    // 内存为空（页面刷新过）→ 从云端恢复今天的断点：
     // 题目队列顺序、答题进度、统计按存档原样恢复，不重新洗牌
-    if (!session) loadSession();
+    if (!session) await loadSession();
 
     // 今天未完成的会话 → 按阶段直接续上
     if (session && !session.finished) {
@@ -599,7 +609,8 @@ window.Review = (function () {
     if (session.finished) return;
     session.finished = true;
     session.phase = 'done';
-    localStorage.removeItem(LS_KEY); // 完成即清断点：下次进入是新一轮，重新洗牌
+    // 完成即置 completed：下次进入是新一轮，重新洗牌（结果在 daily_logs，快照无需保留）
+    DB.deleteSessionProgress('review', session.date).catch((e) => console.warn('[Review] 断点清除失败', e));
     renderSummary(true); // 先渲染"正在保存结果…"（此时正确率还没算，显示 —）
     await saveResults();
   }
@@ -669,13 +680,10 @@ window.Review = (function () {
     if (retry) retry.addEventListener('click', saveResults);
   }
 
-  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + 云端）
   function discard() {
     if (session && !session.finished) session = null;
-    try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (s && !s.finished) localStorage.removeItem(LS_KEY);
-    } catch (e) { localStorage.removeItem(LS_KEY); }
+    DB.deleteSessionProgress('review', DB.todayISO()).catch((e) => console.warn('[Review] 断点清除失败', e));
   }
 
   return { enter, discard };

@@ -171,6 +171,105 @@ window.DB = (function () {
     return streak;
   }
 
+  // ---------- 成就徽章（云端表 user_achievements） ----------
+  // 已解锁徽章 → { 徽章id: 解锁日期 'YYYY-MM-DD' }
+  async function getAchievements() {
+    const { data, error } = await client.from('user_achievements').select('badge_id,unlocked_at');
+    if (error) throw error;
+    const map = {};
+    for (const r of data || []) map[r.badge_id] = String(r.unlocked_at || '').slice(0, 10);
+    return map;
+  }
+
+  // 解锁（幂等）：badge_id 有唯一约束，重复解锁被 23505 兜底拦截
+  async function unlockAchievement(badgeId) {
+    const { error } = await client.from('user_achievements')
+      .insert({ badge_id: badgeId, unlocked_at: todayISO() });
+    if (error) {
+      if (error.code === '23505') return false; // 已解锁
+      throw error;
+    }
+    return true;
+  }
+
+  // ---------- 断点续学（云端 user_session_progress，按 date + module_type 一行） ----------
+  // queue_snapshot 存完整会话对象（jsonb）；current_index/correct_count/wrong_count
+  // 是进度指示字段，首页卡片展示用，不必解析整个快照
+  async function getSessionProgress(moduleType, date) {
+    const { data, error } = await client.from('user_session_progress')
+      .select('*').eq('module_type', moduleType).eq('date', date).maybeSingle();
+    if (error) throw error;
+    return data || null;
+  }
+
+  // 保存断点：当天该模块已有记录则更新，没有则插入（不依赖唯一约束）
+  async function saveSessionProgress(moduleType, date, patch) {
+    const upd = await client.from('user_session_progress')
+      .update(patch).eq('module_type', moduleType).eq('date', date).select('id');
+    if (upd.error) throw upd.error;
+    if (upd.data && upd.data.length) return;
+    const { error } = await client.from('user_session_progress')
+      .insert({ module_type: moduleType, date, ...patch });
+    if (error) throw error;
+  }
+
+  async function deleteSessionProgress(moduleType, date) {
+    const { error } = await client.from('user_session_progress')
+      .delete().eq('module_type', moduleType).eq('date', date);
+    if (error) throw error;
+  }
+
+  // 迁移：本机 localStorage（徽章 + 3 个会话断点）→ 云端。
+  // 云端徽章已有数据时返回 null（不迁移）；否则迁移并清掉本机旧 key。
+  // 返回 { badges, sessions } 迁移数量。
+  async function migrateLocalData() {
+    const LS = {
+      ach: 'n5n2_achievements',
+      new: 'n5n2_newwords_session',
+      review: 'n5n2_review_session',
+      exam: 'n5n2_exam_session',
+    };
+    const cloud = await getAchievements();
+    if (Object.keys(cloud).length > 0) return null; // 云端已有数据，不覆盖
+
+    const report = { badges: 0, sessions: 0 };
+    // 徽章：{ 徽章id: 解锁日期 }
+    let local = {};
+    try { local = JSON.parse(localStorage.getItem(LS.ach)) || {}; } catch (e) { /* 忽略 */ }
+    for (const [badgeId, date] of Object.entries(local)) {
+      const { error } = await client.from('user_achievements')
+        .insert({ badge_id: badgeId, unlocked_at: date });
+      if (error) throw error;
+      report.badges++;
+    }
+    // 三个模块的断点：按会话自带日期落库，该日期已有记录则跳过
+    for (const mt of ['new', 'review', 'exam']) {
+      let s = null;
+      try { s = JSON.parse(localStorage.getItem(LS[mt])); } catch (e) { /* 忽略 */ }
+      if (!s || !s.date) continue;
+      const existing = await getSessionProgress(mt, s.date);
+      if (!existing) {
+        const st = s.stats || {};
+        const answered = st.qAnswered != null ? st.qAnswered : (st.answered || 0);
+        const correct = st.qCorrect != null ? st.qCorrect : (st.correct || 0);
+        const { error } = await client.from('user_session_progress').insert({
+          module_type: mt,
+          date: s.date,
+          status: (s.stage === 'done' || s.finished) ? 'completed' : 'in_progress',
+          queue_snapshot: s,
+          current_index: answered,
+          correct_count: correct,
+          wrong_count: answered - correct,
+        });
+        if (error) throw error;
+        report.sessions++;
+      }
+    }
+    // 迁移成功后清掉本机旧 key（n5n2_combo 连对计数不在迁移范围，保留）
+    Object.values(LS).forEach((k) => localStorage.removeItem(k));
+    return report;
+  }
+
   // ---------- 今日新词（第 2 步） ----------
 
   // 全部词的 id + 考频权重（每日选词用，约 6582 行，分页拉取）
@@ -421,5 +520,7 @@ window.DB = (function () {
     getWeakRows, getLearningRows, getExamHistory, setExamResult, addQuizStats,
     searchWords, getUserWordByWordId, getUserWordStatsRows, getAllWordLevels, getAllLogs,
     updateDailyLogFields, getMonthLogs, getStudyDaysTotal, getMasteredCount,
+    getAchievements, unlockAchievement,
+    getSessionProgress, saveSessionProgress, deleteSessionProgress, migrateLocalData,
   };
 })();

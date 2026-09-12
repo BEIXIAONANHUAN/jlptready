@@ -2,11 +2,13 @@
 // 今日新词（强制做题）
 // 流程：新词预览 → 分组做题（5 组 × 10 词，每词 3 题）→ 组间小结 → 当日总结
 //
-// 持久化：当日会话断点（preview/quiz/summary 阶段、组进度、每组题目队列顺序、
-// 每题作答状态）存 localStorage（键 n5n2_newwords_session）。中途退出/刷新后
-// 重进按存档原样恢复——题目顺序不重新洗牌、已答统计不丢失；跨天断点作废重来。
-// 但「今天是否已完成」一律以 Supabase 为准（daily_logs.new_words_count > 0），
-// 跨设备状态一致——进入本页时先查库，已完成则丢弃本地断点，防止跨设备重复学习。
+// 持久化：当日会话断点存 Supabase 表 user_session_progress（按 date+module_type
+// 一行，queue_snapshot 存完整会话）。中途退出/刷新后重进按存档原样恢复——
+// 题目顺序不重新洗牌、已答统计不丢失；跨天断点作废重来（按今天日期查询）。
+// 「今天是否已完成」一律以 daily_logs.new_words_count > 0 为准（跨设备一致）——
+// 进入本页时先查库，已完成则丢弃本地断点，防止跨设备重复学习。
+//
+// 旧的 localStorage 断点由「我的数据」页的「同步本机数据到云端」按钮迁移。
 //
 // 数据口径：
 // - 一个词「通过」= 该词的 3 道题都答对过（答错的题会重新插回当前组的剩余
@@ -20,7 +22,7 @@
 //   status 置为 'weak'，两个条件取或即可筛出全部薄弱词）。
 // ============================================================
 window.NewWords = (function () {
-  const LS_KEY = 'n5n2_newwords_session';
+  const MODULE = 'new';       // user_session_progress.module_type
   const DAILY_COUNT = 50;   // 每个工作日的新词数量（周末不出新词）
   const GROUP_SIZE = 10;    // 每组词数
 
@@ -48,16 +50,31 @@ window.NewWords = (function () {
     session.lastTick = now;
   }
 
-  function loadSession() {
+  // 从云端恢复今天的断点快照（done 的也恢复——完成视图/成绩补保存依赖它）
+  async function loadSession() {
     try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (s && s.date && Array.isArray(s.words)) session = s;
-    } catch (e) { /* 损坏的存档忽略，重新建会话 */ }
+      const row = await DB.getSessionProgress(MODULE, DB.todayISO());
+      if (row && row.queue_snapshot) session = row.queue_snapshot;
+    } catch (e) {
+      console.warn('[NewWords] 云端断点读取失败，按无断点处理', e);
+    }
   }
+
+  // 断点异步落库（每答一题/阶段切换都调用）：status 跟 stage 走，
+  // 题号/对错数取 stats（qAnswered 优先，兼容各模块字段名），首页卡片展示用
   function saveSession() {
     if (!session) return;
     session.lastTick = Date.now();
-    try { localStorage.setItem(LS_KEY, JSON.stringify(session)); } catch (e) { console.warn('[NewWords] 存档失败', e); }
+    const st = session.stats || {};
+    const answered = st.qAnswered != null ? st.qAnswered : (st.answered || 0);
+    const correct = st.qCorrect != null ? st.qCorrect : (st.correct || 0);
+    DB.saveSessionProgress(MODULE, session.date, {
+      status: session.stage === 'done' ? 'completed' : 'in_progress',
+      queue_snapshot: session,
+      current_index: answered,
+      correct_count: correct,
+      wrong_count: answered - correct,
+    }).catch((e) => console.warn('[NewWords] 断点保存失败', e));
   }
 
   const isWeekend = () => [0, 6].includes(new Date().getDay());
@@ -133,7 +150,6 @@ window.NewWords = (function () {
 
   // ---------- 入口：路由进入 #/new 时调用 ----------
   async function enter() {
-    loadSession();
     const body = $('new-body');
     if (!body) return;
 
@@ -143,11 +159,10 @@ window.NewWords = (function () {
     }
 
     // 完成状态以 Supabase 为准（跨设备一致）：今天 daily_logs 已有新词记录，
-    // 说明今天已完成过——以数据库为准，丢弃本地未完成断点，不再重复出题。
+    // 说明今天已完成过——以数据库为准，忽略云端断点，不再重复出题。
     try {
       const log = await DB.getDailyLog(DB.todayISO());
       if (log && log.new_words_count > 0) {
-        if (session) { session = null; localStorage.removeItem(LS_KEY); }
         renderAlreadyDone(log.new_words_count);
         return;
       }
@@ -158,11 +173,9 @@ window.NewWords = (function () {
       return;
     }
 
-    // 跨天作废：昨天未完成的断点不带入今天，重新开始（重新抽词、重新洗牌）
-    if (session && session.date !== DB.todayISO()) {
-      session = null;
-      localStorage.removeItem(LS_KEY);
-    }
+    // 今天未完成 → 从云端取断点（按今天日期查，跨天断点天然作废）
+    await loadSession();
+    if (session && session.date !== DB.todayISO()) session = null; // 跨天兜底
 
     if (session && session.stage === 'done') {
       // 今天已完成（跨天会话已在上面作废）：若上次关闭时成绩没存上，补一次保存
@@ -505,14 +518,16 @@ window.NewWords = (function () {
     if (retry) retry.addEventListener('click', finishDay);
   }
 
-  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）。
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + 云端）。
   // 已完成的存档保留——done 状态承担着「成绩待同步」的补保存入口。
   function discard() {
     if (session && session.stage !== 'done') session = null;
-    try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (s && s.stage !== 'done') localStorage.removeItem(LS_KEY);
-    } catch (e) { localStorage.removeItem(LS_KEY); }
+    (async () => {
+      try {
+        const row = await DB.getSessionProgress(MODULE, DB.todayISO());
+        if (row && row.status !== 'completed') await DB.deleteSessionProgress(MODULE, DB.todayISO());
+      } catch (e) { console.warn('[NewWords] 断点清除失败', e); }
+    })();
   }
 
   return { enter, discard };

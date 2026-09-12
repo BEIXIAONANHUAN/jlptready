@@ -14,12 +14,12 @@
 //   只进薄弱词池口径）；答对不写库。
 // - 评分：score = 正确率（0–100 整数），评级 S≥95 / A≥85 / B≥70 / C<70，
 //   写入 daily_logs 当天的 test_score、test_rating。
-// - 会话存 localStorage（键 n5n2_exam_session）：中途退出可续考——题目队列
-//   顺序与已答统计按存档原样恢复，不重新洗牌；跨天作废。
+// - 会话存 Supabase 表 user_session_progress（module_type='exam'）：中途退出可续考——
+//   题目队列顺序与已答统计按存档原样恢复，不重新洗牌；跨天作废（按今天日期查询）。
 //   当天完成后重进显示成绩页，一天只考一次。
+//   旧的 localStorage 断点由「我的数据」页的「同步本机数据到云端」按钮迁移。
 // ============================================================
 window.Exam = (function () {
-  const LS_KEY = 'n5n2_exam_session';
   const EXAM_SIZE = 60;
   const WEAK_TARGET = 50;
   const MASTERED_TARGET = 10;
@@ -49,17 +49,30 @@ window.Exam = (function () {
   }
   const isWeekend = () => [0, 6].includes(new Date().getDay());
 
-  function loadSession() {
+  // 从云端恢复今天的断点（done 的也恢复——成绩页展示依赖快照里的 score/rating）
+  async function loadSession() {
     try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (s && s.date === DB.todayISO() && Array.isArray(s.items)) session = s;
-      else session = null; // 考试按天作废，不跨天续考
-    } catch (e) { session = null; }
+      const row = await DB.getSessionProgress('exam', DB.todayISO());
+      session = row && row.queue_snapshot ? row.queue_snapshot : null;
+    } catch (e) {
+      session = null;
+      console.warn('[Exam] 云端断点读取失败，按无断点处理', e);
+    }
   }
+
+  // 断点异步落库（每题存档）：status 跟 stage 走；答错词的待写字段在快照的
+  // wronged 里，恢复时幂等补写
   function saveSession() {
     if (!session) return;
     session.lastTick = Date.now();
-    try { localStorage.setItem(LS_KEY, JSON.stringify(session)); } catch (e) { console.warn('[Exam] 存档失败', e); }
+    const st = session.stats || {};
+    DB.saveSessionProgress('exam', session.date, {
+      status: session.stage === 'done' ? 'completed' : 'in_progress',
+      queue_snapshot: session,
+      current_index: st.answered || 0,
+      correct_count: st.correct || 0,
+      wrong_count: (st.answered || 0) - (st.correct || 0),
+    }).catch((e) => console.warn('[Exam] 断点保存失败', e));
   }
 
   // ---------- 组卷 ----------
@@ -167,7 +180,7 @@ window.Exam = (function () {
       return;
     }
 
-    loadSession();
+    await loadSession();
     if (session) {
       // 幂等补写：上次关闭页面时答错题目的薄弱池写库可能未落地（绝对值字段，重复写无副作用）
       pendingWrites = Object.entries(session.wronged || {}).map(([uwId, fields]) =>
@@ -439,14 +452,16 @@ window.Exam = (function () {
     if (retry) retry.addEventListener('click', saveResult);
   }
 
-  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + localStorage）。
+  // 今日宜休时由首页调用：丢弃未完成的会话（内存 + 云端）。
   // 已完成的存档保留——成绩页展示和「一天只考一次」都依赖它。
   function discard() {
     if (session && session.stage !== 'done') session = null;
-    try {
-      const s = JSON.parse(localStorage.getItem(LS_KEY));
-      if (s && s.stage !== 'done') localStorage.removeItem(LS_KEY);
-    } catch (e) { localStorage.removeItem(LS_KEY); }
+    (async () => {
+      try {
+        const row = await DB.getSessionProgress('exam', DB.todayISO());
+        if (row && row.status !== 'completed') await DB.deleteSessionProgress('exam', DB.todayISO());
+      } catch (e) { console.warn('[Exam] 断点清除失败', e); }
+    })();
   }
 
   return { enter, discard };

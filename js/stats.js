@@ -40,8 +40,8 @@ window.Stats = (function () {
         }
       }
 
-      // 徽章评估（内部会弹新解锁的祝贺提示）
-      const unlocks = Achievements.evaluate({ logs, streak, masteredTotal: mastered, levelStats });
+      // 徽章评估（内部会弹新解锁的祝贺提示；已迁云端，跨设备一致）
+      const unlocks = await Achievements.evaluate({ logs, streak, masteredTotal: mastered, levelStats });
 
       render({ totalWords, mastered, learning, weak, days, totalWrong, levelStats, unlocks });
     } catch (e) {
@@ -100,7 +100,35 @@ window.Stats = (function () {
       <div class="stat-block">
         <div class="stat-title">成就徽章 <span class="stat-title-sub num">${Object.keys(d.unlocks).length}/${Achievements.DEFS.length}</span></div>
         <div class="badge-wall">${badges}</div>
+      </div>
+
+      <div class="stat-block">
+        <button class="btn btn-secondary" id="btn-migrate">同步本机数据到云端</button>
+        <div id="migrate-tip" style="font-size:0.8rem;color:var(--color-text-sub);margin-top:8px;"></div>
       </div>`;
+
+    // 旧 localStorage（徽章 + 三个模块断点）→ 云端的一次性迁移
+    $('btn-migrate').addEventListener('click', async () => {
+      const btn = $('btn-migrate');
+      const tip = $('migrate-tip');
+      btn.disabled = true;
+      tip.textContent = '正在同步…';
+      try {
+        const report = await DB.migrateLocalData();
+        if (report === null) {
+          tip.textContent = '云端数据已存在，未同步';
+        } else {
+          tip.textContent = `同步完成：徽章 ${report.badges} 枚，断点 ${report.sessions} 条`;
+          await Achievements.reload(); // 重新加载云端徽章
+          enter();                     // 刷新徽章墙
+        }
+      } catch (e) {
+        console.error('[Stats] 同步失败', e);
+        tip.textContent = '同步失败，请检查网络后重试';
+      } finally {
+        btn.disabled = false;
+      }
+    });
   }
 
   return { enter };
