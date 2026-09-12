@@ -199,12 +199,17 @@ window.Exam = (function () {
     try { log = await DB.getDailyLog(DB.todayISO()); } catch (e) { console.warn('[Exam] 今日成绩查询失败', e); }
     if (log && log.test_score != null) {
       if (!session || session.stage !== 'done') {
+        // 快照缺失的历史考试：daily_logs 的 quiz_correct/quiz_total 是当天
+        // 全模块累计（复习+考试+新词），绝不能当本次考试题数。考试题数固定
+        // 60 词 × 2 = 120；答对数由得分反推（分数本身以 test_score 为准）。
+        const totalQ = EXAM_SIZE * 2;
+        const correct = Math.round(((log.test_score || 0) * totalQ) / 100);
         session = {
           date: DB.todayISO(), stage: 'done', persisted: true, items: [], wronged: {},
           score: log.test_score, rating: log.test_rating,
-          totalQ: log.quiz_total || 0,
-          stats: { answered: log.quiz_total || 0, correct: log.quiz_correct || 0 },
-          elapsedMs: null, // 历史数据无用时记录，结算页用时显示 —
+          totalQ,
+          stats: { answered: totalQ, correct },
+          elapsedMs: null, // 历史重建数据，无时长记录
         };
       }
       const history = await DB.getExamHistory();
@@ -477,7 +482,7 @@ window.Exam = (function () {
           <div class="done-item"><div class="done-num num">${total}</div><div class="done-label">总题数</div></div>
           <div class="done-item"><div class="done-num num">${session.stats.correct}</div><div class="done-label">答对</div></div>
           <div class="done-item"><div class="done-num num">${wrong}</div><div class="done-label">答错（已入薄弱池）</div></div>
-          <div class="done-item"><div class="done-num num">${mins == null ? '—' : mins}</div><div class="done-label">用时（分钟）</div></div>
+          <div class="done-item"><div class="done-num num">${mins == null ? '—' : mins}</div><div class="done-label">${mins == null ? '用时（历史重建数据，无时长记录）' : '用时（分钟）'}</div></div>
         </div>
         ${bestHtml}
         <div class="done-status">${saveError || (saving ? '正在保存成绩…' : '成绩已保存')}</div>

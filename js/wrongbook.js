@@ -35,7 +35,7 @@ window.WrongBook = (function () {
     drill = null;
     body.innerHTML = '<div class="placeholder">正在加载…</div>';
     try {
-      const weak = await DB.getWeakRows(1000);
+      const weak = await DB.getWeakRows(); // 分页拉全量，无 1000 条静默截断
       if (!weak.length) {
         rows = [];
         render();

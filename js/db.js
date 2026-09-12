@@ -386,16 +386,36 @@ window.DB = (function () {
 
   // ---------- 周末考试 + 错题本（第 5 步） ----------
 
-  // 薄弱词池：wrong_count>0 或 weak_reason 非空，按做错次数降序
+  // 薄弱词池：wrong_count>0 或 weak_reason 非空，按做错次数降序。
+  // 传 limit：只取前 N（周末考试组卷用）；不传：分页拉全量（错题本列表用，
+  // 避免薄弱词超 1000 后静默截断）
   async function getWeakRows(limit) {
-    const { data, error } = await client
-      .from('user_words')
-      .select('*')
-      .or('wrong_count.gt.0,weak_reason.not.is.null')
-      .order('wrong_count', { ascending: false })
-      .limit(limit || 1000);
-    if (error) throw error;
-    return data;
+    if (limit) {
+      const { data, error } = await client
+        .from('user_words')
+        .select('*')
+        .or('wrong_count.gt.0,weak_reason.not.is.null')
+        .order('wrong_count', { ascending: false })
+        .limit(limit);
+      if (error) throw error;
+      return data;
+    }
+    const PAGE = 1000;
+    const out = [];
+    let from = 0;
+    while (true) {
+      const { data, error } = await client
+        .from('user_words')
+        .select('*')
+        .or('wrong_count.gt.0,weak_reason.not.is.null')
+        .order('wrong_count', { ascending: false })
+        .order('id')
+        .range(from, from + PAGE - 1);
+      if (error) throw error;
+      for (const r of data) out.push(r);
+      if (data.length < PAGE) return out;
+      from += PAGE;
+    }
   }
 
   // 学习中的词（考试凑题用）
