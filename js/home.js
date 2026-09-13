@@ -139,16 +139,43 @@ window.Home = (function () {
     }
   }
 
-  // 「今日复习」卡片：真实待复习数（模式 B 到期 + 模式 A 到期卡片）；
-  // 为 0 时区分 已完成（含正确率与昨日对比）/ 暂无
+  // 「今日复习」卡片判定源（与复习页/结算页统一）：
+  // ① daily_logs.review_count>0 → 已完成（review_count 只在结算时写入，最权威，
+  //    即使有历史竞态遗留的僵尸断点行也不影响已完成判定）
+  // ② 云端 in_progress 断点 → 进行中/继续复习（快照自相矛盾的僵尸行视为无效）
+  // ③ 到期数 → 待复习；④ 都没有 → 暂无
   async function renderReviewCard() {
     const meta = $('review-meta');
     const btn = $('btn-review');
-    // 有今天未完成的复习断点 → 优先显示「继续复习」：到期词可能已随判定清零，
-    // 但做题/卡片还没走完、结果尚未汇总，不能因 due=0 挡住续作入口
+
+    // ① 已完成
+    let log = null;
+    try { log = await DB.getDailyLog(DB.todayISO()); } catch (e) { console.warn('[Home] 今日日志读取失败', e); }
+    if (log && log.review_count > 0) {
+      let extra = '';
+      if (log.review_acc != null) {
+        extra = ` <span class="dot">·</span>正确率 <span class="num ok">${log.review_acc}%</span>`;
+        try {
+          const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
+          if (yLog && yLog.review_acc != null) {
+            const diff = log.review_acc - yLog.review_acc;
+            extra += `（比昨日 <span class="num ${diff >= 0 ? 'cmp-up' : 'cmp-down'}">${diff >= 0 ? '+' : ''}${diff}%</span>）`;
+          }
+        } catch (e) { /* 昨日对比失败可忽略 */ }
+      }
+      meta.innerHTML = `今日已复习 <span class="num">${log.review_count}</span> 词${extra}`;
+      btn.textContent = '已完成';
+      btn.disabled = true;
+      return;
+    }
+
+    // ② 进行中断点：到期词可能已随判定清零，但做题/卡片还没走完、结果尚未
+    //    汇总（review_count 还没写入），不能因 due=0 挡住续作入口；
+    //    status=in_progress 但快照 finished=true 的僵尸行（历史写入竞态遗留）视为无效
     try {
       const row = await DB.getSessionProgress('review', DB.todayISO());
-      const rs = row && row.status === 'in_progress' ? row.queue_snapshot : null;
+      const snap = row && row.queue_snapshot;
+      const rs = row && row.status === 'in_progress' && snap && !snap.finished ? snap : null;
       if (rs && rs.stats && rs.items) {
         meta.innerHTML = `进行中 <span class="dot">·</span>已判定 <span class="num">${rs.stats.wordsDone}</span>/<span class="num">${rs.items.length}</span> 词`;
         btn.disabled = false;
@@ -156,6 +183,7 @@ window.Home = (function () {
         return;
       }
     } catch (e) { console.warn('[Home] 复习断点读取失败', e); }
+
     try {
       const [dueB, dueA] = await Promise.all([DB.getReviewDueCount(), DB.getModeADueCount()]);
       const due = dueB + dueA;
@@ -166,23 +194,8 @@ window.Home = (function () {
         btn.textContent = '开始复习';
         return;
       }
-      const log = await DB.getDailyLog(DB.todayISO());
-      if (log && log.review_count > 0) {
-        let extra = '';
-        if (log.review_acc != null) {
-          extra = ` <span class="dot">·</span>正确率 <span class="num ok">${log.review_acc}%</span>`;
-          const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
-          if (yLog && yLog.review_acc != null) {
-            const diff = log.review_acc - yLog.review_acc;
-            extra += `（比昨日 <span class="num ${diff >= 0 ? 'cmp-up' : 'cmp-down'}">${diff >= 0 ? '+' : ''}${diff}%</span>）`;
-          }
-        }
-        meta.innerHTML = `今日已复习 <span class="num">${log.review_count}</span> 词${extra}`;
-        btn.textContent = '已完成';
-      } else {
-        meta.innerHTML = '今日暂无待复习词';
-        btn.textContent = '无待复习';
-      }
+      meta.innerHTML = '今日暂无待复习词';
+      btn.textContent = '无待复习';
       btn.disabled = true;
     } catch (e) {
       console.warn('[Home] 复习卡片加载失败', e);

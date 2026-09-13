@@ -68,9 +68,11 @@ window.Exam = (function () {
     if (!session) return;
     session.lastTick = Date.now();
     const st = session.stats || {};
+    // 调用点深拷贝：防 stage 突变后被晚到的 fire-and-forget 写入序列化旧引用
+    const snapshot = JSON.parse(JSON.stringify(session));
     DB.saveSessionProgress('exam', session.date, {
       status: session.stage === 'done' ? 'completed' : 'in_progress',
-      queue_snapshot: session,
+      queue_snapshot: snapshot,
       current_index: st.answered || 0,
       correct_count: st.correct || 0,
       wrong_count: (st.answered || 0) - (st.correct || 0),

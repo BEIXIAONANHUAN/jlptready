@@ -126,17 +126,40 @@ window.Review = (function () {
       console.warn('[Review] 云端断点读取失败，按无断点处理', e);
     }
   }
+  // 途中断点写入链：finish 必须等最后一笔断点写入落库后再置 completed，
+  // 否则晚到的 in_progress 写入会把完成态盖回云端（产生僵尸行）
+  let lastSave = Promise.resolve();
+
   function saveSession() {
     if (!session || session.finished) return;
     session.lastTick = Date.now();
     const st = session.stats || {};
-    DB.saveSessionProgress('review', session.date, {
+    // 快照在调用点深拷贝——patch 传对象引用的话，fire-and-forget 的写入会
+    // 在 finish 突变 session 之后才序列化，把完成态内存当成进行中断点写回云端
+    const snapshot = JSON.parse(JSON.stringify(session));
+    lastSave = DB.saveSessionProgress('review', session.date, {
       status: 'in_progress',
-      queue_snapshot: session,
+      queue_snapshot: snapshot,
       current_index: st.qAnswered || 0,
       correct_count: st.qCorrect || 0,
       wrong_count: (st.qAnswered || 0) - (st.qCorrect || 0),
     }).catch((e) => console.warn('[Review] 断点保存失败', e));
+  }
+
+  // 完成态落库（finish 调用）：status=completed，与 new/exam 模块统一——
+  // completed 行 loadSession 不恢复、首页不显示，天然失效，且无"删行后旧写入
+  // 复活"的竞态
+  function saveCompleted() {
+    if (!session) return;
+    const st = session.stats || {};
+    const snapshot = JSON.parse(JSON.stringify(session));
+    lastSave = DB.saveSessionProgress('review', session.date, {
+      status: 'completed',
+      queue_snapshot: snapshot,
+      current_index: st.qAnswered || 0,
+      correct_count: st.qCorrect || 0,
+      wrong_count: (st.qAnswered || 0) - (st.qCorrect || 0),
+    }).catch((e) => console.warn('[Review] 完成态保存失败', e));
   }
 
   // 返回今日待抽检的 mastered 记录（user_words 行）
@@ -455,8 +478,14 @@ window.Review = (function () {
     const allCorrect = results.every(Boolean);
 
     if (item.kind === 'spot') {
-      // 抽检：做对不写库（不影响 mode_a 间隔）；做错立即降级回模式 B
-      if (!replay) markSpotDone(uw.word_id);
+      // 抽检：做对不写库（不影响 mode_a 间隔）；做错立即降级回模式 B。
+      // 统计口径与模式 B 一致：判定即计数（wordsDone 无条件、全对计 wordsCorrect），
+      // 否则 decided 与 stats 对不上（漏加会导致首页进度/复习词数少算抽检词）。
+      if (!replay) {
+        markSpotDone(uw.word_id);
+        session.stats.wordsDone++;
+        if (allCorrect) session.stats.wordsCorrect++;
+      }
       if (!allCorrect) {
         await DB.updateUserWord(uw.id, {
           status: 'learning',
@@ -609,8 +638,10 @@ window.Review = (function () {
     if (session.finished) return;
     session.finished = true;
     session.phase = 'done';
-    // 完成即置 completed：下次进入是新一轮，重新洗牌（结果在 daily_logs，快照无需保留）
-    DB.deleteSessionProgress('review', session.date).catch((e) => console.warn('[Review] 断点清除失败', e));
+    // 先等途中的断点写入落库，再置 completed——避免 in_progress 写入晚到、
+    // 把完成态盖回云端（首页/复习页读到自相矛盾的僵尸行）
+    await lastSave;
+    saveCompleted();
     renderSummary(true); // 先渲染"正在保存结果…"（此时正确率还没算，显示 —）
     await saveResults();
   }

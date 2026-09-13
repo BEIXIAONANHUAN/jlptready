@@ -68,9 +68,11 @@ window.NewWords = (function () {
     const st = session.stats || {};
     const answered = st.qAnswered != null ? st.qAnswered : (st.answered || 0);
     const correct = st.qCorrect != null ? st.qCorrect : (st.correct || 0);
+    // 调用点深拷贝：防 stage 突变后被晚到的 fire-and-forget 写入序列化旧引用
+    const snapshot = JSON.parse(JSON.stringify(session));
     DB.saveSessionProgress(MODULE, session.date, {
       status: session.stage === 'done' ? 'completed' : 'in_progress',
-      queue_snapshot: session,
+      queue_snapshot: snapshot,
       current_index: answered,
       correct_count: correct,
       wrong_count: answered - correct,

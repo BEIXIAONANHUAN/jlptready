@@ -6,7 +6,7 @@
 //
 // 【重要】每次修改部署任何 js/css/html 后，把下面 CACHE 版本号 +1，
 // 否则用户端会继续用旧缓存，新代码不生效。
-const CACHE = 'jlptready-v14';
+const CACHE = 'jlptready-v15';
 
 const CORE = [
   './',
