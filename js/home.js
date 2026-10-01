@@ -276,15 +276,34 @@ window.Home = (function () {
   }
 
   // 从数据库加载：Streak、复习卡片、休息状态
+  // ensureCheckedInDone：补判已写入 streak 时跳过随后到达的旧 getStreak 结果，避免被覆盖回 29
+  let ensureCheckedInDone = false;
+
   async function loadData() {
     try {
-      setStreak(await DB.getStreak());
+      const s = await DB.getStreak();
+      if (!ensureCheckedInDone) setStreak(s);
     } catch (e) {
       console.warn('[Home] streak 加载失败', e);
     }
     renderReviewCard();
     renderRestState();
     renderShareButton();
+  }
+
+  // 后台补判：不阻塞首页渲染；成功写入 streak 后只增量刷新顶栏连击 + 分享按钮
+  async function backgroundEnsureCheckIn() {
+    try {
+      if (!window.CheckIn || !CheckIn.ensureTodayCheckedIn) return;
+      const result = await CheckIn.ensureTodayCheckedIn();
+      if (result && result.written && result.streak != null) {
+        ensureCheckedInDone = true;
+        setStreak(result.streak);
+        renderShareButton();
+      }
+    } catch (e) {
+      console.error('[Home] 打卡补判失败', e);
+    }
   }
 
   // 连通性测试：读取 words 表总数，输出到控制台并显示在页脚
@@ -315,6 +334,8 @@ window.Home = (function () {
     bindEvents();
     testConnection();
     loadData();
+    // 补判放后台：先完整渲染首页，绝不因补判超时/失败阻断渲染
+    backgroundEnsureCheckIn();
   }
 
   // 路由回到首页时刷新（卡片状态可能变了）

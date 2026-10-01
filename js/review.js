@@ -667,7 +667,7 @@ window.Review = (function () {
       }
       const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
       renderSummary(false, yLog && yLog.review_acc != null ? yLog.review_acc : null);
-      if (window.CheckIn) CheckIn.maybeCompleteToday(); // 复习清零 → 尝试自动打卡
+      if (window.CheckIn) await CheckIn.maybeCompleteToday(); // 复习清零 → 尝试自动打卡（await 防丢失）
     } catch (e) {
       console.error('[Review] 结果保存失败', e);
       renderSummary(false, null, '结果保存失败，请检查网络后点击重试');

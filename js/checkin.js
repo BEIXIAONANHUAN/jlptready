@@ -46,31 +46,52 @@ window.CheckIn = (function () {
     return n;
   }
 
-  // ---------- 自动打卡判定（由各学习流程收尾时调用，fire-and-forget） ----------
+  // 写 streak：失败重试一次，再失败抛给上层（至少重试一次再放弃）
+  async function writeStreakWithRetry(date, streak) {
+    try {
+      await DB.updateDailyLogFields(date, { streak });
+    } catch (e1) {
+      console.error('[CheckIn] streak 写入失败，正在重试一次', e1);
+      await DB.updateDailyLogFields(date, { streak });
+    }
+  }
+
+  // ---------- 自动打卡判定（各学习流程收尾 await；加载时补判走 ensureTodayCheckedIn） ----------
+  // 幂等：今天已打卡（streak>0）或休息日直接 return，绝不重复 +1。
+  // 永不 throw，避免污染调用方（如复习结算）的保存流程；写库失败 console.error 后放弃。
+  // 返回 { written, streak }：written=true 表示本次写入了 streak。
   async function maybeCompleteToday() {
     try {
       const today = DB.todayISO();
       const log = await DB.getDailyLog(today);
-      if (log && log.is_rest) return;            // 休息日不打卡
-      if (log && (log.streak || 0) > 0) return;  // 今天已打卡
+      if (log && log.is_rest) return { written: false, streak: null };            // 休息日不打卡
+      if (log && (log.streak || 0) > 0) return { written: false, streak: log.streak }; // 今天已打卡
 
       const isWk = [0, 6].includes(new Date().getDay());
       // 主任务：平日=新词完成；周末=考试完成
       const mainDone = isWk
         ? !!(log && log.test_score != null)
         : !!(log && (log.new_words_count || 0) > 0);
-      if (!mainDone) return;
+      if (!mainDone) return { written: false, streak: null };
 
       // 复习清零：模式 B / 模式 A 都没有到期剩余
       const [dueB, dueA] = await Promise.all([DB.getReviewDueCount(), DB.getModeADueCount()]);
-      if (dueB + dueA > 0) return;
+      if (dueB + dueA > 0) return { written: false, streak: null };
 
       const chain = await chainEndingAt(DB.datePlusDays(-1));
-      await DB.updateDailyLogFields(today, { streak: chain + 1 });
-      console.log('[CheckIn] 今日打卡完成，streak =', chain + 1);
+      const streak = chain + 1;
+      await writeStreakWithRetry(today, streak);
+      console.log('[CheckIn] 今日打卡完成，streak =', streak);
+      return { written: true, streak };
     } catch (e) {
-      console.warn('[CheckIn] 打卡判定失败', e);
+      console.error('[CheckIn] 打卡判定失败', e);
+      return { written: false, streak: null };
     }
+  }
+
+  // 加载时补判入口（首页 / 打卡页）：复用 maybeCompleteToday 全部条件，幂等。
+  async function ensureTodayCheckedIn() {
+    return maybeCompleteToday();
   }
 
   // ---------- 今日宜休 ----------
@@ -97,11 +118,24 @@ window.CheckIn = (function () {
   }
 
   // ---------- 打卡页（月历） ----------
+  // 渲染时序：先渲染月历（不被补判阻塞）；渲染完成后再后台补判，
+  // 成功写入 streak 后重绘月历（今天格子变绿）。补判失败不影响页面。
   async function enter() {
     const now = new Date();
     vy = now.getFullYear();
     vm = now.getMonth();
-    await renderCalendar();
+    const rendered = renderCalendar().catch((e) => {
+      console.error('[CheckIn] 月历渲染失败', e);
+    });
+    rendered.then(async () => {
+      try {
+        const result = await ensureTodayCheckedIn();
+        if (result && result.written) await renderCalendar();
+      } catch (e) {
+        console.error('[CheckIn] 打卡补判失败', e);
+      }
+    });
+    await rendered;
   }
 
   // 某天四态：rest / high / done / none / future
@@ -210,5 +244,5 @@ window.CheckIn = (function () {
     overlay.querySelector('#modal-close').addEventListener('click', () => overlay.remove());
   }
 
-  return { enter, maybeCompleteToday, setRestToday, isRestToday };
+  return { enter, maybeCompleteToday, ensureTodayCheckedIn, setRestToday, isRestToday };
 })();

@@ -449,7 +449,7 @@ window.Exam = (function () {
       session.persisted = true;
       saveSession();
       renderDone(false, null, history);
-      if (window.CheckIn) CheckIn.maybeCompleteToday(); // 考试完成 → 尝试自动打卡
+      if (window.CheckIn) await CheckIn.maybeCompleteToday(); // 考试完成 → 尝试自动打卡（await 防丢失）
     } catch (e) {
       console.error('[Exam] 成绩保存失败', e);
       renderDone(false, '成绩保存失败，请检查网络后点击重试');

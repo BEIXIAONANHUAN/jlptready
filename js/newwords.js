@@ -493,7 +493,7 @@ window.NewWords = (function () {
       console.warn('[NewWords] 做题统计写入失败（不影响成绩保存）', e);
     }
     session.persisted = true;
-    if (window.CheckIn) CheckIn.maybeCompleteToday(); // 新词完成 → 尝试自动打卡
+    if (window.CheckIn) await CheckIn.maybeCompleteToday(); // 新词完成 → 尝试自动打卡（await 防丢失）
   }
 
   function renderDone(saveError) {
