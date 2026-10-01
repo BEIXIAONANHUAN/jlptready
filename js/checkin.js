@@ -56,6 +56,19 @@ window.CheckIn = (function () {
     }
   }
 
+  // 队列可覆盖的到期词数（与复习队列同源）：due 词里能在 words 表取到、
+  // 真正进得了队列的才算数。词条缺失/无法出题的词客观上清不完，
+  // 不该无限期阻断打卡（方案 C）。
+  async function countQueueableDue() {
+    const [dueB, dueA] = await Promise.all([DB.getModeBDueWords(), DB.getModeADueWords()]);
+    const ids = [...new Set([...dueB, ...dueA].map((r) => r.word_id))];
+    if (!ids.length) return 0;
+    const words = await DB.getWordsByIds(ids);
+    const byId = {};
+    for (const w of words) byId[w.id] = w;
+    return dueB.filter((uw) => byId[uw.word_id]).length + dueA.filter((uw) => byId[uw.word_id]).length;
+  }
+
   // ---------- 自动打卡判定（各学习流程收尾 await；加载时补判走 ensureTodayCheckedIn） ----------
   // 幂等：今天已打卡（streak>0）或休息日直接 return，绝不重复 +1。
   // 永不 throw，避免污染调用方（如复习结算）的保存流程；写库失败 console.error 后放弃。
@@ -74,9 +87,9 @@ window.CheckIn = (function () {
         : !!(log && (log.new_words_count || 0) > 0);
       if (!mainDone) return { written: false, streak: null };
 
-      // 复习清零：模式 B / 模式 A 都没有到期剩余
-      const [dueB, dueA] = await Promise.all([DB.getReviewDueCount(), DB.getModeADueCount()]);
-      if (dueB + dueA > 0) return { written: false, streak: null };
+      // 复习清零：与队列同源——只计能进队列的 due 词
+      const queueableDue = await countQueueableDue();
+      if (queueableDue > 0) return { written: false, streak: null };
 
       const chain = await chainEndingAt(DB.datePlusDays(-1));
       const streak = chain + 1;

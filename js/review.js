@@ -114,13 +114,22 @@ window.Review = (function () {
       const row = await DB.getSessionProgress('review', DB.todayISO());
       if (!row || row.status !== 'in_progress' || !row.queue_snapshot) return; // 完成/无记录不恢复
       session = row.queue_snapshot;
-      // 对已判定的词幂等补写一次：防上次关闭页面时判定后的异步写库未落地
-      //（字段都是绝对值，重复写无副作用；replay 模式不重复计数统计/抽检名单）
+      if (!session.decided) session.decided = {};
+      if (!session.writeFailed) session.writeFailed = {};
+      // 补写两类：① 已标 decided 的（防写库异步未落地）② 首次作答已齐但 decided
+      // 尚未落快照的（写库成功前崩溃）。字段都是绝对值，重复写无副作用；
+      // replay 不重复计数统计/抽检名单。写库带 3 次重试，失败进 writeFailed。
       pendingWrites = [];
-      for (const key of Object.keys(session.decided || {})) {
-        pendingWrites.push(
-          writeOutcome(Number(key), true).catch((e) => console.error('[Review] 断点补写失败 item_idx=' + key, e))
-        );
+      const needReplay = new Set();
+      for (const key of Object.keys(session.decided || {})) needReplay.add(Number(key));
+      for (const key of Object.keys(session.attempts || {})) {
+        const i = Number(key);
+        if (session.decided && session.decided[i]) continue;
+        const at = session.attempts[i];
+        if (at && Object.keys(at).length >= 1 && session.items[i]) needReplay.add(i);
+      }
+      for (const i of needReplay) {
+        pendingWrites.push(writeOutcomeWithRetry(i, true));
       }
     } catch (e) {
       console.warn('[Review] 云端断点读取失败，按无断点处理', e);
@@ -230,20 +239,43 @@ window.Review = (function () {
       const byId = {};
       for (const w of words) byId[w.id] = w;
 
+      // 词条缺失（words 表取不到）→ 不静默丢弃：console.error + 进错题本 + 记入 skipped
+      const skipped = [];
+      async function healSkipped(uw, reason) {
+        console.error('[Review] 词条缺失，跳过出题', reason, 'word_id=' + uw.word_id, 'uw_id=' + uw.id);
+        skipped.push(uw);
+        try {
+          await DB.updateUserWord(uw.id, {
+            weak_reason: reason,
+            // 顺延一天，避免同一缺失词每天都以 due 身份占着待复习计数
+            mode_b_due: DB.tomorrowISO(),
+          });
+        } catch (e) {
+          console.error('[Review] 缺失词标记失败', uw.word_id, e);
+        }
+      }
+
       // 做题环节：模式 B（每词 1 题）+ 抽检（每词 1 题），混排
       const items = [];
       const queue = [];
       const attempts = {};
       let idx = 0;
+      const healPromises = [];
       for (const uw of dueB) {
-        if (!byId[uw.word_id]) continue;
+        if (!byId[uw.word_id]) {
+          healPromises.push(healSkipped(uw, '词条缺失，无法出题'));
+          continue;
+        }
         items.push({ kind: 'b', uw, word: byId[uw.word_id] });
         pickTypes(byId[uw.word_id], 1).forEach((type, k) => queue.push({ i: idx, qid: idx + '-' + k, type }));
         attempts[idx] = {};
         idx++;
       }
       for (const uw of spot) {
-        if (!byId[uw.word_id]) continue;
+        if (!byId[uw.word_id]) {
+          healPromises.push(healSkipped(uw, '词条缺失，无法出题'));
+          continue;
+        }
         items.push({ kind: 'spot', uw, word: byId[uw.word_id] });
         queue.push({ i: idx, qid: idx + '-0', type: pickTypes(byId[uw.word_id], 1)[0] });
         attempts[idx] = {};
@@ -251,8 +283,23 @@ window.Review = (function () {
       }
       shuffle(queue);
 
-      // 翻卡环节：模式 A 到期卡片
-      const cards = dueA.filter((uw) => byId[uw.word_id]).map((uw) => ({ uw, word: byId[uw.word_id], front: pickCardFront(byId[uw.word_id]) }));
+      // 翻卡环节：模式 A 到期卡片（同样不静默丢）
+      const cards = [];
+      for (const uw of dueA) {
+        if (!byId[uw.word_id]) {
+          healPromises.push(healSkipped(uw, '词条缺失，无法出题'));
+          continue;
+        }
+        cards.push({ uw, word: byId[uw.word_id], front: pickCardFront(byId[uw.word_id]) });
+      }
+      await Promise.all(healPromises);
+
+      // 全部 due 词都因词条缺失被跳过 → 按空态处理（不建空会话）
+      if (!items.length && !cards.length) {
+        session = null;
+        renderEmpty();
+        return;
+      }
 
       const pool = queue.length ? await DB.getDistractorPool() : [];
 
@@ -261,6 +308,7 @@ window.Review = (function () {
         date: DB.todayISO(),
         items, queue, attempts, cards, pool,
         decided: {},
+        writeFailed: {},
         phase: 'start',
         cardIndex: 0,
         flipped: false,
@@ -429,13 +477,12 @@ window.Review = (function () {
 
     if (firstTry) {
       at[q.qid] = correct;
-      // 该词的题都已完成首次作答（模式 B 1 题、抽检 1 题）→ 判定并立即写库
+      // 该词的题都已完成首次作答（模式 B 1 题、抽检 1 题）→ 判定并写库。
+      // decided 只在写库成功（或 3 次重试后放弃）后才落快照，避免「已判定」
+      // 先于落库导致断点恢复漏补、due 被永久扣押。
       const expected = 1;
-      if (Object.keys(at).length >= expected && !session.decided[q.i]) {
-        session.decided[q.i] = true;
-        pendingWrites.push(
-          writeOutcome(q.i).catch((e) => console.error('[Review] 写库失败 item_idx=' + q.i, e))
-        );
+      if (Object.keys(at).length >= expected && !(session.decided && session.decided[q.i])) {
+        pendingWrites.push(writeOutcomeWithRetry(q.i, false));
       }
     }
 
@@ -468,71 +515,118 @@ window.Review = (function () {
     renderQuiz();
   }
 
-  // 判定一个词（模式 B 或抽检），立即写库。
+  // 判定一个词（模式 B 或抽检）并写库，失败最多重试 3 次。
   // replay=true 用于断点恢复时的幂等补写：只重发数据库写（字段都是绝对值，
   // 重复写无副作用），不重复计数统计、不重复标抽检名单。
-  async function writeOutcome(i, replay) {
-    const item = session.items[i];
-    const { uw } = item;
-    const results = Object.values(session.attempts[i]);
-    const allCorrect = results.every(Boolean);
+  // 统计在首次进入时累加（与写库成败无关），保证 acc 口径稳定。
+  // 返回 { ok, i }；永不 throw。成功后标 decided；3 次仍失败 → writeFailed +
+  // 尽力写 weak_reason='写入失败' 进错题本，不阻塞结算。
+  const WRITE_MAX_ATTEMPTS = 3;
 
-    if (item.kind === 'spot') {
-      // 抽检：做对不写库（不影响 mode_a 间隔）；做错立即降级回模式 B。
-      // 统计口径与模式 B 一致：判定即计数（wordsDone 无条件、全对计 wordsCorrect），
-      // 否则 decided 与 stats 对不上（漏加会导致首页进度/复习词数少算抽检词）。
-      if (!replay) {
-        markSpotDone(uw.word_id);
-        session.stats.wordsDone++;
-        if (allCorrect) session.stats.wordsCorrect++;
+  async function writeUserWordWithRetry(uwId, fields) {
+    let lastErr;
+    for (let a = 1; a <= WRITE_MAX_ATTEMPTS; a++) {
+      try {
+        await DB.updateUserWord(uwId, fields);
+        return true;
+      } catch (e) {
+        lastErr = e;
+        console.error(`[Review] 写库失败 id=${uwId} 第 ${a}/${WRITE_MAX_ATTEMPTS} 次`, e);
       }
-      if (!allCorrect) {
+    }
+    throw lastErr;
+  }
+
+  async function markWriteFailed(i) {
+    if (!session.writeFailed) session.writeFailed = {};
+    session.writeFailed[i] = true;
+    session.decided[i] = true; // 防止同会话重复触发
+    saveSession();
+    // 尽力写入错题本标记（这里再失败也只能放弃，靠方案 C 不挡打卡）
+    try {
+      const uw = session.items[i] && session.items[i].uw;
+      if (uw) {
         await DB.updateUserWord(uw.id, {
-          status: 'learning',
-          mode_b_count: 0,
-          mode_b_due: DB.tomorrowISO(),
-          mode_a_due: null,
-          weak_reason: '抽检做错',
+          weak_reason: '写入失败',
           wrong_count: (uw.wrong_count || 0) + 1,
         });
       }
-      return;
+    } catch (e) {
+      console.error('[Review] 写入失败标记也未落库 item_idx=' + i, e);
     }
+  }
 
-    // 模式 B 判定。
-    // 统计口径：wordsDone/wordsCorrect 在【判定时刻】同步累加（先于写库），
-    // 保证队列清空触发 finish() 时统计已完整——若放在 await 之后，
-    // 最后一个词的异步写库未完成时 acc 会算成 wordsCorrect/少算的 wordsDone。
-    let fields;
-    if (allCorrect) {
-      const newCount = (uw.mode_b_count || 0) + 1;
-      if (!replay) session.stats.wordsCorrect++;
-      if (newCount >= 3) {
-        // 毕业：连续 3 次复习做对 → mastered，进入模式 A 已掌握池
-        fields = {
-          status: 'mastered',
-          mode_b_count: newCount,
-          mode_b_due: null,
-          mode_a_interval: 1,
-          mode_a_due: DB.tomorrowISO(),
-        };
-        if (!replay) session.stats.graduated++;
+  async function writeOutcomeWithRetry(i, replay) {
+    const item = session.items && session.items[i];
+    if (!item) return { ok: false, i };
+    const { uw } = item;
+    const results = Object.values((session.attempts && session.attempts[i]) || {});
+    const allCorrect = results.length > 0 && results.every(Boolean);
+
+    try {
+      if (item.kind === 'spot') {
+        // 抽检：做对不写库（不影响 mode_a 间隔）；做错立即降级回模式 B。
+        // 统计口径与模式 B 一致：判定即计数（wordsDone 无条件、全对计 wordsCorrect）。
+        if (!replay) {
+          markSpotDone(uw.word_id);
+          session.stats.wordsDone++;
+          if (allCorrect) session.stats.wordsCorrect++;
+        }
+        if (!allCorrect) {
+          await writeUserWordWithRetry(uw.id, {
+            status: 'learning',
+            mode_b_count: 0,
+            mode_b_due: DB.tomorrowISO(),
+            mode_a_due: null,
+            weak_reason: '抽检做错',
+            wrong_count: (uw.wrong_count || 0) + 1,
+          });
+        }
+        session.decided[i] = true;
+        saveSession();
+        return { ok: true, i };
+      }
+
+      // 模式 B 判定。统计在判定时刻累加（先于写库成败），
+      // 保证队列清空触发 finish() 时统计已完整。
+      let fields;
+      if (allCorrect) {
+        const newCount = (uw.mode_b_count || 0) + 1;
+        if (!replay) session.stats.wordsCorrect++;
+        if (newCount >= 3) {
+          // 毕业：连续 3 次复习做对 → mastered，进入模式 A 已掌握池
+          fields = {
+            status: 'mastered',
+            mode_b_count: newCount,
+            mode_b_due: null,
+            mode_a_interval: 1,
+            mode_a_due: DB.tomorrowISO(),
+          };
+          if (!replay) session.stats.graduated++;
+        } else {
+          fields = {
+            mode_b_count: newCount,
+            mode_b_due: DB.datePlusDays(INTERVALS[newCount - 1]),
+          };
+        }
       } else {
         fields = {
-          mode_b_count: newCount,
-          mode_b_due: DB.datePlusDays(INTERVALS[newCount - 1]),
+          mode_b_count: 0,
+          mode_b_due: DB.tomorrowISO(),
+          wrong_count: (uw.wrong_count || 0) + 1,
+          weak_reason: '复习做错',
         };
       }
-    } else {
-      fields = {
-        mode_b_count: 0,
-        mode_b_due: DB.tomorrowISO(),
-        wrong_count: (uw.wrong_count || 0) + 1,
-        weak_reason: '复习做错',
-      };
+      if (!replay) session.stats.wordsDone++;
+      await writeUserWordWithRetry(uw.id, fields);
+      session.decided[i] = true;
+      saveSession();
+      return { ok: true, i };
+    } catch (e) {
+      console.error('[Review] 判定写库最终失败 item_idx=' + i, e);
+      await markWriteFailed(i);
+      return { ok: false, i };
     }
-    if (!replay) session.stats.wordsDone++; // 先计数再写库，见上方口径注释
-    await DB.updateUserWord(uw.id, fields);
   }
 
   // ---------- 翻卡环节（模式 A 卡片自测） ----------
@@ -648,8 +742,11 @@ window.Review = (function () {
 
   async function saveResults() {
     try {
-      await Promise.all(pendingWrites); // 确保所有判定都已落库、统计已完整
-      // 全部写库完成后再算正确率（双保险，配合 writeOutcome 里的同步计数）。
+      // 等所有判定写库（含 3 次重试）结束。pendingWrites 永不 throw，
+      // 结果形如 { ok, i }；ok=false 表示该词 3 次仍失败（已进错题本）。
+      const outcomes = await Promise.all(pendingWrites);
+      const failCount = (outcomes || []).filter((o) => o && o.ok === false).length;
+      // 全部写库完成后算正确率（统计在判定时刻已累加）。
       // 纯翻卡场次（没有做题词）acc 为 null：addReviewResult 不会覆盖当天已有的 review_acc。
       session.acc = session.stats.wordsDone
         ? Math.round((session.stats.wordsCorrect / session.stats.wordsDone) * 100)
@@ -666,7 +763,9 @@ window.Review = (function () {
         }
       }
       const yLog = await DB.getDailyLog(DB.datePlusDays(-1));
-      renderSummary(false, yLog && yLog.review_acc != null ? yLog.review_acc : null);
+      const writeFailNote = failCount > 0 ? `${failCount} 个词写入失败，已放入错题本` : null;
+      renderSummary(false, yLog && yLog.review_acc != null ? yLog.review_acc : null, null, writeFailNote);
+      // 不因个别词写入失败而阻断打卡判定（配合方案 C：队列清不完的词不挡打卡）
       if (window.CheckIn) await CheckIn.maybeCompleteToday(); // 复习清零 → 尝试自动打卡（await 防丢失）
     } catch (e) {
       console.error('[Review] 结果保存失败', e);
@@ -674,7 +773,7 @@ window.Review = (function () {
     }
   }
 
-  function renderSummary(saving, yesterdayAcc, saveError) {
+  function renderSummary(saving, yesterdayAcc, saveError, writeFailNote) {
     const s = session.stats;
     const mins = Math.max(1, Math.round(session.elapsedMs / 60000));
 
@@ -702,7 +801,7 @@ window.Review = (function () {
         </div>
         ${cardLine}
         ${compareHtml}
-        <div class="done-status">${saveError || (saving ? '正在保存结果…' : '结果已保存')}</div>
+        <div class="done-status">${saveError || (saving ? '正在保存结果…' : (writeFailNote ? `结果已保存 <span class="dot">·</span> ${writeFailNote}` : '结果已保存'))}</div>
         ${saveError ? '<button class="btn btn-primary" id="btn-retry-save">重试保存</button>' : ''}
         <button class="btn btn-primary" id="btn-back-home">回首页</button>
       </div>`;
