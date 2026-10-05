@@ -135,19 +135,23 @@ window.GrammarSearch = (function () {
       return;
     }
     box.innerHTML = lastResults.map((g, i) => `
-      <div class="wb-row search-row" data-idx="${i}">
-        <div class="wb-info">
-          <div class="wb-line1">
-            <span class="wb-word jp">${esc(g.pattern)}</span>
-            <span class="wb-reading jp">${esc(g.continuation || '')}</span>
-            <span class="lv-badge">${esc(g.pos || '')}</span>
-            ${statusBadge(g.id)}
-          </div>
-          <div class="wb-line2">${esc(g.meaning)}</div>
+      <article class="gh-srow gh-srow-hit" data-idx="${i}">
+        <h3 class="gh-srow-title jp">${esc(g.pattern)}</h3>
+        <div class="gh-srow-tags">
+          ${g.pos ? `<span class="gh-tag">${esc(g.pos)}</span>` : ''}
+          ${statusBadge(g.id)}
         </div>
-      </div>`).join('');
-    box.querySelectorAll('.search-row').forEach((el) => {
+        <div class="gh-srow-cont jp">${esc(g.continuation || '—')}</div>
+        <div class="gh-srow-meaning is-clamp">${esc(g.meaning)}</div>
+      </article>`).join('');
+    box.querySelectorAll('.gh-srow-hit').forEach((el) => {
       el.addEventListener('click', () => renderDetail(lastResults[Number(el.dataset.idx)]));
+    });
+    box.querySelectorAll('.gh-srow-meaning.is-clamp').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation(); // 展开释义时不进入详情
+        el.classList.toggle('is-clamp');
+      });
     });
   }
 
@@ -164,45 +168,58 @@ window.GrammarSearch = (function () {
 
     let trackHtml;
     if (!ug) {
-      trackHtml = '<div class="detail-status">尚未学习</div>';
+      trackHtml = `
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">个人轨迹</div>
+          <div class="gh-pblock-body">尚未学习</div>
+        </section>`;
     } else {
       const weak = (ug.wrong_count || 0) > 0 || !!ug.weak_reason;
       const statusText = ug.status === 'mastered' ? '已掌握' : ug.status === 'learning' ? '学习中' : '未学';
       trackHtml = `
-        <div class="detail-status">
-          我的状态：<span class="num">${statusText}</span>${weak ? ' <span class="status-weak">薄弱 · 需强化</span>' : ''}
-        </div>
-        <div class="detail-block">
-          <div class="detail-label">个人轨迹</div>
-          <div>学过日期 <span class="num">${esc(ug.created_at ? String(ug.created_at).slice(0, 10) : '—')}</span>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">个人轨迹</div>
+          <div class="gh-pblock-body">
+            我的状态：<span class="num">${statusText}</span>${weak ? ' <span class="status-weak">薄弱 · 需强化</span>' : ''}
+            <br>学过日期 <span class="num">${esc(ug.created_at ? String(ug.created_at).slice(0, 10) : '—')}</span>
             <span class="dot">·</span> 累计做错 <span class="num">${ug.wrong_count || 0}</span> 次
-            <span class="dot">·</span> 最近错因 ${esc(ug.weak_reason || '—')}</div>
-        </div>`;
+            <span class="dot">·</span> 最近错因 ${esc(ug.weak_reason || '—')}
+          </div>
+        </section>`;
     }
 
     const exampleHtml = (ja, zh) => ja ? `
-      <div class="detail-block">
-        <div class="detail-label">例句</div>
-        <div class="detail-example jp">${esc(ja)}</div>
-        ${zh ? `<div class="detail-example-zh">${esc(zh)}</div>` : ''}
-      </div>` : '';
+      <section class="gh-pblock gh-pblock-ex">
+        <div class="gh-pblock-label">例句</div>
+        <div class="gh-pblock-body">
+          <div class="gh-ex-jp jp">${esc(ja)}</div>
+          ${zh ? `<div class="gh-ex-zh">${esc(zh)}</div>` : ''}
+        </div>
+      </section>` : '';
 
     box.innerHTML = `
       <div class="summary-card">
         <button class="btn btn-ghost" id="gh-back-list">← 返回结果列表</button>
-        <div class="detail-word jp">${esc(g.pattern)}</div>
-        <div class="detail-reading jp">${esc(g.continuation || '')}</div>
-        <div class="detail-tags">
-          ${g.pos ? `<span class="lv-badge">${esc(g.pos)}</span>` : ''}
-          ${g.level ? `<span class="lv-badge">${esc(g.level)}</span>` : ''}
+        <div class="gh-dcard">
+          <header class="gh-pcard-head">
+            <h2 class="gh-pcard-title jp">${esc(g.pattern)}</h2>
+            <div class="gh-pcard-tags">
+              ${g.pos ? `<span class="gh-tag">${esc(g.pos)}</span>` : ''}
+              ${g.level ? `<span class="gh-tag gh-tag-lv">${esc(g.level)}</span>` : ''}
+            </div>
+          </header>
+          <section class="gh-pblock">
+            <div class="gh-pblock-label">接续</div>
+            <div class="gh-pblock-body jp">${esc(g.continuation || '—')}</div>
+          </section>
+          <section class="gh-pblock">
+            <div class="gh-pblock-label">释义</div>
+            <div class="gh-pblock-body">${esc(g.meaning)}</div>
+          </section>
+          ${exampleHtml(g.example1, g.example1_zh)}
+          ${exampleHtml(g.example2, g.example2_zh)}
+          ${trackHtml}
         </div>
-        <div class="detail-block">
-          <div class="detail-label">释义</div>
-          <div>${esc(g.meaning)}</div>
-        </div>
-        ${exampleHtml(g.example1, g.example1_zh)}
-        ${exampleHtml(g.example2, g.example2_zh)}
-        ${trackHtml}
       </div>`;
     $('gh-back-list').addEventListener('click', () => renderList($('gh-search-input').value.trim()));
   }
@@ -318,10 +335,25 @@ window.GrammarSearch = (function () {
     // 解析卡：条目 + 接续 + 释义 + 本题解析
     const explain = $('gh-quiz-explain');
     explain.innerHTML = `
-      <div class="wd-jp jp">${esc(grammar.pattern)}</div>
-      ${grammar.continuation ? `<div class="wd-pos jp" style="margin-bottom:10px;">接续：${esc(grammar.continuation)}</div>` : ''}
-      <div class="wd-meaning">${esc(grammar.meaning)}</div>
-      ${q.explanation ? `<div class="wd-pos" style="text-align:left;">${esc(q.explanation)}</div>` : ''}`;
+      <div class="gh-dcard">
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">条目</div>
+          <div class="gh-pblock-body jp">${esc(grammar.pattern)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">接续</div>
+          <div class="gh-pblock-body jp">${esc(grammar.continuation || '—')}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">释义</div>
+          <div class="gh-pblock-body">${esc(grammar.meaning)}</div>
+        </section>
+        ${q.explanation ? `
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">解析</div>
+          <div class="gh-pblock-body">${esc(q.explanation)}</div>
+        </section>` : ''}
+      </div>`;
     explain.style.display = '';
     const tip = $('gh-tap-continue');
     tip.style.display = '';

@@ -241,30 +241,283 @@ window.GrammarNew = (function () {
     }
   }
 
-  // ---------- 步骤 1：新语法预览 ----------
+  // ---------- 步骤 1：新语法预览（一屏一卡 · 左右滑动） ----------
+  // 只改「长什么样 / 怎么滑」：取数字段与 stage→quiz 行为与旧版一致。
+  let previewSwipe = null;
+
   function renderPreview() {
-    const rows = session.items.map((g) => `
-      <div class="wrow">
-        <span class="wrow-word jp">${esc(g.pattern)}</span>
-        <span class="wrow-reading jp">${esc(g.continuation || '')}</span>
-        <span class="wrow-pos">${esc(g.pos || '')}</span>
-        <div class="wrow-meaning">${esc(g.meaning)}
-          ${g.example1 ? `<div class="detail-example jp">${esc(g.example1)}</div>` : ''}
-          ${g.example1_zh ? `<div class="detail-example-zh">${esc(g.example1_zh)}</div>` : ''}
-        </div>
-      </div>`).join('');
+    const items = session.items;
+    const n = items.length;
+
+    const cards = items.map((g, i) => `
+      <article class="gh-pcard" data-i="${i}">
+        <header class="gh-pcard-head">
+          <h2 class="gh-pcard-title jp">${esc(g.pattern)}</h2>
+          <div class="gh-pcard-tags">
+            ${g.pos ? `<span class="gh-tag">${esc(g.pos)}</span>` : ''}
+            ${g.level ? `<span class="gh-tag gh-tag-lv">${esc(g.level)}</span>` : ''}
+          </div>
+        </header>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">接续</div>
+          <div class="gh-pblock-body jp">${esc(g.continuation || '—')}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">释义</div>
+          <div class="gh-pblock-body">${esc(g.meaning)}</div>
+        </section>
+        ${g.example1 ? `
+        <section class="gh-pblock gh-pblock-ex">
+          <div class="gh-pblock-label">例句</div>
+          <div class="gh-pblock-body">
+            <div class="gh-ex-jp jp">${esc(g.example1)}</div>
+            ${g.example1_zh ? `<div class="gh-ex-zh">${esc(g.example1_zh)}</div>` : ''}
+          </div>
+        </section>` : ''}
+      </article>`).join('');
+
+    const dots = items.map((_, i) =>
+      `<button type="button" class="gh-dot${i === 0 ? ' is-on' : ''}" data-to="${i}" aria-label="第${i + 1}条"></button>`
+    ).join('');
+
     $('gh-new-body').innerHTML = `
-      <div class="preview-tip">今日 <span class="num">${session.items.length}</span> 个新语法，先浏览一遍</div>
-      <div class="wtable">${rows}</div>
+      <div class="preview-tip">今日 <span class="num">${n}</span> 个新语法，先浏览一遍</div>
+      <div class="gh-swiper" id="gh-swiper">
+        <div class="gh-track" id="gh-track">${cards}</div>
+      </div>
       <div class="cta-bar"><div class="cta-inner">
+        <div class="gh-bottom">
+          <div class="gh-progress">
+            <div class="gh-dots" id="gh-dots">${dots}</div>
+            <div class="gh-pos num"><span id="gh-pos-cur">1</span>/<span>${n}</span></div>
+          </div>
+          <div class="gh-nav">
+            <button type="button" class="btn gh-nav-btn" id="btn-prev-g" ${n <= 1 ? 'disabled' : ''}>上一个</button>
+            <button class="btn btn-danger gh-start-btn" id="btn-start-test">开始测试</button>
+            <button type="button" class="btn gh-nav-btn" id="btn-next-g" ${n <= 1 ? 'disabled' : ''}>下一个</button>
+          </div>
+        </div>
         <div class="preview-tip">测试共 <span class="num">${session.questions.length}</span> 题，答错的题会重新出现，直到做对</div>
-        <button class="btn btn-danger" id="btn-start-test">开始测试</button>
       </div></div>`;
+
     $('btn-start-test').addEventListener('click', () => {
       session.stage = 'quiz';
       saveSession();
       render();
+      destroyPreviewSwipe(); // 预览已卸载：释放滑动监听（不影响上面三行）
     });
+
+    bindPreviewSwipe(n);
+  }
+
+  // 手写滑动：translateX + 弹簧物理；跟手、边界橡皮筋、鼠标拖拽、reduced-motion 降级
+  function destroyPreviewSwipe() {
+    if (previewSwipe && previewSwipe.destroy) previewSwipe.destroy();
+    previewSwipe = null;
+  }
+
+  function bindPreviewSwipe(count) {
+    const root = $('gh-swiper');
+    const track = $('gh-track');
+    if (!root || !track || count < 1) return;
+
+    destroyPreviewSwipe();
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cards = Array.from(track.children);
+    let width = root.clientWidth || 1;
+    let index = 0;
+    let x = 0;
+    let vel = 0;
+    let dragging = false;
+    let axis = null;
+    let startX = 0, startY = 0, lastX = 0, lastT = 0;
+    let raf = 0;
+    let destroyed = false;
+
+    function rubber(pos) {
+      const min = -width * (count - 1);
+      const max = 0;
+      if (pos > max) return max + (pos - max) * 0.28;
+      if (pos < min) return min + (pos - min) * 0.28;
+      return pos;
+    }
+
+    function paint(pos) {
+      x = pos;
+      track.style.transform = 'translate3d(' + pos + 'px,0,0)';
+      const p = -pos / width;
+      for (let i = 0; i < cards.length; i++) {
+        const d = Math.min(1, Math.abs(i - p));
+        if (reduce) {
+          cards[i].style.transform = 'none';
+          cards[i].style.opacity = String(1 - d * 0.55);
+        } else {
+          cards[i].style.transform = 'scale(' + (1 - d * 0.055) + ')';
+          cards[i].style.opacity = String(1 - d * 0.38);
+        }
+      }
+    }
+
+    function syncChrome() {
+      const cur = $('gh-pos-cur');
+      if (cur) cur.textContent = String(index + 1);
+      const ds = document.querySelectorAll('#gh-dots .gh-dot');
+      for (let i = 0; i < ds.length; i++) ds[i].classList.toggle('is-on', i === index);
+      const prev = $('btn-prev-g');
+      const next = $('btn-next-g');
+      if (prev) prev.disabled = index <= 0;
+      if (next) next.disabled = index >= count - 1;
+    }
+
+    function stopAnim() {
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    }
+
+    // 弹簧（k/c）：跟手松手后有回弹，非 linear
+    function springTo(target) {
+      stopAnim();
+      if (reduce) {
+        vel = 0;
+        paint(target);
+        return;
+      }
+      let pos = x;
+      let v = vel;
+      const k = 240;
+      const c = 30;
+      let last = performance.now();
+      function step(now) {
+        if (destroyed) return;
+        let dt = (now - last) / 1000;
+        if (dt > 0.032) dt = 0.032;
+        last = now;
+        v += (-k * (pos - target) - c * v) * dt;
+        pos += v * dt;
+        if (Math.abs(pos - target) < 0.35 && Math.abs(v) < 12) {
+          paint(target);
+          vel = 0;
+          raf = 0;
+          return;
+        }
+        paint(pos);
+        vel = v;
+        raf = requestAnimationFrame(step);
+      }
+      raf = requestAnimationFrame(step);
+    }
+
+    function go(to, animate) {
+      index = Math.max(0, Math.min(count - 1, to));
+      syncChrome();
+      const target = -index * width;
+      if (animate === false) {
+        stopAnim();
+        vel = 0;
+        paint(target);
+      } else {
+        springTo(target);
+      }
+    }
+
+    function onDown(px, py) {
+      stopAnim();
+      dragging = true;
+      axis = null;
+      startX = px;
+      startY = py;
+      lastX = px;
+      lastT = performance.now();
+      vel = 0;
+    }
+
+    function onMove(px, py, ev) {
+      if (!dragging) return;
+      const dx = px - startX;
+      const dy = py - startY;
+      if (!axis) {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        axis = Math.abs(dx) > Math.abs(dy) * 1.2 ? 'x' : 'y';
+        if (axis === 'x' && ev && ev.cancelable) ev.preventDefault();
+      }
+      if (axis !== 'x') return;
+      if (ev && ev.cancelable) ev.preventDefault();
+      const now = performance.now();
+      const dt = now - lastT || 16;
+      vel = ((px - lastX) / dt) * 1000;
+      lastX = px;
+      lastT = now;
+      // 连滑只跟最终落点：直接覆盖位移，不排队动画
+      paint(rubber(-index * width + dx));
+    }
+
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+      if (axis !== 'x') {
+        axis = null;
+        return;
+      }
+      axis = null;
+      const dx = x - (-index * width);
+      const dist = width * 0.22;
+      let to = index;
+      if (Math.abs(vel) > 480) to = vel < 0 ? index + 1 : index - 1;
+      else if (Math.abs(dx) > dist) to = dx < 0 ? index + 1 : index - 1;
+      go(to, true);
+    }
+
+    function pd(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerId != null && root.setPointerCapture) {
+        try { root.setPointerCapture(e.pointerId); } catch (_) { /* ignore */ }
+      }
+      onDown(e.clientX, e.clientY);
+    }
+    function pm(e) {
+      if (!dragging) return;
+      onMove(e.clientX, e.clientY, e);
+    }
+    function pu() { onUp(); }
+
+    root.addEventListener('pointerdown', pd);
+    window.addEventListener('pointermove', pm, { passive: false });
+    window.addEventListener('pointerup', pu);
+    window.addEventListener('pointercancel', pu);
+
+    const prevBtn = $('btn-prev-g');
+    const nextBtn = $('btn-next-g');
+    if (prevBtn) prevBtn.addEventListener('click', () => go(index - 1, true));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(index + 1, true));
+    const dotsEl = $('gh-dots');
+    if (dotsEl) {
+      dotsEl.addEventListener('click', (e) => {
+        const t = e.target.closest('.gh-dot');
+        if (t) go(Number(t.dataset.to), true);
+      });
+    }
+
+    function onResize() {
+      width = root.clientWidth || 1;
+      go(index, false);
+    }
+    window.addEventListener('resize', onResize);
+
+    previewSwipe = {
+      destroy() {
+        destroyed = true;
+        stopAnim();
+        window.removeEventListener('resize', onResize);
+        root.removeEventListener('pointerdown', pd);
+        window.removeEventListener('pointermove', pm);
+        window.removeEventListener('pointerup', pu);
+        window.removeEventListener('pointercancel', pu);
+      },
+    };
+
+    syncChrome();
+    paint(0);
   }
 
   // ---------- 步骤 2：做题 ----------
@@ -357,14 +610,33 @@ window.GrammarNew = (function () {
     setTimeout(() => tip.classList.add('fade'), 2000);
 
     $('word-detail').innerHTML = `
-      <div class="wd-meaning">${esc(g.meaning)}</div>
-      <div class="wd-jp jp">${esc(g.pattern)}</div>
-      ${g.continuation ? `<div class="wd-pos jp">接续：${esc(g.continuation)}</div>` : ''}
-      <div class="detail-block">
-        ${g.example1 ? `<div class="detail-example jp">${esc(g.example1)}</div>` : ''}
-        ${g.example1_zh ? `<div class="detail-example-zh">${esc(g.example1_zh)}</div>` : ''}
-      </div>
-      ${showExplanation ? `<div class="detail-block" style="text-align:left"><div class="detail-label">解析</div><div class="detail-example">${esc(current.q.explanation)}</div></div>` : ''}`;
+      <div class="gh-dcard">
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">释义</div>
+          <div class="gh-pblock-body">${esc(g.meaning)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">条目</div>
+          <div class="gh-pblock-body jp">${esc(g.pattern)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">接续</div>
+          <div class="gh-pblock-body jp">${esc(g.continuation || '—')}</div>
+        </section>
+        ${g.example1 ? `
+        <section class="gh-pblock gh-pblock-ex">
+          <div class="gh-pblock-label">例句</div>
+          <div class="gh-pblock-body">
+            <div class="gh-ex-jp jp">${esc(g.example1)}</div>
+            ${g.example1_zh ? `<div class="gh-ex-zh">${esc(g.example1_zh)}</div>` : ''}
+          </div>
+        </section>` : ''}
+        ${showExplanation ? `
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">解析</div>
+          <div class="gh-pblock-body">${esc(current.q.explanation)}</div>
+        </section>` : ''}
+      </div>`;
     $('word-detail').style.display = '';
   }
 
@@ -389,13 +661,17 @@ window.GrammarNew = (function () {
 
     const weakHtml = weak.length
       ? `<div class="weak-title">薄弱语法（答错过，已记入薄弱池）</div>
-         <div class="wtable">${weak.map(({ g, wrong }) => `
-           <div class="wrow">
-             <span class="wrow-word jp">${esc(g.pattern)}</span>
-             <span class="wrow-reading jp">${esc(g.continuation || '')}</span>
-             <span class="wrow-pos">${esc(g.pos || '')}</span>
-             <div class="wrow-meaning">${esc(g.meaning)}<span class="wb-count">答错 ${wrong} 题</span></div>
-           </div>`).join('')}</div>`
+         <div class="gh-slist">${weak.map(({ g, wrong }) => `
+           <article class="gh-srow">
+             <h3 class="gh-srow-title jp">${esc(g.pattern)}</h3>
+             <div class="gh-srow-tags">
+               ${g.pos ? `<span class="gh-tag">${esc(g.pos)}</span>` : ''}
+               ${g.level ? `<span class="gh-tag gh-tag-lv">${esc(g.level)}</span>` : ''}
+             </div>
+             <div class="gh-srow-cont jp">${esc(g.continuation || '—')}</div>
+             <div class="gh-srow-meaning is-clamp" title="点击展开">${esc(g.meaning)}</div>
+             <div class="gh-srow-foot"><span class="wb-count">答错 ${wrong} 题</span></div>
+           </article>`).join('')}</div>`
       : '<div class="weak-title">全部一次通过，没有薄弱语法</div>';
 
     const statusHtml = saveState === 'saved'
@@ -425,6 +701,10 @@ window.GrammarNew = (function () {
     $('btn-go-review').addEventListener('click', () => { location.hash = '#/grammar/review'; });
     const retry = $('btn-retry-save');
     if (retry) retry.addEventListener('click', settle);
+    // 释义两行截断，点一下展开/收起
+    $('gh-new-body').querySelectorAll('.gh-srow-meaning.is-clamp').forEach((el) => {
+      el.addEventListener('click', () => el.classList.toggle('is-clamp'));
+    });
   }
 
   // 结算（幂等，可重试）：写 user_grammar + daily_logs → 删除断点 → 语法打卡判定。
@@ -536,9 +816,15 @@ window.GrammarNew = (function () {
   // 今日宜休时由语法首页调用：丢弃未完成的会话（内存 + 云端）。
   // 已完成的存档保留——done 状态承担着「成绩待同步」的补保存入口。
   function discard() {
+    destroyPreviewSwipe();
     if (session && session.stage !== 'done') session = null;
     DB.deleteSessionProgress(MODULE, DB.todayISO()).catch((e) => console.warn('[GrammarNew] 断点清除失败', e));
   }
 
-  return { enter, discard };
+  // 路由切出 #/grammar/new 时由 Router 调用：释放滑动监听
+  function leave() {
+    destroyPreviewSwipe();
+  }
+
+  return { enter, discard, leave };
 })();

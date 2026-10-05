@@ -22,8 +22,20 @@ window.Router = (function () {
     return { module: null, page: null };
   }
 
+  // 上一跳路由（用于识别「离开 grammar/new」；初始为 null，首屏不算切出）
+  let prev = null;
+
+  function isGrammarNew(r) {
+    return !!(r && r.module === 'grammar' && r.page === 'new');
+  }
+
   // 页面切入时的回调（刷新数据 / 恢复断点）
   function onEnter(route) {
+    // 仅当上一跳是 grammar/new、当前不是，且 GrammarNew 已加载时才 leave（其它路由零调用）
+    if (isGrammarNew(prev) && !isGrammarNew(route) && window.GrammarNew && GrammarNew.leave) {
+      GrammarNew.leave();
+    }
+    prev = route;
     if (route.module === 'grammar') {
       if (route.page === 'new' && window.GrammarNew) GrammarNew.enter();
       if (route.page === 'review' && window.GrammarReview) GrammarReview.enter();

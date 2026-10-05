@@ -261,14 +261,33 @@ window.GrammarReview = (function () {
     setTimeout(() => tip.classList.add('fade'), 2000);
 
     $('word-detail').innerHTML = `
-      <div class="wd-meaning">${esc(g.meaning)}</div>
-      <div class="wd-jp jp">${esc(g.pattern)}</div>
-      ${g.continuation ? `<div class="wd-pos jp">接续：${esc(g.continuation)}</div>` : ''}
-      <div class="detail-block">
-        ${g.example1 ? `<div class="detail-example jp">${esc(g.example1)}</div>` : ''}
-        ${g.example1_zh ? `<div class="detail-example-zh">${esc(g.example1_zh)}</div>` : ''}
-      </div>
-      ${showExplanation ? `<div class="detail-block" style="text-align:left"><div class="detail-label">解析</div><div class="detail-example">${esc(q.explanation)}</div></div>` : ''}`;
+      <div class="gh-dcard">
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">释义</div>
+          <div class="gh-pblock-body">${esc(g.meaning)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">条目</div>
+          <div class="gh-pblock-body jp">${esc(g.pattern)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">接续</div>
+          <div class="gh-pblock-body jp">${esc(g.continuation || '—')}</div>
+        </section>
+        ${g.example1 ? `
+        <section class="gh-pblock gh-pblock-ex">
+          <div class="gh-pblock-label">例句</div>
+          <div class="gh-pblock-body">
+            <div class="gh-ex-jp jp">${esc(g.example1)}</div>
+            ${g.example1_zh ? `<div class="gh-ex-zh">${esc(g.example1_zh)}</div>` : ''}
+          </div>
+        </section>` : ''}
+        ${showExplanation ? `
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">解析</div>
+          <div class="gh-pblock-body">${esc(q.explanation)}</div>
+        </section>` : ''}
+      </div>`;
     $('word-detail').style.display = '';
   }
 

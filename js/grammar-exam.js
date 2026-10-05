@@ -501,9 +501,20 @@ window.GrammarExam = (function () {
     setTimeout(() => tip.classList.add('fade'), 2000);
 
     $('gex-detail').innerHTML = `
-      <div class="wd-meaning">${esc(e.meaning)}</div>
-      <div class="wd-jp jp">${esc(e.pattern)}</div>
-      <div class="wd-pos">${esc(e.pos)}${e.level ? `<span class="dot">·</span>${esc(e.level)}` : ''}</div>`;
+      <div class="gh-dcard">
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">释义</div>
+          <div class="gh-pblock-body">${esc(e.meaning)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">条目</div>
+          <div class="gh-pblock-body jp">${esc(e.pattern)}</div>
+        </section>
+        <section class="gh-pblock">
+          <div class="gh-pblock-label">分类</div>
+          <div class="gh-pblock-body">${esc(e.pos)}${e.level ? ` · ${esc(e.level)}` : ''}</div>
+        </section>
+      </div>`;
     $('gex-detail').style.display = '';
   }
 
