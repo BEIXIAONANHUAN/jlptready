@@ -316,7 +316,7 @@ window.Review = (function () {
         finished: false,
         acc: null,
         elapsedMs: 0, lastTick: Date.now(),
-        stats: { wordsDone: 0, wordsCorrect: 0, graduated: 0, cardsDone: 0, know: 0, vague: 0, forgot: 0, qAnswered: 0, qCorrect: 0 },
+        stats: { wordsDone: 0, wordsCorrect: 0, graduated: 0, cardsDone: 0, know: 0, vague: 0, forgot: 0, qAnswered: 0, qCorrect: 0, bulkKnow: 0, bulkWriteFail: 0 },
       };
       saveSession(); // 建队即存档：之后每答一题/每评一卡都会更新断点
       renderStart();
@@ -652,7 +652,10 @@ window.Review = (function () {
     $('review-body').innerHTML = `
       <div class="quiz-progress">
         <span>卡片自测</span>
-        <span>剩余 <span class="num">${session.cards.length - session.cardIndex}</span> 张</span>
+        <span class="quiz-progress-right">
+          剩余 <span class="num">${session.cards.length - session.cardIndex}</span> 张
+          ${(session.cards.length - session.cardIndex) > 0 ? '<button type="button" class="btn btn-ghost" id="btn-bulk-know">全部标会</button>' : ''}
+        </span>
       </div>
       <div class="flip-card" id="flip-card">
         <div class="flip-inner">
@@ -680,6 +683,40 @@ window.Review = (function () {
     $('btn-know').addEventListener('click', () => rateCard('know'));
     $('btn-vague').addEventListener('click', () => rateCard('vague'));
     $('btn-forgot').addEventListener('click', () => rateCard('forgot'));
+    const bulkBtn = $('btn-bulk-know');
+    if (bulkBtn) bulkBtn.addEventListener('click', openBulkKnowConfirm);
+  }
+
+  // 「全部标会」确认弹窗
+  function openBulkKnowConfirm() {
+    if (session.ratingLock) return;
+    const remaining = session.cards.length - session.cardIndex;
+    if (remaining <= 0) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.innerHTML = `
+      <div class="modal">
+        <div class="modal-title">全部标会</div>
+        <div class="modal-text">将剩余 ${remaining} 张卡片全部标为「会」？此操作不可撤销。</div>
+        <div class="modal-btns">
+          <button class="btn btn-secondary" id="modal-no">取消</button>
+          <button class="btn btn-primary" id="modal-yes">确认</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+    overlay.querySelector('#modal-no').addEventListener('click', () => overlay.remove());
+    overlay.querySelector('#modal-yes').addEventListener('click', () => {
+      overlay.remove();
+      bulkMarkKnow();
+    });
+  }
+
+  // 「会」评级字段：与单张 rateCard('know') 同一路径（间隔升一档 + due 推进）
+  function cardKnowFields(uw) {
+    const iv = nextRung(uw.mode_a_interval || 1, +1); // 升一档：1→3→7→15→30
+    return { mode_a_interval: iv, mode_a_due: DB.datePlusDays(iv) };
   }
 
   async function rateCard(rating) {
@@ -691,8 +728,7 @@ window.Review = (function () {
     const uw = c.uw;
     let fields;
     if (rating === 'know') {
-      const iv = nextRung(uw.mode_a_interval || 1, +1); // 升一档：1→3→7→15→30
-      fields = { mode_a_interval: iv, mode_a_due: DB.datePlusDays(iv) };
+      fields = cardKnowFields(uw);
       session.stats.know++;
     } else if (rating === 'vague') {
       const iv = nextRung(uw.mode_a_interval || 1, -1); // 降一档
@@ -712,7 +748,8 @@ window.Review = (function () {
     }
 
     try {
-      await DB.updateUserWord(uw.id, fields);
+      // 与一键标会共用写库路径（含 3 次重试）
+      await writeUserWordWithRetry(uw.id, fields);
     } catch (e) {
       console.error('[Review] 卡片保存失败', e);
       alert('保存失败，请检查网络后重试');
@@ -725,6 +762,57 @@ window.Review = (function () {
     saveSession(); // 卡片进度也入断点
     tick();
     renderCard(); // 无卡可翻时 renderCard 内部会调 finish()
+  }
+
+  // 「全部标会」：剩余卡片一次性按「会」处理。字段与单张一致，写库走
+  // writeUserWordWithRetry；可并行发起，全部结束后才刷新界面进结算。
+  // 单卡 3 次仍失败 → weak_reason='写入失败' 进错题本，计入结算页，不阻塞流程。
+  async function bulkMarkKnow() {
+    if (session.ratingLock) return;
+    const remaining = session.cards.slice(session.cardIndex);
+    const n = remaining.length;
+    if (!n) return;
+
+    session.ratingLock = true;
+    const bulkBtn = $('btn-bulk-know');
+    if (bulkBtn) {
+      bulkBtn.disabled = true;
+      bulkBtn.textContent = '处理中…';
+    }
+
+    // 先同步统计（与单张 rateCard 口径一致：判定即计数），写库并行
+    for (const c of remaining) {
+      session.stats.know++;
+      session.stats.cardsDone++;
+    }
+    session.stats.bulkKnow = (session.stats.bulkKnow || 0) + n;
+
+    const tasks = remaining.map(async (c) => {
+      const fields = cardKnowFields(c.uw);
+      try {
+        await writeUserWordWithRetry(c.uw.id, fields);
+        return { ok: true };
+      } catch (e) {
+        console.error('[Review] 一键标会写库失败 word_id=' + (c.uw && c.uw.word_id), e);
+        try {
+          await DB.updateUserWord(c.uw.id, {
+            weak_reason: '写入失败',
+            wrong_count: (c.uw.wrong_count || 0) + 1,
+          });
+        } catch (e2) {
+          console.error('[Review] 写入失败标记也未落库', e2);
+        }
+        return { ok: false };
+      }
+    });
+    const results = await Promise.all(tasks);
+    session.stats.bulkWriteFail = (session.stats.bulkWriteFail || 0) + results.filter((r) => !r.ok).length;
+
+    session.cardIndex = session.cards.length;
+    session.ratingLock = false;
+    saveSession();
+    tick();
+    renderCard(); // 无卡可翻 → finish()
   }
 
   // ---------- 收尾 ----------
@@ -745,7 +833,8 @@ window.Review = (function () {
       // 等所有判定写库（含 3 次重试）结束。pendingWrites 永不 throw，
       // 结果形如 { ok, i }；ok=false 表示该词 3 次仍失败（已进错题本）。
       const outcomes = await Promise.all(pendingWrites);
-      const failCount = (outcomes || []).filter((o) => o && o.ok === false).length;
+      const quizFailCount = (outcomes || []).filter((o) => o && o.ok === false).length;
+      const failCount = quizFailCount + (session.stats.bulkWriteFail || 0);
       // 全部写库完成后算正确率（统计在判定时刻已累加）。
       // 纯翻卡场次（没有做题词）acc 为 null：addReviewResult 不会覆盖当天已有的 review_acc。
       session.acc = session.stats.wordsDone
@@ -779,7 +868,10 @@ window.Review = (function () {
 
     let cardLine = '';
     if (!saving && s.cardsDone) {
-      cardLine = `<div class="compare-line">卡片自测 <span class="num">${s.cardsDone}</span> 张 <span class="dot">·</span> 会 <span class="num ok">${s.know}</span> <span class="dot">·</span> 模糊 <span class="num">${s.vague}</span> <span class="dot">·</span> 忘记 <span class="num ${s.forgot ? 'cmp-down' : ''}">${s.forgot}</span></div>`;
+      const bulkNote = s.bulkKnow
+        ? ` <span class="dot">·</span> 一键标会 <span class="num">${s.bulkKnow}</span> 张`
+        : '';
+      cardLine = `<div class="compare-line">卡片自测 <span class="num">${s.cardsDone}</span> 张 <span class="dot">·</span> 会 <span class="num ok">${s.know}</span> <span class="dot">·</span> 模糊 <span class="num">${s.vague}</span> <span class="dot">·</span> 忘记 <span class="num ${s.forgot ? 'cmp-down' : ''}">${s.forgot}</span>${bulkNote}</div>`;
     }
 
     let compareHtml = '';
