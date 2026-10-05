@@ -1169,3 +1169,56 @@ button, .option, .search-row, .cal-cell, .flip-card {
   .exam-score { font-size: 2.4rem; }
   .cal-stats { font-size: 0.8rem; }
 }
+
+/* ========== 门户页（板块选择） ========== */
+.landing-wrap {
+  min-height: calc(100vh - 96px);
+  min-height: calc(100dvh - 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-brand {
+  font-size: 1.25rem;
+  color: var(--color-text-sub);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.landing-sub {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  text-align: center;
+  margin: -8px 0 16px;
+}
+
+/* 门户页入口按钮是 <a>：文字居中、去下划线 */
+#page-landing a.btn {
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ========== 切换板块（模块首页右上角文字按钮） ========== */
+.home-header-side {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.btn-switch {
+  font-size: 0.875rem;
+  color: var(--color-text-sub);
+  text-decoration: none;
+}
+
+.btn-switch:hover { color: var(--color-primary); }
+
+/* 门户卡片按钮禁用态（<a> 没有 disabled 属性，用类控制；仅语法卡「数据准备中」用） */
+.btn-primary.is-disabled,
+.btn-primary.is-disabled:hover {
+  background: var(--color-gray-bg);
+  color: var(--color-text-sub);
+  cursor: not-allowed;
+  pointer-events: none;
+}

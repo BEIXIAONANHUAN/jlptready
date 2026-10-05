@@ -319,9 +319,9 @@ window.Home = (function () {
   }
 
   function bindEvents() {
-    $('btn-new').addEventListener('click', () => { location.hash = '#/new'; });
-    $('btn-review').addEventListener('click', () => { location.hash = '#/review'; });
-    $('btn-exam').addEventListener('click', () => { if (isWeekend()) location.hash = '#/exam'; });
+    $('btn-new').addEventListener('click', () => { location.hash = '#/words/new'; });
+    $('btn-review').addEventListener('click', () => { location.hash = '#/words/review'; });
+    $('btn-exam').addEventListener('click', () => { if (isWeekend()) location.hash = '#/words/exam'; });
     $('btn-rest').addEventListener('click', openRestConfirm);
     $('btn-cancel-rest').addEventListener('click', cancelRest);
     $('btn-share').addEventListener('click', () => { if (window.Share) Share.open(); });

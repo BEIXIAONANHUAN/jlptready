@@ -1,0 +1,323 @@
+[
+ {
+  "rowid": "g:として",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:とともに",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:とは限らない",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:ないことはない:53:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ながら",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:など:47:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "rb:に伴い:46:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:に比べて",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "rb:に代わって:50:0",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "g:に関して",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:に基づいて:36:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:に決まっている",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:に違いない:43:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:において",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:にかけて",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:にしても",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:につれて",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:にとって",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:によると:50:0",
+  "theme_order": 15,
+  "pos": "传闻引用"
+ },
+ {
+  "rowid": "g:のに",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:ばかりか",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:ばかりに",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:ばほど:40:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:ばよかった",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ふりをする",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:べきだ",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "rb:べきではない:56:0",
+  "action": "mergeinto:g:べきだ",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:ほど",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:まま",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:めったにない:53:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:ものか:43:0",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ものだ",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "g:ようがない",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ようだ",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:ようとする:44:0",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:ような気がする:55:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:ように",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:ように見える:49:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:わけがない",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:わけにはいかない",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:をはじめ",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:ていく",
+  "ex1_zh": "孩子们精神饱满地跑去了学校。",
+  "ex2_zh": "季节在不断更替。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:てしまう",
+  "ex1_zh": "作业全部做完了。",
+  "ex2_zh": "在电车里不小心睡着了。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:に対して",
+  "ex1_zh": "对父母不能采取失礼的态度。",
+  "ex2_zh": "哥哥很文静，而弟弟很活泼。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "g:らしい",
+  "ex1_zh": "他好像不来了。",
+  "ex2_zh": "今天是典型的春天天气。",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:dashi-suddenly-start",
+  "action": "mergeinto:rb:复合动词出す:31:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:aida-ni",
+  "pattern": "〜間（に）",
+  "meaning_zh": "在……期间：あいだ强调整个期间持续，あいだに强调期间内的某一时点完成。",
+  "ex1_zh": "我不在的时候有人来了吗？",
+  "ex2_zh": "妈妈做饭的时候我做了作业。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ki-ga-suru-feel-like",
+  "action": "mergeinto:rb:ような気がする:55:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:kiri-only",
+  "pattern": "〜きり",
+  "meaning_zh": "只有/仅仅：数量、范围的限定，带孤单语感（二人きり、一人きり）。",
+  "ex1_zh": "只想两个人单独谈。",
+  "ex2_zh": "他独自一人生活。",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:kagiri-as-long-as",
+  "pattern": "〜限り",
+  "meaning_zh": "只要……就……；否定＋限り表\"除非……否则不……\"。",
+  "ex1_zh": "只要活着就有希望。",
+  "ex2_zh": "不努力就不会成功。",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:tsuzukeru-continue",
+  "action": "mergeinto:rb:复合动词出す:31:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ippou-de-one-hand",
+  "pattern": "〜一方で",
+  "meaning_zh": "一方面……另一方面……：同一事物同时存在的两面性，或两事同步发展。",
+  "ex1_zh": "他温柔，但也有严厉的一面。",
+  "ex2_zh": "城市发展的同时，环境问题也严重了。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:igai-other-than",
+  "pattern": "〜以外",
+  "meaning_zh": "除……以外：以外に（除此之外）、以外は（除……之外都）。",
+  "ex1_zh": "除了他没人知道那件事。",
+  "ex2_zh": "除星期天外每天工作。",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:naoshi-redo",
+  "pattern": "〜直す",
+  "meaning_zh": "重新做……：やり直す（重做）、考え直す（重新考虑）、書き直す（重写）。",
+  "ex1_zh": "重写了一遍报告。",
+  "ex2_zh": "请再考虑一次。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:chuu-during",
+  "pattern": "〜中（ちゅう／じゅう）",
+  "meaning_zh": "①正在……中（会議中）②整个……期间（一日中、世界中）。",
+  "ex1_zh": "现在正在开会。",
+  "ex2_zh": "下了一整天的雨。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:saichu-in-the-middle",
+  "action": "mergeinto:rb:最中に:48:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ }
+]

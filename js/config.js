@@ -7,4 +7,6 @@ window.CONFIG = {
   SECONDS_PER_NEW_WORD: 60,   // 每个新词预计 60 秒
   SECONDS_PER_REVIEW: 30,     // 每个复习词预计 30 秒
   SECONDS_PER_CARD: 10,       // 每张自测卡片预计 10 秒
+  SECONDS_PER_NEW_GRAMMAR: 100,   // 每个新语法预计 100 秒（含分摊的做题时间）
+  SECONDS_PER_GRAMMAR_REVIEW: 30, // 每个语法复习题预计 30 秒，与单词复习一致
 };

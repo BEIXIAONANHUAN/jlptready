@@ -552,6 +552,346 @@ window.DB = (function () {
     return count;
   }
 
+  // ---------- 语法板块（门户卡片用，与单词侧逐字平行） ----------
+
+  // user_words 总行数（「全部学完」判定：行数 >= 词库总数，即每词都有学习记录。
+  // 不能用 unlearned=0 判——未排入学习队列的词根本没有行）
+  async function getUserWordsRowCount() {
+    const { count, error } = await client
+      .from('user_words')
+      .select('*', { count: 'exact', head: true });
+    if (error) throw error;
+    return count;
+  }
+
+  // user_grammar 总行数（同上，语法侧「全部学完」判定）
+  async function getUserGrammarRowCount() {
+    const { count, error } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true });
+    if (error) throw error;
+    return count;
+  }
+
+  // 语法 streak 行（连击计算用，新→旧）：与 getStreakRows 平行，读 grammar_streak
+  async function getGrammarStreakRows() {
+    const { data, error } = await client
+      .from('daily_logs')
+      .select('date,grammar_streak,is_rest')
+      .order('date', { ascending: false })
+      .limit(400);
+    if (error) throw error;
+    return data;
+  }
+
+  // 语法连续打卡天数：从今天（或昨天）往回数「grammar_streak>0 或 is_rest」的连续天数
+  async function getGrammarStreak() {
+    const rows = await getGrammarStreakRows();
+    const map = {};
+    for (const r of rows) map[r.date] = r;
+    const qualifies = (r) => !!r && (r.grammar_streak > 0 || r.is_rest);
+
+    const d = new Date();
+    if (!qualifies(map[dateISO(d)])) d.setDate(d.getDate() - 1);
+    let streak = 0;
+    while (qualifies(map[dateISO(d)])) {
+      streak++;
+      d.setDate(d.getDate() - 1);
+    }
+    return streak;
+  }
+
+  // 今日新学语法数累加（口径同 upsertDailyLogNewWords）
+  async function upsertDailyLogNewGrammar(date, count) {
+    const { data, error } = await client.from('daily_logs').select('id,new_grammar_count').eq('date', date).maybeSingle();
+    if (error) throw error;
+    if (data) {
+      const { error: e } = await client.from('daily_logs')
+        .update({ new_grammar_count: (data.new_grammar_count || 0) + count }).eq('date', date);
+      if (e) throw e;
+    } else {
+      const { error: e } = await client.from('daily_logs').insert({ date, new_grammar_count: count });
+      if (e) throw e;
+    }
+  }
+
+  // 查语法强化自测成绩累加（quiz_grammar_correct / quiz_grammar_total，口径同 addQuizStats）
+  async function addGrammarQuizStats(date, correct, total) {
+    if (!total) return;
+    const log = await getDailyLog(date);
+    if (log) {
+      const { error } = await client
+        .from('daily_logs')
+        .update({
+          quiz_grammar_correct: (log.quiz_grammar_correct || 0) + correct,
+          quiz_grammar_total: (log.quiz_grammar_total || 0) + total,
+        })
+        .eq('date', date);
+      if (error) throw error;
+    } else {
+      const { error } = await client.from('daily_logs').insert({ date, quiz_grammar_correct: correct, quiz_grammar_total: total });
+      if (error) throw error;
+    }
+  }
+
+  // 语法周末考试成绩落库（grammar_test_score / grammar_test_rating，口径同 setExamResult）
+  async function setGrammarExamResult(date, score, rating) {
+    const log = await getDailyLog(date);
+    if (log) {
+      const { error } = await client.from('daily_logs').update({ grammar_test_score: score, grammar_test_rating: rating }).eq('date', date);
+      if (error) throw error;
+    } else {
+      const { error } = await client.from('daily_logs').insert({ date, grammar_test_score: score, grammar_test_rating: rating });
+      if (error) throw error;
+    }
+  }
+
+  // 历次语法考试成绩（历史最高用）
+  async function getGrammarExamHistory() {
+    const { data, error } = await client
+      .from('daily_logs')
+      .select('date,grammar_test_score,grammar_test_rating')
+      .not('grammar_test_score', 'is', null)
+      .order('date', { ascending: false });
+    if (error) throw error;
+    return data;
+  }
+
+  // 语法学习天数（grammar_streak>0 的天数，口径同 getStudyDaysTotal）
+  async function getGrammarStudyDaysTotal() {
+    const { count, error } = await client
+      .from('daily_logs')
+      .select('*', { count: 'exact', head: true })
+      .gt('grammar_streak', 0);
+    if (error) throw error;
+    return count;
+  }
+
+  // 每日新语法取词：未学（user_grammar 无记录或 status='unlearned'）中
+  // 按 theme_order 升序、同主题内按 level 升序（N5→N2）取 limit 个
+  async function getUnlearnedGrammars(limit) {
+    const [ugRows, all] = await Promise.all([
+      fetchAll('user_grammar', 'grammar_id,status'),
+      fetchAll('grammar', '*'),
+    ]);
+    const started = new Set(ugRows.filter((r) => r.status !== 'unlearned').map((r) => r.grammar_id));
+    const LEVEL_ORDER = { N5: 0, N4: 1, N3: 2, N2: 3 };
+    const pool = all
+      .filter((g) => !started.has(g.id))
+      .sort((a, b) => (a.theme_order - b.theme_order) || ((LEVEL_ORDER[a.level] || 9) - (LEVEL_ORDER[b.level] || 9)));
+    return pool.slice(0, limit);
+  }
+
+  // 按 id 列表取完整语法条目
+  async function getGrammarsByIds(ids) {
+    if (!ids.length) return [];
+    const { data, error } = await client.from('grammar').select('*').in('id', ids);
+    if (error) throw error;
+    return data;
+  }
+
+  // 按 grammar_id 列表取题库题目（每 100 个 id 分批，避免 URL 过长）
+  async function getGrammarQuestions(grammarIds) {
+    if (!grammarIds.length) return [];
+    const out = [];
+    for (let i = 0; i < grammarIds.length; i += 100) {
+      const { data, error } = await client
+        .from('grammar_questions')
+        .select('*')
+        .in('grammar_id', grammarIds.slice(i, i + 100));
+      if (error) throw error;
+      for (const r of data) out.push(r);
+    }
+    return out;
+  }
+
+  // 这批 grammar_id 里哪些已有 user_grammar 记录（防重复插入，口径同 getExistingUserWordIds）
+  async function getExistingUserGrammarIds(grammarIds) {
+    if (!grammarIds.length) return [];
+    const { data, error } = await client.from('user_grammar').select('grammar_id').in('grammar_id', grammarIds);
+    if (error) throw error;
+    return data.map((r) => r.grammar_id);
+  }
+
+  // 按 grammar_id 列表取 user_grammar 记录（详情页个人轨迹用）
+  async function getUserGrammarByGrammarIds(grammarIds) {
+    if (!grammarIds.length) return [];
+    const { data, error } = await client.from('user_grammar').select('*').in('grammar_id', grammarIds);
+    if (error) throw error;
+    return data;
+  }
+
+  async function insertUserGrammar(rows) {
+    const { error } = await client.from('user_grammar').insert(rows);
+    if (error) throw error;
+  }
+
+  // 更新单个 user_grammar 记录的任意字段（同时刷新 updated_at）
+  async function updateUserGrammar(id, fields) {
+    const { error } = await client.from('user_grammar')
+      .update({ ...fields, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) throw error;
+  }
+
+  // 语法模式 B 到期行（status='learning' 且 mode_b_due 到期，按到期日升序）
+  async function getGrammarModeBDueRows() {
+    const today = todayISO();
+    const { data, error } = await client
+      .from('user_grammar')
+      .select('*')
+      .eq('status', 'learning')
+      .lte('mode_b_due', today)
+      .order('mode_b_due')
+      .limit(1000);
+    if (error) throw error;
+    return data;
+  }
+
+  // 语法模式 A 到期行（status='mastered' 且 mode_a_due 到期，按到期日升序）
+  async function getGrammarModeADueRows() {
+    const today = todayISO();
+    const { data, error } = await client
+      .from('user_grammar')
+      .select('*')
+      .eq('status', 'mastered')
+      .lte('mode_a_due', today)
+      .order('mode_a_due')
+      .limit(1000);
+    if (error) throw error;
+    return data;
+  }
+
+  // 语法薄弱池：wrong_count>0 或 weak_reason 非空，按做错次数降序；不传 limit 分页拉全量
+  async function getGrammarWeakRows(limit) {
+    if (limit) {
+      const { data, error } = await client
+        .from('user_grammar')
+        .select('*')
+        .or('wrong_count.gt.0,weak_reason.not.is.null')
+        .order('wrong_count', { ascending: false })
+        .limit(limit);
+      if (error) throw error;
+      return data;
+    }
+    const PAGE = 1000;
+    const out = [];
+    let from = 0;
+    while (true) {
+      const { data, error } = await client
+        .from('user_grammar')
+        .select('*')
+        .or('wrong_count.gt.0,weak_reason.not.is.null')
+        .order('wrong_count', { ascending: false })
+        .order('id')
+        .range(from, from + PAGE - 1);
+      if (error) throw error;
+      for (const r of data) out.push(r);
+      if (data.length < PAGE) return out;
+      from += PAGE;
+    }
+  }
+
+  // 学习中的语法（考试凑题用）
+  async function getGrammarLearningRows() {
+    const { data, error } = await client.from('user_grammar').select('*').eq('status', 'learning').limit(1000);
+    if (error) throw error;
+    return data;
+  }
+
+  // 已掌握语法全量（考试组卷 / 模式 A 到期卡池）
+  async function getGrammarMasteredPool() {
+    const PAGE = 1000;
+    const out = [];
+    let from = 0;
+    while (true) {
+      const { data, error } = await client
+        .from('user_grammar')
+        .select('*')
+        .eq('status', 'mastered')
+        .order('id')
+        .range(from, from + PAGE - 1);
+      if (error) throw error;
+      for (const r of data) out.push(r);
+      if (data.length < PAGE) return out;
+      from += PAGE;
+    }
+  }
+
+  // 已掌握语法数
+  async function getGrammarMasteredCount() {
+    const { count, error } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'mastered');
+    if (error) throw error;
+    return count;
+  }
+
+  // 查语法：条目/中文释义/主题词模糊搜索（最多 50 条）
+  async function searchGrammar(q) {
+    const kw = String(q).replace(/[,()%_\\]/g, ' ').trim();
+    if (!kw) return [];
+    const { data, error } = await client
+      .from('grammar')
+      .select('*')
+      .or(`pattern.ilike.%${kw}%,meaning.ilike.%${kw}%,pos.ilike.%${kw}%`)
+      .limit(50);
+    if (error) throw error;
+    return data;
+  }
+
+  // 语法学习记录轻量字段（统计页用）
+  const getUserGrammarStatsRows = () => fetchAll('user_grammar', 'grammar_id,status,wrong_count,weak_reason,created_at');
+
+  // 语法库总数（连通性 + 「全部学完」判定用）
+  async function getGrammarTotal() {
+    const { count, error } = await client
+      .from('grammar')
+      .select('*', { count: 'exact', head: true });
+    if (error) throw error;
+    return count;
+  }
+
+  // 语法未学数（口径同 getNewWordCount）：user_grammar 一行都没有时视为全部未学
+  async function getGrammarNewCount() {
+    const { count: total, error: e1 } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true });
+    if (e1) throw e1;
+    if (!total) return getGrammarTotal();
+
+    const { count, error } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'unlearned');
+    if (error) throw error;
+    return count;
+  }
+
+  // 语法今日待复习数（模式 B）：status='learning' 且 mode_b_due 已到期
+  async function getGrammarReviewDueCount() {
+    const today = todayISO();
+    const { count, error } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'learning')
+      .lte('mode_b_due', today);
+    if (error) throw error;
+    return count;
+  }
+
+  // 语法今日模式 A 到期数：status='mastered' 且 mode_a_due 已到期
+  async function getGrammarModeADueCount() {
+    const today = todayISO();
+    const { count, error } = await client
+      .from('user_grammar')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'mastered')
+      .lte('mode_a_due', today);
+    if (error) throw error;
+    return count;
+  }
+
   return {
     todayISO, tomorrowISO, datePlusDays,
     getWordTotal, getNewWordCount, getStreak, getStreakRows,
@@ -565,5 +905,14 @@ window.DB = (function () {
     updateDailyLogFields, getMonthLogs, getStudyDaysTotal, getMasteredCount,
     getAchievements, unlockAchievement, replaceAchievements,
     getSessionProgress, saveSessionProgress, deleteSessionProgress, migrateLocalData,
+    getGrammarTotal, getGrammarNewCount, getGrammarReviewDueCount, getGrammarModeADueCount,
+    getUserWordsRowCount, getUserGrammarRowCount,
+    getGrammarStreakRows, getGrammarStreak, upsertDailyLogNewGrammar,
+    addGrammarQuizStats, setGrammarExamResult, getGrammarExamHistory, getGrammarStudyDaysTotal,
+    getUnlearnedGrammars, getGrammarsByIds, getGrammarQuestions,
+    getExistingUserGrammarIds, getUserGrammarByGrammarIds, insertUserGrammar, updateUserGrammar,
+    getGrammarModeBDueRows, getGrammarModeADueRows, getGrammarWeakRows,
+    getGrammarLearningRows, getGrammarMasteredPool, getGrammarMasteredCount,
+    searchGrammar, getUserGrammarStatsRows,
   };
 })();

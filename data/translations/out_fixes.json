@@ -1,0 +1,9 @@
+[
+ {"rowid":"rb:た形:07:0","action":"mergeinto:jk:ta-form","theme_order":16,"pos":"其他/杂项"},
+ {"rowid":"rb:て形:04:0","action":"mergeinto:jk:te-form-basic","theme_order":16,"pos":"其他/杂项"},
+ {"rowid":"jk:kiri-only","action":"mergeinto:g:きり","theme_order":1,"pos":"时间先后"},
+ {"rowid":"rb:しかない:56:1","pattern":"〜（動詞辞書形）しかない","theme_order":11,"pos":"命令禁止"},
+ {"rowid":"ai:111","_drop":true},
+ {"rowid":"ai:126","_drop":true},
+ {"rowid":"ai:129","_drop":true}
+]

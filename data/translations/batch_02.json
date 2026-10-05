@@ -1,0 +1,1533 @@
+[
+ {
+  "rowid": "jk:particle-ya-non-exhaustive",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X や Y (など)",
+  "pattern_jk": "X や Y (など)",
+  "meaning_en": "X and Y (and so on) — non-exhaustive listing",
+  "cont": [
+   "名詞 + や + 名詞 (+ など)"
+  ],
+  "examples": [
+   {
+    "ja": "スーパーで野菜や果物などを買いました。",
+    "en": "I bought vegetables, fruit, and so on at the supermarket."
+   },
+   {
+    "ja": "部屋に机やベッドがあります。",
+    "en": "There are a desk, a bed, and other things in the room."
+   },
+   {
+    "ja": "犬や猫がいます。",
+    "en": "There are dogs, cats, and so on."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-no-possession",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + の + Y",
+  "pattern_jk": "X + の + Y",
+  "meaning_en": "marks possession; modifies a noun with another noun",
+  "cont": [
+   "Noun1 + の + Noun2 (Noun2 is the head; Noun1 modifies it)"
+  ],
+  "examples": [
+   {
+    "ja": "これは私の本です。",
+    "en": "This is my book."
+   },
+   {
+    "ja": "彼は日本語の先生です。",
+    "en": "He is a Japanese language teacher."
+   },
+   {
+    "ja": "あの赤い車は田中さんのです。",
+    "en": "That red car is Mr. Tanaka's."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ikura-how-much",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "いくら",
+  "pattern_jk": "いくら",
+  "meaning_en": "how much (price / quantity)",
+  "cont": [
+   "いくら + ですか (asking price/amount)"
+  ],
+  "examples": [
+   {
+    "ja": "これはいくらですか。",
+    "en": "How much is this?"
+   },
+   {
+    "ja": "このケーキはいくらでしたか。",
+    "en": "How much was this cake?"
+   },
+   {
+    "ja": "全部でいくらですか。",
+    "en": "How much is it altogether?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-imasu-progressive",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb-て + います",
+  "pattern_jk": "Verb-て + います",
+  "meaning_en": "be doing (progressive); be in the state of having done (resultant state)",
+  "cont": [
+   "動詞-て + います"
+  ],
+  "examples": [
+   {
+    "ja": "今、本を読んでいます。",
+    "en": "I'm reading a book right now."
+   },
+   {
+    "ja": "東京に住んでいます。",
+    "en": "I live in Tokyo. (resultant state)"
+   },
+   {
+    "ja": "田中さんは結婚しています。",
+    "en": "Mr. Tanaka is married."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-ka-question",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Sentence + か",
+  "pattern_jk": "Sentence + か",
+  "meaning_en": "marks a sentence as a question",
+  "cont": [
+   "Statement in polite form + か"
+  ],
+  "examples": [
+   {
+    "ja": "これは何ですか。",
+    "en": "What is this?"
+   },
+   {
+    "ja": "日本語が分かりますか。",
+    "en": "Do you understand Japanese?"
+   },
+   {
+    "ja": "明日、学校に来ますか。",
+    "en": "Are you coming to school tomorrow?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-ga-subject",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + が",
+  "pattern_jk": "X + が",
+  "meaning_en": "marks the grammatical subject; introduces new information",
+  "cont": [
+   "名詞 + が"
+  ],
+  "examples": [
+   {
+    "ja": "誰が来ましたか。",
+    "en": "Who came?"
+   },
+   {
+    "ja": "田中さんが来ました。",
+    "en": "Mr. Tanaka came."
+   },
+   {
+    "ja": "日本語が分かります。",
+    "en": "I understand Japanese."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:i-adjective-past",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "い-adjective stem + かった(です)",
+  "pattern_jk": "い-adjective stem + かった(です)",
+  "meaning_en": "い-adjective past (was ___)",
+  "cont": [
+   "Drop い, add かった (plain) or かったです (polite). いい → よかった"
+  ],
+  "examples": [
+   {
+    "ja": "昨日は寒かったです。",
+    "en": "It was cold yesterday."
+   },
+   {
+    "ja": "その映画はよかった。",
+    "en": "That movie was good. (plain)"
+   },
+   {
+    "ja": "テストは難しかったです。",
+    "en": "The test was difficult."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-kara-from",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + から",
+  "pattern_jk": "X + から",
+  "meaning_en": "marks the starting point: from (place/time)",
+  "cont": [
+   "名詞 (place or time) + から"
+  ],
+  "examples": [
+   {
+    "ja": "日本から来ました。",
+    "en": "I came from Japan."
+   },
+   {
+    "ja": "九時から授業が始まります。",
+    "en": "Class starts at nine."
+   },
+   {
+    "ja": "この手紙は友だちからです。",
+    "en": "This letter is from a friend."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kara-cause",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Plain or polite form + から",
+  "pattern_jk": "Plain or polite form + から",
+  "meaning_en": "because / since ___",
+  "cont": [
+   "Clause (plain or polite) + から. Usually plain is used when the main clause is also plain, and polite for polite"
+  ],
+  "examples": [
+   {
+    "ja": "時間がないから、急ぎます。",
+    "en": "Because I don't have time, I'll hurry."
+   },
+   {
+    "ja": "雨が降っているから、傘を持って行きます。",
+    "en": "Since it's raining, I'll take an umbrella."
+   },
+   {
+    "ja": "暑いから、窓を開けてください。",
+    "en": "Because it's hot, please open the window."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:i-adj-te-joining-kute",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "i-adjective stem + くて",
+  "pattern_jk": "i-adjective stem + くて",
+  "meaning_en": "te-form of i-adjectives (joining / causal)",
+  "cont": [
+   "Drop final い, add くて: 高い → 高くて, おいしい → おいしくて, 寒い → 寒くて. Irregular: いい → よくて"
+  ],
+  "examples": [
+   {
+    "ja": "この本は高くて、重い。",
+    "en": "This book is expensive and heavy."
+   },
+   {
+    "ja": "彼女は優しくて、きれいです。",
+    "en": "She is kind and pretty."
+   },
+   {
+    "ja": "寒くて、外に出たくない。",
+    "en": "It's cold, so I don't want to go outside."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:i-adjective-negative",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "い-adjective stem + くない / くありません",
+  "pattern_jk": "い-adjective stem + くない / くありません",
+  "meaning_en": "い-adjective negative (is not ___)",
+  "cont": [
+   "Drop い, add くない (plain) or くありません (polite). いい → よくない / よくありません"
+  ],
+  "examples": [
+   {
+    "ja": "この本は高くないです。",
+    "en": "This book is not expensive."
+   },
+   {
+    "ja": "今日は寒くない。",
+    "en": "It's not cold today. (plain)"
+   },
+   {
+    "ja": "この映画は面白くありません。",
+    "en": "This movie is not interesting."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:koko-soko-asoko-doko",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "ここ / そこ / あそこ / どこ",
+  "pattern_jk": "ここ / そこ / あそこ / どこ",
+  "meaning_en": "here / there / over there / where (place demonstratives)",
+  "cont": [
+   "ここ/そこ/あそこ/どこ + copula or particle"
+  ],
+  "examples": [
+   {
+    "ja": "ここは学校です。",
+    "en": "This is a school. (here is a school)"
+   },
+   {
+    "ja": "トイレはどこですか。",
+    "en": "Where is the restroom?"
+   },
+   {
+    "ja": "あそこにレストランがあります。",
+    "en": "There's a restaurant over there."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kore-sore-are-demonstratives",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "これ / それ / あれ / どれ",
+  "pattern_jk": "これ / それ / あれ / どれ",
+  "meaning_en": "this / that / that over there / which (pronominal demonstratives)",
+  "cont": [
+   "これ/それ/あれ/どれ + 動詞/copula"
+  ],
+  "examples": [
+   {
+    "ja": "これは本です。",
+    "en": "This is a book."
+   },
+   {
+    "ja": "それは何ですか。",
+    "en": "What is that (near you)?"
+   },
+   {
+    "ja": "あれは富士山です。",
+    "en": "That (over there) is Mt. Fuji."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:da-plain-copula",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + だ",
+  "pattern_jk": "Noun + だ",
+  "meaning_en": "is / am / are (plain copula)",
+  "cont": [
+   "名詞 or な形容詞 + だ"
+  ],
+  "examples": [
+   {
+    "ja": "これは本だ。",
+    "en": "This is a book. (plain)"
+   },
+   {
+    "ja": "彼は学生だと思う。",
+    "en": "I think he's a student."
+   },
+   {
+    "ja": "明日は休みだ。",
+    "en": "Tomorrow is a day off. (plain)"
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-tsu",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + つ",
+  "pattern_jk": "Number + つ",
+  "meaning_en": "general-purpose counter for small things (one, two, three…)",
+  "cont": [
+   "Japanese cardinal + つ (ひとつ, ふたつ, みっつ…). For 10, use とお (just the 数字, no つ)"
+  ],
+  "examples": [
+   {
+    "ja": "りんごを三つください。",
+    "en": "Three apples, please."
+   },
+   {
+    "ja": "質問が一つあります。",
+    "en": "I have one question."
+   },
+   {
+    "ja": "部屋に窓が二つあります。",
+    "en": "There are two windows in the room."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-de-means",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + で",
+  "pattern_jk": "X + で",
+  "meaning_en": "marks the means, tool, or location of an action",
+  "cont": [
+   "名詞 + で + action 動詞"
+  ],
+  "examples": [
+   {
+    "ja": "バスで学校に行きます。",
+    "en": "I go to school by bus."
+   },
+   {
+    "ja": "図書館で勉強します。",
+    "en": "I study at the library."
+   },
+   {
+    "ja": "日本語で話してください。",
+    "en": "Please speak in Japanese."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:na-adj-te-joining-de",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "na-adjective / noun + で",
+  "pattern_jk": "na-adjective / noun + で",
+  "meaning_en": "te-form of na-adjectives and nouns (joining / causal)",
+  "cont": [
+   "な形容詞語幹 + で: 静か → 静かで, 元気 → 元気で. 名詞 + で: 学生 → 学生で, 会社員 → 会社員で"
+  ],
+  "examples": [
+   {
+    "ja": "この部屋は静かで、きれいです。",
+    "en": "This room is quiet and clean."
+   },
+   {
+    "ja": "彼は学生で、20歳です。",
+    "en": "He is a student and 20 years old."
+   },
+   {
+    "ja": "彼女は親切で、明るい。",
+    "en": "She is kind and cheerful."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nai-de-kudasai",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb-ない + でください",
+  "pattern_jk": "Verb-ない + でください",
+  "meaning_en": "please do not ___ (polite negative request)",
+  "cont": [
+   "動詞-ない + でください (drop nothing from the ない形; just append でください)"
+  ],
+  "examples": [
+   {
+    "ja": "ここで写真を撮らないでください。",
+    "en": "Please do not take photos here."
+   },
+   {
+    "ja": "心配しないでください。",
+    "en": "Please don't worry."
+   },
+   {
+    "ja": "ここで食べないでください。",
+    "en": "Please do not eat here."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:deshita-past-polite-copula",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + でした",
+  "pattern_jk": "Noun + でした",
+  "meaning_en": "was / were (polite past copula)",
+  "cont": [
+   "名詞 or な形容詞 + でした"
+  ],
+  "examples": [
+   {
+    "ja": "昨日は日曜日でした。",
+    "en": "Yesterday was Sunday."
+   },
+   {
+    "ja": "先生は元気でした。",
+    "en": "The teacher was well."
+   },
+   {
+    "ja": "あの映画はとても有名でした。",
+    "en": "That movie was very famous."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:na-adjective-past",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "な-adjective + でした / だった",
+  "pattern_jk": "な-adjective + でした / だった",
+  "meaning_en": "な-adjective past",
+  "cont": [
+   "な-adjective + でした (polite) or + だった (plain)"
+  ],
+  "examples": [
+   {
+    "ja": "その町はとても静かでした。",
+    "en": "That town was very quiet."
+   },
+   {
+    "ja": "部屋はきれいだった。",
+    "en": "The room was clean. (plain)"
+   },
+   {
+    "ja": "この公園は昔、有名でした。",
+    "en": "This park was famous long ago."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:dewa-arimasen-negative-polite-copula",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + ではありません",
+  "pattern_jk": "Noun + ではありません",
+  "meaning_en": "is not / am not / are not (polite negative copula)",
+  "cont": [
+   "名詞 or な形容詞 + ではありません"
+  ],
+  "examples": [
+   {
+    "ja": "これはペンではありません。",
+    "en": "This is not a pen."
+   },
+   {
+    "ja": "彼は日本人じゃありません。",
+    "en": "He is not Japanese."
+   },
+   {
+    "ja": "今日は月曜日ではありません。",
+    "en": "Today is not Monday."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:na-adjective-negative",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "な-adjective + ではありません / じゃない",
+  "pattern_jk": "な-adjective + ではありません / じゃない",
+  "meaning_en": "な-adjective negative",
+  "cont": [
+   "な-adjective + ではありません (polite) / ではない or じゃない (plain)"
+  ],
+  "examples": [
+   {
+    "ja": "この部屋は静かではありません。",
+    "en": "This room is not quiet."
+   },
+   {
+    "ja": "彼は元気じゃない。",
+    "en": "He's not in good spirits. (plain)"
+   },
+   {
+    "ja": "あの店はにぎやかじゃありません。",
+    "en": "That store is not lively."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-ni-target",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + に",
+  "pattern_jk": "X + に",
+  "meaning_en": "marks target, destination, location of existence, or time",
+  "cont": [
+   "名詞 + に"
+  ],
+  "examples": [
+   {
+    "ja": "友だちに手紙を書きます。",
+    "en": "I write a letter to my friend."
+   },
+   {
+    "ja": "東京に行きます。",
+    "en": "I go to Tokyo."
+   },
+   {
+    "ja": "机の上に本があります。",
+    "en": "There is a book on the desk."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-ne-seeking-agreement",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Sentence + ね",
+  "pattern_jk": "Sentence + ね",
+  "meaning_en": "right? / isn't it? (seeking agreement or confirming shared knowledge)",
+  "cont": [
+   "文 (any form) + ね"
+  ],
+  "examples": [
+   {
+    "ja": "今日はいい天気ですね。",
+    "en": "The weather is nice today, isn't it."
+   },
+   {
+    "ja": "あの映画は面白かったですね。",
+    "en": "That movie was interesting, wasn't it."
+   },
+   {
+    "ja": "この料理はおいしいですね。",
+    "en": "This food is delicious, isn't it."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-wa-topic",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + は",
+  "pattern_jk": "X + は",
+  "meaning_en": "marks the topic of a sentence (pronounced 'wa')",
+  "cont": [
+   "名詞 + は"
+  ],
+  "examples": [
+   {
+    "ja": "私は学生です。",
+    "en": "I am a student."
+   },
+   {
+    "ja": "今日は天気がいいですね。",
+    "en": "The weather is nice today, isn't it."
+   },
+   {
+    "ja": "この本は高いです。",
+    "en": "This book is expensive."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-e-direction",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + へ",
+  "pattern_jk": "X + へ",
+  "meaning_en": "marks direction of movement (pronounced 'e')",
+  "cont": [
+   "名詞 (place) + へ + motion 動詞"
+  ],
+  "examples": [
+   {
+    "ja": "学校へ行きます。",
+    "en": "I'm going to school."
+   },
+   {
+    "ja": "日本へ旅行しました。",
+    "en": "I traveled to Japan."
+   },
+   {
+    "ja": "友だちの家へ遊びに行きます。",
+    "en": "I'm going to my friend's house to hang out."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-hoshii-wanting-thing",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + が + ほしい(です)",
+  "pattern_jk": "Noun + が + ほしい(です)",
+  "meaning_en": "want (a thing) — for the speaker's own desire",
+  "cont": [
+   "名詞 + が + ほしい(です)"
+  ],
+  "examples": [
+   {
+    "ja": "新しい車がほしいです。",
+    "en": "I want a new car."
+   },
+   {
+    "ja": "お金がほしい。",
+    "en": "I want money. (plain)"
+   },
+   {
+    "ja": "冷たい水がほしいです。",
+    "en": "I want cold water."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mashita-polite-past-verb",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ました",
+  "pattern_jk": "Verb stem + ました",
+  "meaning_en": "polite past verb ending",
+  "cont": [
+   "Same 動詞語幹 as ます, then + ました instead of ます"
+  ],
+  "examples": [
+   {
+    "ja": "昨日、映画を見ました。",
+    "en": "I watched a movie yesterday."
+   },
+   {
+    "ja": "朝ごはんを食べました。",
+    "en": "I ate breakfast."
+   },
+   {
+    "ja": "友だちに手紙を書きました。",
+    "en": "I wrote a letter to my friend."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mashou-ka-invitation",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ましょうか",
+  "pattern_jk": "Verb stem + ましょうか",
+  "meaning_en": "shall we ___? (invitation); shall I ___? (offer)",
+  "cont": [
+   "動詞 語幹 + ましょうか"
+  ],
+  "examples": [
+   {
+    "ja": "お茶を飲みましょうか。",
+    "en": "Shall we have some tea?"
+   },
+   {
+    "ja": "荷物を持ちましょうか。",
+    "en": "Shall I carry your bag?"
+   },
+   {
+    "ja": "窓を開けましょうか。",
+    "en": "Shall I open the window?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:masu-polite-verb",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ます",
+  "pattern_jk": "Verb stem + ます",
+  "meaning_en": "polite non-past verb ending",
+  "cont": [
+   "Ichidan 動詞: drop る, add ます (食べる → 食べます). Godan 動詞: change the final う-row kana to the corresponding い-row kana, then add ます (行く → 行きます, 話す → 話します)"
+  ],
+  "examples": [
+   {
+    "ja": "毎朝、コーヒーを飲みます。",
+    "en": "I drink coffee every morning."
+   },
+   {
+    "ja": "明日、東京へ行きます。",
+    "en": "I will go to Tokyo tomorrow."
+   },
+   {
+    "ja": "日本語を勉強します。",
+    "en": "I study Japanese."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:masen-polite-negative-verb",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ません",
+  "pattern_jk": "Verb stem + ません",
+  "meaning_en": "polite non-past negative verb ending",
+  "cont": [
+   "Same 動詞語幹 as ます, then + ません instead of ます"
+  ],
+  "examples": [
+   {
+    "ja": "お酒を飲みません。",
+    "en": "I don't drink alcohol."
+   },
+   {
+    "ja": "今日は学校へ行きません。",
+    "en": "I'm not going to school today."
+   },
+   {
+    "ja": "朝ごはんを食べません。",
+    "en": "I don't eat breakfast."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:masenka-invitation",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ませんか",
+  "pattern_jk": "Verb stem + ませんか",
+  "meaning_en": "won't you...? / would you like to...? (invitation)",
+  "cont": [
+   "動詞 ます-語幹 + ませんか (the same 語幹 used for the ます form)"
+  ],
+  "examples": [
+   {
+    "ja": "一緒に映画を見ませんか。",
+    "en": "Would you like to watch a movie together?"
+   },
+   {
+    "ja": "明日、一緒に食事しませんか。",
+    "en": "Would you like to have a meal together tomorrow?"
+   },
+   {
+    "ja": "公園に行きませんか。",
+    "en": "Shall we go to the park?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:masendeshita-polite-past-negative-verb",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb stem + ませんでした",
+  "pattern_jk": "Verb stem + ませんでした",
+  "meaning_en": "polite past negative verb ending",
+  "cont": [
+   "Same 動詞語幹 as ます, then + ませんでした instead of ます"
+  ],
+  "examples": [
+   {
+    "ja": "昨日、宿題をしませんでした。",
+    "en": "I didn't do my homework yesterday."
+   },
+   {
+    "ja": "彼は来ませんでした。",
+    "en": "He didn't come."
+   },
+   {
+    "ja": "先週、一度も泳ぎませんでした。",
+    "en": "I didn't swim even once last week."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-made-until",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + まで",
+  "pattern_jk": "X + まで",
+  "meaning_en": "marks the endpoint: until / as far as",
+  "cont": [
+   "名詞 (place or time) + まで"
+  ],
+  "examples": [
+   {
+    "ja": "駅まで歩きます。",
+    "en": "I walk to the station."
+   },
+   {
+    "ja": "夜十時まで働きました。",
+    "en": "I worked until ten at night."
+   },
+   {
+    "ja": "月曜日から金曜日まで学校があります。",
+    "en": "I have school from Monday to Friday."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-mo-also",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + も",
+  "pattern_jk": "X + も",
+  "meaning_en": "also / too / as well",
+  "cont": [
+   "名詞 + も (replacing は, が, or を)"
+  ],
+  "examples": [
+   {
+    "ja": "私も学生です。",
+    "en": "I am a student too."
+   },
+   {
+    "ja": "彼もコーヒーを飲みます。",
+    "en": "He also drinks coffee."
+   },
+   {
+    "ja": "この本も面白いです。",
+    "en": "This book is also interesting."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mo-mo-both",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + も + Noun + も",
+  "pattern_jk": "Noun + も + Noun + も",
+  "meaning_en": "both X and Y / neither X nor Y",
+  "cont": [
+   "名詞 + も + 名詞 + も + (affirmative for 'both' / negative for 'neither')"
+  ],
+  "examples": [
+   {
+    "ja": "コーヒーも紅茶も好きです。",
+    "en": "I like both coffee and tea."
+   },
+   {
+    "ja": "魚も肉も食べません。",
+    "en": "I eat neither fish nor meat."
+   },
+   {
+    "ja": "彼も私も学生です。",
+    "en": "Both he and I are students."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-yo-emphasis",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Sentence + よ",
+  "pattern_jk": "Sentence + よ",
+  "meaning_en": "I'm telling you / emphasis; informs the listener of new information",
+  "cont": [
+   "文 (any form) + よ"
+  ],
+  "examples": [
+   {
+    "ja": "あの店は安いですよ。",
+    "en": "That store is cheap, you know."
+   },
+   {
+    "ja": "電車が来ましたよ。",
+    "en": "The train has come (I'm telling you)."
+   },
+   {
+    "ja": "この本は面白いですよ。",
+    "en": "This book is interesting, you know."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-o-object",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X + を",
+  "pattern_jk": "X + を",
+  "meaning_en": "marks the direct object of a transitive verb",
+  "cont": [
+   "名詞 + を + 他動詞"
+  ],
+  "examples": [
+   {
+    "ja": "本を読みます。",
+    "en": "I read a book."
+   },
+   {
+    "ja": "水を飲みます。",
+    "en": "I drink water."
+   },
+   {
+    "ja": "公園を散歩しました。",
+    "en": "I walked through the park."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "rb:た形:07:0",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "た形",
+  "shortZh": "简体过去",
+  "examples": [
+   {
+    "ja": "朝ごはんを食べた。",
+    "zh": "吃了早饭。"
+   },
+   {
+    "ja": "昨日、友達に会った。",
+    "zh": "昨天见了朋友。"
+   },
+   {
+    "ja": "さっき電話したけど、出なかった。",
+    "zh": "刚才打了电话，但没人接。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:たい",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "〜たい / 〜たがる / 〜ほしい",
+  "shortZh": "愿望表达",
+  "cont": [
+   "動詞 語幹 + たい (e.g., 食べる → 食べたい, 行く → 行きたい)"
+  ],
+  "examples": [
+   {
+    "ja": "日本に行きたいです。",
+    "en": "I want to go to Japan."
+   },
+   {
+    "ja": "水が飲みたい。",
+    "en": "I want to drink water. (plain)"
+   },
+   {
+    "ja": "新しい本を読みたいです。",
+    "en": "I want to read a new book."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:て形:04:0",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "て形",
+  "shortZh": "最重要的动词变形！",
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ば:09:0",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "〜ば",
+  "shortZh": "假定条件",
+  "lessonCat": "条件表达",
+  "examples": [
+   {
+    "ja": "天気がよければ、出かけましょう。",
+    "zh": "天气好的话，出去吧。"
+   },
+   {
+    "ja": "安ければ、買いたい。",
+    "zh": "便宜的话想买。"
+   },
+   {
+    "ja": "もっと勉強すれば、合格できる。",
+    "zh": "更努力学习的话就能考过。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ましょう",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "〜ましょう / 〜ましょうか",
+  "shortZh": "提议/提供帮助",
+  "cont": [
+   "Same 動詞語幹 as ます, then + ましょう instead of ます"
+  ],
+  "examples": [
+   {
+    "ja": "一緒に行きましょう。",
+    "en": "Let's go together."
+   },
+   {
+    "ja": "休みましょう。",
+    "en": "Let's take a break."
+   },
+   {
+    "ja": "昼ごはんを食べましょう。",
+    "en": "Let's eat lunch."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:みたいだ:14:0",
+  "type": "C-rb",
+  "level": "N5",
+  "pattern": "〜みたいだ",
+  "shortZh": "口语推断",
+  "lessonCat": "样态",
+  "examples": [
+   {
+    "ja": "彼は怒っているみたいだ。",
+    "zh": "他好像在生气。"
+   },
+   {
+    "ja": "雨が降るみたいだ。",
+    "zh": "好像要下雨。"
+   },
+   {
+    "ja": "あの人は先生みたいだ。",
+    "zh": "那个人好像是老师。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:必要がある:32:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜必要がある / 〜必要はない",
+  "shortZh": "有必要……/没有必要……",
+  "meaning_rb": "\"有必要做……\"/\"没有必要做……\"，客观地表示做某事的必要性。比「〜なければならない」语气更加客观冷静。",
+  "cont": [
+   "動詞辞書形 + 必要がある；動詞辞書形 + 必要はない；確認する必要がある（有必要确认）；急ぐ必要はない（没必要着急）"
+  ],
+  "lessonCat": "と思う",
+  "examples": [
+   {
+    "ja": "パスポートを持っていく必要がある。",
+    "zh": "有必要带护照。"
+   },
+   {
+    "ja": "出発前に手続きをする必要がある。",
+    "zh": "出发前有必要办手续。"
+   },
+   {
+    "ja": "全員が参加する必要はない。",
+    "zh": "没必要全员参加。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:場合は:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜場合は",
+  "shortZh": "……的情况下",
+  "meaning_rb": "\"在……的情况下\"、\"如果……的话\"。比「たら」更正式，常用于说明书、规则、指南等书面场景。",
+  "cont": [
+   "動詞普通形 + 場合は；い形容詞い + 場合は；な形容詞な + 場合は；名詞の + 場合は"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "地震の場合は、すぐに机の下に入ってください。",
+    "zh": "地震的情况下，请立即躲到桌子下面。"
+   },
+   {
+    "ja": "熱がある場合は、学校を休んでください。",
+    "zh": "发烧的情况下，请不要来上学。"
+   },
+   {
+    "ja": "パスワードを忘れた場合は、こちらをクリックしてください。",
+    "zh": "忘记密码的情况下，请点击这里。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:方",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜方(かた)",
+  "shortZh": "~的方法/做法",
+  "meaning_rb": "\"~的方法/做法\"。接上「方」之后整体变成名词，所以后面接助词の/が/を/は等。\n注意读音：「かた」不是「ほう」。「ほう」是\"方向/比较\"（〜のほうが），「かた」是\"方法\"。",
+  "cont": [
+   "動詞 ます-語幹 + 方: 食べ方 ('way of eating'), 読み方 ('way of reading'), 使い方 ('way of using'). Irregular: する → し方 or やり方 (both used); for suru-compounds: 勉強のし方 (の inserted before し方)"
+  ],
+  "lessonCat": "すぎる",
+  "examples": [
+   {
+    "ja": "すみません、この機械の使い方を教えてください。",
+    "zh": "不好意思，请教我这台机器的用法。"
+   },
+   {
+    "ja": "日本語の勉強の仕方が分からない。",
+    "zh": "不知道学日语的方法。"
+   },
+   {
+    "ja": "お箸の持ち方が上手ですね。",
+    "zh": "你筷子拿得很好呢。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:复合动词出す:31:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "复合动词:〜出す / 〜始める / 〜続ける",
+  "meaning_rb": "| 复合动词 | 含义 | 关键特征 |\n|---------|------|---------|\n| 〜出す | 突然开始~ | 突发性：没有预兆，突然开始 |\n| 〜始める | 开始做~ | 有意识：主动开始，有意图 |\n| 〜続ける | 持续做~ | 继续性：一直做，不停 |",
+  "lessonCat": "すぎる",
+  "examples": [
+   {
+    "ja": "子供が急に泣き出した。",
+    "zh": "小孩突然哭了起来。"
+   },
+   {
+    "ja": "授業中に友達が笑い出した。",
+    "zh": "上课时朋友突然笑了出来。"
+   },
+   {
+    "ja": "さっきまで晴れていたのに、急に雨が降り出した。",
+    "zh": "刚才还晴着，突然下起雨来了。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:前に",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜前に / 〜後で",
+  "shortZh": "……之前/……之后",
+  "meaning_rb": "- 〜前に：在做某事之前（动作还没发生）\n- 〜後で：在做某事之后（动作已经发生）",
+  "cont": [
+   "动词辞書形 + 前に；名词 + の前に；动词た形 + 後で；名词 + の後で"
+  ],
+  "examples": [
+   {
+    "ja": "寝る前に、歯を磨きます。",
+    "zh": "睡觉之前刷牙。"
+   },
+   {
+    "ja": "ご飯を食べる前に、手を洗ってください。",
+    "zh": "吃饭之前请洗手。"
+   },
+   {
+    "ja": "日本に行く前に、日本語を勉強しました。",
+    "zh": "去日本之前学了日语。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:使役形:18:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "使役形",
+  "shortZh": "让/叫某人做……",
+  "meaning_rb": "表示\"让某人做某事\"或\"允许某人做某事\"。有两种语感：\n- 强制：叫/命令某人做\n- 允许：允许/放任某人做",
+  "examples": [
+   {
+    "ja": "部長は部下に残業させた。",
+    "zh": "部长让下属加班了。→ 强制"
+   },
+   {
+    "ja": "親は子供にピアノを習わせている。",
+    "zh": "父母让孩子学钢琴。→ 强制"
+   },
+   {
+    "ja": "先生は学生を廊下に立たせた。",
+    "zh": "老师罚学生站在走廊。→ 强制"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:あいだ:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜あいだ / 〜あいだに",
+  "shortZh": "……期间 / ……期间内",
+  "meaning_rb": "- あいだ：表示整个持续期间，前后两个动作同时进行。\"在……的整段时间里\"\n- あいだに：表示在某段时间内的某一时点，发生了另一件事。\"在……期间的某个时候\"",
+  "cont": [
+   "動詞ている形 + あいだ（に）；動詞辞書形 + あいだ（に）；い形容詞い + あいだ（に）；な形容詞な + あいだ（に）；名詞の + あいだ（に）"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "赤ちゃんが寝ているあいだ、私は本を読んでいた。",
+    "zh": "婴儿睡觉的整段时间里，我在看书。→ 同时持续"
+   },
+   {
+    "ja": "赤ちゃんが寝ているあいだに、買い物に行った。",
+    "zh": "趁婴儿睡觉的时候，去买了东西。→ 期间内完成"
+   },
+   {
+    "ja": "留守のあいだに、泥棒が入った。",
+    "zh": "不在家的时候，小偷进来了。→ 某一时点发生"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:がする:32:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜がする",
+  "shortZh": "感觉到……——五感",
+  "meaning_rb": "表示感官上\"感觉到……\"，用于描述嗅觉、味觉、听觉以及心理上的直觉感受。主语是\"感觉\"本身，不是人。",
+  "cont": [
+   "感覚名詞 + がする；匂いがする（闻到气味）；味がする（尝到味道）；音がする（听到声音）；気がする（有种感觉/预感）；感じがする（有种感受）；声がする（听到声音/说话声）"
+  ],
+  "lessonCat": "と思う",
+  "examples": [
+   {
+    "ja": "何か焦げた匂いがする。",
+    "zh": "闻到什么烧焦的气味。"
+   },
+   {
+    "ja": "このスープはちょっと変な味がする。",
+    "zh": "这碗汤有点奇怪的味道。"
+   },
+   {
+    "ja": "隣の部屋から音がする。",
+    "zh": "隔壁房间传来声音。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:かもしれない",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜かもしれない",
+  "shortZh": "可能性",
+  "meaning_rb": "\"也许/说不定……\"，说话人觉得有这个可能，但不确定。\n确定度比でしょう低。でしょう ≈ 70-80%，かもしれない ≈ 30-50%。",
+  "cont": [
+   "动词/い形容词 简体 + かもしれない；な形容词 语干 + かもしれない（去だ）；名词 + かもしれない"
+  ],
+  "lessonCat": "推测",
+  "examples": [
+   {
+    "ja": "明日は雨が降るかもしれない。",
+    "zh": "明天也许会下雨。"
+   },
+   {
+    "ja": "彼は忙しいかもしれません。",
+    "zh": "他可能很忙。"
+   },
+   {
+    "ja": "それは本当かもしれない。",
+    "zh": "那也许是真的。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:がる",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜がる",
+  "shortZh": "第三人称感情外露",
+  "meaning_rb": "描述第三人称（他/她）外在表现出来的感情或愿望。日语中，〜たい、〜ほしい、嬉しい、怖い等心理词汇原则上只能直接描述说话人自己的感受。描述他人时，需要用〜がる来表示\"看起来他/她……\"。",
+  "cont": [
+   "い形容词词干 + がる → 嬉しがる、怖がる、羨ましがる；〜たい → 〜たがる → 食べたがる、行きたがる；〜がる的活用如同五段动词：がる→がって、がらない、がっている"
+  ],
+  "lessonCat": "ても",
+  "examples": [
+   {
+    "ja": "弟はいつも新しいゲームを欲しがる。",
+    "zh": "弟弟总是想要新游戏。"
+   },
+   {
+    "ja": "子供が犬を怖がっている。",
+    "zh": "孩子害怕狗。→ 表现出害怕的样子"
+   },
+   {
+    "ja": "妹はケーキ���食べたがっている。",
+    "zh": "妹妹想吃蛋糕。→ 外在表现"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ことがある",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ことがある",
+  "shortZh": "有时会……",
+  "meaning_rb": "\"有时会……\"，表示某事偶尔发生，不是每次都发生。",
+  "cont": [
+   "動詞辞書形 + ことがある"
+  ],
+  "lessonCat": "常用语法2",
+  "examples": [
+   {
+    "ja": "朝ごはんを食べないことがある。",
+    "zh": "有时候不吃早饭。"
+   },
+   {
+    "ja": "夜、散歩することがある。",
+    "zh": "有时候晚上会散步。"
+   },
+   {
+    "ja": "夜更かしして、次の日遅刻することがある。",
+    "zh": "有时候熬夜第二天迟到。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 2
+ },
+ {
+  "rowid": "g:ことができる",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ことができる",
+  "shortZh": "能力/可能 — 正式版",
+  "meaning_rb": "和可能形意思相同，但更正式/书面。多用于写作、演讲、规章说明等场合。",
+  "cont": [
+   "動詞 plain non-past + ことができる (polite: ことができます); negative: ことができない"
+  ],
+  "examples": [
+   {
+    "ja": "日本語を話すことができます。",
+    "zh": "能说日语。"
+   },
+   {
+    "ja": "ここで泳ぐことができません。",
+    "zh": "这里不能游泳。"
+   },
+   {
+    "ja": "インターネットで予約することができる。",
+    "zh": "可以在网上预约。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ }
+]

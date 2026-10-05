@@ -1,0 +1,1432 @@
+[
+ {
+  "rowid": "jk:to-sureba",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + とすれば / とすると / としたら",
+  "pattern_jk": "Plain form + とすれば / とすると / としたら",
+  "meaning_en": "supposing / assuming / if it's the case that",
+  "cont": [
+   "Plain-form clause / 名詞 (+ だ) + とすれば / とすると / としたら"
+  ],
+  "examples": [
+   {
+    "ja": "もし雨が降るとすれば、どうしますか。",
+    "en": "Supposing it rains, what will you do?"
+   },
+   {
+    "ja": "彼の話が本当だとすると、大変なことだ。",
+    "en": "If his story is true, that's a big problem."
+   },
+   {
+    "ja": "宝くじが当たったとしたら、何を買いますか。",
+    "en": "Supposing you won the lottery, what would you buy?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-wa-iu-mono-no",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + とはいうものの",
+  "pattern_jk": "Plain form + とはいうものの",
+  "meaning_en": "that said / although one says",
+  "cont": [
+   "動詞 plain / い形容詞 + とはいうものの; な形容詞 / 名詞 + (だ) + とはいうものの"
+  ],
+  "examples": [
+   {
+    "ja": "春だとはいうものの、今朝は雪が降った。",
+    "en": "Although we say it's spring, snow fell this morning."
+   },
+   {
+    "ja": "お金が大事だとはいうものの、それがすべてではない。",
+    "en": "Although we say money is important, it's not everything."
+   },
+   {
+    "ja": "便利だとはいうものの、問題もある。",
+    "en": "Although it's called convenient, it also has problems."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-bakari-ni",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form / phrase + とばかりに",
+  "pattern_jk": "Plain form / phrase + とばかりに",
+  "meaning_en": "as if to say / seemingly saying",
+  "cont": [
+   "Quoted 文節 / plain-form clause + とばかりに"
+  ],
+  "examples": [
+   {
+    "ja": "彼は「もう限界だ」とばかりに、ため息をついた。",
+    "en": "He sighed as if to say 'I've had enough'."
+   },
+   {
+    "ja": "子供は「早く行こう」とばかりに、私の手を引っ張った。",
+    "en": "The child pulled my hand as if to say 'let's go quickly'."
+   },
+   {
+    "ja": "彼女は「知らない」とばかりに、顔を背けた。",
+    "en": "She turned her face away as if to say 'I don't know'."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-mieru",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + とみえる",
+  "pattern_jk": "Plain form + とみえる",
+  "meaning_en": "it seems that / appears to",
+  "cont": [
+   "Plain-form clause + とみえる (polite: とみえます)"
+  ],
+  "examples": [
+   {
+    "ja": "彼は忙しいとみえる。",
+    "en": "It seems he is busy."
+   },
+   {
+    "ja": "雨が降っていたとみえて、道がぬれている。",
+    "en": "It seems it was raining — the road is wet."
+   },
+   {
+    "ja": "彼は納得したとみえる。",
+    "en": "He seems to have been convinced."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-miru-see-as",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + とみる",
+  "pattern_jk": "Plain form + とみる",
+  "meaning_en": "see as / regard as / judge to be",
+  "cont": [
+   "Plain-form clause / 名詞 + とみる"
+  ],
+  "examples": [
+   {
+    "ja": "警察は事故の原因を不注意とみている。",
+    "en": "The police see the cause of the accident as negligence."
+   },
+   {
+    "ja": "専門家は今後の見通しを楽観的とみる。",
+    "en": "Experts see the future outlook as optimistic."
+   },
+   {
+    "ja": "彼は成功するとみて間違いない。",
+    "en": "He's sure to succeed — there's no doubt about it."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-mo-naku",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb dict-form + ともなく / ともなしに",
+  "pattern_jk": "Verb dict-form + ともなく / ともなしに",
+  "meaning_en": "unintentionally / without consciously",
+  "cont": [
+   "動詞 dict-form + ともなく / ともなしに"
+  ],
+  "examples": [
+   {
+    "ja": "見るともなく窓の外を眺めていた。",
+    "en": "I was gazing out the window without really looking."
+   },
+   {
+    "ja": "聞くともなしに、彼らの会話を聞いていた。",
+    "en": "I was listening to their conversation without meaning to."
+   },
+   {
+    "ja": "待つともなく待っていたら、彼が現れた。",
+    "en": "I wasn't really waiting, but he showed up."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nani-shiro",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "なにしろ (sentence-initial)",
+  "pattern_jk": "なにしろ (sentence-initial)",
+  "meaning_en": "after all / you see / it's because",
+  "cont": [
+   "なにしろ [文]. Often followed by 〜から / のだ / んだ"
+  ],
+  "examples": [
+   {
+    "ja": "なにしろ、彼は経験が豊富だ。",
+    "en": "After all, he has a wealth of experience."
+   },
+   {
+    "ja": "なにしろ初めてのことなので、不安だ。",
+    "en": "You see, it's my first time, so I'm nervous."
+   },
+   {
+    "ja": "なにしろ忙しかったから、連絡できなかった。",
+    "en": "The thing is, I was so busy I couldn't contact you."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nani-se",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "なにせ (sentence-initial)",
+  "pattern_jk": "なにせ (sentence-initial)",
+  "meaning_en": "after all / the thing is",
+  "cont": [
+   "なにせ [文]. Often followed by から / のだ / だから"
+  ],
+  "examples": [
+   {
+    "ja": "なにせ、久しぶりだからよく覚えていない。",
+    "en": "After all, it's been a long time, so I don't remember well."
+   },
+   {
+    "ja": "なにせ忙しいので、時間がない。",
+    "en": "The thing is, I'm busy, so I don't have time."
+   },
+   {
+    "ja": "なにせ初めてなので、ドキドキします。",
+    "en": "Since it's my first time, I'm nervous."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-tomonatte-accompany",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun / V plain + に伴って / に伴い",
+  "pattern_jk": "Noun / V plain + に伴って / に伴い",
+  "meaning_en": "accompanying / along with / as X progresses",
+  "cont": [
+   "名詞 + に伴って / に伴い; 動詞 plain + の + に伴って"
+  ],
+  "examples": [
+   {
+    "ja": "少子化に伴って、学校が減っている。",
+    "en": "Along with the declining birthrate, the number of schools is decreasing."
+   },
+   {
+    "ja": "経済成長に伴い、都市化が進んだ。",
+    "en": "Along with economic growth, urbanization progressed."
+   },
+   {
+    "ja": "技術の進歩に伴って、生活が便利になった。",
+    "en": "With the progress of technology, life has become more convenient."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-terashite",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + に照らして",
+  "pattern_jk": "Noun + に照らして",
+  "meaning_en": "in light of / in accordance with",
+  "cont": [
+   "名詞 (rule / standard) + に照らして"
+  ],
+  "examples": [
+   {
+    "ja": "法律に照らして、この行為は違法だ。",
+    "en": "In light of the law, this act is illegal."
+   },
+   {
+    "ja": "経験に照らして判断する。",
+    "en": "I'll judge based on my experience."
+   },
+   {
+    "ja": "事実に照らして考えてみよう。",
+    "en": "Let's think about it in light of the facts."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-itaru",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + に至る",
+  "pattern_jk": "Noun + に至る",
+  "meaning_en": "reach / arrive at / come to",
+  "cont": [
+   "名詞 + に至る; attributive に至る + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "議論の結果、合意に至った。",
+    "en": "As a result of the discussion, we reached an agreement."
+   },
+   {
+    "ja": "この結論に至った経緯を説明します。",
+    "en": "I will explain how we came to this conclusion."
+   },
+   {
+    "ja": "事故に至る原因を調査した。",
+    "en": "We investigated the causes leading to the accident."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-itaru-made",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + に至るまで",
+  "pattern_jk": "Noun + に至るまで",
+  "meaning_en": "even to / all the way to / as far as",
+  "cont": [
+   "名詞 + に至るまで"
+  ],
+  "examples": [
+   {
+    "ja": "子供からお年寄りに至るまで、みんな楽しめる。",
+    "en": "Everyone, from children all the way to the elderly, can enjoy it."
+   },
+   {
+    "ja": "細部に至るまで、丁寧に作られている。",
+    "en": "It's carefully made all the way down to the details."
+   },
+   {
+    "ja": "彼は服装から話し方に至るまで、完璧だ。",
+    "en": "He's perfect, from his clothing all the way to his way of speaking."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-kakatte-iru",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + にかかっている",
+  "pattern_jk": "Noun + にかかっている",
+  "meaning_en": "depends on / hinges on",
+  "cont": [
+   "名詞 + にかかっている (polite: にかかっています)"
+  ],
+  "examples": [
+   {
+    "ja": "成功はあなたの努力にかかっている。",
+    "en": "Success depends on your effort."
+   },
+   {
+    "ja": "このプロジェクトの運命は彼の判断にかかっている。",
+    "en": "The fate of this project hinges on his judgment."
+   },
+   {
+    "ja": "すべては明日の天気にかかっている。",
+    "en": "Everything depends on tomorrow's weather."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-kakawarazu-regardless",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form / noun + にかかわらず",
+  "pattern_jk": "Plain form / noun + にかかわらず",
+  "meaning_en": "regardless of / irrespective of",
+  "cont": [
+   "名詞 + にかかわらず; 普通形 (pair of opposites) + にかかわらず (e.g., 行く行かないにかかわらず)"
+  ],
+  "examples": [
+   {
+    "ja": "年齢にかかわらず、誰でも参加できます。",
+    "en": "Regardless of age, anyone can participate."
+   },
+   {
+    "ja": "天気にかかわらず、試合は行われる。",
+    "en": "Regardless of the weather, the match will be held."
+   },
+   {
+    "ja": "経験のあるなしにかかわらず、挑戦してみてください。",
+    "en": "Regardless of experience, please try."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-kotaete-response",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + にこたえて",
+  "pattern_jk": "Noun + にこたえて",
+  "meaning_en": "in response to / responding to (expectations, requests)",
+  "cont": [
+   "名詞 + にこたえて; attributive 〜にこたえた + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "観客の声援にこたえて、選手たちはベストを尽くした。",
+    "en": "Responding to the audience's cheers, the athletes gave their best."
+   },
+   {
+    "ja": "期待にこたえて、彼は見事に優勝した。",
+    "en": "Meeting expectations, he brilliantly won the championship."
+   },
+   {
+    "ja": "お客様の要望にこたえて、新商品を開発した。",
+    "en": "Responding to customer requests, we developed a new product."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-shite",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + にして",
+  "pattern_jk": "Noun + にして",
+  "meaning_en": "at (the point of) / being (X), (emphatic)",
+  "cont": [
+   "名詞 + にして. Typically with age, position, or identity nouns"
+  ],
+  "examples": [
+   {
+    "ja": "彼は80歳にして、今も元気だ。",
+    "en": "At 80 years old, he is still energetic."
+   },
+   {
+    "ja": "今にして思えば、あれが最後のチャンスだった。",
+    "en": "Now that I think about it, that was my last chance."
+   },
+   {
+    "ja": "彼は医者にして作家でもある。",
+    "en": "He is a doctor and also a writer."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-shite-mireba",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + にしてみれば / にしてみたら",
+  "pattern_jk": "Noun + にしてみれば / にしてみたら",
+  "meaning_en": "from X's perspective / from X's point of view",
+  "cont": [
+   "名詞 + にしてみれば / にしてみたら"
+  ],
+  "examples": [
+   {
+    "ja": "子供にしてみれば、当然の反応だ。",
+    "en": "From a child's perspective, it's a natural reaction."
+   },
+   {
+    "ja": "私にしてみれば、そんなのは大した問題じゃない。",
+    "en": "From my perspective, that's not a big deal."
+   },
+   {
+    "ja": "外国人にしてみたら、難しいかもしれない。",
+    "en": "From a foreigner's perspective, it may be difficult."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-suginai",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun / plain form + にすぎない",
+  "pattern_jk": "Noun / plain form + にすぎない",
+  "meaning_en": "is nothing more than / merely",
+  "cont": [
+   "名詞 + にすぎない; plain-form clause + にすぎない"
+  ],
+  "examples": [
+   {
+    "ja": "それは単なる言い訳にすぎない。",
+    "en": "That's nothing more than a mere excuse."
+   },
+   {
+    "ja": "これはほんの一例にすぎない。",
+    "en": "This is merely one example."
+   },
+   {
+    "ja": "彼の話は推測にすぎない。",
+    "en": "His story is nothing more than speculation."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-tsuki-due-to",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + につき",
+  "pattern_jk": "Noun + につき",
+  "meaning_en": "due to / because of / per",
+  "cont": [
+   "名詞 + につき (for both senses, disambiguated by context)"
+  ],
+  "examples": [
+   {
+    "ja": "本日は定休日につき、閉店いたします。",
+    "en": "As today is our regular closing day, we are closed."
+   },
+   {
+    "ja": "お一人につき、1000円です。",
+    "en": "It's 1000 yen per person."
+   },
+   {
+    "ja": "改装中につき、通路が狭くなっています。",
+    "en": "Due to renovations, the passageway has been narrowed."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:no-moto-de",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + のもとで / のもとに",
+  "pattern_jk": "Noun + のもとで / のもとに",
+  "meaning_en": "under (the guidance / condition / auspices of)",
+  "cont": [
+   "名詞 + のもとで (adverbial) / のもとに (literary variant)"
+  ],
+  "examples": [
+   {
+    "ja": "有名な先生のもとで、ピアノを学んだ。",
+    "en": "I studied piano under a famous teacher."
+   },
+   {
+    "ja": "青空のもとで、ピクニックを楽しんだ。",
+    "en": "We enjoyed a picnic under the blue sky."
+   },
+   {
+    "ja": "厳しい条件のもとに、契約が結ばれた。",
+    "en": "The contract was concluded under strict conditions."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wa-oroka",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + はおろか",
+  "pattern_jk": "Noun + はおろか",
+  "meaning_en": "let alone / not to mention",
+  "cont": [
+   "名詞 + はおろか + (typically negative / more extreme statement)"
+  ],
+  "examples": [
+   {
+    "ja": "漢字はおろか、ひらがなも書けない。",
+    "en": "Not to mention kanji, I can't even write hiragana."
+   },
+   {
+    "ja": "海外旅行はおろか、国内旅行さえしたことがない。",
+    "en": "Let alone overseas trips, I haven't even done domestic travel."
+   },
+   {
+    "ja": "会話はおろか、挨拶もできない。",
+    "en": "Not to mention conversation, I can't even greet people."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:bakari-no",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb ます-stem / plain form + ばかりの / ばかりだ",
+  "pattern_jk": "Verb ます-stem / plain form + ばかりの / ばかりだ",
+  "meaning_en": "nothing but / only one way (to decline / increase)",
+  "cont": [
+   "動詞 dict-form + ばかりだ; attributive 動詞 dict + ばかりの + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "物価は上がるばかりだ。",
+    "en": "Prices keep only going up."
+   },
+   {
+    "ja": "状況は悪くなるばかりだった。",
+    "en": "The situation kept only getting worse."
+   },
+   {
+    "ja": "人口は減るばかりだ。",
+    "en": "The population keeps only decreasing."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wa-sate-oki",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + はさておき",
+  "pattern_jk": "Noun + はさておき",
+  "meaning_en": "setting X aside (formal)",
+  "cont": [
+   "名詞 + はさておき"
+  ],
+  "examples": [
+   {
+    "ja": "冗談はさておき、真面目な話をしましょう。",
+    "en": "Setting jokes aside, let's have a serious conversation."
+   },
+   {
+    "ja": "それはさておき、次の議題に移ります。",
+    "en": "Setting that aside, let's move to the next topic."
+   },
+   {
+    "ja": "詳細はさておき、概要を説明します。",
+    "en": "Setting details aside, I'll explain the outline."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:buru-pretend",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun / i-adj stem / na-adj root + ぶる",
+  "pattern_jk": "Noun / i-adj stem / na-adj root + ぶる",
+  "meaning_en": "pretend to be / put on airs of",
+  "cont": [
+   "名詞 / い形容詞語幹 / な形容詞語幹 + ぶる (conjugates as godan u-動詞)"
+  ],
+  "examples": [
+   {
+    "ja": "彼は学者ぶっているけれど、実はよく知らない。",
+    "en": "He's pretending to be a scholar, but actually he doesn't know much."
+   },
+   {
+    "ja": "いい子ぶるのはやめなさい。",
+    "en": "Stop pretending to be a good kid."
+   },
+   {
+    "ja": "彼女はいつも上品ぶっている。",
+    "en": "She's always putting on refined airs."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:beku-in-order-to",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb dict-form + べく",
+  "pattern_jk": "Verb dict-form + べく",
+  "meaning_en": "in order to / for the purpose of (literary)",
+  "cont": [
+   "動詞 dict-form + べく. Irregular: する → すべく (formal) or するべく"
+  ],
+  "examples": [
+   {
+    "ja": "夢を実現すべく、毎日努力している。",
+    "en": "In order to realize my dream, I work hard every day."
+   },
+   {
+    "ja": "健康を取り戻すべく、運動を始めた。",
+    "en": "In order to regain my health, I started exercising."
+   },
+   {
+    "ja": "事件を解決すべく、警察は調査を続けた。",
+    "en": "In order to solve the case, the police continued their investigation."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hodo-dewa-nai",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + ほどではない",
+  "pattern_jk": "Plain form + ほどではない",
+  "meaning_en": "not to the extent of / not as much as",
+  "cont": [
+   "動詞 plain / い形容詞 + ほどではない; な形容詞 + な + ほどではない; 名詞 + の + ほどではない"
+  ],
+  "examples": [
+   {
+    "ja": "痛いけど、病院に行くほどではない。",
+    "en": "It hurts, but not to the extent of going to the hospital."
+   },
+   {
+    "ja": "忙しいが、断るほどではない。",
+    "en": "I'm busy, but not so much that I need to decline."
+   },
+   {
+    "ja": "難しいけど、不可能なほどではない。",
+    "en": "It's difficult, but not to the extent of being impossible."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hodo-no-mono-dewa-nai",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + ほどのことではない / ほどのものではない",
+  "pattern_jk": "Plain form + ほどのことではない / ほどのものではない",
+  "meaning_en": "not worth that much / not such a big deal",
+  "cont": [
+   "動詞 plain / 名詞 + ほどのことではない; 名詞 + ほどのものではない"
+  ],
+  "examples": [
+   {
+    "ja": "心配するほどのことではないよ。",
+    "en": "It's not worth worrying about."
+   },
+   {
+    "ja": "それは謝るほどのことではない。",
+    "en": "That's not worth apologizing over."
+   },
+   {
+    "ja": "まあまあの出来だが、自慢するほどのものではない。",
+    "en": "It turned out okay, but it's nothing to brag about."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:you-to-mai-to",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "V volitional + と + V dict-form/ます-stem + まい(と)",
+  "pattern_jk": "V volitional + と + V dict-form/ます-stem + まい(と)",
+  "meaning_en": "whether or not (one does) X",
+  "cont": [
+   "動詞 volitional + と + 動詞 ます-語幹 / dict-form + まい(と). Example: 行こうと行くまいと, 食べようと食べまいと"
+  ],
+  "examples": [
+   {
+    "ja": "行こうと行くまいと、あなたの自由だ。",
+    "en": "Whether you go or not, it's up to you."
+   },
+   {
+    "ja": "彼が来ようと来まいと、会議は始める。",
+    "en": "Whether he comes or not, we'll start the meeting."
+   },
+   {
+    "ja": "雨が降ろうと降るまいと、出発する。",
+    "en": "Rain or no rain, we're leaving."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mai-not-likely",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb dict / ます-stem + まい",
+  "pattern_jk": "Verb dict / ます-stem + まい",
+  "meaning_en": "will not / probably not / intention not to",
+  "cont": [
+   "Godan / Ichidan 動詞 dict + まい (or 〜ます 語幹 + まい for ichidan, varied). Irregular: する → すまい / しまい; くる → くまい / こまい"
+  ],
+  "examples": [
+   {
+    "ja": "もう二度と彼とは会うまい。",
+    "en": "I'll never see him again."
+   },
+   {
+    "ja": "そんな簡単には負けるまい。",
+    "en": "I won't lose so easily."
+   },
+   {
+    "ja": "彼は来まい。",
+    "en": "He probably won't come."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:makuru-extensively",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb ます-stem + まくる",
+  "pattern_jk": "Verb ます-stem + まくる",
+  "meaning_en": "do X a lot / do X extensively / keep doing",
+  "cont": [
+   "動詞 ます-語幹 + まくる (conjugates as godan u-動詞)"
+  ],
+  "examples": [
+   {
+    "ja": "試験前に勉強しまくった。",
+    "en": "I studied a ton before the exam."
+   },
+   {
+    "ja": "休みの日は寝まくる。",
+    "en": "On my days off, I sleep a lot."
+   },
+   {
+    "ja": "彼は一日中ゲームをやりまくっている。",
+    "en": "He's playing video games all day long."
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nai-made-mo",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "V ない-form + までも",
+  "pattern_jk": "V ない-form + までも",
+  "meaning_en": "even if not quite X / not necessarily X, but at least",
+  "cont": [
+   "動詞 ない + までも"
+  ],
+  "examples": [
+   {
+    "ja": "完璧とは言わないまでも、かなりよくできている。",
+    "en": "I wouldn't call it perfect, but it's done quite well."
+   },
+   {
+    "ja": "毎日とは言わないまでも、週に一度は運動したい。",
+    "en": "Not every day, but at least once a week I'd like to exercise."
+   },
+   {
+    "ja": "直接会わないまでも、電話くらいはしてほしい。",
+    "en": "Even if you don't meet in person, I'd at least like you to call."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:made-mo-nai",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb dict-form + までもない",
+  "pattern_jk": "Verb dict-form + までもない",
+  "meaning_en": "no need to even / not worth (doing)",
+  "cont": [
+   "動詞 dict-form + までもない. Fixed 文節: 言うまでもない / 言うまでもなく"
+  ],
+  "examples": [
+   {
+    "ja": "言うまでもなく、日本の首都は東京だ。",
+    "en": "Needless to say, Japan's capital is Tokyo."
+   },
+   {
+    "ja": "そんなことで病院に行くまでもない。",
+    "en": "There's no need to go so far as to visit a hospital for that."
+   },
+   {
+    "ja": "わざわざ行くまでもないよ。",
+    "en": "No need to go out of your way."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mamire-smeared",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + まみれ",
+  "pattern_jk": "Noun + まみれ",
+  "meaning_en": "smeared / covered with (often messy or unpleasant)",
+  "cont": [
+   "名詞 (usually liquid / powder / unpleasant substance) + まみれ"
+  ],
+  "examples": [
+   {
+    "ja": "子供は泥まみれになって遊んでいた。",
+    "en": "The child was playing, covered in mud."
+   },
+   {
+    "ja": "彼のシャツは血まみれだった。",
+    "en": "His shirt was covered with blood."
+   },
+   {
+    "ja": "長い間使っていなかった本はほこりまみれだった。",
+    "en": "The long-unused book was covered with dust."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:meku-have-look",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + めく",
+  "pattern_jk": "Noun + めく",
+  "meaning_en": "have a look / hint / feel of",
+  "cont": [
+   "名詞 + めく (conjugates as godan u-動詞)"
+  ],
+  "examples": [
+   {
+    "ja": "最近、ようやく春めいてきた。",
+    "en": "Recently, it's finally starting to feel like spring."
+   },
+   {
+    "ja": "謎めいた話を聞いた。",
+    "en": "I heard a mysterious story."
+   },
+   {
+    "ja": "その言葉には皮肉めいた響きがあった。",
+    "en": "The words had an ironic ring to them."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-mo-ii-kurai",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "V-て form + もいいくらい",
+  "pattern_jk": "V-て form + もいいくらい",
+  "meaning_en": "enough to / to the extent that (you could)",
+  "cont": [
+   "動詞-て + もいいくらい"
+  ],
+  "examples": [
+   {
+    "ja": "泣いてもいいくらい感動した。",
+    "en": "I was moved enough that I could have cried."
+   },
+   {
+    "ja": "叫んでもいいくらい嬉しかった。",
+    "en": "I was so happy I could have shouted."
+   },
+   {
+    "ja": "踊ってもいいくらいの気分だ。",
+    "en": "I feel so good I could dance."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mono-to-shite",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + ものとして",
+  "pattern_jk": "Noun + ものとして",
+  "meaning_en": "as / regarded as / assuming that",
+  "cont": [
+   "名詞 + ものとして; plain-form clause + ものとして"
+  ],
+  "examples": [
+   {
+    "ja": "本件は合意したものとして扱います。",
+    "en": "We will treat this matter as agreed upon."
+   },
+   {
+    "ja": "この規則は絶対的なものとして守ってください。",
+    "en": "Please follow this rule as something absolute."
+   },
+   {
+    "ja": "そう決まったものとして、次に進みましょう。",
+    "en": "Assuming that's decided, let's move on."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ya-inaya",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Verb dict-form + や否や",
+  "pattern_jk": "Verb dict-form + や否や",
+  "meaning_en": "as soon as / the moment that (literary)",
+  "cont": [
+   "動詞 dict-form + や否や"
+  ],
+  "examples": [
+   {
+    "ja": "彼は家に着くや否や、ベッドに倒れ込んだ。",
+    "en": "As soon as he got home, he collapsed into bed."
+   },
+   {
+    "ja": "ドアを開けるや否や、猫が飛び出した。",
+    "en": "The moment I opened the door, the cat jumped out."
+   },
+   {
+    "ja": "始業のベルが鳴るや否や、生徒たちは席についた。",
+    "en": "The moment the opening bell rang, the students took their seats."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:yashinai-emphatic",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "V ます-stem + やしない",
+  "pattern_jk": "V ます-stem + やしない",
+  "meaning_en": "(emphatic) not at all / definitely not (casual)",
+  "cont": [
+   "動詞 ます-語幹 + やしない (most common) or 動詞 ない形 + やしない"
+  ],
+  "examples": [
+   {
+    "ja": "そんなこと、分かりやしない。",
+    "en": "There's no way I'd understand that."
+   },
+   {
+    "ja": "誰も聞きやしないよ。",
+    "en": "Nobody's going to listen."
+   },
+   {
+    "ja": "彼は気にしやしない。",
+    "en": "He doesn't care at all."
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:yara-yara",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + やら + noun + やら",
+  "pattern_jk": "Noun + やら + noun + やら",
+  "meaning_en": "things like X and Y (disordered / overwhelming)",
+  "cont": [
+   "名詞 + やら + 名詞 + やら; 動詞 plain / い形容詞 + やら + 動詞 / い形容詞 + やら"
+  ],
+  "examples": [
+   {
+    "ja": "宿題やら掃除やらで忙しい。",
+    "en": "I'm busy with homework and cleaning and whatnot."
+   },
+   {
+    "ja": "雨やら風やらで、外に出られなかった。",
+    "en": "What with the rain and the wind, I couldn't go out."
+   },
+   {
+    "ja": "嬉しいやら恥ずかしいやら、複雑な気持ちだった。",
+    "en": "I felt happy and embarrassed and all mixed up."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:yue-ni-because",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + (が)ゆえに / 故に",
+  "pattern_jk": "Plain form + (が)ゆえに / 故に",
+  "meaning_en": "because / therefore (literary)",
+  "cont": [
+   "動詞 plain / い形容詞 + (が)ゆえに; な形容詞 + (な / である) + (が)ゆえに; 名詞 + の + ゆえに"
+  ],
+  "examples": [
+   {
+    "ja": "我思う、ゆえに我あり。",
+    "en": "I think, therefore I am."
+   },
+   {
+    "ja": "若さゆえに、失敗することもある。",
+    "en": "Because of youth, one sometimes fails."
+   },
+   {
+    "ja": "彼は正直であるがゆえに、損をすることも多い。",
+    "en": "Precisely because he is honest, he often loses out."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:you-de-seemingly",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + ようで / ようでいて",
+  "pattern_jk": "Plain form + ようで / ようでいて",
+  "meaning_en": "seemingly X, but actually / looks X but",
+  "cont": [
+   "動詞 plain / い形容詞 + ようで / ようでいて; な形容詞 + な / である + ようで; 名詞 + の / である + ようで"
+  ],
+  "examples": [
+   {
+    "ja": "彼は強いようでいて、実は優しい。",
+    "en": "He seems strong, but is actually gentle."
+   },
+   {
+    "ja": "簡単なようで、実は難しい。",
+    "en": "It seems simple, but it's actually difficult."
+   },
+   {
+    "ja": "忙しいようで、暇そうだ。",
+    "en": "He seems busy, but actually he looks free."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:you-dewa-if-its",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + ようでは",
+  "pattern_jk": "Plain form + ようでは",
+  "meaning_en": "if it's like that / at this rate",
+  "cont": [
+   "動詞 plain / い形容詞 + ようでは; な形容詞 + な + ようでは; 名詞 + の + ようでは"
+  ],
+  "examples": [
+   {
+    "ja": "そんなに怠けるようでは、合格できないよ。",
+    "en": "If you're lazy like that, you won't pass."
+   },
+   {
+    "ja": "約束を破るようでは、信頼できない。",
+    "en": "If you break promises like that, I can't trust you."
+   },
+   {
+    "ja": "こんなミスをするようでは、プロとは言えない。",
+    "en": "If you make mistakes like this, you can't call yourself a pro."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:you-nara-if-looks",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Plain form + ようなら(ば)",
+  "pattern_jk": "Plain form + ようなら(ば)",
+  "meaning_en": "if it looks like / if it appears",
+  "cont": [
+   "動詞 plain / い形容詞 + ようなら; な形容詞 + な + ようなら; 名詞 + の + ようなら"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降るようなら、中止しましょう。",
+    "en": "If it looks like it'll rain, let's cancel."
+   },
+   {
+    "ja": "難しいようなら、手伝います。",
+    "en": "If it looks difficult, I'll help."
+   },
+   {
+    "ja": "間に合わないようなら、連絡してください。",
+    "en": "If it looks like you won't make it in time, please contact me."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wo-hete",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + を経て",
+  "pattern_jk": "Noun + を経て",
+  "meaning_en": "after going through / via / through (a process)",
+  "cont": [
+   "名詞 + を経て"
+  ],
+  "examples": [
+   {
+    "ja": "長年の研究を経て、ついに発見した。",
+    "en": "After many years of research, we finally discovered it."
+   },
+   {
+    "ja": "多くの困難を経て、ここまで来た。",
+    "en": "After going through many hardships, I've come this far."
+   },
+   {
+    "ja": "彼は大学を経て、会社員になった。",
+    "en": "After going through university, he became a company employee."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wo-keiki-ni",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + を契機に / を契機として",
+  "pattern_jk": "Noun + を契機に / を契機として",
+  "meaning_en": "taking X as the opportunity / prompted by",
+  "cont": [
+   "名詞 + を契機に / を契機として"
+  ],
+  "examples": [
+   {
+    "ja": "事故を契機に、安全対策を強化した。",
+    "en": "Prompted by the accident, safety measures were strengthened."
+   },
+   {
+    "ja": "留学を契機として、彼の人生は大きく変わった。",
+    "en": "Taking studying abroad as the turning point, his life changed greatly."
+   },
+   {
+    "ja": "退職を契機に、趣味に時間を使うようになった。",
+    "en": "Prompted by retirement, he began spending time on hobbies."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wo-komete",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + を込めて",
+  "pattern_jk": "Noun + を込めて",
+  "meaning_en": "with (feeling) / putting (feeling) into",
+  "cont": [
+   "名詞 (emotion) + を込めて"
+  ],
+  "examples": [
+   {
+    "ja": "愛を込めて手紙を書いた。",
+    "en": "I wrote the letter with love."
+   },
+   {
+    "ja": "感謝を込めてプレゼントを贈る。",
+    "en": "I give a present with gratitude."
+   },
+   {
+    "ja": "心を込めて歌った。",
+    "en": "I sang with all my heart."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wo-kikkake-ni",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun / V plain + をきっかけに(して)",
+  "pattern_jk": "Noun / V plain + をきっかけに(して)",
+  "meaning_en": "triggered by / with X as the impetus",
+  "cont": [
+   "名詞 + をきっかけに(して); 動詞 plain / 動詞-た + の + をきっかけに(して)"
+  ],
+  "examples": [
+   {
+    "ja": "日本旅行をきっかけに、日本語を勉強し始めた。",
+    "en": "A trip to Japan triggered my starting to study Japanese."
+   },
+   {
+    "ja": "その本を読んだのをきっかけに、考え方が変わった。",
+    "en": "Reading that book triggered a change in my way of thinking."
+   },
+   {
+    "ja": "病気をきっかけに、健康に気をつけるようになった。",
+    "en": "My illness triggered me to start caring about my health."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:wo-yoso-ni",
+  "type": "C-jk",
+  "level": "N2",
+  "pattern": "Noun + をよそに",
+  "pattern_jk": "Noun + をよそに",
+  "meaning_en": "ignoring / in disregard of",
+  "cont": [
+   "名詞 + をよそに"
+  ],
+  "examples": [
+   {
+    "ja": "親の心配をよそに、彼は一人で旅に出た。",
+    "en": "Disregarding his parents' worries, he set off alone on a trip."
+   },
+   {
+    "ja": "周囲の反対をよそに、彼らは結婚した。",
+    "en": "Ignoring the opposition around them, they got married."
+   },
+   {
+    "ja": "人々の批判をよそに、彼は自分の道を進んだ。",
+    "en": "Disregarding people's criticism, he went his own way."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "g:と",
+  "type": "C-rb",
+  "level": "N2",
+  "pattern": "〜と",
+  "shortZh": "自然/必然条件",
+  "cont": [
+   "动词辞书形 + と；动词ない形 + と；い形容词 + と；な形容词/名词 + だと",
+   "動詞 volitional (〜よう / 〜おう) + と. Often with interrogatives: 誰が〜ようと, 何を〜ようと",
+   "Dictionary form of 動詞 (or plain non-past of adjective/copula) + と"
+  ],
+  "lessonCat": "条件表达",
+  "examples": [
+   {
+    "ja": "誰が何と言おうと、私は諦めない。",
+    "en": "No matter what anyone says, I won't give up."
+   },
+   {
+    "ja": "雨が降ろうと、試合は行われる。",
+    "en": "No matter if it rains, the match will be held."
+   },
+   {
+    "ja": "何があろうと、私はあなたの味方だ。",
+    "en": "No matter what happens, I'm on your side."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 2,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:を通じて",
+  "type": "C-rb",
+  "level": "N2",
+  "pattern": "〜を通じて / 〜を通して",
+  "shortZh": "通过……/贯穿……",
+  "cont": [
+   "名詞 + を通じて; 名詞 + を通して. Attributive form: を通じての + 名詞"
+  ],
+  "lessonCat": "N3书面助词",
+  "examples": [
+   {
+    "ja": "友達を通じて彼に紹介された。",
+    "en": "I was introduced to him through a friend."
+   },
+   {
+    "ja": "一年を通じて観光客が多い。",
+    "en": "There are many tourists throughout the year."
+   },
+   {
+    "ja": "この経験を通して、多くのことを学んだ。",
+    "en": "Through this experience, I learned many things."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:をもとに",
+  "type": "C-rb",
+  "level": "N2",
+  "pattern": "〜をもとに",
+  "shortZh": "以……为基础",
+  "cont": [
+   "名詞 + をもとに (adverbial) / をもとにして (emphatic adverbial) / をもとにした + 名詞 (attributive)"
+  ],
+  "lessonCat": "N3书面助词",
+  "examples": [
+   {
+    "ja": "この小説は実話をもとに書かれた。",
+    "en": "This novel was written based on a true story."
+   },
+   {
+    "ja": "データをもとに分析する。",
+    "en": "I'll analyze based on the data."
+   },
+   {
+    "ja": "経験をもとにアドバイスします。",
+    "en": "I'll give advice based on experience."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ }
+]

@@ -1,7 +1,9 @@
 // 应用入口
 document.addEventListener('DOMContentLoaded', function () {
   Router.render(); // 根据当前 hash 显示对应页面
-  Home.init();     // 首页数据与事件（始终初始化，返回首页时即为最新状态）
+  Home.init();     // 单词首页数据与事件（始终初始化，返回首页时即为最新状态）
+  if (window.Landing) Landing.init(); // 门户页两张卡片的进度小字
+  if (window.GrammarHome) GrammarHome.init(); // 语法首页数据与事件
 });
 
 // 注册 Service Worker（PWA：离线缓存）；注册失败不影响正常使用

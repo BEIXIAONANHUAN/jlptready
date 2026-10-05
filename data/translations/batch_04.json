@@ -1,0 +1,1553 @@
+[
+ {
+  "rowid": "jk:you-ka-to-omou",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb volitional + かと思う",
+  "pattern_jk": "Verb volitional + かと思う",
+  "meaning_en": "thinking of doing / half-considering",
+  "cont": [
+   "動詞 volitional + かと思う"
+  ],
+  "examples": [
+   {
+    "ja": "留学しようかと思っています。",
+    "en": "I'm considering studying abroad."
+   },
+   {
+    "ja": "会社を辞めようかと思っている。",
+    "en": "I'm thinking of quitting the company."
+   },
+   {
+    "ja": "新しいパソコンを買おうかと思う。",
+    "en": "I'm thinking of buying a new computer."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:o-v-kudasai-polite-honor",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "お + V ます-stem + ください (or ご + Sino-Japanese noun + ください)",
+  "pattern_jk": "お + V ます-stem + ください (or ご + Sino-Japanese noun + ください)",
+  "meaning_en": "please do (very polite honorific request)",
+  "cont": [
+   "お + 動詞 ます-語幹 + ください (native verbs): お待ちください, お座りください. ご + Sino-Japanese 名詞 + ください: ご注意ください, ご利用ください"
+  ],
+  "examples": [
+   {
+    "ja": "お待ちください。",
+    "en": "Please wait."
+   },
+   {
+    "ja": "こちらにお座りください。",
+    "en": "Please sit here."
+   },
+   {
+    "ja": "ご注意ください。",
+    "en": "Please be careful."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kudasaru-honorific-verb",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "くださる (honorific of くれる)",
+  "pattern_jk": "くださる (honorific of くれる)",
+  "meaning_en": "(honorific) (someone superior) gives to me / us",
+  "cont": [
+   "Plain: くださる. Polite: くださいます (irregular). Imperative: ください"
+  ],
+  "examples": [
+   {
+    "ja": "先生が本をくださいました。",
+    "en": "The teacher kindly gave me a book."
+   },
+   {
+    "ja": "社長がお花をくださった。",
+    "en": "The president (kindly) gave me flowers."
+   },
+   {
+    "ja": "お手紙をくださってありがとうございます。",
+    "en": "Thank you for kindly sending me a letter."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-kureru-favor-received",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V-て form + くれる",
+  "pattern_jk": "V-て form + くれる",
+  "meaning_en": "(someone) does a favor for me / us",
+  "cont": [
+   "動詞-て + くれる (polite: くれます); honorific: 動詞-て + くださる (polite: くださいます)"
+  ],
+  "examples": [
+   {
+    "ja": "友達がお金を貸してくれた。",
+    "en": "My friend lent me money."
+   },
+   {
+    "ja": "母が弁当を作ってくれました。",
+    "en": "My mother made me a bento."
+   },
+   {
+    "ja": "先生が日本語を教えてくださった。",
+    "en": "The teacher kindly taught me Japanese."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kedomo-formal-but",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "けれども (mid-sentence or sentence-initial)",
+  "pattern_jk": "けれども (mid-sentence or sentence-initial)",
+  "meaning_en": "but / however (formal-neutral)",
+  "cont": [
+   "Clause + けれども + clause (mid-文); or 文-initial: [Previous]. けれども, [current]"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降っていたけれども、試合は行われた。",
+    "en": "Although it was raining, the match was held."
+   },
+   {
+    "ja": "高いけれども、品質はいい。",
+    "en": "It's expensive, but the quality is good."
+   },
+   {
+    "ja": "彼は若いけれども、しっかりしている。",
+    "en": "He is young, but he's very solid/reliable."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:goran-ni-naru-honorific",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "ご覧になる (honorific of 見る)",
+  "pattern_jk": "ご覧になる (honorific of 見る)",
+  "meaning_en": "(honorific) to see / to look at",
+  "cont": [
+   "Base form: ご覧になる. Polite: ご覧になります. Request: ご覧ください ('please look'). Te-form: ご覧になって"
+  ],
+  "examples": [
+   {
+    "ja": "こちらの資料をご覧ください。",
+    "en": "Please look at this document."
+   },
+   {
+    "ja": "先生はもうその映画をご覧になりましたか。",
+    "en": "Has the teacher already seen that movie?"
+   },
+   {
+    "ja": "画面をご覧になりながらお聞きください。",
+    "en": "Please listen while looking at the screen."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:shikashi-but",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "しかし (sentence-initial)",
+  "pattern_jk": "しかし (sentence-initial)",
+  "meaning_en": "but / however (formal)",
+  "cont": [
+   "[Previous 文]. しかし [current 文]"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降っていた。しかし、試合は行われた。",
+    "en": "It was raining. However, the match was held."
+   },
+   {
+    "ja": "彼は若い。しかし、経験が豊富だ。",
+    "en": "He is young. However, he has abundant experience."
+   },
+   {
+    "ja": "勉強した。しかし、試験に落ちた。",
+    "en": "I studied. But I failed the exam."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:zutsu-each-per",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Number + counter + ずつ",
+  "pattern_jk": "Number + counter + ずつ",
+  "meaning_en": "each / per / at a rate of",
+  "cont": [
+   "数字 + 助数詞 + ずつ: 一つずつ, 二人ずつ, 少しずつ, 一個ずつ"
+  ],
+  "examples": [
+   {
+    "ja": "一つずつ取ってください。",
+    "en": "Please take one each."
+   },
+   {
+    "ja": "少しずつ食べます。",
+    "en": "I eat (it) little by little."
+   },
+   {
+    "ja": "二人ずつ並んでください。",
+    "en": "Please line up in pairs (two each)."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:tari-tari-suru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb-た + り + Verb-た + り + する",
+  "pattern_jk": "Verb-た + り + Verb-た + り + する",
+  "meaning_en": "do things like X and Y (non-exhaustive list of actions)",
+  "cont": [
+   "動詞-た form + り: 食べた → 食べたり, 飲んだ → 飲んだり. List actions with 〜たり〜たりする"
+  ],
+  "examples": [
+   {
+    "ja": "週末は映画を見たり、買い物をしたりします。",
+    "en": "On weekends, I do things like watch movies and go shopping."
+   },
+   {
+    "ja": "泣いたり笑ったりして、忙しい一日だった。",
+    "en": "It was a busy day with crying and laughing."
+   },
+   {
+    "ja": "休みの日は掃除したり洗濯したりする。",
+    "en": "On days off I do things like cleaning and laundry."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:humble-o-suru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "お + V ます-stem + する (or ご + Sino-Japanese noun + する)",
+  "pattern_jk": "お + V ます-stem + する (or ご + Sino-Japanese noun + する)",
+  "meaning_en": "humble form: I will do X (for a superior)",
+  "cont": [
+   "お + 動詞 ます-語幹 + する (native verbs): お貸しする, お書きする. ご + Sino-Japanese 名詞 + する: ご案内する, ご説明する"
+  ],
+  "examples": [
+   {
+    "ja": "先生に本をお貸しします。",
+    "en": "I will lend the book to my teacher."
+   },
+   {
+    "ja": "後で、お電話します。",
+    "en": "I will call you later."
+   },
+   {
+    "ja": "ご案内します。",
+    "en": "I will show you around."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sou-da-appearance",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb-stem / い-adj stem / な-adj root + そう(だ/です)",
+  "pattern_jk": "Verb-stem / い-adj stem / な-adj root + そう(だ/です)",
+  "meaning_en": "looks like / seems (appearance-based judgment)",
+  "cont": [
+   "動詞 ます-語幹 + そう; い-adj drop い + そう (高い → 高そう); な-adj root + そう (元気 → 元気そう). Exceptions: いい → よさそう, ない → なさそう"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降りそうです。",
+    "en": "It looks like it's going to rain."
+   },
+   {
+    "ja": "このケーキはおいしそうですね。",
+    "en": "This cake looks delicious, doesn't it?"
+   },
+   {
+    "ja": "彼は元気そうに見える。",
+    "en": "He looks energetic."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sou-da-hearsay",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + そう(だ/です)",
+  "pattern_jk": "Plain form + そう(だ/です)",
+  "meaning_en": "I heard that / apparently (reported speech)",
+  "cont": [
+   "Plain-form 動詞 / い形容詞 / な形容詞 / 名詞 + だ (for nouns and な形容詞) + そうだ. Examples: 食べるそうだ, 食べたそうだ, 高いそうだ, 学生だそうだ, 元気だそうだ"
+  ],
+  "examples": [
+   {
+    "ja": "天気予報によると、明日は雨だそうです。",
+    "en": "According to the weather forecast, it will rain tomorrow."
+   },
+   {
+    "ja": "田中さんは来月結婚するそうです。",
+    "en": "I heard Mr. Tanaka is getting married next month."
+   },
+   {
+    "ja": "あの店のラーメンはおいしいそうだ。",
+    "en": "I hear the ramen at that restaurant is good."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sorekara-after",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "それから (sentence-initial)",
+  "pattern_jk": "それから (sentence-initial)",
+  "meaning_en": "and then / after that / in addition",
+  "cont": [
+   "[Previous 文]. それから [current 文]"
+  ],
+  "examples": [
+   {
+    "ja": "朝ごはんを食べました。それから、学校へ行きました。",
+    "en": "I ate breakfast. After that, I went to school."
+   },
+   {
+    "ja": "パンを買いました。それから、牛乳も買いました。",
+    "en": "I bought bread. And also, I bought milk."
+   },
+   {
+    "ja": "宿題をして、それから、寝ます。",
+    "en": "I'll do my homework, and after that, sleep."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sorede-and-then",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "それで (sentence-initial)",
+  "pattern_jk": "それで (sentence-initial)",
+  "meaning_en": "and then / so / as a result",
+  "cont": [
+   "[Previous 文]. それで [current 文]"
+  ],
+  "examples": [
+   {
+    "ja": "電車が遅れました。それで、会議に遅刻しました。",
+    "en": "The train was delayed. As a result, I was late to the meeting."
+   },
+   {
+    "ja": "昨日は疲れていました。それで、早く寝ました。",
+    "en": "I was tired yesterday. So I went to bed early."
+   },
+   {
+    "ja": "それで、どうしましたか。",
+    "en": "And then, what happened?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:soredemo-even-so",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "それでも (sentence-initial)",
+  "pattern_jk": "それでも (sentence-initial)",
+  "meaning_en": "even so / nonetheless / still",
+  "cont": [
+   "[Previous 文]. それでも [current 文]"
+  ],
+  "examples": [
+   {
+    "ja": "疲れている。それでも、続けなければならない。",
+    "en": "I'm tired. Even so, I have to continue."
+   },
+   {
+    "ja": "失敗した。それでも、諦めない。",
+    "en": "I failed. Still, I won't give up."
+   },
+   {
+    "ja": "難しい。それでも、やってみる価値がある。",
+    "en": "It's difficult. Nonetheless, it's worth trying."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:tai-to-omou-want-to-think",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb stem + たいと思う",
+  "pattern_jk": "Verb stem + たいと思う",
+  "meaning_en": "I (think I) want to do",
+  "cont": [
+   "動詞 ます-語幹 + たいと思う / たいと思います"
+  ],
+  "examples": [
+   {
+    "ja": "日本へ行きたいと思います。",
+    "en": "I think I'd like to go to Japan."
+   },
+   {
+    "ja": "新しい仕事を探したいと思っている。",
+    "en": "I've been thinking of looking for a new job."
+   },
+   {
+    "ja": "将来、医者になりたいと思う。",
+    "en": "I think I want to become a doctor in the future."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:dakara-so",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "だから (sentence-initial)",
+  "pattern_jk": "だから (sentence-initial)",
+  "meaning_en": "so / therefore / that's why",
+  "cont": [
+   "[Previous 文]. だから [current 文]"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降っています。だから、傘を持っていきます。",
+    "en": "It's raining. So I'll take an umbrella."
+   },
+   {
+    "ja": "疲れました。だから、今日は早く寝ます。",
+    "en": "I'm tired. So I'll go to bed early today."
+   },
+   {
+    "ja": "だから言ったでしょう。",
+    "en": "That's what I told you, isn't it?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:darou-deshou-conjecture",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + だろう / でしょう",
+  "pattern_jk": "Plain form + だろう / でしょう",
+  "meaning_en": "probably / I guess / it will probably be",
+  "cont": [
+   "Plain-form 動詞/い-adj/名詞 + だろう (plain) or でしょう (polite). For nouns and な-adjectives, attach directly without だ: 学生でしょう, not 学生だでしょう"
+  ],
+  "examples": [
+   {
+    "ja": "明日は晴れるでしょう。",
+    "en": "It will probably be sunny tomorrow."
+   },
+   {
+    "ja": "彼はもう帰ったでしょう。",
+    "en": "He's probably already gone home."
+   },
+   {
+    "ja": "この仕事は大変だろう。",
+    "en": "This job is probably tough. (plain)"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:tte-quotation",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form / phrase + って",
+  "pattern_jk": "Plain form / phrase + って",
+  "meaning_en": "(casual) that... / they said... / the thing called...",
+  "cont": [
+   "Plain-form clause / 文節 + って"
+  ],
+  "examples": [
+   {
+    "ja": "彼は明日来るって言ってた。",
+    "en": "He said he'll come tomorrow."
+   },
+   {
+    "ja": "日本語って難しいね。",
+    "en": "Japanese is hard, isn't it?"
+   },
+   {
+    "ja": "佐藤って人を知ってる？",
+    "en": "Do you know someone called Sato?"
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:tsumori-datta-had-intended",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V plain non-past + つもりだった",
+  "pattern_jk": "V plain non-past + つもりだった",
+  "meaning_en": "had intended to / was going to",
+  "cont": [
+   "動詞 plain non-past + つもりだった / つもりでした"
+  ],
+  "examples": [
+   {
+    "ja": "昨日、勉強するつもりだったけど、疲れて寝てしまった。",
+    "en": "I was going to study yesterday, but I was tired and fell asleep."
+   },
+   {
+    "ja": "来るつもりでしたが、都合が悪くなりました。",
+    "en": "I was planning to come, but something came up."
+   },
+   {
+    "ja": "朝ごはんを食べるつもりだった。",
+    "en": "I had intended to eat breakfast."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-dekiru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun + が + できる",
+  "pattern_jk": "Noun + が + できる",
+  "meaning_en": "can do / is possible (object takes が, not を)",
+  "cont": [
+   "(Subject は) + Object が + できる / できます. Negative: できない / できません"
+  ],
+  "examples": [
+   {
+    "ja": "日本語ができますか。",
+    "en": "Can you speak Japanese?"
+   },
+   {
+    "ja": "ご飯ができました。",
+    "en": "The meal is ready."
+   },
+   {
+    "ja": "運転ができる。",
+    "en": "I can drive."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:demo-noun-even",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun + でも",
+  "pattern_jk": "Noun + でも",
+  "meaning_en": "even (a) / or something (casual suggestion)",
+  "cont": [
+   "名詞 + でも"
+  ],
+  "examples": [
+   {
+    "ja": "子供でもわかる。",
+    "en": "Even a child can understand."
+   },
+   {
+    "ja": "雨でも行きます。",
+    "en": "I'll go even if it rains."
+   },
+   {
+    "ja": "お茶でもどうですか。",
+    "en": "How about some tea (or something)?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-mo-ii-permission",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb-て + もいい / もいいです",
+  "pattern_jk": "Verb-て + もいい / もいいです",
+  "meaning_en": "may / it's okay to ___ (permission)",
+  "cont": [
+   "動詞-て + もいい(です). More polite: てもよろしい(ですか)"
+  ],
+  "examples": [
+   {
+    "ja": "ここに座ってもいいですか。",
+    "en": "May I sit here?"
+   },
+   {
+    "ja": "写真を撮ってもいいです。",
+    "en": "You may take photos."
+   },
+   {
+    "ja": "窓を開けてもいいですか。",
+    "en": "May I open the window?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nakute-mo-ii",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb-なく + てもいい",
+  "pattern_jk": "Verb-なく + てもいい",
+  "meaning_en": "don't have to / it's okay not to",
+  "cont": [
+   "動詞-ない-語幹 + なくてもいい(です)"
+  ],
+  "examples": [
+   {
+    "ja": "明日は学校に来なくてもいいです。",
+    "en": "You don't have to come to school tomorrow."
+   },
+   {
+    "ja": "お金を払わなくてもいい。",
+    "en": "You don't have to pay. (plain)"
+   },
+   {
+    "ja": "全部食べなくてもいいですよ。",
+    "en": "You don't have to eat it all."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-omou",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + と思う",
+  "pattern_jk": "Plain form + と思う",
+  "meaning_en": "I think (that) ___",
+  "cont": [
+   "Plain-form clause + と + 思う (polite: 思います)"
+  ],
+  "examples": [
+   {
+    "ja": "明日は雨が降ると思います。",
+    "en": "I think it will rain tomorrow."
+   },
+   {
+    "ja": "彼はいい人だと思う。",
+    "en": "I think he's a good person. (plain)"
+   },
+   {
+    "ja": "このレストランは高いと思います。",
+    "en": "I think this restaurant is expensive."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:you-to-omou-volitional-intent",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb volitional form + と思う",
+  "pattern_jk": "Verb volitional form + と思う",
+  "meaning_en": "I think I will / intend to do",
+  "cont": [
+   "Ichidan: 食べる → 食べよう + と思う. Godan: 行く → 行こう + と思う. Irregular: する → しよう, くる → こよう"
+  ],
+  "examples": [
+   {
+    "ja": "明日、早く起きようと思います。",
+    "en": "I think I'll wake up early tomorrow."
+   },
+   {
+    "ja": "日本語を勉強しようと思っています。",
+    "en": "I'm thinking of studying Japanese."
+   },
+   {
+    "ja": "新しいパソコンを買おうと思う。",
+    "en": "I think I'll buy a new computer."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-iu",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Quoted phrase + と言う",
+  "pattern_jk": "Quoted phrase + と言う",
+  "meaning_en": "say that ___; be called ___",
+  "cont": [
+   "Plain-form clause + と + 言う. For naming: 'Xという + 名詞' (e.g., 田中という人 — 'a person called Tanaka')"
+  ],
+  "examples": [
+   {
+    "ja": "彼は明日来ると言いました。",
+    "en": "He said he would come tomorrow."
+   },
+   {
+    "ja": "田中という人を知っていますか。",
+    "en": "Do you know a person called Tanaka?"
+   },
+   {
+    "ja": "先生は「静かにしなさい」と言いました。",
+    "en": "The teacher said, 'Be quiet.'"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nasaru-honorific",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "なさる (honorific of する)",
+  "pattern_jk": "なさる (honorific of する)",
+  "meaning_en": "(honorific) to do",
+  "cont": [
+   "Plain: なさる. Polite: なさいます (irregular). Te-form: なさって. Request: なさってください"
+  ],
+  "examples": [
+   {
+    "ja": "社長は毎朝運動をなさいます。",
+    "en": "The company president exercises every morning."
+   },
+   {
+    "ja": "お客様は何をなさいますか。",
+    "en": "What would you like to do, sir/madam?"
+   },
+   {
+    "ja": "お気をつけてお帰りなさい。",
+    "en": "Please take care on your way home."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nikui-hard",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb stem + にくい",
+  "pattern_jk": "Verb stem + にくい",
+  "meaning_en": "hard to ___ / difficult to ___",
+  "cont": [
+   "動詞 語幹 + にくい"
+  ],
+  "examples": [
+   {
+    "ja": "この字は読みにくいです。",
+    "en": "This handwriting is hard to read."
+   },
+   {
+    "ja": "この肉は食べにくい。",
+    "en": "This meat is hard to eat."
+   },
+   {
+    "ja": "この薬は飲みにくいです。",
+    "en": "This medicine is hard to take."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-suru-decide",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "X + にする",
+  "pattern_jk": "X + にする",
+  "meaning_en": "decide on / make it ___",
+  "cont": [
+   "名詞 + に + する"
+  ],
+  "examples": [
+   {
+    "ja": "私はコーヒーにします。",
+    "en": "I'll have coffee."
+   },
+   {
+    "ja": "明日行くことにしました。",
+    "en": "I've decided to go tomorrow."
+   },
+   {
+    "ja": "旅行は来月にすることにしました。",
+    "en": "I've decided to make the trip next month."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ni-naru-become",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "X + になる",
+  "pattern_jk": "X + になる",
+  "meaning_en": "become ___",
+  "cont": [
+   "名詞/な-adj + に + なる. い-adj: drop い, add くなる"
+  ],
+  "examples": [
+   {
+    "ja": "息子は医者になりました。",
+    "en": "My son became a doctor."
+   },
+   {
+    "ja": "寒くなってきました。",
+    "en": "It's gotten cold."
+   },
+   {
+    "ja": "日本語が上手になりましたね。",
+    "en": "Your Japanese has gotten good, hasn't it?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hazu-expected",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + はず",
+  "pattern_jk": "Plain form + はず",
+  "meaning_en": "should be / ought to be / is expected to",
+  "cont": [
+   "Plain-form 動詞/adjective/名詞 + はず(です). For nouns and な形容詞s, use の before はず: 学生のはず, 静かなはず"
+  ],
+  "examples": [
+   {
+    "ja": "彼は今日来るはずです。",
+    "en": "He should come today."
+   },
+   {
+    "ja": "そんなはずはない。",
+    "en": "There's no way that can be true. (plain)"
+   },
+   {
+    "ja": "荷物は明日届くはずです。",
+    "en": "The package should arrive tomorrow."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hazu-datta-was-supposed",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V plain / i-adj / noun の / na-adj な + はずだった",
+  "pattern_jk": "V plain / i-adj / noun の / na-adj な + はずだった",
+  "meaning_en": "was supposed to / should have been",
+  "cont": [
+   "動詞 plain + はずだった; い形容詞 + はずだった; 名詞 + の + はずだった; な形容詞 + な + はずだった"
+  ],
+  "examples": [
+   {
+    "ja": "彼は今日来るはずだった。",
+    "en": "He was supposed to come today."
+   },
+   {
+    "ja": "試験は簡単なはずだった。",
+    "en": "The exam was supposed to be easy."
+   },
+   {
+    "ja": "昨日、雨が降るはずでしたが、晴れました。",
+    "en": "It was supposed to rain yesterday, but it was sunny."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-morau-request-favor",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V-て form + もらう",
+  "pattern_jk": "V-て form + もらう",
+  "meaning_en": "I receive the favor of X doing Y / I have X do Y",
+  "cont": [
+   "Subject (recipient) は/が + Agent に + 動詞-て + もらう"
+  ],
+  "examples": [
+   {
+    "ja": "友達に日本語を教えてもらった。",
+    "en": "I had my friend teach me Japanese."
+   },
+   {
+    "ja": "医者に診てもらいました。",
+    "en": "I had the doctor examine me."
+   },
+   {
+    "ja": "少し待ってもらえますか。",
+    "en": "Could you wait a moment?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-wakaru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun + が + わかる",
+  "pattern_jk": "Noun + が + わかる",
+  "meaning_en": "understand (object takes が, not を)",
+  "cont": [
+   "(Subject は) + Object が + わかる / わかります. Negative: わからない / わかりません"
+  ],
+  "examples": [
+   {
+    "ja": "日本語がわかります。",
+    "en": "I understand Japanese."
+   },
+   {
+    "ja": "彼の気持ちがわからない。",
+    "en": "I don't understand his feelings."
+   },
+   {
+    "ja": "この問題が全然わかりません。",
+    "en": "I don't understand this problem at all."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:n-desu-explanation",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + んです / のです",
+  "pattern_jk": "Plain form + んです / のです",
+  "meaning_en": "explains, gives reason, or softly asserts: 'it's that ___'",
+  "cont": [
+   "Plain-form 動詞/い-adj + んです. 名詞/な-adj + な + んです (学生なんです)"
+  ],
+  "examples": [
+   {
+    "ja": "頭が痛いんです。",
+    "en": "(The thing is,) my head hurts."
+   },
+   {
+    "ja": "なぜ来なかったんですか。",
+    "en": "Why didn't you come?"
+   },
+   {
+    "ja": "実は、来月引っ越すんです。",
+    "en": "Actually, I'm moving next month."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "rb:简化尊敬語れる:27:0",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "简化尊敬語:〜(ら)れる",
+  "cont": [
+   "商务场合、对客户 → 用 特殊敬语动词 / お〜になる；公司内部、对上级偶尔的口语 → 用 〜（ら）れる 即可"
+  ],
+  "lessonCat": "敬語入门",
+  "examples": [
+   {
+    "ja": "部長は何時に来られますか。",
+    "zh": "部长几点来？"
+   },
+   {
+    "ja": "社長はこの本を読まれました。",
+    "zh": "社长读了这本书。"
+   },
+   {
+    "ja": "お客様、いつ帰られますか。",
+    "zh": "客人您什么时候回去？"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:せていただきます—商务超高频:28:0",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "〜せていただきます — 商务超高频",
+  "lessonCat": "敬語入门",
+  "examples": [
+   {
+    "ja": "本日は10時に閉店させていただきます。",
+    "zh": "今日 10 点关店。"
+   },
+   {
+    "ja": "説明させていただいてもよろしいでしょうか。",
+    "zh": "容我说明可以吗？"
+   },
+   {
+    "ja": "確認の上、後ほどお返事させていただきます。",
+    "zh": "确认后稍后回复您。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:たら",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "〜たら",
+  "shortZh": "完成条件 / 万一",
+  "cont": [
+   "行った → 行ったら；食べた → 食べたら；した → したら；い形：高かった → 高かったら；な形：静かだった → 静かだったら；名词：雨だった → 雨だったら",
+   "动词た形 + ら：行った → 行ったら、食べた → 食べたら；い形容词 去い + かったら：寒い → 寒かったら、高い → 高かったら；な形容词 + だったら：暇 → 暇だったら、元気 → 元気だったら；名词 + だったら：雨 → 雨だったら、学生 → 学生だったら；否定：动词なかったら / 名・な形 じゃなかったら / い形 くなかったら"
+  ],
+  "lessonCat": "条件表达",
+  "examples": [
+   {
+    "ja": "時間があったら、映画を見ます。",
+    "en": "If I have time, I'll watch a movie."
+   },
+   {
+    "ja": "家に帰ったら、手紙が来ていた。",
+    "en": "When I got home, a letter had come."
+   },
+   {
+    "ja": "お金があったら、新しいパソコンを買いたいです。",
+    "en": "If I had money, I'd want to buy a new computer."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 2
+ },
+ {
+  "rowid": "g:なら",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "〜なら",
+  "shortZh": "话题条件",
+  "cont": [
+   "名词 + なら；动词简体 + なら；い形容词 + なら；な形容词 + なら"
+  ],
+  "lessonCat": "条件表达",
+  "examples": [
+   {
+    "ja": "安いのなら、買います。",
+    "zh": "便宜的话就买。"
+   },
+   {
+    "ja": "暇なら、手伝ってくれない？",
+    "zh": "有空的话能帮我吗？"
+   },
+   {
+    "ja": "パソコンなら、秋葉原で買ったほうがいい。",
+    "zh": "电脑的话，在秋叶原买比较好。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ので",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "〜ので / 〜から",
+  "shortZh": "原因",
+  "cont": [
+   "Plain-form 動詞/い-adj + ので. 名詞/な-adj + な + ので (学生なので, 静かなので)"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降っているので、中止します。",
+    "en": "Since it's raining, we'll cancel."
+   },
+   {
+    "ja": "疲れているので、今日は帰ります。",
+    "en": "Because I'm tired, I'll go home today."
+   },
+   {
+    "ja": "電車が遅れたので、遅刻しました。",
+    "en": "Because the train was delayed, I was late."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ばかり:23:0",
+  "type": "C-rb",
+  "level": "N4",
+  "pattern": "〜ばかり",
+  "shortZh": "刚刚/净是/光是",
+  "lessonCat": "ばかり",
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:別にない:53:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "別に〜ない",
+  "shortZh": "并不特别……",
+  "meaning_rb": "\"并不特别……\"\"也没什么……\"，表示轻描淡写地否定，没有特别的感觉或理由。",
+  "cont": [
+   "別に + 動詞ない形；別に + い形容詞くない；別に + な形容詞ではない / じゃない"
+  ],
+  "lessonCat": "否定相关",
+  "examples": [
+   {
+    "ja": "別に怒ってないよ。",
+    "zh": "并没有生气啦。"
+   },
+   {
+    "ja": "別に食べたくない。",
+    "zh": "并不特别想吃。"
+   },
+   {
+    "ja": "別に興味ない。",
+    "zh": "并没有什么兴趣。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:次第",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜次第",
+  "shortZh": "一……就立刻……",
+  "meaning_rb": "\"一完成A就立刻做B\"，B是说话人计划要做的事。语气正式，多用于商务、书面场合。",
+  "cont": [
+   "動詞ます形（去ます）+ 次第"
+  ],
+  "lessonCat": "时间",
+  "examples": [
+   {
+    "ja": "届き次第、ご連絡します。",
+    "zh": "一收到就联系您。"
+   },
+   {
+    "ja": "日程が決まり次第、お知らせいたします。",
+    "zh": "日程一确定就通知您。"
+   },
+   {
+    "ja": "準備ができ次第、出発しましょう。",
+    "zh": "准备好了就出发吧。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:代わりに",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜代わりに",
+  "shortZh": "代替~/作为交换~",
+  "meaning_rb": "两层含义：① 代替/取代某人某物。② 作为交换条件（做了A，但相应地有B）。",
+  "cont": [
+   "動詞 plain + 代わりに; 名詞 + の + 代わりに"
+  ],
+  "lessonCat": "附加对比",
+  "examples": [
+   {
+    "ja": "社長の代わりに、部長が出席した。",
+    "zh": "代替社长，部长出席了。"
+   },
+   {
+    "ja": "バスの代わりに、タクシーで行った。",
+    "zh": "没坐公交，坐出租车去了。"
+   },
+   {
+    "ja": "手伝ってあげる代わりに、ご飯をおごってね。",
+    "zh": "帮你的话，作为交换你请我吃饭。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:割に:47:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜割に(は)",
+  "shortZh": "虽然~但是不相称",
+  "meaning_rb": "\"虽然A，但B和A不成正比\"。表示程度和预期不相称。",
+  "lessonCat": "话题立场",
+  "examples": [
+   {
+    "ja": "この料理は簡単な割に、おいしい。",
+    "zh": "这道菜虽然简单，但很好吃。"
+   },
+   {
+    "ja": "勉強した割に、テストの点数が悪かった。",
+    "zh": "虽然学了，但考试成绩不好。"
+   },
+   {
+    "ja": "年齢の割に、若く見える。",
+    "zh": "相对年龄来说，看起来很年轻。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:合う",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜合う",
+  "shortZh": "互相~",
+  "meaning_rb": "\"互相做~\"，表示两人或多人之间的相互动作。日语中非常常用，很多已经作为一个词使用。",
+  "cont": [
+   "動詞 ます-語幹 + 合う (conjugates as godan: 合います, 合った, 合って)"
+  ],
+  "lessonCat": "建议复合",
+  "examples": [
+   {
+    "ja": "困った時は助け合いましょう。",
+    "zh": "困难的时候互相帮助吧。"
+   },
+   {
+    "ja": "みんなで話し合って、決めましょう。",
+    "zh": "大家一起商量着决定吧。"
+   },
+   {
+    "ja": "二人は目を見つめ合った。",
+    "zh": "两人对视了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:決してない:53:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "決して〜ない",
+  "shortZh": "绝对不……",
+  "meaning_rb": "\"绝对不……\"\"决不……\"，表示强烈的否定。语气坚定，带有说话人的意志或判断。",
+  "cont": [
+   "決して + 動詞ない形；決して + い形容詞くない；決して + な形容詞ではない；決して + 名詞ではない"
+  ],
+  "lessonCat": "否定相关",
+  "examples": [
+   {
+    "ja": "彼は決して嘘をつかない。",
+    "zh": "他绝对不撒谎。"
+   },
+   {
+    "ja": "あの人のことを決して許さない。",
+    "zh": "绝对不原谅那个人。"
+   },
+   {
+    "ja": "このことは決して忘れない。",
+    "zh": "这件事绝对不会忘。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:気味",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜気味",
+  "shortZh": "有点…… / 略微……",
+  "meaning_rb": "\"有点……\"\"略微有……倾向\"，表示某种不好的征兆刚刚出现，程度较轻。几乎只用于负面。",
+  "cont": [
+   "動詞ます形（去ます）+ 気味；名詞 + 気味"
+  ],
+  "lessonCat": "倾向状态",
+  "examples": [
+   {
+    "ja": "最近、風邪気味だ。",
+    "zh": "最近有点感冒。"
+   },
+   {
+    "ja": "少し疲れ気味なので、早く寝よう。",
+    "zh": "有点累了，早点睡吧。"
+   },
+   {
+    "ja": "今日は遅れ気味だ。",
+    "zh": "今天有点晚了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:上で",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜上で",
+  "shortZh": "在……之后 / 在……方面",
+  "meaning_rb": "1. 在……之后（動詞た形 + 上で）：先做A再做B。\n2. 在……方面/上（動詞辞書形 + 上で）：在做某事时，关于某方面。",
+  "cont": [
+   "動詞た形 + 上で；名詞 + の上で；動詞辞書形 + 上で；名詞 + の上で"
+  ],
+  "lessonCat": "書面表達",
+  "examples": [
+   {
+    "ja": "よく考えた上で、返事をします。",
+    "zh": "仔细考虑之后再回复。"
+   },
+   {
+    "ja": "両親と相談した上で、決めたいと思います。",
+    "zh": "和父母商量之后再决定。"
+   },
+   {
+    "ja": "契約書をよく読んだ上で、サインしてください。",
+    "zh": "仔细阅读合同之后再签名。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:向き",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜向き",
+  "shortZh": "适合~",
+  "meaning_rb": "\"适合A的\"。不是特意为A制作，而是客观上来看适合A。",
+  "cont": [
+   "名詞 + 向きの + 名詞 (attributive); 名詞 + 向き (predicate)"
+  ],
+  "lessonCat": "话题立场",
+  "examples": [
+   {
+    "ja": "この映画は大人向きだ。",
+    "zh": "这部电影适合大人看。"
+   },
+   {
+    "ja": "この仕事は体力のある人向きだ。",
+    "zh": "这份工作适合有体力的人。"
+   },
+   {
+    "ja": "夏向きの服を買いたい。",
+    "zh": "想买适合夏天穿的衣服。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:向け",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜向け",
+  "shortZh": "面向~/针对~",
+  "meaning_rb": "\"面向A/以A为对象而制作/设计的\"。强调目标受众。",
+  "cont": [
+   "名詞 + 向け (bare); 名詞 + 向けに (adverbial); 名詞 + 向けの + 名詞 (attributive)"
+  ],
+  "lessonCat": "话题立场",
+  "examples": [
+   {
+    "ja": "これは子ども向けの番組だ。",
+    "zh": "这是面向儿童的节目。"
+   },
+   {
+    "ja": "外国人向けの日本語教材を買った。",
+    "zh": "买了面向外国人的日语教材。"
+   },
+   {
+    "ja": "初心者向けのコースはありますか。",
+    "zh": "有面向初学者的课程吗？"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:一方だ",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜一方だ",
+  "shortZh": "一直在……/ 越来越……",
+  "meaning_rb": "\"一直在……（单方向变化）\"\"越来越……\"，表示某种变化持续朝一个方向进行，无法逆转。多用于负面趋势。",
+  "cont": [
+   "動詞辞書形 + 一方だ"
+  ],
+  "lessonCat": "倾向状态",
+  "examples": [
+   {
+    "ja": "物価は上がる一方だ。",
+    "zh": "物价一直在涨。"
+   },
+   {
+    "ja": "日本の少子化は進む一方だ。",
+    "zh": "日本的少子化一直在加剧。"
+   },
+   {
+    "ja": "彼の成績は下がる一方だ。",
+    "zh": "他的成绩一直在下降。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:込む",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜込む",
+  "shortZh": "深入~/进入~",
+  "meaning_rb": "复合动词后缀。核心意思有两个：① 物理上\"进入里面\"（飛び込む＝飞进去）；② 抽象上\"深入、彻底地做\"（読み込む＝深入阅读/载入数据）。作为程序员，「読み込む」「書き込む」「取り込む」是你特别熟悉的概念。",
+  "cont": [
+   "動詞 ます-語幹 + 込む (conjugates as godan: 込みます, 込んだ, 込んで)"
+  ],
+  "lessonCat": "建议复合",
+  "examples": [
+   {
+    "ja": "プールに飛び込んだ。",
+    "zh": "跳进了游泳池。"
+   },
+   {
+    "ja": "データを読み込むのに時間がかかる。",
+    "zh": "载入数据需要时间。"
+   },
+   {
+    "ja": "セミナーに申し込みました。",
+    "zh": "报名了研讨会。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:最中に:48:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜最中に",
+  "shortZh": "正在……的时候",
+  "meaning_rb": "\"正在做某事的高峰时刻（发生了意外的事）\"。强调是在行动最关键的时候被打断或出事了。",
+  "cont": [
+   "動詞ている + 最中に；名詞 + の + 最中に"
+  ],
+  "lessonCat": "时间",
+  "examples": [
+   {
+    "ja": "会議の最中に、電話が鳴った。",
+    "zh": "正在开会的时候电话响了。"
+   },
+   {
+    "ja": "食事をしている最中に、地震が起きた。",
+    "zh": "正在吃饭的时候发生了地震。"
+   },
+   {
+    "ja": "テストの最中に、お腹が痛くなった。",
+    "zh": "正在考试的时候肚子疼了。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:うちに",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜うちに",
+  "shortZh": "趁……之际",
+  "meaning_rb": "\"趁着某个状态还在持续的时候（赶紧做某事）\"。暗示如果不抓紧，状态会改变就来不及了。",
+  "cont": [
+   "動詞辞書形 / ている / ない形 + うちに；い形容詞 + うちに；な形容詞 + な + うちに；名詞 + の + うちに"
+  ],
+  "lessonCat": "时间",
+  "examples": [
+   {
+    "ja": "明るいうちに帰ろう。",
+    "zh": "趁天还亮赶紧回去吧。"
+   },
+   {
+    "ja": "若いうちに、いろいろな経験をしたほうがいい。",
+    "zh": "趁年轻多积累各种经验比较好。"
+   },
+   {
+    "ja": "忘れないうちにメモしておこう。",
+    "zh": "趁还没忘赶紧记下来。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ }
+]

@@ -200,7 +200,7 @@ window.Review = (function () {
     }
   }
 
-  // ---------- 入口：路由进入 #/review 时调用 ----------
+  // ---------- 入口：路由进入 #/words/review 时调用 ----------
   async function enter() {
     const body = $('review-body');
     if (!body) return;
@@ -897,7 +897,7 @@ window.Review = (function () {
         ${saveError ? '<button class="btn btn-primary" id="btn-retry-save">重试保存</button>' : ''}
         <button class="btn btn-primary" id="btn-back-home">回首页</button>
       </div>`;
-    $('btn-back-home').addEventListener('click', () => { location.hash = '#/'; });
+    $('btn-back-home').addEventListener('click', () => { location.hash = '#/words'; });
     const retry = $('btn-retry-save');
     if (retry) retry.addEventListener('click', saveResults);
   }

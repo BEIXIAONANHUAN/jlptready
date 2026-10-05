@@ -1,0 +1,378 @@
+[
+ {
+  "rowid": "jk:sae-even",
+  "pattern": "〜さえ",
+  "meaning_zh": "甚至……都……：举出极端例子加以强调（子供さえ知っている）。",
+  "ex1_zh": "连孩子都知道。",
+  "ex2_zh": "他连名字都写不出来。",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:to-itta-such-as",
+  "pattern": "〜といった",
+  "meaning_zh": "……之类的（正式举例）：りんごやみかんといった果物。",
+  "ex1_zh": "日本有很多苹果、橘子之类的水果。",
+  "ex2_zh": "对医生、律师之类的职业感兴趣。",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:causative-passive",
+  "pattern": "使役受身形（〜させられる）",
+  "meaning_zh": "被迫做……（被让做……）：食べさせられる、待たされる（五段可缩约为される）。",
+  "ex1_zh": "被妈妈逼着吃了蔬菜。",
+  "ex2_zh": "被老师罚等了一个小时。",
+  "theme_order": 14,
+  "pos": "被动使役"
+ },
+ {
+  "rowid": "jk:nakucha-nakya",
+  "action": "mergeinto:g:なければならない",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "jk:kakeru-halfway",
+  "action": "mergeinto:rb:かけ:42:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:kurai-nara-rather",
+  "pattern": "〜くらいなら",
+  "meaning_zh": "与其……还不如……：表对前项的拒绝，宁愿选择后项。",
+  "ex1_zh": "与其道歉，还不如一开始就不做。",
+  "ex2_zh": "与其干那种工作，还不如辞职。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:te-kuru",
+  "action": "mergeinto:g:ていく",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:koto-nominalizer",
+  "pattern": "〜こと（形式名词）",
+  "meaning_zh": "把动词句名词化：食べること（吃这件事），可作主语、宾语。",
+  "ex1_zh": "学日语是件快乐的事。",
+  "ex2_zh": "不知道他不来。",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "jk:te-shikata-ga-nai",
+  "action": "mergeinto:g:てしょうがない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "jk:shou-ga-nai",
+  "pattern": "しょうがない／しかたがない",
+  "meaning_zh": "没办法/无计可施：对无法改变的状况表示放弃或接受的独立感叹。",
+  "ex1_zh": "下雨了。没办法。",
+  "ex2_zh": "没办法，只好走回去。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:tagaru-third-person-desire",
+  "pattern": "〜たがる",
+  "meaning_zh": "第三人称想做……的外在表现（たい只用于第一人称，第三人称用たがる）。",
+  "ex1_zh": "小孩想吃甜食。",
+  "ex2_zh": "妹妹想买新衣服。",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "jk:nai-de-without-doing",
+  "pattern": "〜ないで",
+  "meaning_zh": "没做……就……：表动作的替代或伴随状态（食べないで行く）。",
+  "ex1_zh": "没吃早饭就去了学校。",
+  "ex2_zh": "什么也没说就走了。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:to-ieba-speaking-of",
+  "action": "mergeinto:rb:といえば:25:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:to-itte-mo-although",
+  "action": "mergeinto:rb:といっても:51:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "jk:nan-ka-dismissive",
+  "action": "mergeinto:rb:など:47:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:nan-te-how",
+  "action": "mergeinto:rb:など:47:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:ni-ataru-correspond",
+  "pattern": "〜に当たる",
+  "meaning_zh": "相当于/恰逢：用于日子、亲属关系、换算等（1ドルは110円に当たる）。",
+  "ex1_zh": "今天是我父亲的生日。",
+  "ex2_zh": "他是我叔父。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:ni-kawatte-instead",
+  "action": "mergeinto:rb:に代わって:50:0",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:ni-chigainai-must",
+  "action": "mergeinto:rb:に違いない:43:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:no-nominalizer",
+  "pattern": "〜の（形式名词）",
+  "meaning_zh": "把动词句名词化（感知的具体场面）：走るのを見た。比こと更具体生动。",
+  "ex1_zh": "看见他在跑。",
+  "ex2_zh": "喜欢画画。",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "jk:ta-bakari",
+  "action": "mergeinto:rb:たばかり:07:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:bakari-only",
+  "action": "mergeinto:rb:ばかり:23:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:bakari-de-naku",
+  "action": "mergeinto:g:ばかりか",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:buri-ni-first-time",
+  "pattern": "〜ぶり",
+  "meaning_zh": "时隔……（第一次）：10年ぶり、久しぶり。",
+  "ex1_zh": "时隔10年回到了故乡。",
+  "ex2_zh": "3天来第一次晴天。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ta-hou-ga-ii",
+  "pattern": "〜たほうがいい",
+  "meaning_zh": "最好……（建议）；ないほうがいい表示\"最好不做\"。",
+  "ex1_zh": "最好早点睡。",
+  "ex2_zh": "最好去看医生。",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "jk:hoka-nai-no-choice",
+  "pattern": "〜ほかない",
+  "meaning_zh": "只能……（别无选择，较书面）：諦めるほかない。",
+  "ex1_zh": "事已至此，只能放弃。",
+  "ex2_zh": "电车停了，只能走回去。",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "jk:hodo-extent",
+  "action": "mergeinto:g:ほど",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:mitai-looks-like",
+  "pattern": "〜みたい",
+  "meaning_zh": "好像/像……一样（口语的ようだ）；也可用于比喻（子供みたいに）。",
+  "ex1_zh": "他像日本人。",
+  "ex2_zh": "像孩子一样笑了。",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:mono-reason-assertion",
+  "pattern": "〜もの（理由辩解）",
+  "meaning_zh": "因为……嘛：带感情的辩解语气（疲れているもの）。口语也作「もん」。",
+  "ex1_zh": "不想去。因为累嘛。",
+  "ex2_zh": "因为冷，所以要穿外套。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:wake-dewa-nai",
+  "pattern": "〜わけではない",
+  "meaning_zh": "并不是……/未必……：对全称判断的部分否定。",
+  "ex1_zh": "不是不喜欢，只是今天不想吃。",
+  "ex2_zh": "不是每天都忙。",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:warini-considering",
+  "action": "mergeinto:rb:割に:47:0",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:n-da-kara-emphatic",
+  "pattern": "〜んだから",
+  "meaning_zh": "因为……嘛：强调理由并含有主张、催促的语气。",
+  "ex1_zh": "你不是累了吗，早点睡。",
+  "ex2_zh": "没时间了，快点。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:mon-casual-because",
+  "action": "mergeinto:jk:mono-reason-assertion",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:について",
+  "pattern": "〜について",
+  "meaning_zh": "关于……：较通用的「关于」，名词＋について（についての＋名词）。",
+  "ex1_zh": "正在学习日本文化。",
+  "ex2_zh": "读了关于环境问题的书。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:によって",
+  "pattern": "〜によって",
+  "meaning_zh": "①根据……而异（人によって違う）②通过……手段③被……（被动施事，书面）。",
+  "ex1_zh": "意见因人而异。",
+  "ex2_zh": "这幅画出自毕加索之手。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:わけだ",
+  "pattern": "〜わけだ",
+  "meaning_zh": "难怪/也就是说：基于前因推出理所当然的结论（雪が降るから寒いわけだ）。",
+  "ex1_zh": "在下雪，难怪冷。",
+  "ex2_zh": "她是英国人，难怪英语好。",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:抜く",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:次第だ:74:0",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "g:得る",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:反面",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "g:際",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:結果",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:末に:69:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:上に",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:上は",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:一方:66:0",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "g:以上",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:あげく",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:あまり",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:かないかのうちに",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:かねない",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:かねる",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:かのようだ",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:からこそ",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:からといって",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:からには",
+  "theme_order": 2,
+  "pos": "原因理由"
+ }
+]

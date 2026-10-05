@@ -1,0 +1,430 @@
+[
+ {
+  "rowid": "rb:もかまわず:61:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ものがある",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ものだから",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:ものなら",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "g:ものの",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:ようものなら:70:0",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "rb:を除いて:69:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:を機に:63:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:を踏まえて",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:を問わず",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:を中心に",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:をめぐって:67:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:をものともせず:61:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:shidai-de",
+  "action": "mergeinto:rb:次第だ:74:0",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:hate-ni-after",
+  "pattern": "〜果てに",
+  "meaning_zh": "经过漫长的……之后最终……（书面，常带感慨）：努力の果てに。",
+  "ex1_zh": "经过多年努力终于实现了梦想。",
+  "ex2_zh": "激烈争论之后终于达成了一致。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:kiwamari-nai",
+  "pattern": "〜極まりない／極まる",
+  "meaning_zh": "极其……（书面强调）：失礼極まりない（极其无礼）。",
+  "ex1_zh": "他的态度极其无礼。",
+  "ex2_zh": "那是极其危险的情况。",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "jk:osore-ga-aru",
+  "action": "mergeinto:rb:おそれがある:43:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:sue-ni-after",
+  "action": "mergeinto:rb:末に:69:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:doori-just-as",
+  "action": "mergeinto:rb:とおり:51:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:kagiri-da-emotional",
+  "pattern": "〜限りだ（感情强调）",
+  "meaning_zh": "（感到）非常……：嬉しい限りです（高兴之至），用于表达强烈感受。",
+  "ex1_zh": "能见到您我非常高兴。",
+  "ex2_zh": "他不来，我感到非常寂寞。",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "jk:sae-sureba-if-only",
+  "action": "mergeinto:rb:さえば:40:0",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:atte-no-thanks-to",
+  "pattern": "〜あっての",
+  "meaning_zh": "有……才有……：健康あっての人生（健康造就人生），强调前提的重要性。",
+  "ex1_zh": "有客人（光顾）才有生意。",
+  "ex2_zh": "幸福源于家人。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:dano-dano",
+  "pattern": "〜だの〜だの",
+  "meaning_zh": "……啦……啦（列举并抱怨）：忙しいだの疲れただの、文句ばかり。",
+  "ex1_zh": "\"忙\"啦\"累\"啦，净是借口。",
+  "ex2_zh": "嫌啦不擅长啦，尽是抱怨。",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:to-iu-ka",
+  "pattern": "〜というか",
+  "meaning_zh": "与其说……不如说……（口语的修正表达，比というより随便）。",
+  "ex1_zh": "他与其说是温柔，不如说是安静型。",
+  "ex2_zh": "说累不如说是困，总之想休息。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:ato-wa-rest",
+  "pattern": "〜あとは",
+  "meaning_zh": "之后就只剩下……：あとは〜だけだ，表示剩下的唯一事项。",
+  "ex1_zh": "准备就绪。之后就只差出发了。",
+  "ex2_zh": "材料齐了，之后就是做（菜）了。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ikan-depending",
+  "pattern": "〜いかん",
+  "meaning_zh": "取决于……（书面）：結果いかんで、いかんにかかわらず（不论……如何）。",
+  "ex1_zh": "取决于结果决定今后的方针。",
+  "ex2_zh": "不论成绩如何都能合格。",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:gatai-difficult",
+  "pattern": "〜がたい",
+  "meaning_zh": "难以……（书面，接近不可能）：信じがたい、許しがたい。",
+  "ex1_zh": "那是难以相信的话。",
+  "ex2_zh": "那是不可原谅的行为。",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:ka-to-omou-to",
+  "pattern": "〜かと思うと",
+  "meaning_zh": "刚……就……（意外的瞬间转变）：泣いたかと思うと、すぐ笑い出した。",
+  "ex1_zh": "刚哭就又笑了起来。",
+  "ex2_zh": "刚转晴又下起雨来。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ka-to-iu-to",
+  "pattern": "〜かというと",
+  "meaning_zh": "至于是否……（引出自己的回答）：どちらかというと（硬要说的话）。",
+  "ex1_zh": "要说喜欢吗，倒也不是。",
+  "ex2_zh": "硬要说的话，我喜欢猫胜过狗。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:kara-miru-to",
+  "pattern": "〜から見ると",
+  "meaning_zh": "从……来看：から見ると/見れば/見て，表观察判断的立场。",
+  "ex1_zh": "在外国人看来日本是安全的国家。",
+  "ex2_zh": "从数据看这款商品很受欢迎。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:kara-iu-to",
+  "pattern": "〜からいうと",
+  "meaning_zh": "从……来说/就……而言：経験からいえば（从经验来说）。",
+  "ex1_zh": "就结果来说是巨大的成功。",
+  "ex2_zh": "就价格来说这家餐厅算高级。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:kara-shite",
+  "pattern": "〜からして",
+  "meaning_zh": "就连……都（举代表性例子下判断）：話し方からして失礼だ。",
+  "ex1_zh": "那个人就连说话方式都很失礼。",
+  "ex2_zh": "就连名字都很独特。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:kara-suru-to",
+  "pattern": "〜からすると",
+  "meaning_zh": "从……的角度来看/根据……判断：専門家からすると簡単だ。",
+  "ex1_zh": "对专家来说这个问题很简单。",
+  "ex2_zh": "从他说话的样子看，好像在生气。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:te-kara-to-iu-mono",
+  "pattern": "〜てからというもの",
+  "meaning_zh": "自从……以后一直……：来てからというもの、毎日が楽しい。",
+  "ex1_zh": "自从来到日本每天都很快乐。",
+  "ex2_zh": "自从孩子出生后完全没有自由时间。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:naku-mo-nai",
+  "pattern": "〜なくもない",
+  "meaning_zh": "也不是不……（委婉的部分肯定）：行きたくなくもないが、時間がない。",
+  "ex1_zh": "也不是不想去，就是没时间。",
+  "ex2_zh": "他的意见也不是不能理解。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:koto-dakara",
+  "pattern": "〜のことだから",
+  "meaning_zh": "因为是……（根据该人的性格习性推测）：田中さんのことだから、きっと来るだろう。",
+  "ex1_zh": "田中守时，一定会准时来。",
+  "ex2_zh": "认真的他一定在好好做作业。",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:koto-tote",
+  "pattern": "〜こととて",
+  "meaning_zh": "因为……（书面解释/道歉）：初めてのこととて、お許しください。",
+  "ex1_zh": "因为初次，请原谅不周。",
+  "ex2_zh": "事出突然，给您添麻烦了。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:ja-arumai-shi",
+  "pattern": "〜じゃあるまいし",
+  "meaning_zh": "又不是……（反驳对方的借口或不当行为）：子供じゃあるまいし。",
+  "ex1_zh": "又不是小孩子，别为那种事哭。",
+  "ex2_zh": "又不是专业选手，别要求那么完美。",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "jk:zukume-nothing-but",
+  "pattern": "〜ずくめ",
+  "meaning_zh": "净是……/全是……：黒ずくめ（一身黑）、いいことずくめ（全是好事）。",
+  "ex1_zh": "她总是穿一身黑。",
+  "ex2_zh": "今天全是好事的一天。",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:zu-jimai",
+  "pattern": "〜ずじまい",
+  "meaning_zh": "最终没能……（遗憾）：会えずじまいだった。",
+  "ex1_zh": "太忙了没能见到他。",
+  "ex2_zh": "想说的话也没能说出口。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:zutomo-even-without",
+  "pattern": "〜ずとも",
+  "meaning_zh": "即使不……也……（书面让步）：言わずとも分かる。",
+  "ex1_zh": "不说你也明白吧。",
+  "ex2_zh": "不必担心，没关系。",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "jk:sou-ni-nai",
+  "action": "mergeinto:rb:そうもない:53:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "jk:sobakara",
+  "pattern": "〜そばから",
+  "meaning_zh": "刚……就（又恢复原状）：教えたそばから忘れる。",
+  "ex1_zh": "刚教了就忘。",
+  "ex2_zh": "刚收拾好，孩子就弄乱。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:sobireru-miss-chance",
+  "pattern": "〜そびれる",
+  "meaning_zh": "错过……的机会（没能……）：言いそびれる、食べそびれる。",
+  "ex1_zh": "有件事我没来得及说。",
+  "ex2_zh": "太忙了没顾上吃午饭。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:dake-nara",
+  "pattern": "〜だけなら",
+  "meaning_zh": "如果只是……的话（还可以）：見るだけなら、いいですよ。",
+  "ex1_zh": "只是看看的话没关系。",
+  "ex2_zh": "只是一点点的话借给你。",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:tatte-even-casual",
+  "pattern": "〜たって",
+  "meaning_zh": "即使……也……（口语的ても）：言ったって聞いてくれない。",
+  "ex1_zh": "即使说了他也不听。",
+  "ex2_zh": "即使贵也想买。",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "jk:datte-casual-because",
+  "pattern": "だって",
+  "meaning_zh": "可是/因为……嘛（口语的辩解、反驳）：だって、嫌なんだもん。",
+  "ex1_zh": "可是我就是不想嘛！",
+  "ex2_zh": "因为那是真的啊。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:dzurai-hard-emotional",
+  "action": "mergeinto:g:やすい",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "jk:nai-dewa-irarenai",
+  "action": "mergeinto:g:ずにはいられない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "jk:to-atte",
+  "pattern": "〜とあって",
+  "meaning_zh": "因为正值……（特殊情况说明）：休日とあって、公園は人で賑わった。",
+  "ex1_zh": "因为是假日，公园里人山人海。",
+  "ex2_zh": "因为有名歌手来，会场爆满。",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "jk:to-areba",
+  "pattern": "〜とあれば",
+  "meaning_zh": "如果是为了……的话：あなたのためとあれば、何でもする。",
+  "ex1_zh": "如果是为了你，我什么都做。",
+  "ex2_zh": "如果是紧急情况，我马上赶到。",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "jk:to-iu-koto-wa",
+  "pattern": "〜ということは",
+  "meaning_zh": "也就是说……（从前项引出推论）：来ないということは、忙しいのだろう。",
+  "ex1_zh": "他不来，也就是说他大概很忙。",
+  "ex2_zh": "明天休息，也就是说今晚可以熬夜。",
+  "theme_order": 15,
+  "pos": "传闻引用"
+ },
+ {
+  "rowid": "jk:to-iu-no-wa",
+  "pattern": "〜というのは",
+  "meaning_zh": "所谓……（下定义）/……的原因是（说明理由）：友情というのは。",
+  "ex1_zh": "所谓友情是金钱买不到的东西。",
+  "ex2_zh": "迟到的原因是电车停了。",
+  "theme_order": 15,
+  "pos": "传闻引用"
+ },
+ {
+  "rowid": "jk:to-iu-mono-da",
+  "pattern": "〜というものだ",
+  "meaning_zh": "这就是……（对事物本质的评价）：それが友情というものだ。",
+  "ex1_zh": "帮助有困难的人就是友情。",
+  "ex2_zh": "越辛苦得到的东西越珍惜，这就是（人之常情）。",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "jk:to-iu-mono-dewa-nai",
+  "pattern": "〜というものではない",
+  "meaning_zh": "并非……就行（没有说的那么简单）：謝れば済むというものではない。",
+  "ex1_zh": "有钱就能幸福，并非那么简单。",
+  "ex2_zh": "不是道歉就能解决的。",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "jk:to-itte-without-particular",
+  "pattern": "〜これといって",
+  "meaning_zh": "并没有什么特别的……：これといって問題はない。",
+  "ex1_zh": "并没有什么特别的问题。",
+  "ex2_zh": "并没有什么特别的爱好。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ }
+]

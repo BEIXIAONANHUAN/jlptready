@@ -1,0 +1,287 @@
+[
+ {
+  "rowid": "g:こそ",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ことから",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:ことなく:71:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ざるを得ない",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:しかも",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "rb:したがって:73:0",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:すなわち:73:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ずにはいられない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "rb:それなのに:73:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:それにしても:73:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:だけのことはある",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:だけは:72:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:だけまし",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "g:たところで",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:つき:74:0",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:つつ",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:つつある",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:てからでないと",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "g:てはいられない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ということだ",
+  "theme_order": 15,
+  "pos": "传闻引用"
+ },
+ {
+  "rowid": "rb:ところだった:71:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:としては:65:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:としても",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:とはいえ",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:ないことには",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "rb:ないものか:65:0",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:ないわけにはいかない:64:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "rb:に当たらない:71:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:に反して:66:0",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "rb:に過ぎない:61:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:に加えて:69:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:に先立って",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:に限って",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:に限らず",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:に限る:61:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:に相違ない:64:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:に沿って",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:に応じて",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:に越したことはない:70:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:にあたって",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:にかけては:71:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:にしたがって",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:にしては",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "rb:にしてもにしても:67:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:にしろ",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:にほかならない:61:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:にもかかわらず",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:にわたって",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:のみならず",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "rb:ばこそ:60:0",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:はずがない:64:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:はともかく",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:はもちろん",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "rb:はもとより:62:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "rb:ぶりに:74:0",
+  "action": "mergeinto:jk:buri-ni-first-time",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:まい:72:0",
+  "ex1_ja": "あの人は二度と来るまい。",
+  "ex1_zh": "那个人大概不会再来了。（推测）",
+  "ex2_ja": "こんな過ちは二度と繰り返すまい。",
+  "ex2_zh": "这样的错误决不再犯。（决心）",
+  "theme_order": 10,
+  "pos": "推测判断"
+ }
+]

@@ -22,11 +22,35 @@
 <body>
   <div id="app">
 
-    <!-- ========== 首页 ========== -->
-    <main id="page-home" class="page">
+    <!-- ========== 门户页：板块选择（卡片进度小字由 js/landing.js 接真实数据） ========== -->
+    <main id="page-landing" class="page">
+      <div class="landing-wrap">
+        <div class="landing-brand">JLPT READY · 日语备考</div>
+
+        <section class="task-card" id="landing-card-words">
+          <div class="task-title">单词板块</div>
+          <div class="task-meta" id="landing-words-meta">加载中…</div>
+          <a class="btn btn-primary" id="landing-btn-words" href="#/words">进入学习 ›</a>
+        </section>
+        <div class="landing-sub">6582 词 · N5–N2</div>
+
+        <section class="task-card" id="landing-card-grammar">
+          <div class="task-title">语法板块</div>
+          <div class="task-meta" id="landing-grammar-meta">加载中…</div>
+          <a class="btn btn-primary" id="landing-btn-grammar" href="#/grammar">进入学习 ›</a>
+        </section>
+        <div class="landing-sub">650 条语法 · 16 主题</div>
+      </div>
+    </main>
+
+    <!-- ========== 单词板块首页 ========== -->
+    <main id="page-words" class="page">
       <header class="home-header">
         <div class="home-date" id="home-date">—</div>
-        <div class="home-streak">连续打卡 <span class="num streak-num" id="home-streak">0</span> 天</div>
+        <div class="home-header-side">
+          <div class="home-streak">连续打卡 <span class="num streak-num" id="home-streak">0</span> 天</div>
+          <a class="btn-switch" href="#/grammar">⇄ 切换板块</a>
+        </div>
       </header>
 
       <!-- 任务卡片① 今日新词 -->
@@ -63,10 +87,10 @@
 
       <!-- 其他入口 -->
       <nav class="quick-links">
-        <a href="#/wrongbook">错题本</a><span class="dot">·</span>
-        <a href="#/search">查单词</a><span class="dot">·</span>
-        <a href="#/stats">我的数据</a><span class="dot">·</span>
-        <a href="#/checkin">打卡</a>
+        <a href="#/words/wrongbook">错题本</a><span class="dot">·</span>
+        <a href="#/words/search">查单词</a><span class="dot">·</span>
+        <a href="#/words/stats">我的数据</a><span class="dot">·</span>
+        <a href="#/words/checkin">打卡</a>
       </nav>
 
       <!-- 分享今日（当日任务全部完成后由 home.js 显示） -->
@@ -81,63 +105,171 @@
     </main>
 
     <!-- ========== 今日新词（预览 / 做题 / 小结 / 总结 都渲染在 #new-body 里） ========== -->
-    <main id="page-new" class="page">
+    <main id="page-words-new" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">今日新词</h1>
       </header>
       <div id="new-body"><div class="placeholder">加载中…</div></div>
     </main>
 
     <!-- ========== 今日复习（模式 B + 抽检 + 模式 A 卡片，渲染在 #review-body 里） ========== -->
-    <main id="page-review" class="page">
+    <main id="page-words-review" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">今日复习</h1>
       </header>
       <div id="review-body"><div class="placeholder">加载中…</div></div>
     </main>
 
     <!-- ========== 周末考试（渲染在 #exam-body 里） ========== -->
-    <main id="page-exam" class="page">
+    <main id="page-words-exam" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">周末考试</h1>
       </header>
       <div id="exam-body"><div class="placeholder">加载中…</div></div>
     </main>
 
     <!-- ========== 子页面（占位） ========== -->
-    <main id="page-wrongbook" class="page">
+    <main id="page-words-wrongbook" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">错题本</h1>
       </header>
       <div id="wrongbook-body"><div class="placeholder">加载中…</div></div>
     </main>
 
-    <main id="page-search" class="page">
+    <main id="page-words-search" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">查单词</h1>
       </header>
       <div id="search-body"><div class="placeholder">加载中…</div></div>
     </main>
 
-    <main id="page-stats" class="page">
+    <main id="page-words-stats" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">我的数据</h1>
       </header>
       <div id="stats-body"><div class="placeholder">加载中…</div></div>
     </main>
 
-    <main id="page-checkin" class="page">
+    <main id="page-words-checkin" class="page">
       <header class="sub-header">
-        <a class="back-link" href="#/">← 返回首页</a>
+        <a class="back-link" href="#/words">← 返回首页</a>
         <h1 class="sub-title">打卡</h1>
       </header>
       <div id="checkin-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <!-- ========== 语法板块首页（对仗单词首页，js/grammar-home.js） ========== -->
+    <main id="page-grammar-home" class="page">
+      <header class="home-header">
+        <div class="home-date" id="gh-date">—</div>
+        <div class="home-header-side">
+          <div class="home-streak">连续打卡 <span class="num streak-num" id="gh-streak">0</span> 天</div>
+          <a class="btn-switch" href="#/words">⇄ 切换板块</a>
+        </div>
+      </header>
+
+      <!-- 任务卡片① 今日语法 -->
+      <section class="task-card" id="gh-card-new">
+        <div class="task-title">今日语法</div>
+        <div class="task-meta" id="gh-new-meta">加载中…</div>
+        <button class="btn btn-primary" id="gh-btn-new">开始学习</button>
+      </section>
+
+      <!-- 任务卡片② 今日复习（语法） -->
+      <section class="task-card" id="gh-card-review">
+        <div class="task-title">今日复习（语法）</div>
+        <div class="task-meta" id="gh-review-meta">加载中…</div>
+        <button class="btn btn-primary" id="gh-btn-review">开始复习</button>
+      </section>
+
+      <!-- 任务卡片③ 周末考试（语法） -->
+      <section class="task-card" id="gh-card-exam">
+        <div class="task-title">周末考试（语法）</div>
+        <div class="task-meta" id="gh-exam-meta">仅周六、周日开放</div>
+        <button class="btn btn-primary" id="gh-btn-exam">进入考试</button>
+      </section>
+
+      <!-- 休息模式横幅（与单词同款，全局 is_rest 共用） -->
+      <div id="gh-rest-banner" class="rest-banner" style="display:none">
+        <div class="rest-text">今日休息，明日再战</div>
+        <button class="btn btn-ghost" id="gh-btn-cancel-rest">取消休息</button>
+      </div>
+
+      <!-- 其他入口 -->
+      <nav class="quick-links">
+        <a href="#/grammar/wrongbook">语法错题本</a><span class="dot">·</span>
+        <a href="#/grammar/search">查语法</a><span class="dot">·</span>
+        <a href="#/grammar/stats">我的数据</a><span class="dot">·</span>
+        <a href="#/grammar/checkin">打卡</a>
+      </nav>
+
+      <footer class="home-footer">
+        <button class="btn btn-ghost" id="gh-btn-rest">今日宜休</button>
+        <div class="db-status" id="gh-db-status">正在连接语法库…</div>
+      </footer>
+    </main>
+
+    <!-- ========== 语法板块子页面（js/grammar-*.js 渲染进各自 body） ========== -->
+    <main id="page-grammar-new" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">今日语法</h1>
+      </header>
+      <div id="gh-new-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-review" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">今日复习（语法）</h1>
+      </header>
+      <div id="gh-review-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-exam" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">周末考试（语法）</h1>
+      </header>
+      <div id="gh-exam-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-wrongbook" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">语法错题本</h1>
+      </header>
+      <div id="gh-wrongbook-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-search" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">查语法</h1>
+      </header>
+      <div id="gh-search-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-stats" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">我的数据（语法）</h1>
+      </header>
+      <div id="gh-stats-body"><div class="placeholder">加载中…</div></div>
+    </main>
+
+    <main id="page-grammar-checkin" class="page">
+      <header class="sub-header">
+        <a class="back-link" href="#/grammar">← 返回首页</a>
+        <h1 class="sub-title">语法打卡</h1>
+      </header>
+      <div id="gh-checkin-body"><div class="placeholder">加载中…</div></div>
     </main>
 
   </div>
@@ -154,7 +286,17 @@
   <script src="js/stats.js"></script>
   <script src="js/checkin.js"></script>
   <script src="js/share.js"></script>
+  <script src="js/landing.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/grammar-core.js"></script>
+  <script src="js/grammar-home.js"></script>
+  <script src="js/grammar-new.js"></script>
+  <script src="js/grammar-review.js"></script>
+  <script src="js/grammar-exam.js"></script>
+  <script src="js/grammar-wrongbook.js"></script>
+  <script src="js/grammar-search.js"></script>
+  <script src="js/grammar-stats.js"></script>
+  <script src="js/grammar-checkin.js"></script>
   <script src="js/router.js"></script>
   <script src="js/app.js"></script>
 </body>

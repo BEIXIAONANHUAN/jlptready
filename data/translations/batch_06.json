@@ -1,0 +1,1580 @@
+[
+ {
+  "rowid": "g:として",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜として",
+  "shortZh": "作为~",
+  "meaning_rb": "\"作为A（的身份/立场）\"。表示以某种资格或身份来做某事。",
+  "cont": [
+   "名詞 + として. Attributive: 名詞 + としての + 名詞"
+  ],
+  "lessonCat": "话题立场",
+  "examples": [
+   {
+    "ja": "彼は日本の代表として、国際会議に出席した。",
+    "zh": "他作为日本代表出席了国际会议。"
+   },
+   {
+    "ja": "留学生として日本に来た。",
+    "zh": "作为留学生来了日本。"
+   },
+   {
+    "ja": "教師としての責任を果たす。",
+    "zh": "履行作为教师的责任。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:とともに",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜とともに",
+  "shortZh": "和~一起/随着~",
+  "meaning_rb": "① \"和A一起\"（共同动作）\n② \"随着A变化，B也变化\"（同时变化）",
+  "cont": [
+   "名詞 + とともに; 動詞 plain + とともに"
+  ],
+  "lessonCat": "并列添加",
+  "examples": [
+   {
+    "ja": "家族とともに日本に来た。",
+    "zh": "和家人一起来了日本。"
+   },
+   {
+    "ja": "技術の発展とともに、生活が便利になった。",
+    "zh": "随着技术发展，生活变得方便了。"
+   },
+   {
+    "ja": "時代とともに、人々の考え方も変わる。",
+    "zh": "随着时代变迁，人们的想法也在改变。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:とは限らない",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜とは限らない",
+  "shortZh": "未必~/不一定~",
+  "meaning_rb": "\"未必~\"、\"不一定~\"。否定\"100%都是这样\"的看法。常与「必ずしも」搭配使用。",
+  "cont": [
+   "Plain-form clause + とは限らない; 名詞 + とは限らない"
+  ],
+  "lessonCat": "复合表达",
+  "examples": [
+   {
+    "ja": "高いとは限らない。安くていいものもある。",
+    "zh": "不一定贵。也有便宜又好的东西。"
+   },
+   {
+    "ja": "有名な店がおいしいとは限らない。",
+    "zh": "有名的店未必好吃。"
+   },
+   {
+    "ja": "お金があれば幸せだとは限らない。",
+    "zh": "有钱未必幸福。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ないことはない:53:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ないことはない",
+  "shortZh": "不是不能……/ 也不是不……",
+  "meaning_rb": "双重否定 →\"不是不能……\"\"也不是不……\"，表示委婉地肯定，但语气有保留（不是100%肯定）。",
+  "cont": [
+   "動詞ない形 + ことはない；い形容詞（〜くない）+ ことはない；な形容詞 + でない + ことはない"
+  ],
+  "lessonCat": "否定相关",
+  "examples": [
+   {
+    "ja": "行けないことはないが、ちょっと遠い。",
+    "zh": "不是不能去，就是有点远。"
+   },
+   {
+    "ja": "食べられないことはないけど、あまり好きじゃない。",
+    "zh": "不是不能吃，但不太喜欢。"
+   },
+   {
+    "ja": "彼の意見に賛成できないことはない。",
+    "zh": "他的意见也不是不能赞同。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ながら",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ながら(も)",
+  "shortZh": "虽然……但是……",
+  "meaning_rb": "\"虽然……但是……\"，表示同一主语身上的矛盾状态。注意与表示\"一边……一边……\"的「ながら」区分。加「も」更强调转折。",
+  "cont": [
+   "動詞ます形（去ます）+ ながら（も）；い形容詞 + ながら（も）；な形容詞 + ながら（も）；名詞 + ながら（も）"
+  ],
+  "lessonCat": "逆接让步1",
+  "examples": [
+   {
+    "ja": "知っていながら、教えてくれなかった。",
+    "zh": "虽然知道，却没告诉我。"
+   },
+   {
+    "ja": "彼は口先では賛成しながらも、実は反対だった。",
+    "zh": "他嘴上赞成，实际上反对。"
+   },
+   {
+    "ja": "狭いながらも、居心地のいい部屋だ。",
+    "zh": "虽然小，但是很舒适的房间。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:など:47:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜など / 〜なんか / 〜なんて",
+  "shortZh": "举例・轻视・惊讶",
+  "meaning_rb": "- など：\"……等\"\"之类的\"，正式用语，用于列举或谦逊。\n- なんか：\"……什么的\"\"……之类的\"，口语，有时带轻视或谦虚语气。\n- なんて：\"……什么的\"\"居然……\"，口语，表示惊讶、意外或轻视。",
+  "cont": [
+   "名詞 + など / なんか / なんて；動詞普通形 + なんて"
+  ],
+  "lessonCat": "话题立场",
+  "examples": [
+   {
+    "ja": "本や雑誌などを読む。",
+    "zh": "读书和杂志等。→ 正式列举"
+   },
+   {
+    "ja": "私なんかにはできません。",
+    "zh": "我这种人做不了。→ 谦虚/自我贬低"
+   },
+   {
+    "ja": "こんなところで会うなんて！",
+    "zh": "居然在这种地方见面！→ 惊讶"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:に伴い:46:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に伴い / 〜に伴って",
+  "shortZh": "伴随着~",
+  "meaning_rb": "\"伴随着A的发生/变化，B也发生/变化\"。比「とともに」更正式，多用于新闻和学术文章。",
+  "lessonCat": "并列添加",
+  "examples": [
+   {
+    "ja": "人口の増加に伴い、住宅問題が深刻になった。",
+    "zh": "伴随人口增加，住房问题变严重了。"
+   },
+   {
+    "ja": "高齢化が進むに伴って、医療費が増えている。",
+    "zh": "伴随着老龄化加剧，医疗费在增加。"
+   },
+   {
+    "ja": "景気の悪化に伴う失業者の増加が問題だ。",
+    "zh": "伴随景气恶化的失业者增加是问题。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:に比べて",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に比べて",
+  "shortZh": "与~相比",
+  "meaning_rb": "将两者进行比较。\"与……相比\"。",
+  "cont": [
+   "名詞 + に比べて (adverbial); 名詞 + に比べ (slightly more formal variant)"
+  ],
+  "lessonCat": "附加对比",
+  "examples": [
+   {
+    "ja": "東京は田舎に比べて、物価が高い。",
+    "zh": "和乡下比，东京物价高。"
+   },
+   {
+    "ja": "去年に比べて、今年は暑い。",
+    "zh": "和去年相比，今年更热。"
+   },
+   {
+    "ja": "日本語は英語に比べて、文字の種類が多い。",
+    "zh": "日语和英语相比，文字种类多。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:に代わって:50:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に代わって / 〜に代わり",
+  "shortZh": "代替~",
+  "meaning_rb": "\"代替A做某事\"\"取代A\"。比「代わりに」更正式，更强调\"作为替代者\"的角色。",
+  "lessonCat": "附加对比",
+  "examples": [
+   {
+    "ja": "社長に代わって、部長が挨拶した。",
+    "zh": "代替社长，部长致辞了。"
+   },
+   {
+    "ja": "手紙に代わって、メールが主流になった。",
+    "zh": "取代书信，电子邮件成为主流了。"
+   },
+   {
+    "ja": "母に代わって料理を作った。",
+    "zh": "代替母亲做了饭。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:に関して",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に関して / 〜に関する",
+  "shortZh": "关于……",
+  "meaning_rb": "\"关于……\"，与「について」几乎同义，但更加正式和书面化。多用于报告、论文、新闻。",
+  "cont": [
+   "名詞 + に関して (adverbially). 名詞 + に関する + 名詞 (attributively)"
+  ],
+  "lessonCat": "书面助词2",
+  "examples": [
+   {
+    "ja": "この問題に関して、調査を行った。",
+    "zh": "关于这个问题，进行了调查。"
+   },
+   {
+    "ja": "環境問題に関する報告書が発表された。",
+    "zh": "关于环境问题的报告书发表了。"
+   },
+   {
+    "ja": "今回の事故に関して、社長が説明した。",
+    "zh": "关于这次事故，社长做了说明。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:に基づいて:36:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に基づいて / 〜に基づく",
+  "shortZh": "基于……/根据……",
+  "meaning_rb": "\"以……为依据\"，\"基于……\"。强调有明确的根据或基础，比「をもとに」更正式、更强调依据的严谨性。",
+  "lessonCat": "书面助词2",
+  "examples": [
+   {
+    "ja": "事実に基づいて、判断する。",
+    "zh": "基于事实做判断。"
+   },
+   {
+    "ja": "法律に基づいて、処罰される。",
+    "zh": "根据法律受到处罚。"
+   },
+   {
+    "ja": "調査結果に基づく報告書を作成した。",
+    "zh": "制作了基于调查结果的报告书。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:に決まっている",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に決まっている",
+  "shortZh": "肯定是…… / 当然……",
+  "meaning_rb": "\"肯定是……\"\"当然……\"，表示说话人非常确信的主观判断。口语感强，带有\"不用说也知道\"\"理所当然\"的语气。",
+  "cont": [
+   "動詞普通形 + に決まっている；い形容詞 + に決まっている；な形容詞（+ だ）+ に決まっている；名詞（+ だ）+ に決まっている"
+  ],
+  "lessonCat": "判断推量",
+  "examples": [
+   {
+    "ja": "そんなことをしたら、失敗するに決まっている。",
+    "zh": "做那种事，肯定会失败。"
+   },
+   {
+    "ja": "彼が嘘をついているに決まっている。",
+    "zh": "他肯定在说谎。"
+   },
+   {
+    "ja": "こんなに暑いんだから、アイスがおいしいに決まっている。",
+    "zh": "这么热，冰淇淋当然好吃。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:に違いない:43:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜に違いない",
+  "shortZh": "一定是…… / 肯定是……",
+  "meaning_rb": "\"一定是……\"\"肯定是……\"，表示说话人根据某些证据或理由做出的强烈判断。确信度很高（约90%）。比「だろう」「はずだ」更强。",
+  "cont": [
+   "動詞普通形 + に違いない；い形容詞 + に違いない；な形容詞 + に違いない（※ 不加「だ」）；名詞 + に違いない（※ 不加「だ」）"
+  ],
+  "lessonCat": "判断推量",
+  "examples": [
+   {
+    "ja": "こんな怪しい行動、彼が犯人に違いない。",
+    "zh": "这么可疑的行为，他一定是犯人。"
+   },
+   {
+    "ja": "あの噂は本当に違いない。",
+    "zh": "那个传闻一定是真的。"
+   },
+   {
+    "ja": "こんなに渋滞しているなら、事故があったに違いない。",
+    "zh": "堵成这样，一定是出了事故。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:において",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜において / 〜における",
+  "shortZh": "在……方面/场合",
+  "meaning_rb": "\"在……（场所/场合/方面）\"，「で」的书面正式版。",
+  "cont": [
+   "名詞 + において (adverbially). 名詞 + における + 名詞 (attributively)"
+  ],
+  "lessonCat": "N3书面助词",
+  "examples": [
+   {
+    "ja": "会議は3階の会議室において行われます。",
+    "zh": "会议在3楼会议室举行。"
+   },
+   {
+    "ja": "この分野において、彼は第一人者だ。",
+    "zh": "在这个领域，他是第一人。"
+   },
+   {
+    "ja": "現代社会における最大の問題は環境問題だ。",
+    "zh": "现代社会中最大的问题是环境问题。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:にかけて",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜にかけて",
+  "shortZh": "从……到……",
+  "meaning_rb": "\"从……到……\"，表示时间或空间的大致范围，终点不是很明确。与「まで」不同，「にかけて」表示渐变的、模糊的范围。",
+  "cont": [
+   "名詞 + から + 名詞 + にかけて; 名詞 + にかけて (for temporal 'toward / during')"
+  ],
+  "lessonCat": "书面助词2",
+  "examples": [
+   {
+    "ja": "今夜から明日の朝にかけて、雨が降るでしょう。",
+    "zh": "从今晚到明天早上，可能会下雨。"
+   },
+   {
+    "ja": "関東から東北にかけて、地震があった。",
+    "zh": "从关东到东北，发生了地震。"
+   },
+   {
+    "ja": "春から夏にかけて、花がたくさん咲く。",
+    "zh": "从春天到夏天，很多花开放。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:にしても",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜にしても",
+  "shortZh": "即使……也/就算……也",
+  "meaning_rb": "\"即使……也……\"，\"就算……也……\"。承认前项为事实或可能，但后项依然成立。语气比「としても」更贴近实际情况，常用于已知事实的让步。",
+  "cont": [
+   "動詞普通形 + にしても；い形容詞 + にしても；な形容詞 + だ / である + にしても；名詞 + だ / である + にしても"
+  ],
+  "lessonCat": "逆接让步2",
+  "examples": [
+   {
+    "ja": "賛成するにしても、条件がある。",
+    "zh": "即使赞成，也有条件。"
+   },
+   {
+    "ja": "安いにしても、質が悪ければ買わない。",
+    "zh": "即使便宜，质量差的话也不买。"
+   },
+   {
+    "ja": "忙しいにしても、連絡くらいはできるだろう。",
+    "zh": "即使忙，联系一下总做得到吧。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:につれて",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜につれて",
+  "shortZh": "随着……",
+  "meaning_rb": "\"随着A变化，B也随之变化\"，表示两个事物同步变化。前后都必须是变化的内容。",
+  "cont": [
+   "動詞辞書形 + につれて / につれ；名詞 + につれて / につれ"
+  ],
+  "lessonCat": "対比関係",
+  "examples": [
+   {
+    "ja": "年を取るにつれて、体力が落ちてきた。",
+    "zh": "随着年龄增长，体力下降了。"
+   },
+   {
+    "ja": "時間がたつにつれて、彼女のことを忘れていった。",
+    "zh": "随着时间流逝，渐渐忘记了她。"
+   },
+   {
+    "ja": "技術の進歩につれて、生活が便利になった。",
+    "zh": "随着技术进步，生活变得方便了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:にとって",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜にとって",
+  "shortZh": "对……来说",
+  "meaning_rb": "\"对……来说\"，表示从某人的立场、角度来看的评价或判断。后面常接评价性的内容。",
+  "cont": [
+   "名詞 + にとって (adverbially). 名詞 + にとっての + 名詞 (attributively): 私にとっての家族"
+  ],
+  "lessonCat": "书面助词2",
+  "examples": [
+   {
+    "ja": "私にとって、家族は一番大切だ。",
+    "zh": "对我来说，家人最重要。"
+   },
+   {
+    "ja": "子供にとって、遊びは大切な学びだ。",
+    "zh": "对孩子来说，玩耍是重要的学习。"
+   },
+   {
+    "ja": "外国人にとって、敬語は難しい。",
+    "zh": "对外国人来说，敬语很难。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:によると:50:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜によると",
+  "shortZh": "据~说/根据~",
+  "meaning_rb": "引用信息来源。\"据……\"\"根据……\"。",
+  "lessonCat": "附加对比",
+  "examples": [
+   {
+    "ja": "天気予報によると、明日は雨だそうだ。",
+    "zh": "据天气预报说，明天下雨。"
+   },
+   {
+    "ja": "新聞によると、来月から物価が上がるらしい。",
+    "zh": "据报纸说，下个月物价要涨。"
+   },
+   {
+    "ja": "先生によると、テストは来週だそうだ。",
+    "zh": "据老师说，考试在下周。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:のに",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜のに",
+  "shortZh": "转折 — 明明……却……",
+  "meaning_rb": "\"明明……却……\"，带有不满、遗憾、意外的语气。说话人觉得现实与预期不符。",
+  "cont": [
+   "动词/い形容词 简体 + のに；な形容词+な + のに；名词+な + のに"
+  ],
+  "examples": [
+   {
+    "ja": "約束したのに、来なかった。",
+    "zh": "明明约好了，却没来。→ 不满"
+   },
+   {
+    "ja": "たくさん勉強したのに、試験に落ちた。",
+    "zh": "明明学了很多，却没考过。→ 遗憾"
+   },
+   {
+    "ja": "高いのに、美味しくない。",
+    "zh": "明明很贵，却不好吃。→ 不满"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ばかりか",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ばかりか / 〜ばかりでなく",
+  "shortZh": "不仅……而且……",
+  "meaning_rb": "\"不仅……而且……\"，表示范围超出预想，后半句是追加的更进一步的内容。比「だけでなく」语气更强。",
+  "cont": [
+   "動詞普通形 + ばかりか；い形容詞 + ばかりか；な形容詞 + な/である + ばかりか；名詞 + ばかりか / ばかりでなく"
+  ],
+  "lessonCat": "程度范围2",
+  "examples": [
+   {
+    "ja": "彼は英語ばかりか、中国語も話せる。",
+    "zh": "他不仅会英语，还会中文。"
+   },
+   {
+    "ja": "成績が悪いばかりか、授業にも出ない。",
+    "zh": "不仅成绩差，还不上课。"
+   },
+   {
+    "ja": "この店は安いばかりでなく、味もいい。",
+    "zh": "这家店不仅便宜，味道也好。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ばかりに",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ばかりに",
+  "shortZh": "就因为……导致坏结果",
+  "meaning_rb": "\"就因为……（导致了不好的结果）\"。强调只有一个原因，却因此引发了令人遗憾的负面后果。带有后悔、遗憾的语气。",
+  "cont": [
+   "動詞普通形 + ばかりに；い形容詞普通形 + ばかりに；な形容詞な/である + ばかりに；名詞である + ばかりに"
+  ],
+  "lessonCat": "原因理由",
+  "examples": [
+   {
+    "ja": "一言余計なことを言ったばかりに、彼女に嫌われた。",
+    "zh": "就因为多说了一句，被她讨厌了。"
+   },
+   {
+    "ja": "お金がないばかりに、留学を諦めた。",
+    "zh": "就因为没有钱，放弃了留学。"
+   },
+   {
+    "ja": "嘘をついたばかりに、信用を失った。",
+    "zh": "就因为说了谎，失去了信用。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ばほど:40:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ば〜ほど",
+  "shortZh": "越……越……",
+  "meaning_rb": "\"越……越……\"，表示一方的变化导致另一方同方向变化。是中文\"越~越~\"的精确对应。",
+  "cont": [
+   "動詞ば形 + 動詞辞書形 + ほど；い形容詞：～ければ ～い + ほど；な形容詞：～であれば ～な + ほど"
+  ],
+  "lessonCat": "程度范围1",
+  "examples": [
+   {
+    "ja": "練習すればするほど上手になる。",
+    "zh": "越练习越熟练。"
+   },
+   {
+    "ja": "考えれば考えるほどわからなくなる。",
+    "zh": "越想越不明白。"
+   },
+   {
+    "ja": "この本は読めば読むほど面白い。",
+    "zh": "这本书越读越有意思。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ばよかった",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ばよかった",
+  "shortZh": "要是~就好了 后悔",
+  "meaning_rb": "\"要是~就好了\"，表达对过去事情的后悔。说话人认为当初应该做（或不应该做）某事。",
+  "cont": [
+   "動詞 ば-form + よかった: 行けばよかった ('should have gone'). Negative: 動詞 なければ + よかった: 言わなければよかった ('shouldn't have said'). Adjectives and nouns can also take the construction via their ば-forms"
+  ],
+  "lessonCat": "建议复合",
+  "examples": [
+   {
+    "ja": "もっと勉強すればよかった。",
+    "zh": "要是多学习就好了。"
+   },
+   {
+    "ja": "あの時、素直に謝ればよかった。",
+    "zh": "那时候坦率地道歉就好了。"
+   },
+   {
+    "ja": "あんなこと言わなければよかった。",
+    "zh": "要是没说那种话就好了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ふりをする",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ふりをする",
+  "shortZh": "假装~",
+  "meaning_rb": "明明不是那样，却装作那个样子。\"假装……\"\"装作……\"。",
+  "cont": [
+   "動詞 plain / い形容詞 + ふりをする; な形容詞 + な + ふりをする; 名詞 + の + ふりをする"
+  ],
+  "lessonCat": "表达方式2",
+  "examples": [
+   {
+    "ja": "知らないふりをした。",
+    "zh": "假装不知道。"
+   },
+   {
+    "ja": "子供が寝たふりをしている。",
+    "zh": "孩子在装睡。"
+   },
+   {
+    "ja": "彼は聞こえないふりをして、無視した。",
+    "zh": "他假装没听见，无视了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:べきだ",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜べきだ",
+  "shortZh": "应该~",
+  "meaning_rb": "\"应该做~\"。表达说话人认为这是正确的做法、义务或责任。语气较强，带有道德判断。不用于个人喜好（不能说「ケーキを食べるべきだ」）。",
+  "cont": [
+   "動詞 辞書形 + べきだ (polite: べきです). Negative: 動詞 dict + べきではない / べきじゃない. Past: べきだった ('should have'). Irregular: する → するべき or the more formal すべき (both accepted)"
+  ],
+  "lessonCat": "常用语法1",
+  "examples": [
+   {
+    "ja": "学生は勉強するべきだ。",
+    "zh": "学生应该学习。"
+   },
+   {
+    "ja": "法律は守るべきだ。",
+    "zh": "应该遵守法律。"
+   },
+   {
+    "ja": "自分の行動に責任を持つべきだ。",
+    "zh": "应该对自己的行为负责。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:べきではない:56:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜べきではない",
+  "shortZh": "不应该~",
+  "meaning_rb": "\"不应该做~\"。「べきだ」的否定形式。注意：否定的是「べき」，不是动词。语气强烈，带有批判性。",
+  "lessonCat": "常用语法1",
+  "examples": [
+   {
+    "ja": "人の悪口を言うべきではない。",
+    "zh": "不应该说别人坏话。"
+   },
+   {
+    "ja": "信号を無視するべきではない。",
+    "zh": "不应该闯红灯。"
+   },
+   {
+    "ja": "無理をすべきではない。体を壊すよ。",
+    "zh": "不应该勉强，会把身体搞坏的。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ほど",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ほど",
+  "shortZh": "……的程度 / 到……的地步",
+  "meaning_rb": "表示程度，\"到……的地步\"\"……得（不得了）\"。常用于夸张表达。否定时「〜ほど〜ない」表示\"没有比……更……的\"。",
+  "cont": [
+   "動詞辞書形 / ない形 + ほど；い形容詞 + ほど；な形容詞 + な + ほど；名詞 + ほど"
+  ],
+  "lessonCat": "程度范围1",
+  "examples": [
+   {
+    "ja": "死ぬほど疲れた。",
+    "zh": "累得要死。"
+   },
+   {
+    "ja": "涙が出るほど嬉しかった。",
+    "zh": "高兴得快哭了。"
+   },
+   {
+    "ja": "彼女ほど優しい人はいない。",
+    "zh": "没有比她更温柔的人了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:まま",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜まま",
+  "shortZh": "保持原状/就那样~",
+  "meaning_rb": "表示某个状态一直保持不变，没有发生预期的变化。\"就那样……\"\"保持着……的状态\"。",
+  "cont": [
+   "動詞た + まま (つけたまま, 立ったまま). 名詞 + の + まま (昔のまま). い形容詞 + まま (若いまま). Demonstrative: そのまま, このまま, あのまま"
+  ],
+  "lessonCat": "状态样态",
+  "examples": [
+   {
+    "ja": "靴を履いたまま、家に入らないでください。",
+    "zh": "不要穿着鞋就进家门。"
+   },
+   {
+    "ja": "電気をつけたまま寝てしまった。",
+    "zh": "开着灯就睡着了。"
+   },
+   {
+    "ja": "窓を開けたまま出かけてしまった。",
+    "zh": "窗户开着就出门了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:めったにない:53:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "めったに〜ない",
+  "shortZh": "很少……/ 难得……",
+  "meaning_rb": "\"很少……\"\"难得……\"，表示频率极低，几乎不发生。",
+  "cont": [
+   "めったに + 動詞ない形；めったに + ない（形容词/名詞述語）"
+  ],
+  "lessonCat": "否定相关",
+  "examples": [
+   {
+    "ja": "彼はめったに遅刻しない。",
+    "zh": "他很少迟到。"
+   },
+   {
+    "ja": "この店はめったに空いてない。",
+    "zh": "这家店很少不忙。"
+   },
+   {
+    "ja": "めったに外食しない。",
+    "zh": "很少在外面吃。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ものか:43:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ものか / 〜もんか",
+  "shortZh": "怎么会…… / 才不会……",
+  "meaning_rb": "\"怎么会……！\"\"才不会……！\"，表示强烈否定。带有反驳、不服气、赌气的语气。口语中常用「もんか」。",
+  "cont": [
+   "動詞辞書形 + ものか；い形容詞 + ものか；な形容詞 + な + ものか"
+  ],
+  "lessonCat": "判断推量",
+  "examples": [
+   {
+    "ja": "あんな人、二度と会うものか。",
+    "zh": "那种人，再也不见了！"
+   },
+   {
+    "ja": "こんな問題、難しいものか。",
+    "zh": "这种问题，哪难了！"
+   },
+   {
+    "ja": "絶対に負けるもんか。",
+    "zh": "绝对不会输！"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ものだ",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ものだ",
+  "shortZh": "就是这样的 一般论",
+  "meaning_rb": "多种含义：\n① 一般论：\"本来就是这样\"（人は老いるものだ＝人本来就会老）\n② 感叹：\"真是~啊\"（よくそんなことが言えたものだ＝居然能说出那种话）\n③ 回忆：\"以前常常~\"（子供の頃はよく遊んだものだ＝小时候经常玩）",
+  "cont": [
+   "動詞 plain / い形容詞 + ものだ; な形容詞 + な + ものだ; 名詞 + の + ものだ"
+  ],
+  "lessonCat": "常用语法1",
+  "examples": [
+   {
+    "ja": "人間は失敗から学ぶものだ。",
+    "zh": "人本来就是从失败中学习的。"
+   },
+   {
+    "ja": "子供は風邪をひきやすいものだ。",
+    "zh": "小孩子本来就容易感冒。"
+   },
+   {
+    "ja": "時間が経つのは早いものだ。",
+    "zh": "时间过得真快啊。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 2
+ },
+ {
+  "rowid": "g:ようがない",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ようがない / 〜ようもない",
+  "shortZh": "没办法~",
+  "meaning_rb": "\"想做也做不了/没有办法做\"。强调方法本身不存在，比「できない」语气更强。",
+  "cont": [
+   "動詞 ます-語幹 + ようがない / ようもない"
+  ],
+  "lessonCat": "动作相关1",
+  "examples": [
+   {
+    "ja": "連絡先がわからなければ、連絡しようがない。",
+    "zh": "不知道联系方式的话，没法联系。"
+   },
+   {
+    "ja": "彼が何も言わないので、助けようがない。",
+    "zh": "他什么都不说，没法帮他。"
+   },
+   {
+    "ja": "証拠がなければ、証明しようがない。",
+    "zh": "没有证据的话，无法证明。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ようだ",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ようだ / 〜ように",
+  "shortZh": "推断",
+  "meaning_rb": "\"好像……\"，根据间接证据/自己的感觉推断。比そうだ（样态）更有\"经过思考判断\"的感觉。",
+  "cont": [
+   "动词简体 + ようだ；い形容词 + ようだ；な形容词+な + ようだ；名词+の + ようだ"
+  ],
+  "lessonCat": "样态",
+  "examples": [
+   {
+    "ja": "彼は怒っているようだ。",
+    "zh": "他好像在生气。→ 根据表情/态度判断"
+   },
+   {
+    "ja": "この問題は難しいようです。",
+    "zh": "这个问题好像很难。"
+   },
+   {
+    "ja": "どうやら雨が降るようだ。",
+    "zh": "看来要下雨了。→ 综合各种迹象"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ようとする:44:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ようとする",
+  "shortZh": "试图做~/正要做~",
+  "meaning_rb": "① 试图做某事（多暗示没成功）——过去时「〜ようとしたが…」\n② 正要做某事的瞬间——「〜ようとした時…」",
+  "lessonCat": "动作相关1",
+  "examples": [
+   {
+    "ja": "猫が窓から逃げようとしたが、閉まっていた。",
+    "zh": "猫试图从窗户逃跑，但窗户关着。"
+   },
+   {
+    "ja": "出かけようとした時、電話が鳴った。",
+    "zh": "正要出门的时候，电话响了。"
+   },
+   {
+    "ja": "何度も説明しようとしたが、うまく伝わらなかった。",
+    "zh": "多次试图说明，但没传达好。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ような気がする:55:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ような気がする",
+  "shortZh": "总觉得~/有种~的感觉",
+  "meaning_rb": "\"总觉得~\"、\"有种~的感觉\"。表达不确定的主观感觉。比「と思う」更模糊、更不确定。",
+  "lessonCat": "复合表达",
+  "examples": [
+   {
+    "ja": "明日は雨が降るような気がする。",
+    "zh": "总觉得明天会下雨。"
+   },
+   {
+    "ja": "前にここに来たような気がする。",
+    "zh": "总觉得之前来过这里。"
+   },
+   {
+    "ja": "最近、日本語が上手になったような気がする。",
+    "zh": "总觉得最近日语变好了。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ように",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ように",
+  "shortZh": "目的 — \"为了……\"",
+  "meaning_rb": "\"为了能够……\"，表示目的。和「ために」不同的是，ように用于非意志性动词（可能形、わかる、見える等）。",
+  "cont": [
+   "动词辞书形 + ように；动词ない形 + ように；可能形 + ように"
+  ],
+  "examples": [
+   {
+    "ja": "聞こえるように、大きい声で話してください。",
+    "zh": "为了能听见，请大声说。"
+   },
+   {
+    "ja": "忘れないように、メモした。",
+    "zh": "为了不忘，做了笔记。"
+   },
+   {
+    "ja": "日本語が上手になるように、毎日練習している。",
+    "zh": "为了日语变好，每天练习。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ように見える:49:0",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜ように見える",
+  "shortZh": "看起来像~",
+  "meaning_rb": "根据外观或感觉做出判断。\"看上去像……\"\"看起来好像……\"。",
+  "lessonCat": "状态样态",
+  "examples": [
+   {
+    "ja": "彼女は若く見えるけど、実は40歳だ。",
+    "zh": "她看起来年轻，其实40岁了。"
+   },
+   {
+    "ja": "彼は幸せそうに見えるが、実は悩んでいる。",
+    "zh": "他看起来很幸福，其实在烦恼。"
+   },
+   {
+    "ja": "この絵は写真のように見える。",
+    "zh": "这幅画看起来像照片。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:わけがない",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜わけがない",
+  "shortZh": "不可能……",
+  "meaning_rb": "\"不可能……\"\"怎么可能……\"，表示从道理上来说绝对不可能。基于逻辑、常识做出的强烈否定判断。语气比「はずがない」更强。",
+  "cont": [
+   "動詞普通形 + わけがない；い形容詞普通形 + わけがない；な形容詞な + わけがない / な形容詞である + わけがない；名詞の/である + わけがない"
+  ],
+  "lessonCat": "主張判断1",
+  "examples": [
+   {
+    "ja": "そんな簡単なことが分からないわけがない。",
+    "zh": "那么简单的事，不可能不懂。"
+   },
+   {
+    "ja": "あんなに優秀な彼が不合格なわけがない。",
+    "zh": "那么优秀的他，不可能不及格。"
+   },
+   {
+    "ja": "本気で努力した人が失敗するわけがない。",
+    "zh": "认真努力的人不可能会失败。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 2
+ },
+ {
+  "rowid": "g:わけにはいかない",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜わけにはいかない",
+  "shortZh": "不能~ 道义上",
+  "meaning_rb": "\"（从道义/立场/社会常识上）不能~\"。不是能力上做不到，而是考虑到责任、面子、规矩等，不应该那样做。否定形式「ないわけにはいかない」→\"不能不做~\"＝必须做。",
+  "cont": [
+   "動詞 ない形 + わけにはいかない",
+   "動詞 plain non-past + わけにはいかない"
+  ],
+  "lessonCat": "常用语法1",
+  "examples": [
+   {
+    "ja": "約束したから、行かないわけにはいかない。",
+    "zh": "因为约好了，不能不去。"
+   },
+   {
+    "ja": "みんなが残業しているのに、一人で帰るわけにはいかない。",
+    "zh": "大家都在加班，不能一个人回去。"
+   },
+   {
+    "ja": "まだ仕事が残っているから、休むわけにはいかない。",
+    "zh": "还有工作没做完，不能休息。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 2,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:をはじめ",
+  "type": "A",
+  "level": "N3",
+  "pattern": "〜をはじめ",
+  "shortZh": "以~为首",
+  "meaning_rb": "\"以A为首，还有B、C等\"。列举代表性事物后暗示还有更多。正式书面表达。",
+  "cont": [
+   "名詞 + をはじめ (+ として); 名詞 + をはじめとする + 名詞 (attributive)"
+  ],
+  "lessonCat": "并列添加",
+  "examples": [
+   {
+    "ja": "大臣をはじめ、多くの関係者が出席した。",
+    "zh": "以大臣为首，很多相关人员出席了。"
+   },
+   {
+    "ja": "東京をはじめ、大阪や名古屋にも支店がある。",
+    "zh": "以东京为首，大阪和名古屋也有分店。"
+   },
+   {
+    "ja": "日本語をはじめ、英語や中国語も勉強している。",
+    "zh": "以日语为首，英语和中文也在学。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ていく",
+  "type": "B-mean",
+  "level": "N3",
+  "pattern": "〜ていく / 〜てくる",
+  "shortZh": "渐变方向",
+  "meaning_rb": "- 〜ていく = 做某事然后离去（从说话人的位置远离）\n- 〜てくる = 做某事然后过来（向说话人的位置靠近）",
+  "meaning_en": "going on / away from reference point (spatially or temporally)",
+  "cont": [
+   "动词て形 + いく → 変わっていく、増えていく；动词て形 + くる → 変わってきた、増えてきた"
+  ],
+  "lessonCat": "ても",
+  "examples": [
+   {
+    "ja": "子供たちは元気に学校へ走っていった。",
+    "en": "The children ran off to school full of energy."
+   },
+   {
+    "ja": "季節が変わっていく。",
+    "en": "The seasons are changing (progressively)."
+   },
+   {
+    "ja": "これからも日本語を勉強していきます。",
+    "en": "I will continue studying Japanese from now on."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:てしまう",
+  "type": "B-mean",
+  "level": "N3",
+  "pattern": "〜てしまう",
+  "shortZh": "完了/遗憾",
+  "meaning_rb": "强调动作彻底完成。\n1. この本はもう読んでしまった。（这本书已经读完了。）\n2. 宿題を全部やってしまおう。（把作业全部做完吧。）\n3. 残りのケーキを食べてしまった。（把剩下的蛋糕吃完了。）\n4. 週末までにこのレポートを書いてしまいたい。（想在周末前把这篇报告写完。）\n5. あの映画、一気に見てしまった。（那部电影一口气看完了。）",
+  "meaning_en": "completion / regret (finish doing / end up doing)",
+  "cont": [
+   "動詞て + しまう (polite: しまいます; past: しまった / しまいました). Contracted casual forms: 〜ちゃう (食べてしまう → 食べちゃう), 〜じゃう (for voiced 〜で: 読んでしまう → 読んじゃう)"
+  ],
+  "lessonCat": "ばかり",
+  "examples": [
+   {
+    "ja": "宿題を全部やってしまいました。",
+    "en": "I finished all my homework."
+   },
+   {
+    "ja": "電車の中で寝てしまった。",
+    "en": "I ended up falling asleep on the train."
+   },
+   {
+    "ja": "ケーキを全部食べちゃった。",
+    "en": "I went and ate the whole cake."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:に対して",
+  "type": "B-mean",
+  "level": "N3",
+  "pattern": "〜に対して",
+  "shortZh": "对于……/与此相反",
+  "meaning_rb": "1. お客様に対して、丁寧に話してください。（对客人请说话礼貌。）\n2. 先生に対する態度が悪い。（对老师的态度不好。）\n3. 環境問題に対して、何をすべきか。（对于环境问题，应该做什么。）\n4. この質問に対する答えは簡単だ。（对于这个问题的回答很简单。）",
+  "meaning_en": "toward / against / in contrast to",
+  "cont": [
+   "名詞 + に対して (adverbially). 名詞 + に対する + 名詞 (attributively). For the contrast sense: Plain-form clause + のに対して"
+  ],
+  "lessonCat": "N3书面助词",
+  "examples": [
+   {
+    "ja": "親に対して、失礼な態度を取ってはいけない。",
+    "en": "You mustn't take a disrespectful attitude toward your parents."
+   },
+   {
+    "ja": "兄が静かなのに対して、弟はにぎやかだ。",
+    "en": "Whereas the older brother is quiet, the younger one is lively."
+   },
+   {
+    "ja": "質問に対して丁寧に答えた。",
+    "en": "He answered the questions politely."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:らしい",
+  "type": "B-mean",
+  "level": "N3",
+  "pattern": "〜らしい",
+  "shortZh": "似乎/听说/典型",
+  "meaning_rb": "根据听到的信息或间接证据推断：\n1. 彼は来週出張するらしい。（听说/似乎他下周要出差。）\n2. あの店は美味しいらしい。（那家店好像很好吃。→ 听说的）\n3. 事故があったらしい。（似乎发生了事故。→ 根据迹象推断）\n4. 彼女は風邪を引いたらしい。（她好像感冒了。）\n5. 来年からルールが変わるらしい。（似乎从明年开始规则要变。）\n6. あの二人、別れたらしいよ。（那两个人好像分手了。）\n7. 駅前に新しいカフェができたらしい。（车站前面好像开了一家新咖啡厅。）",
+  "meaning_en": "seems / apparently / typical of",
+  "cont": [
+   "动词/い形容词 简体 + らしい；な形容词 语干 + らしい（去だ）；名词 + らしい"
+  ],
+  "lessonCat": "样态",
+  "examples": [
+   {
+    "ja": "彼は来ないらしい。",
+    "en": "Apparently he's not coming."
+   },
+   {
+    "ja": "彼女は学生らしく真面目だ。",
+    "en": "She's as diligent as you'd expect of a student."
+   },
+   {
+    "ja": "今日は春らしい天気だ。",
+    "en": "Today's weather is typical of spring."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "jk:dashi-suddenly-start",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Verb ます-stem + 出す",
+  "pattern_jk": "Verb ます-stem + 出す",
+  "meaning_en": "suddenly start (doing X) / begin abruptly",
+  "cont": [
+   "動詞 ます-語幹 + 出す (conjugates as godan: 出します, 出した, 出して)"
+  ],
+  "examples": [
+   {
+    "ja": "急に雨が降り出した。",
+    "en": "It suddenly started raining."
+   },
+   {
+    "ja": "赤ちゃんが泣き出した。",
+    "en": "The baby burst into tears."
+   },
+   {
+    "ja": "彼は突然走り出した。",
+    "en": "He suddenly started running."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:aida-ni",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "V 〜ている / noun-の / adj + 間 or 間に",
+  "pattern_jk": "V 〜ている / noun-の / adj + 間 or 間に",
+  "meaning_en": "during / while (a period within which something happens)",
+  "cont": [
+   "名詞 + の + 間(に); 動詞 〜ている + 間(に); 動詞 plain + 間(に); い形容詞 + 間(に); な形容詞 + な + 間(に)"
+  ],
+  "examples": [
+   {
+    "ja": "私が留守の間に誰か来ましたか。",
+    "en": "Did someone come while I was out?"
+   },
+   {
+    "ja": "夏休みの間、ずっと旅行していました。",
+    "en": "I was traveling the whole time during summer vacation."
+   },
+   {
+    "ja": "母が料理している間に、宿題をした。",
+    "en": "While my mother was cooking, I did my homework."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ki-ga-suru-feel-like",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Plain form + 気がする",
+  "pattern_jk": "Plain form + 気がする",
+  "meaning_en": "feel like / have a feeling that",
+  "cont": [
+   "Plain-form predicate + 気がする. For 名詞/な形容詞: include the copula (〜だ + 気がする or 〜な + 気がする)"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降る気がする。",
+    "en": "I have a feeling it's going to rain."
+   },
+   {
+    "ja": "誰かに見られている気がする。",
+    "en": "I feel like someone's watching me."
+   },
+   {
+    "ja": "彼は来ない気がする。",
+    "en": "I have a feeling he's not coming."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kiri-only",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Noun / number + 切り / きり",
+  "pattern_jk": "Noun / number + 切り / きり",
+  "meaning_en": "only / exclusively / just",
+  "cont": [
+   "名詞 / 数字 + 助数詞 + きり (or 切り)"
+  ],
+  "examples": [
+   {
+    "ja": "二人きりで話したい。",
+    "en": "I want to talk just the two of us."
+   },
+   {
+    "ja": "彼は一人きりで生きている。",
+    "en": "He lives all alone."
+   },
+   {
+    "ja": "これっきりで最後にする。",
+    "en": "I'll make this the last time."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kagiri-as-long-as",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "V plain / i-adj / noun + である + 限り",
+  "pattern_jk": "V plain / i-adj / noun + である + 限り",
+  "meaning_en": "as long as / to the extent that / as far as",
+  "cont": [
+   "動詞 plain non-past + 限り; い形容詞 + 限り; 名詞 + である + 限り; な形容詞 + な + 限り. Negative: 動詞 ない + 限り ('unless')"
+  ],
+  "examples": [
+   {
+    "ja": "生きている限り、希望はある。",
+    "en": "As long as you're alive, there's hope."
+   },
+   {
+    "ja": "知っている限り、教えてあげる。",
+    "en": "I'll tell you as much as I know."
+   },
+   {
+    "ja": "努力しない限り、成功できない。",
+    "en": "Unless you make an effort, you can't succeed."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:tsuzukeru-continue",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Verb ます-stem + 続ける",
+  "pattern_jk": "Verb ます-stem + 続ける",
+  "meaning_en": "continue doing / keep doing",
+  "cont": [
+   "動詞 ます-語幹 + 続ける (conjugates as an ichidan 動詞: 続けます, 続けた, 続けている)"
+  ],
+  "examples": [
+   {
+    "ja": "雨が降り続けている。",
+    "en": "It keeps raining."
+   },
+   {
+    "ja": "10年間、日本語を勉強し続けている。",
+    "en": "I have been studying Japanese continuously for 10 years."
+   },
+   {
+    "ja": "諦めずに走り続けた。",
+    "en": "I kept running without giving up."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ippou-de-one-hand",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Plain form + 一方で",
+  "pattern_jk": "Plain form + 一方で",
+  "meaning_en": "on the other hand / while at the same time",
+  "cont": [
+   "動詞 plain / い形容詞 + 一方で; な形容詞 + な / である + 一方で; 名詞 + である + 一方で"
+  ],
+  "examples": [
+   {
+    "ja": "彼は優しい一方で、厳しいところもある。",
+    "en": "He's kind, but on the other hand, he has a strict side."
+   },
+   {
+    "ja": "都市が発展する一方で、環境問題も深刻になる。",
+    "en": "While cities develop, environmental problems also become serious."
+   },
+   {
+    "ja": "仕事が忙しい一方で、家族との時間も大切にしている。",
+    "en": "While work is busy, I also value family time."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:igai-other-than",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Noun + 以外(に / には / は)",
+  "pattern_jk": "Noun + 以外(に / には / は)",
+  "meaning_en": "other than / besides / except for",
+  "cont": [
+   "名詞 + 以外 + particle (に / には / は / の); attributive form 以外の + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "彼以外、誰もその事を知らない。",
+    "en": "No one besides him knows about it."
+   },
+   {
+    "ja": "日本語以外に、何語が話せますか。",
+    "en": "What languages can you speak other than Japanese?"
+   },
+   {
+    "ja": "日曜日以外は、毎日働いている。",
+    "en": "I work every day except Sunday."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:naoshi-redo",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Verb ます-stem + 直す",
+  "pattern_jk": "Verb ます-stem + 直す",
+  "meaning_en": "redo / do (X) over again",
+  "cont": [
+   "動詞 ます-語幹 + 直す (conjugates as godan: 直します, 直した, 直して)"
+  ],
+  "examples": [
+   {
+    "ja": "レポートを書き直した。",
+    "en": "I rewrote the report."
+   },
+   {
+    "ja": "計画を立て直す必要がある。",
+    "en": "We need to redo the plan."
+   },
+   {
+    "ja": "もう一度考え直してください。",
+    "en": "Please reconsider (think it over again)."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:chuu-during",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Noun + 中 (ちゅう / じゅう)",
+  "pattern_jk": "Noun + 中 (ちゅう / じゅう)",
+  "meaning_en": "during / in the middle of / throughout",
+  "cont": [
+   "名詞 + 中 (reading varies: ちゅう for ongoing, じゅう for throughout)"
+  ],
+  "examples": [
+   {
+    "ja": "今、会議中です。",
+    "en": "I'm in a meeting right now."
+   },
+   {
+    "ja": "一日中、雨が降っていた。",
+    "en": "It was raining all day long."
+   },
+   {
+    "ja": "日本中を旅行したい。",
+    "en": "I want to travel throughout Japan."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:saichu-in-the-middle",
+  "type": "C-jk",
+  "level": "N3",
+  "pattern": "Noun / V 〜ている + 最中",
+  "pattern_jk": "Noun / V 〜ている + 最中",
+  "meaning_en": "in the middle of / right in the midst of",
+  "cont": [
+   "名詞 + の + 最中(に); 動詞 〜ている + 最中(に)"
+  ],
+  "examples": [
+   {
+    "ja": "食事の最中に電話が鳴った。",
+    "en": "The phone rang right in the middle of the meal."
+   },
+   {
+    "ja": "会議の最中に、社長が入ってきた。",
+    "en": "In the middle of the meeting, the president walked in."
+   },
+   {
+    "ja": "試験の最中、集中できなかった。",
+    "en": "Right in the middle of the exam, I couldn't concentrate."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ }
+]

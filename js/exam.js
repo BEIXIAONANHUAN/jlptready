@@ -491,7 +491,7 @@ window.Exam = (function () {
         ${saveError ? '<button class="btn btn-primary" id="btn-retry-save">重试保存</button>' : ''}
         <button class="btn btn-primary" id="btn-back-home">回首页</button>
       </div>`;
-    $('btn-back-home').addEventListener('click', () => { location.hash = '#/'; });
+    $('btn-back-home').addEventListener('click', () => { location.hash = '#/words'; });
     const retry = $('btn-retry-save');
     if (retry) retry.addEventListener('click', saveResult);
   }

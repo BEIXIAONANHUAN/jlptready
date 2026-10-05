@@ -1,0 +1,426 @@
+[
+ {
+  "rowid": "rb:可能形:11:0",
+  "action": "mergeinto:jk:potential-form",
+  "theme_order": 14,
+  "pos": "被动使役"
+ },
+ {
+  "rowid": "rb:予定だ:12:0",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:がある:17:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:し:15:0",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:そうだ①—看起来……:13:0",
+  "pattern": "〜そうだ（样态）",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:そうだ②—听说……:13:0",
+  "pattern": "〜そうだ（传闻）",
+  "theme_order": 15,
+  "pos": "传闻引用"
+ },
+ {
+  "rowid": "g:だけ",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:たことがある:07:0",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "rb:たばかり:07:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:たりたりする:07:0",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:てください",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "rb:でしょう:13:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:です",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:てもいい:05:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:とき",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:なくてもいい:06:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "rb:に行く:17:0",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:のが好き:17:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:ます形:03:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:や:17:0",
+  "theme_order": 9,
+  "pos": "递进并列",
+  "ex1_ja": "りんごやバナナなどを買いました。",
+  "ex1_zh": "买了苹果和香蕉等。",
+  "ex2_ja": "週末は映画や買い物をします。",
+  "ex2_zh": "周末看电影、买东西之类的。"
+ },
+ {
+  "rowid": "rb:受身形:11:0",
+  "action": "mergeinto:jk:passive-form",
+  "theme_order": 14,
+  "pos": "被动使役"
+ },
+ {
+  "rowid": "rb:意向形:12:0",
+  "action": "mergeinto:jk:volitional-form",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:ている:05:0",
+  "meaning_zh": "表示动作正在进行、结果的持续或习惯的反复，含义取决于动词类型：持续动词表进行中，瞬间动词表结果状态，搭配频率词表习惯。",
+  "ex1_ja": "今、ご飯を食べています。",
+  "ex1_zh": "现在正在吃饭。",
+  "ex2_ja": "毎日、日本語を勉強しています。",
+  "ex2_zh": "每天学习日语。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:ない形:06:0",
+  "ex1_ja": "彼は朝ごはんを食べない。",
+  "ex1_zh": "他不吃早饭。",
+  "ex2_ja": "明日は何もしない。",
+  "ex2_zh": "明天什么都不做。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:のだ:15:0",
+  "meaning_zh": "「のだ／んだ」用于说明情况、解释原因、强调事实或寻求说明，是日语最重要的语气表达之一。",
+  "ex1_ja": "どうして遅れたの？――バスが来なかったんです。",
+  "ex1_zh": "为什么迟到了？——因为公交车没来。",
+  "ex2_ja": "この料理は美味しいんだよ。",
+  "ex2_zh": "这个菜很好吃哦。",
+  "theme_order": 5,
+  "pos": "形式体言"
+ },
+ {
+  "rowid": "jk:i-adjective-nonpast",
+  "pattern": "い形容词（非过去肯定形）",
+  "meaning_zh": "い形容词表示事物的性质、状态，词尾为「い」，可单独作谓语；敬体句末加「です」（是礼貌标记，非过去否定用「〜くないです」）。",
+  "ex1_zh": "这本书很贵。",
+  "ex2_zh": "那部电影很有趣。（简体）",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:location-nouns-ue-shita",
+  "pattern": "〜の上/下/中/前/後ろ/横/隣/間",
+  "meaning_zh": "表示相对位置：在……上、下、里、前、后、旁边、隔壁、之间。",
+  "ex1_zh": "桌子上有书。",
+  "ex2_zh": "在学校前面见面吧。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-hon-long",
+  "pattern": "数词＋本",
+  "meaning_zh": "细长物品的数量单位（铅笔、伞、瓶等），1本读いっぽん、3本读さんぼん、6/8/10本发生促音变。",
+  "ex1_zh": "买了3支铅笔。",
+  "ex2_zh": "请给我2瓶水。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-fun-minute",
+  "pattern": "数词＋分",
+  "meaning_zh": "分钟（时间/时长单位）。1/3/4/6/8/10分读ぷん，2/5/7/9分读ふん。",
+  "ex1_zh": "请等10分钟。",
+  "ex2_zh": "现在是3点15分。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:question-words-basic",
+  "pattern": "何／誰／どこ／いつ／どう／どうして",
+  "meaning_zh": "基本疑问词：什么／谁／哪里／什么时候／怎样／为什么。疑问词放在答句对应位置，敬体句末用「か」。",
+  "ex1_zh": "这是什么？",
+  "ex2_zh": "谁来了？",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:nanyoubi-day-of-week",
+  "pattern": "何曜日／〜曜日",
+  "meaning_zh": "询问或表述星期：何曜日（星期几）；月曜日〜日曜日。星期后可加「に」表示时间。",
+  "ex1_zh": "今天星期几？",
+  "ex2_zh": "星期一有会议。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-mai-flat",
+  "pattern": "数词＋枚",
+  "meaning_zh": "薄平物品的数量单位（纸、票、照片、衬衫等），不发生音变。",
+  "ex1_zh": "请给我3张纸。",
+  "ex2_zh": "买了2张票。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-people-nin",
+  "pattern": "数词＋人",
+  "meaning_zh": "人的数量单位。一人（ひとり）、二人（ふたり）为特殊读法，四人读よにん。",
+  "ex1_zh": "我家有四口人。",
+  "ex2_zh": "我们两个人去。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-ji-oclock",
+  "pattern": "数词＋時",
+  "meaning_zh": "钟点单位（〜点）。4時读よじ、7時读しちじ、9時读くじ为不规则读法。",
+  "ex1_zh": "现在是3点。",
+  "ex2_zh": "9点去学校。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:jikan-time-duration",
+  "pattern": "数词＋時間",
+  "meaning_zh": "小时（时长单位），表示动作持续多久，区别于表示钟点的「〜時」。",
+  "ex1_zh": "每天学习2小时。",
+  "ex2_zh": "到东京要3个小时。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-sai-age",
+  "pattern": "数词＋歳/才",
+  "meaning_zh": "年龄单位。1岁いっさい、8岁はっさい、10岁じっさい、20岁はたち。",
+  "ex1_zh": "我20岁。",
+  "ex2_zh": "弟弟12岁。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:issho-ni-together",
+  "pattern": "〜と一緒に",
+  "meaning_zh": "和……一起……。「と」表示陪伴的对象。",
+  "ex1_zh": "和朋友一起看了电影。",
+  "ex2_zh": "想和家人一起去日本。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:counter-en-money",
+  "pattern": "数词＋円",
+  "meaning_zh": "日元金额单位。无音变，1万円＝10000日元。",
+  "ex1_zh": "这个蛋糕500日元。",
+  "ex2_zh": "钱包里有3000日元。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:hou-ga-comparative",
+  "pattern": "AのほうがBより〜",
+  "meaning_zh": "A比B更……（比较句）。也可用「BよりAのほうが〜」语序。",
+  "ex1_zh": "狗比猫大。",
+  "ex2_zh": "比起咖啡更喜欢茶。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:ichiban-superlative",
+  "pattern": "〜で一番〜",
+  "meaning_zh": "在……中（范围）最……（最高级）。范围可省略。",
+  "ex1_zh": "富士山是日本最高的山。",
+  "ex2_zh": "最喜欢寿司。",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "jk:kono-sono-ano-dono-attributive",
+  "pattern": "この／その／あの／どの＋名詞",
+  "meaning_zh": "连体指示词：这个／那个／那个（远）／哪个，直接修饰名词，不能单独使用。",
+  "ex1_zh": "这本书很贵。",
+  "ex2_zh": "那个人是谁？",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:na-adjective-attributive",
+  "pattern": "な形容词＋な＋名詞",
+  "meaning_zh": "な形容词修饰名词时词干与名词之间必须加「な」。",
+  "ex1_zh": "想要一个安静的房间。",
+  "ex2_zh": "来了一位有名的歌手。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:to-exhaustive-listing",
+  "action": "mergeinto:jk:particle-to-and-with",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "jk:nanji-what-time",
+  "pattern": "何時（＋〜分）",
+  "meaning_zh": "询问具体时间：几点（几分）。",
+  "ex1_zh": "现在几点？",
+  "ex2_zh": "几点见面呢？",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:ikutsu-how-many",
+  "pattern": "いくつ",
+  "meaning_zh": "询问数量（小物品）或年龄的通用疑问词。おいくつですか是礼貌地问年龄。",
+  "ex1_zh": "苹果有几个？",
+  "ex2_zh": "您多大了？（礼貌）",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:imasu-existence-animate",
+  "pattern": "（場所に）人/動物がいる",
+  "meaning_zh": "（某处）存在某人/动物。います/いる用于人、动物等有生命物。",
+  "ex1_zh": "院子里有狗。",
+  "ex2_zh": "教室里有学生。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:arimasu-existence-inanimate",
+  "pattern": "（場所に）物がある",
+  "meaning_zh": "（某处）存在某物。あります/ある用于物品、植物等无生命物。",
+  "ex1_zh": "桌子上有书。",
+  "ex2_zh": "房间里有电视。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:mai-every-prefix",
+  "pattern": "毎＋時間名詞",
+  "meaning_zh": "每……：毎日、毎週、毎月、毎年、毎朝、毎晩等，表示频率。",
+  "ex1_zh": "每天喝咖啡。",
+  "ex2_zh": "每天早上6点起床。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:ta-form",
+  "pattern": "動詞た形",
+  "meaning_zh": "动词简体过去式，表示过去的动作或完成。「行く→行った、食べる→食べた、する→した」。",
+  "ex1_zh": "昨天看了电影。（简体）",
+  "ex2_zh": "已经吃过了。（简体）",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:mou-ta-already",
+  "pattern": "もう＋動詞た形",
+  "meaning_zh": "已经……了。もう与过去式呼应表示动作完成；对应否定「まだ〜ていない」。",
+  "ex1_zh": "作业已经做了。",
+  "ex2_zh": "已经吃过饭了。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:te-form-basic",
+  "pattern": "動詞て形",
+  "meaning_zh": "动词连接形：连接句子、表示顺序/原因/方式，也是大量复合语法（〜てください等）的接续基础。",
+  "ex1_zh": "每天早上喝咖啡、看报纸。",
+  "ex2_zh": "去学校学习。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:mada-not-yet",
+  "pattern": "まだ〜ていない／まだ〜ている",
+  "meaning_zh": "还没……／还在……。「还没」必须用进行体否定まだ〜ていない，不能说「まだ〜ませんでした」。",
+  "ex1_zh": "作业还没做。",
+  "ex2_zh": "弟弟还在睡觉。",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "jk:nai-form",
+  "pattern": "動詞ない形",
+  "meaning_zh": "动词简体否定形「不……」，也是义务、许可等众多语法的接续基础。「ある→ない」为例外。",
+  "ex1_zh": "今天不去学校。（简体）",
+  "ex2_zh": "他不懂。（简体）",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:i-adj-adverbial-ku",
+  "pattern": "い形容词語幹＋く",
+  "meaning_zh": "い形容词副词化：去掉词尾い加く，修饰动词/形容词（いい→よく）。",
+  "ex1_zh": "请早点起床。",
+  "ex2_zh": "请写大一点。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:na-adj-adverbial-ni",
+  "pattern": "な形容词語幹＋に",
+  "meaning_zh": "な形容词副词化：词干加に，修饰动词。",
+  "ex1_zh": "请保持安静。",
+  "ex2_zh": "日语说得很好。",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "jk:particle-to-and-with",
+  "pattern": "〜と〜",
+  "meaning_zh": "「と」连接名词表示完全列举（A和B，无其他），或表示伴随（和……一起）。",
+  "ex1_zh": "买了面包和牛奶。",
+  "ex2_zh": "和朋友一起吃了饭。",
+  "theme_order": 9,
+  "pos": "递进并列"
+ }
+]

@@ -150,7 +150,7 @@ window.NewWords = (function () {
     };
   }
 
-  // ---------- 入口：路由进入 #/new 时调用 ----------
+  // ---------- 入口：路由进入 #/words/new 时调用 ----------
   async function enter() {
     const body = $('new-body');
     if (!body) return;
@@ -212,7 +212,7 @@ window.NewWords = (function () {
         <div class="done-status">以服务器记录为准，明天再来</div>
         <button class="btn btn-primary" id="btn-back-home">回首页</button>
       </div>`;
-    $('btn-back-home').addEventListener('click', () => { location.hash = '#/'; });
+    $('btn-back-home').addEventListener('click', () => { location.hash = '#/words'; });
   }
 
   function render() {
@@ -425,7 +425,7 @@ window.NewWords = (function () {
 
     $('btn-rest5').addEventListener('click', () => {
       saveSession(); // 进度已存，回首页；下次点「今日新词」会回到本小结页
-      location.hash = '#/';
+      location.hash = '#/words';
     });
     $('btn-next-group').addEventListener('click', () => {
       if (isLast) {
@@ -515,7 +515,7 @@ window.NewWords = (function () {
         ${saveError ? '<button class="btn btn-primary" id="btn-retry-save">重试保存</button>' : ''}
         <button class="btn btn-primary" id="btn-back-home">回首页</button>
       </div>`;
-    $('btn-back-home').addEventListener('click', () => { location.hash = '#/'; });
+    $('btn-back-home').addEventListener('click', () => { location.hash = '#/words'; });
     const retry = $('btn-retry-save');
     if (retry) retry.addEventListener('click', finishDay);
   }

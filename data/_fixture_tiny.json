@@ -1,0 +1,54 @@
+[
+  {
+    "pattern": "～A1",
+    "meaning": "假定小语法一",
+    "continuation": "名詞＋A1",
+    "example1": "これA1。",
+    "example1_zh": "例一。",
+    "example2": null,
+    "example2_zh": null,
+    "level": "N2",
+    "pos": "假定",
+    "theme_order": 8,
+    "frequency": 1
+  },
+  {
+    "pattern": "～A2",
+    "meaning": "假定小语法二",
+    "continuation": "名詞＋A2",
+    "example1": "これA2。",
+    "example1_zh": "例二。",
+    "example2": null,
+    "example2_zh": null,
+    "level": "N2",
+    "pos": "假定",
+    "theme_order": 8,
+    "frequency": 1
+  },
+  {
+    "pattern": "～A3",
+    "meaning": "假定小语法三",
+    "continuation": "名詞＋A3",
+    "example1": "これA3。",
+    "example1_zh": "例三。",
+    "example2": null,
+    "example2_zh": null,
+    "level": "N2",
+    "pos": "假定",
+    "theme_order": 8,
+    "frequency": 1
+  },
+  {
+    "pattern": "～A4",
+    "meaning": "假定小语法四",
+    "continuation": "名詞＋A4",
+    "example1": "これA4。",
+    "example1_zh": "例四。",
+    "example2": null,
+    "example2_zh": null,
+    "level": "N2",
+    "pos": "假定",
+    "theme_order": 8,
+    "frequency": 1
+  }
+]

@@ -1,0 +1,1548 @@
+[
+ {
+  "rowid": "g:ことにする",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ことにする",
+  "shortZh": "决定做……",
+  "meaning_rb": "\"（自己）决定做……\"，强调是个人意志的决定。",
+  "cont": [
+   "动词辞书形 + ことにする；动词ない形 + ことにする"
+  ],
+  "lessonCat": "ことにする",
+  "examples": [
+   {
+    "ja": "来年日本に留学することにした。",
+    "zh": "决定明年去日本留学。"
+   },
+   {
+    "ja": "明日から毎日6時に起きることにする。",
+    "zh": "决定从明天起每天6点起床。"
+   },
+   {
+    "ja": "ダイエットのために、お菓子を食べないことにした。",
+    "zh": "为了减肥，决定不吃零食了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ことになる",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ことになる",
+  "shortZh": "被决定/结果变成……",
+  "meaning_rb": "\"（非个人意志）被决定/结果变成……\"，强调外部决定或自然结果。",
+  "cont": [
+   "动词辞书形 + ことになる；动词ない形 + ことになる"
+  ],
+  "lessonCat": "ことにする",
+  "examples": [
+   {
+    "ja": "来月から大阪に転勤することになった。",
+    "zh": "从下个月起要调去大阪了。→ 公司决定的"
+   },
+   {
+    "ja": "今度の会議は中止することになった。",
+    "zh": "这次会议被决定取消了。"
+   },
+   {
+    "ja": "来年から新しいルールが始まることになった。",
+    "zh": "从明年起新规则要实施了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:さ:31:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜さ",
+  "shortZh": "形容詞→名詞化：-ness",
+  "meaning_rb": "把形容词变成名词，表示\"……的程度\"。变成名词后可以做主语、宾语，接助词が/を/は/の等。\n注意：并非所有形容词都能加「さ」。有些な形容词（如きれい）加さ虽然不算错，但使用频率较低，听起来不太自然。",
+  "cont": [
+   "い形容詞：い → さ（高い → 高さ = 高度、深い → 深さ = 深度）；な形容詞：語幹 + さ（便利 → 便利さ = 便利性、大切 → 大切さ = 重要性）"
+  ],
+  "lessonCat": "すぎる",
+  "examples": [
+   {
+    "ja": "このビルの高さは100メートルです。",
+    "zh": "这栋楼的高度是100米。"
+   },
+   {
+    "ja": "日本語の難しさを実感した。",
+    "zh": "真切感受到了日语的难度。"
+   },
+   {
+    "ja": "便利さと安全さ、どちらが大切？",
+    "zh": "便利性和安全性，哪个更重要？"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:すぎる",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜すぎる",
+  "shortZh": "太~/过度~",
+  "meaning_rb": "表示程度过度，\"太……了\"。含有超过了合适程度的意思，通常带有负面评价。\nすぎる本身是二类动词（る动词），所以可以进一步活用：\n| 活用 | 形式 |\n|------|------|\n| ない形 | すぎない |\n| て形 | すぎて |\n| た形 | すぎた |\n| 名词化 | すぎ（食べすぎ = 吃太多这件事） |",
+  "cont": [
+   "動詞 語幹 + すぎる. い-adj: drop い + すぎる. な-adj: + すぎる"
+  ],
+  "lessonCat": "すぎる",
+  "examples": [
+   {
+    "ja": "昨日食べすぎて、お腹が痛い。",
+    "zh": "昨天吃太多了，肚子疼。"
+   },
+   {
+    "ja": "この部屋は静かすぎて、逆に落ち着かない。",
+    "zh": "这个房间太安静了，反而静不下心来。"
+   },
+   {
+    "ja": "彼は真面目すぎる。もう少しリラックスしたほうがいい。",
+    "zh": "他太认真了。再放松一点比较好。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:たらどう:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜たらどう(ですか)",
+  "shortZh": "……怎么样？",
+  "meaning_rb": "\"做……怎么样？\"，用于向对方提建议。语气随场合不同，可以是轻松的建议，也可以带有催促/不耐烦的语气。",
+  "cont": [
+   "動詞た形 + らどう（ですか）"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "疲れたなら、少し休んだらどうですか。",
+    "zh": "累了的话，休息一下怎么样？→ 温和建议"
+   },
+   {
+    "ja": "医者に行ったらどう？",
+    "zh": "去看看医生怎么样？→ 朋友间建议"
+   },
+   {
+    "ja": "一度、先生に相談したらどうですか。",
+    "zh": "去和老师商量一次怎么样？"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:つもりだ",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜つもりだ",
+  "shortZh": "打算/计划",
+  "meaning_rb": "\"打算做……\"，表示已经确定的意图/计划。比「〜ようと思う」更确定。",
+  "cont": [
+   "动词辞书形 + つもりだ（打算做）；动词ない形 + つもりだ（打算不做）"
+  ],
+  "examples": [
+   {
+    "ja": "来月引っ越すつもりです。",
+    "zh": "下个月打算搬家。"
+   },
+   {
+    "ja": "大学院に行くつもりだ。",
+    "zh": "打算读研。"
+   },
+   {
+    "ja": "もう二度とあの店には行かないつもりだ。",
+    "zh": "打算再也不去那家店了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:てから",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜てから",
+  "shortZh": "之後",
+  "meaning_rb": "\"做完A之后，再做B\"，强调先后顺序。",
+  "cont": [
+   "動詞-て + から"
+  ],
+  "examples": [
+   {
+    "ja": "手を洗ってから、ご飯を食べます。",
+    "zh": "洗完手之后吃饭。"
+   },
+   {
+    "ja": "宿題をしてから、遊びに行く。",
+    "zh": "做完作业之后去玩。"
+   },
+   {
+    "ja": "日本に来てから、三年になります。",
+    "zh": "来日本之后已经三年了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:てすみません:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜てすみません / 〜なくてすみません",
+  "shortZh": "做了……对不起 / 没做……对不起",
+  "meaning_rb": "用て形表示道歉的原因。\"因为做了……，对不起\" / \"因为没做……，对不起\"。",
+  "cont": [
+   "動詞て形 + すみません；動詞なくて + すみません"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "遅れてすみません。",
+    "zh": "迟到了对不起。"
+   },
+   {
+    "ja": "うるさくしてすみません。",
+    "zh": "太吵了对不起。"
+   },
+   {
+    "ja": "連絡しなくてすみません。",
+    "zh": "没有联系你，对不起。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:てはいけない",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜てはいけない",
+  "shortZh": "禁止",
+  "meaning_rb": "\"不可以做……\"、\"禁止做……\"",
+  "cont": [
+   "動詞-て + はいけない (polite: はいけません). Casual contraction: ちゃいけない, ちゃだめ"
+  ],
+  "examples": [
+   {
+    "ja": "ここで泳いではいけません。",
+    "zh": "不可以在这里游泳。"
+   },
+   {
+    "ja": "授業中にスマホを使ってはいけない。",
+    "zh": "上课中不能用手机。"
+   },
+   {
+    "ja": "嘘をついてはいけません。",
+    "zh": "不可以���谎。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:てほしい",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜てほしい",
+  "shortZh": "希望别人做……",
+  "meaning_rb": "\"希望（别人）做……\"，表示说话人对他人的愿望或期待。主语始终是说话人（第一人称），想要做事的人是他人。",
+  "cont": [
+   "希望对方做：（人に）動詞て形 + ほしい → 来てほしい；希望对方不做：（人に）動詞ないで + ほしい → 来ないでほしい；助词：希望的对象用「に」标记"
+  ],
+  "lessonCat": "ても",
+  "examples": [
+   {
+    "ja": "先生に日本語で話してほしい。",
+    "zh": "希望老师用日语说。"
+   },
+   {
+    "ja": "友達に早く来てほしい。",
+    "zh": "希望朋友早点来。"
+   },
+   {
+    "ja": "ここでタバコを吸わないでほしい。",
+    "zh": "希望不要在这里抽烟。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:てよかった:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜てよかった / 〜なくてよかった",
+  "shortZh": "做了……真好 / 没做……真好",
+  "meaning_rb": "表示对过去做过（或没做过）的事感到庆幸、欣慰。\"做了……真是太好了\" / \"没做……真是太好了\"。",
+  "cont": [
+   "動詞て形 + よかった；動詞なくて + よかった"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "傘を持ってきてよかった。",
+    "zh": "带了伞来真好。→ 因为后来下雨了"
+   },
+   {
+    "ja": "日本語を勉強してよかった。",
+    "zh": "学了日语真好。→ 感到有意义"
+   },
+   {
+    "ja": "あの映画を見てよかった。",
+    "zh": "看了那部电影真好。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:と思う:32:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜と思う / 〜と思っている",
+  "shortZh": "我觉得……/一直认为……",
+  "meaning_rb": "表示说话人的想法、意见、判断。と思う 用于表达当下的想法或决定，と思っている 用于持续性的想法或他人的想法。\n关键区别：\n- 自分 → と思う：我觉得……（此刻的判断/将来的打算）\n- 他人 → と思っている：他认为……（持续的想法，因为不能直接知道别人脑中所想）\n- 自分 → と思っている：我一直觉得……（强调长期持有的想法）",
+  "cont": [
+   "普通形 + と思う；い形容词：おいしいと思う；な形容词：静かだと思う；名词：学生だと思う；动词：行くと思う / 行ったと思う / 行かないと思う"
+  ],
+  "lessonCat": "と思う",
+  "examples": [
+   {
+    "ja": "明日は雨が降ると思う。",
+    "zh": "我觉得明天会下雨。→ 此刻的判断"
+   },
+   {
+    "ja": "来年、日本に行こうと思う。",
+    "zh": "我想明年去日本。→ と思う表意志，用意向形"
+   },
+   {
+    "ja": "この映画はおもしろいと思う。",
+    "zh": "我觉得这部电影有意思。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ということ:25:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ということ",
+  "shortZh": "\"……这件事\"",
+  "meaning_rb": "把一个句子名词化为\"……这件事/这个意思\"。",
+  "lessonCat": "という",
+  "examples": [
+   {
+    "ja": "彼が辞めたということは本当ですか。",
+    "zh": "他辞职了这件事是真的吗？"
+   },
+   {
+    "ja": "日本語を勉強しているということは、日本に興味があるということですね。",
+    "zh": "在学日语，就是说对日本感兴趣咯。"
+   },
+   {
+    "ja": "返事がないということは、来ないということだろう。",
+    "zh": "没有回复，大概就是不来的意思吧。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:というのはことだ:25:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜というのは〜ことだ",
+  "shortZh": "所谓……就是……",
+  "meaning_rb": "用来下定义或解释含义：\"所谓……就是……的意思\"。",
+  "lessonCat": "という",
+  "examples": [
+   {
+    "ja": "「節約」というのは、無駄なお金を使わないことだ。",
+    "zh": "所谓\"节约\"，就是不浪费钱。"
+   },
+   {
+    "ja": "「敬語」というのは、相手に敬意を表す言葉遣いのことだ。",
+    "zh": "所谓\"敬语\"，就是对对方表示敬意的措辞。"
+   },
+   {
+    "ja": "「積極的」というのは、自分から進んで行動することだ。",
+    "zh": "所谓\"积极的\"，就是主动采取行动。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:といえば:25:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜といえば",
+  "shortZh": "说到……",
+  "meaning_rb": "\"说到……\"，用来引出与话题相关的联想或信息。",
+  "lessonCat": "という",
+  "examples": [
+   {
+    "ja": "日本といえば、桜が有名ですね。",
+    "zh": "说到日本，樱花很有名呢。"
+   },
+   {
+    "ja": "秋といえば、紅葉を見に行きたいです。",
+    "zh": "说到秋天，想去赏红叶。"
+   },
+   {
+    "ja": "北海道といえば、ラーメンと温泉だ。",
+    "zh": "说到北海道，就是拉面和温泉。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:なければならない",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜なければならない / 〜なければいけない",
+  "shortZh": "必須",
+  "meaning_rb": "\"必须做……\"、\"不做不行\"。\n字面意思是\"如果不做的话，就不行\"→ 所以必须做。",
+  "cont": [
+   "動詞-ない-語幹 (drop い from ない形) + なければならない. Common casual forms: なきゃ, なくちゃ, ないと"
+  ],
+  "examples": [
+   {
+    "ja": "明日までにレポートを出さなければならない。",
+    "zh": "必须在明天之前交报告。"
+   },
+   {
+    "ja": "毎日薬を飲まなければなりません。",
+    "zh": "必须每天吃药。"
+   },
+   {
+    "ja": "8時に起きなければいけない。",
+    "zh": "必须8点起床。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:なさい",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜なさい",
+  "shortZh": "做……！——命令",
+  "meaning_rb": "表示命令，但比命令形「〜ろ/〜え」柔和。主要用于上对下的场合：父母对孩子、老师对学生。不能用于对上级或客人。",
+  "cont": [
+   "動詞ます形（去掉ます） + なさい；食べます → 食べなさい；書きます → 書きなさい；起きます → 起きなさい；します → しなさい；来ます → 来（き）なさい"
+  ],
+  "lessonCat": "と思う",
+  "examples": [
+   {
+    "ja": "早く起きなさい。",
+    "zh": "快起床！→ 妈妈对孩子"
+   },
+   {
+    "ja": "宿題をしなさい。",
+    "zh": "去做作业！→ 老师/家长对学生/孩子"
+   },
+   {
+    "ja": "ここに名前を書きなさい。",
+    "zh": "在这里写名字。→ 老师对学生"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:のように:32:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜のように / 〜のような",
+  "shortZh": "像……一样",
+  "meaning_rb": "\"像……一样\"，用于比喻或举例。のように修饰动词和形容词，のような修饰名词。",
+  "cont": [
+   "名词 + のように + 动词/形容词（修饰动作/状态）；名词 + のような + 名词（修饰名词）；口语简化：〜みたいに / 〜みたいな"
+  ],
+  "lessonCat": "と思う",
+  "examples": [
+   {
+    "ja": "鳥のように空を飛びたい。",
+    "zh": "想像鸟一样在空中飞。→ のように修饰动词"
+   },
+   {
+    "ja": "彼は魚のように泳ぐ。",
+    "zh": "他像鱼一样游泳。"
+   },
+   {
+    "ja": "花火のようなきれいな光が見えた。",
+    "zh": "看到了像烟花一样美丽的光。→ のような修饰名词"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ばいい",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ばいい",
+  "shortZh": "做~就好了 假定条件",
+  "meaning_rb": "\"只要做~就好了\"，表示满足某个条件就足够。有时带有\"就这么简单\"的语气，也可以表示不知道该怎么做。",
+  "cont": [
+   "動詞 ば-form + いい / いいです. Question: どうすればいい(ですか)"
+  ],
+  "lessonCat": "建议复合",
+  "examples": [
+   {
+    "ja": "電話すればいいだけだよ。",
+    "zh": "打个电话就好了。"
+   },
+   {
+    "ja": "どうすればいいか分からない。",
+    "zh": "不知道该怎么办。"
+   },
+   {
+    "ja": "嫌なら、行かなければいいのに。",
+    "zh": "不想去的话不去就好了。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:はずだ:22:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜はずだ",
+  "shortZh": "应该/理应……",
+  "meaning_rb": "\"按道理应该……\"、\"理应……\"，说话人基于逻辑/证据做出的确信判断。",
+  "cont": [
+   "动词简体 + はずだ；い形容词 + はずだ；な形容词+な + はずだ；名词+の + はずだ"
+  ],
+  "lessonCat": "ことにする",
+  "examples": [
+   {
+    "ja": "彼はもう着いたはずだ。",
+    "zh": "他应该已经到了。→ 按时间算的话"
+   },
+   {
+    "ja": "この店は安いはずです。ネットで見ました。",
+    "zh": "这家店应该便宜。我在网上看到了。"
+   },
+   {
+    "ja": "彼女は来るはずだ。約束したから。",
+    "zh": "她应该会来。因为约好了。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:までに:33:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜までに",
+  "shortZh": "在……之前 / 截止……",
+  "meaning_rb": "表示截止期限——\"在……之前（必须完成某事）\"。强调的是最后期限这个时间点。",
+  "cont": [
+   "時間名詞 + までに；動詞辞書形 + までに"
+  ],
+  "lessonCat": "あいだ",
+  "examples": [
+   {
+    "ja": "5時までにレポートを出してください。",
+    "zh": "请在5点之前交报告。→ 截止5点"
+   },
+   {
+    "ja": "来週の月曜日までに届けます。",
+    "zh": "在下周一之前送达。"
+   },
+   {
+    "ja": "授業が始まるまでに、教室に入ってください。",
+    "zh": "在上课之前，请进教室。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:やすい",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜やすい(容易~)/ 〜にくい",
+  "shortZh": "难以~",
+  "meaning_rb": "- 〜やすい：做某事容易/倾向于。可表示①容易做、②容易发生。\n- 〜にくい：做某事困难/不容易。\n接上去之后整体变成い形容词，按い形容词活用：\n| 活用 | やすい | にくい |\n|------|--------|--------|\n| 否定 | やすくない | にくくない |\n| 过去 | やすかった | にくかった |\n| て形 | やすくて | にくくて |\n| 副词 | やすく | にくく |",
+  "cont": [
+   "動詞 語幹 + やすい"
+  ],
+  "lessonCat": "すぎる",
+  "examples": [
+   {
+    "ja": "この本は字が大きくて、読みやすい。",
+    "zh": "这本书字大，容易读。"
+   },
+   {
+    "ja": "このペンは書きやすいので、いつも使っている。",
+    "zh": "这支笔好写，所以一直在用。"
+   },
+   {
+    "ja": "白い服は汚れやすい。",
+    "zh": "白色衣服容易脏。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ように言う:21:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ように言う / 〜ように頼む",
+  "shortZh": "转述请求/命令",
+  "meaning_rb": "\"叫某人做……\"、\"拜托某人做……\"，用于转述请求或命令。",
+  "examples": [
+   {
+    "ja": "先生は学生に遅刻しないように言った。",
+    "zh": "老师对学生说不要迟到。"
+   },
+   {
+    "ja": "医者に酒をやめるように言われた。",
+    "zh": "被医生说要戒酒。"
+   },
+   {
+    "ja": "母に早く帰るように頼まれた。",
+    "zh": "被妈妈拜托早点回去。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:ようにする",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ようにする",
+  "shortZh": "努力做到……/注意做……",
+  "meaning_rb": "\"努力做到……\"、\"注意/留心做……\"，表示有意识地养成某种习惯或改变行为。",
+  "cont": [
+   "动词辞书形 + ようにする；动词ない形 + ようにする"
+  ],
+  "examples": [
+   {
+    "ja": "毎日野菜を食べるようにしている。",
+    "zh": "注意每天吃蔬菜。→ 正在养成的习惯"
+   },
+   {
+    "ja": "遅刻しないようにしてください。",
+    "zh": "请注意不要迟到。"
+   },
+   {
+    "ja": "なるべく歩くようにしている。",
+    "zh": "尽量走路。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ようになる:21:0",
+  "type": "A",
+  "level": "N4",
+  "pattern": "〜ようになる",
+  "shortZh": "变得……/开始能……",
+  "meaning_rb": "表示状态的自然变化——\"渐渐变得能/会做某事\"或\"变得不再做某事\"。",
+  "cont": [
+   "动词辞书形 + ようになる；动词ない形 + ようになる（变得不再……）；可能形 + ようになる（变得能够……）"
+  ],
+  "examples": [
+   {
+    "ja": "日本語が話せるようになった。",
+    "zh": "变得会说日语了。→ 能力的获得"
+   },
+   {
+    "ja": "子供が一人で着替えられるようになった。",
+    "zh": "孩子变得能自己换衣服了。"
+   },
+   {
+    "ja": "漢字が読めるようになりたい。",
+    "zh": "想变得能读汉字。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:という:25:0",
+  "type": "B-mean",
+  "level": "N4",
+  "pattern": "〜という",
+  "shortZh": "叫做……/所谓的……/据说……",
+  "meaning_rb": "接续：名前 + という + 名词\n1. これは「納豆」という食べ物です。（这是叫\"纳豆\"的食物。）\n2. 田中という人から電話がありました。（有个叫田中的人来了电话。）\n3. 「鬼滅の刃」という漫画を知っていますか。（知道叫\"鬼灭之刃\"的漫画吗？）\n4. 「ありがとう」という言葉は大切です。（\"谢谢\"这个词很重要。）\n5. 「花見」というのは、桜を見ながらお酒を飲む行事です。（所谓\"花见\"，就是赏樱喝酒的活动。）",
+  "meaning_en": null,
+  "lessonCat": "という",
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "jk:shi-reason-listing",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain form + し (+ plain form + し + ...)",
+  "pattern_jk": "Plain form + し (+ plain form + し + ...)",
+  "meaning_en": "and / besides (non-exhaustive listing of reasons or facts)",
+  "cont": [
+   "Plain-form predicate + し; can chain multiple. 名詞 / な形容詞 + だ + し"
+  ],
+  "examples": [
+   {
+    "ja": "この部屋は広いし、静かだ。",
+    "en": "This room is spacious, and (also) quiet."
+   },
+   {
+    "ja": "時間もないし、お金もない。",
+    "en": "I have no time and no money."
+   },
+   {
+    "ja": "頭も痛いし、熱もあるし、今日は休みます。",
+    "en": "I have a headache, I have a fever, so I'll take the day off."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mairu-humble",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "参る (humble of 行く / 来る)",
+  "pattern_jk": "参る (humble of 行く / 来る)",
+  "meaning_en": "(humble) to go / to come",
+  "cont": [
+   "Plain: 参る. Polite: 参ります. Te-form: 参って"
+  ],
+  "examples": [
+   {
+    "ja": "すぐ参ります。",
+    "en": "I'll come right away."
+   },
+   {
+    "ja": "東京から参りました。",
+    "en": "I came from Tokyo."
+   },
+   {
+    "ja": "まもなく電車が参ります。",
+    "en": "The train is arriving shortly."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ba-ai-in-case",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V plain / i-adj / na-adj な / noun の + 場合(は)",
+  "pattern_jk": "V plain / i-adj / na-adj な / noun の + 場合(は)",
+  "meaning_en": "in the case of / in the event that / if",
+  "cont": [
+   "動詞 plain + 場合; い形容詞 + 場合; な形容詞 + な + 場合; 名詞 + の + 場合"
+  ],
+  "examples": [
+   {
+    "ja": "火事の場合、このボタンを押してください。",
+    "en": "In case of fire, press this button."
+   },
+   {
+    "ja": "質問がある場合、手を挙げてください。",
+    "en": "If you have questions, please raise your hand."
+   },
+   {
+    "ja": "遅れる場合は、必ず連絡してください。",
+    "en": "If you're going to be late, please contact (us)."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-suki-kirai",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun + が + 好き / 嫌い",
+  "pattern_jk": "Noun + が + 好き / 嫌い",
+  "meaning_en": "like / dislike (object takes が, not を)",
+  "cont": [
+   "(Subject は) + Object が + 好き / 嫌い / 大好き / 大嫌い + です / だ"
+  ],
+  "examples": [
+   {
+    "ja": "私は猫が好きです。",
+    "en": "I like cats."
+   },
+   {
+    "ja": "彼は納豆が嫌いだ。",
+    "en": "He dislikes natto."
+   },
+   {
+    "ja": "日本語の勉強が大好きです。",
+    "en": "I love studying Japanese."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ato-de-after-doing",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V-た form / noun + の + 後で",
+  "pattern_jk": "V-た form / noun + の + 後で",
+  "meaning_en": "after doing X / after X",
+  "cont": [
+   "動詞-た + 後で; 名詞 + の + 後で"
+  ],
+  "examples": [
+   {
+    "ja": "ご飯を食べた後で、散歩します。",
+    "en": "After eating, I'll take a walk."
+   },
+   {
+    "ja": "学校の後で、図書館へ行きます。",
+    "en": "After school, I'll go to the library."
+   },
+   {
+    "ja": "仕事が終わった後で、飲みに行きましょう。",
+    "en": "After work is over, let's go drinking."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mousu-humble",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "申す (humble of 言う)",
+  "pattern_jk": "申す (humble of 言う)",
+  "meaning_en": "(humble) to say / to be called (a name)",
+  "cont": [
+   "Plain: 申す. Polite: 申します. More formal: 申し上げる / 申し上げます"
+  ],
+  "examples": [
+   {
+    "ja": "田中と申します。",
+    "en": "My name is Tanaka. (humble self-introduction)"
+   },
+   {
+    "ja": "心よりお礼を申し上げます。",
+    "en": "I express my gratitude from the heart."
+   },
+   {
+    "ja": "先ほど申した通りです。",
+    "en": "It's just as I said earlier."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hajimeru-auxiliary",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb stem + 始める",
+  "pattern_jk": "Verb stem + 始める",
+  "meaning_en": "begin to ___ / start ___ing",
+  "cont": [
+   "動詞 語幹 (same as ます 語幹) + 始める. E.g., 食べ始める ('begin to eat'), 読み始める ('begin to read')"
+  ],
+  "examples": [
+   {
+    "ja": "去年、日本語を勉強し始めました。",
+    "en": "I began studying Japanese last year."
+   },
+   {
+    "ja": "雨が降り始めた。",
+    "en": "It started to rain. (plain)"
+   },
+   {
+    "ja": "子供たちが歌い始めました。",
+    "en": "The children started singing."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-kikoeru-mieru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun + が + 聞こえる / 見える",
+  "pattern_jk": "Noun + が + 聞こえる / 見える",
+  "meaning_en": "is audible / is visible (spontaneous perception; object takes が)",
+  "cont": [
+   "(Subject には) + Object が + 聞こえる / 見える"
+  ],
+  "examples": [
+   {
+    "ja": "遠くから音楽が聞こえる。",
+    "en": "I can hear music from far away."
+   },
+   {
+    "ja": "ここから富士山が見えます。",
+    "en": "You can see Mount Fuji from here."
+   },
+   {
+    "ja": "小さい声が聞こえない。",
+    "en": "I can't hear the quiet voice."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:owaru-finish",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb stem + 終わる",
+  "pattern_jk": "Verb stem + 終わる",
+  "meaning_en": "finish ___ing",
+  "cont": [
+   "動詞 語幹 + 終わる (or + 終える for transitive nuance)"
+  ],
+  "examples": [
+   {
+    "ja": "本を読み終わりました。",
+    "en": "I finished reading the book."
+   },
+   {
+    "ja": "宿題をやり終えた。",
+    "en": "I finished the homework. (plain)"
+   },
+   {
+    "ja": "映画を見終わったら、電話してください。",
+    "en": "Please call me when you finish watching the movie."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kureru-give-toward",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Giver が (Receiver に) Object を くれる",
+  "pattern_jk": "Giver が (Receiver に) Object を くれる",
+  "meaning_en": "to give (toward speaker / in-group)",
+  "cont": [
+   "Plain 動詞 くれる (polite: くれます); honorific: くださる (polite: くださいます — irregular, note the final います not りまする)"
+  ],
+  "examples": [
+   {
+    "ja": "友達が本をくれた。",
+    "en": "My friend gave me a book."
+   },
+   {
+    "ja": "先生がくださった本を読んでいます。",
+    "en": "I'm reading the book my teacher kindly gave me."
+   },
+   {
+    "ja": "妹がこのペンをくれました。",
+    "en": "My younger sister gave me this pen."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ageru-give-outward",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Giver が Receiver に Object を あげる",
+  "pattern_jk": "Giver が Receiver に Object を あげる",
+  "meaning_en": "to give (outward, from in-group to out-group)",
+  "cont": [
+   "Plain 動詞 あげる (polite: あげます). Particles: Giver が / は, Receiver に, Object を"
+  ],
+  "examples": [
+   {
+    "ja": "友達にプレゼントをあげました。",
+    "en": "I gave a present to my friend."
+   },
+   {
+    "ja": "犬にえさをあげる。",
+    "en": "I give food to the dog."
+   },
+   {
+    "ja": "これをあなたにあげる。",
+    "en": "I'll give this to you."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:yaru-casual-giving",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Giver が Receiver に Object を やる",
+  "pattern_jk": "Giver が Receiver に Object を やる",
+  "meaning_en": "to give (casual / to inferiors, pets, plants)",
+  "cont": [
+   "Plain 動詞 やる (polite やります). Particles: Giver が, Receiver に, Object を"
+  ],
+  "examples": [
+   {
+    "ja": "毎朝、花に水をやります。",
+    "en": "Every morning I water the flowers."
+   },
+   {
+    "ja": "犬にえさをやった。",
+    "en": "I fed the dog."
+   },
+   {
+    "ja": "弟に宿題を手伝ってやった。",
+    "en": "I helped my little brother with his homework."
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:shika-nai",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Noun (or V plain) + しか + negative predicate",
+  "pattern_jk": "Noun (or V plain) + しか + negative predicate",
+  "meaning_en": "only / nothing but (negative-polarity 'only')",
+  "cont": [
+   "名詞 + しか + ない / いません (negative); 動詞 plain (often potential) + しか + ない / いません"
+  ],
+  "examples": [
+   {
+    "ja": "お金が100円しかない。",
+    "en": "I only have 100 yen."
+   },
+   {
+    "ja": "日本語しか話せません。",
+    "en": "I can only speak Japanese."
+   },
+   {
+    "ja": "一つしか残っていない。",
+    "en": "There's only one left."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:noun-modifying-clause",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Plain-form clause + Noun",
+  "pattern_jk": "Plain-form clause + Noun",
+  "meaning_en": "noun-modifying (attributive) clauses: 'the ___ that ___'",
+  "cont": [
+   "Plain-form clause (including any subject marked with が rather than は) + 名詞. For い形容詞s, the 普通形 directly precedes the 名詞 (高い本 — 'an expensive book'). For な形容詞s, insert な (静かな部屋)"
+  ],
+  "examples": [
+   {
+    "ja": "昨日、田中さんが作ったケーキはおいしかったです。",
+    "en": "The cake that Mr. Tanaka made yesterday was delicious."
+   },
+   {
+    "ja": "私が住んでいる町はとても静かです。",
+    "en": "The town where I live is very quiet."
+   },
+   {
+    "ja": "友達がくれた本を読んでいます。",
+    "en": "I'm reading the book that my friend gave me."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sou-iu-kou-iu",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "こういう / そういう / ああいう / どういう + noun",
+  "pattern_jk": "こういう / そういう / ああいう / どういう + noun",
+  "meaning_en": "this kind of / that kind of / that kind of (over there) / what kind of",
+  "cont": [
+   "こういう / そういう / ああいう / どういう + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "こういう本が好きです。",
+    "en": "I like this kind of book."
+   },
+   {
+    "ja": "そういう人に会ったことがある。",
+    "en": "I've met that kind of person."
+   },
+   {
+    "ja": "どういう意味ですか。",
+    "en": "What do you mean?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:morau-receive",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Receiver が Giver に / から Object を もらう",
+  "pattern_jk": "Receiver が Giver に / から Object を もらう",
+  "meaning_en": "to receive",
+  "cont": [
+   "Plain 動詞 もらう (polite: もらいます); humble: いただく (polite: いただきます)"
+  ],
+  "examples": [
+   {
+    "ja": "友達にプレゼントをもらいました。",
+    "en": "I received a present from my friend."
+   },
+   {
+    "ja": "先生から手紙をいただいた。",
+    "en": "I received a letter from the teacher."
+   },
+   {
+    "ja": "誕生日にケーキをもらった。",
+    "en": "I received a cake for my birthday."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:jidoushi-tadoushi",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Transitive verb (他動詞) vs intransitive verb (自動詞) pairs",
+  "pattern_jk": "Transitive verb (他動詞) vs intransitive verb (自動詞) pairs",
+  "meaning_en": "verb pairs distinguishing 'X does Y' (transitive) from 'Y happens' (intransitive)",
+  "cont": [
+   "Common pairs (transitive / intransitive): 開ける/開く, 閉める/閉まる, 始める/始まる, 出す/出る, 入れる/入る, 上げる/上がる, 下げる/下がる, 見る/見える, 聞く/聞こえる, 消す/消える, 付ける/付く, 落とす/落ちる, 止める/止まる, 集める/集まる"
+  ],
+  "examples": [
+   {
+    "ja": "ドアを開けました。",
+    "en": "I opened the door. (transitive)"
+   },
+   {
+    "ja": "ドアが開きました。",
+    "en": "The door opened. (intransitive)"
+   },
+   {
+    "ja": "電気を消してください。",
+    "en": "Please turn off the light."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:causative-form",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → causative form",
+  "pattern_jk": "Verb → causative form",
+  "meaning_en": "make / let someone do something",
+  "cont": [
+   "Ichidan: drop る, add させる. Godan: u-row → a-row + せる. Irregular: する → させる, くる → こさせる"
+  ],
+  "examples": [
+   {
+    "ja": "先生は学生に本を読ませました。",
+    "en": "The teacher made/had the students read the book."
+   },
+   {
+    "ja": "子供を遊ばせました。",
+    "en": "I let the children play."
+   },
+   {
+    "ja": "母は弟に野菜を食べさせました。",
+    "en": "My mother made my little brother eat vegetables."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:passive-form",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → passive form",
+  "pattern_jk": "Verb → passive form",
+  "meaning_en": "is done (passive); also expresses adversity / indirect affect",
+  "cont": [
+   "Ichidan: drop る, add られる. Godan: u-row → a-row + れる. Irregular: する → される, くる → こられる"
+  ],
+  "examples": [
+   {
+    "ja": "先生に褒められました。",
+    "en": "I was praised by the teacher."
+   },
+   {
+    "ja": "友達に手紙を読まれました。",
+    "en": "My letter was read by my friend. (often with a suffering nuance)"
+   },
+   {
+    "ja": "ドアが開けられた。",
+    "en": "The door was opened. (plain)"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:sonkeigo-reru-rareru",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → passive form (honorific usage)",
+  "pattern_jk": "Verb → passive form (honorific usage)",
+  "meaning_en": "honorific use of passive form (polite way to describe superior's actions)",
+  "cont": [
+   "Same passive conjugation: Ichidan → 〜られる; Godan → u-row → a-row + れる; Irregular する → される, くる → こられる"
+  ],
+  "examples": [
+   {
+    "ja": "社長が会議に来られました。",
+    "en": "The president came to the meeting."
+   },
+   {
+    "ja": "先生は何と言われましたか。",
+    "en": "What did the teacher say?"
+   },
+   {
+    "ja": "何時に帰られますか。",
+    "en": "What time will you go home?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:potential-form",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → potential form",
+  "pattern_jk": "Verb → potential form",
+  "meaning_en": "can do / is able to do",
+  "cont": [
+   "Ichidan: drop る, add られる. Godan: u-row → e-row + る. Irregular: する → できる, くる → こられる"
+  ],
+  "examples": [
+   {
+    "ja": "日本語が話せます。",
+    "en": "I can speak Japanese."
+   },
+   {
+    "ja": "この魚は食べられますか。",
+    "en": "Can you eat this fish? / Is this fish edible?"
+   },
+   {
+    "ja": "早く起きられない。",
+    "en": "I can't get up early. (plain)"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:volitional-form",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → volitional form",
+  "pattern_jk": "Verb → volitional form",
+  "meaning_en": "let's ___; I shall ___ (plain volitional)",
+  "cont": [
+   "Ichidan: drop る, add よう (食べる → 食べよう). Godan: u-row → o-row + う (行く → 行こう, 飲む → 飲もう). Irregular: する → しよう, くる → こよう"
+  ],
+  "examples": [
+   {
+    "ja": "一緒に行こう。",
+    "en": "Let's go together. (casual)"
+   },
+   {
+    "ja": "来年、日本へ行こうと思っています。",
+    "en": "I'm thinking of going to Japan next year."
+   },
+   {
+    "ja": "そろそろ帰ろう。",
+    "en": "Let's head home soon. (casual)"
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ba-conditional",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Verb → ば form",
+  "pattern_jk": "Verb → ば form",
+  "meaning_en": "if ___ (general/hypothetical conditional)",
+  "cont": [
+   "Ichidan: drop る, add れば (食べる → 食べれば). Godan: u-row → e-row + ば (行く → 行けば, 飲む → 飲めば). い-adj: drop い, add ければ (高い → 高ければ). Negative: ～なければ. Irregular: する → すれば, くる → くれば"
+  ],
+  "examples": [
+   {
+    "ja": "毎日勉強すれば、上手になります。",
+    "en": "If you study every day, you'll become skilled."
+   },
+   {
+    "ja": "安ければ買います。",
+    "en": "If it's cheap, I'll buy it."
+   },
+   {
+    "ja": "早く寝れば、朝元気になります。",
+    "en": "If you go to bed early, you'll feel good in the morning."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:toka-listing",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "X とか Y (とか)",
+  "pattern_jk": "X とか Y (とか)",
+  "meaning_en": "like X and Y / things like (non-exhaustive casual listing)",
+  "cont": [
+   "名詞 + とか (+ 名詞 + とか) + main clause. Can also follow verbs in 普通形: 食べるとか寝るとか"
+  ],
+  "examples": [
+   {
+    "ja": "スポーツとか音楽とかが好きです。",
+    "en": "I like things like sports and music."
+   },
+   {
+    "ja": "映画を見るとか、買い物するとかしましょう。",
+    "en": "Let's do things like watch a movie or go shopping."
+   },
+   {
+    "ja": "りんごとかバナナとかを買いました。",
+    "en": "I bought things like apples and bananas."
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-ageru-favor-given",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V-て form + あげる",
+  "pattern_jk": "V-て form + あげる",
+  "meaning_en": "I do a favor for (someone outside my in-group)",
+  "cont": [
+   "動詞-て + あげる (polite: あげます); humble: 動詞-て + さしあげる (polite: さしあげます)"
+  ],
+  "examples": [
+   {
+    "ja": "友達に本を貸してあげました。",
+    "en": "I lent a book to my friend."
+   },
+   {
+    "ja": "妹の宿題を手伝ってあげた。",
+    "en": "I helped my younger sister with her homework."
+   },
+   {
+    "ja": "先生に手紙を書いてさしあげる。",
+    "en": "I'll write a letter for my teacher."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-itadaku-polite-favor-received",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "V-て form + いただく",
+  "pattern_jk": "V-て form + いただく",
+  "meaning_en": "I humbly receive the favor of X doing Y (humble)",
+  "cont": [
+   "動詞-て + いただく (polite: いただきます). Request form: 〜ていただけますか / 〜ていただけませんか"
+  ],
+  "examples": [
+   {
+    "ja": "先生に説明していただきました。",
+    "en": "I had my teacher explain it (to me)."
+   },
+   {
+    "ja": "少し待っていただけますか。",
+    "en": "Could you kindly wait a moment?"
+   },
+   {
+    "ja": "教えていただいて、ありがとうございました。",
+    "en": "Thank you for kindly teaching me."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:itadaku-humble-verb",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "いただく (humble of もらう / 食べる / 飲む)",
+  "pattern_jk": "いただく (humble of もらう / 食べる / 飲む)",
+  "meaning_en": "(humble) to receive / to eat / to drink",
+  "cont": [
+   "Plain: いただく. Polite: いただきます"
+  ],
+  "examples": [
+   {
+    "ja": "いただきます。",
+    "en": "I humbly receive (this meal). (pre-meal greeting)"
+   },
+   {
+    "ja": "お手紙をいただきました。",
+    "en": "I received your letter. (humble)"
+   },
+   {
+    "ja": "お茶をいただけますか。",
+    "en": "May I have some tea?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:irassharu-honorific",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "いらっしゃる (honorific of 行く / 来る / いる)",
+  "pattern_jk": "いらっしゃる (honorific of 行く / 来る / いる)",
+  "meaning_en": "(honorific) to go / to come / to be (at a place)",
+  "cont": [
+   "Plain: いらっしゃる. Polite: いらっしゃいます (note irregular — い dropped before ます). Te-form: いらっしゃって. Imperative: いらっしゃい"
+  ],
+  "examples": [
+   {
+    "ja": "先生は今、学校にいらっしゃいます。",
+    "en": "The teacher is at the school now."
+   },
+   {
+    "ja": "明日、お客様がいらっしゃいます。",
+    "en": "A guest will come tomorrow."
+   },
+   {
+    "ja": "いらっしゃいませ。",
+    "en": "Welcome. (shop greeting)"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ossharu-honorific",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "おっしゃる (honorific of 言う)",
+  "pattern_jk": "おっしゃる (honorific of 言う)",
+  "meaning_en": "(honorific) to say",
+  "cont": [
+   "Plain: おっしゃる. Polite: おっしゃいます (irregular — い drop before ます). Te-form: おっしゃって"
+  ],
+  "examples": [
+   {
+    "ja": "先生は何とおっしゃいましたか。",
+    "en": "What did the teacher say?"
+   },
+   {
+    "ja": "お客様がそうおっしゃいました。",
+    "en": "The customer said so."
+   },
+   {
+    "ja": "おっしゃる通りです。",
+    "en": "It's just as you say."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ga-kedo-although",
+  "type": "C-jk",
+  "level": "N4",
+  "pattern": "Clause + が / けど / けれども",
+  "pattern_jk": "Clause + が / けど / けれども",
+  "meaning_en": "but / although / however",
+  "cont": [
+   "Clause (plain or polite) + が / けど / けれども + clause"
+  ],
+  "examples": [
+   {
+    "ja": "この本は難しいですが、面白いです。",
+    "en": "This book is difficult, but it's interesting."
+   },
+   {
+    "ja": "行きたいけど、時間がない。",
+    "en": "I want to go, but I don't have time. (casual)"
+   },
+   {
+    "ja": "高かったけど、買ってよかったです。",
+    "en": "It was expensive, but I'm glad I bought it."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ }
+]

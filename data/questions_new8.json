@@ -1,0 +1,668 @@
+[
+ {
+  "grammar_pattern": "〜に至って",
+  "type": "continuation",
+  "question": "「〜に至って」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "感情名詞＋に至って",
+   "名詞・形容詞語幹＋に至って",
+   "普通形＋に至って",
+   "動詞辞書形/名詞＋に至って"
+  ],
+  "correct": 3,
+  "explanation": "〜に至って 的接续是「動詞辞書形/名詞＋に至って」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "时间先后"
+ },
+ {
+  "grammar_pattern": "〜に至って",
+  "type": "continuation",
+  "question": "「〜に至って」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "たとえ＋に至って",
+   "普通形（名詞・ナ形〜だ）＋に至って",
+   "動詞辞書形/名詞＋に至って",
+   "（被害者は）＋に至って"
+  ],
+  "correct": 2,
+  "explanation": "〜に至って 的接续是「動詞辞書形/名詞＋に至って」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "时间先后"
+ },
+ {
+  "grammar_pattern": "〜に至って",
+  "type": "continuation",
+  "question": "「〜に至って」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞た形＋に至って",
+   "動詞辞書形/名詞＋に至って",
+   "動詞ば形＋に至って",
+   "名詞／動詞普通形＋に至って"
+  ],
+  "correct": 1,
+  "explanation": "〜に至って 的接续是「動詞辞書形/名詞＋に至って」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "时间先后"
+ },
+ {
+  "grammar_pattern": "〜むしろ",
+  "type": "continuation",
+  "question": "「〜むしろ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "名詞・普通形＋むしろ／文頭＋むしろ",
+   "名詞（時点・出来事）＋むしろ／文頭＋むしろ",
+   "（というより）＋むしろ／文頭＋むしろ",
+   "動詞辞書形／意向形＋むしろ／文頭＋むしろ"
+  ],
+  "correct": 2,
+  "explanation": "〜むしろ 的接续是「（というより）＋むしろ／文頭＋むしろ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "比较对比"
+ },
+ {
+  "grammar_pattern": "〜むしろ",
+  "type": "continuation",
+  "question": "「〜むしろ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞辞書形／意向形＋むしろ／文頭＋むしろ",
+   "動詞た形＋むしろ／文頭＋むしろ",
+   "なにしろ＋むしろ／文頭＋むしろ",
+   "（というより）＋むしろ／文頭＋むしろ"
+  ],
+  "correct": 3,
+  "explanation": "〜むしろ 的接续是「（というより）＋むしろ／文頭＋むしろ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "比较对比"
+ },
+ {
+  "grammar_pattern": "〜むしろ",
+  "type": "continuation",
+  "question": "「〜むしろ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "（というより）＋むしろ／文頭＋むしろ",
+   "数詞・数量詞＋むしろ／文頭＋むしろ",
+   "動詞辞書形／意向形＋むしろ／文頭＋むしろ",
+   "動詞辞書形／た形＋むしろ／文頭＋むしろ"
+  ],
+  "correct": 0,
+  "explanation": "〜むしろ 的接续是「（というより）＋むしろ／文頭＋むしろ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "比较对比"
+ },
+ {
+  "grammar_pattern": "〜きらいがある",
+  "type": "continuation",
+  "question": "「〜きらいがある」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "な形容詞語幹＋きらいがある",
+   "動詞ない形語幹＋きらいがある",
+   "動詞辞書形＋きらいがある",
+   "名詞・年齢＋きらいがある"
+  ],
+  "correct": 2,
+  "explanation": "〜きらいがある 的接续是「動詞辞書形＋きらいがある」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "程度变化"
+ },
+ {
+  "grammar_pattern": "〜きらいがある",
+  "type": "continuation",
+  "question": "「〜きらいがある」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "普通形＋きらいがある",
+   "（被害者は）＋きらいがある",
+   "前の文＋きらいがある",
+   "動詞辞書形＋きらいがある"
+  ],
+  "correct": 3,
+  "explanation": "〜きらいがある 的接续是「動詞辞書形＋きらいがある」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "程度变化"
+ },
+ {
+  "grammar_pattern": "〜きらいがある",
+  "type": "continuation",
+  "question": "「〜きらいがある」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞ます形（去ます）／名詞＋きらいがある",
+   "動詞辞書形／名詞＋きらいがある",
+   "動詞辞書形＋きらいがある",
+   "感情名詞＋きらいがある"
+  ],
+  "correct": 2,
+  "explanation": "〜きらいがある 的接续是「動詞辞書形＋きらいがある」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "程度变化"
+ },
+ {
+  "grammar_pattern": "〜とは（感嘆）",
+  "type": "continuation",
+  "question": "「〜とは（感嘆）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "お＋とは",
+   "普通形（名詞・ナ形〜だ）＋とは",
+   "普通形＋とは",
+   "動詞普通形＋とは"
+  ],
+  "correct": 1,
+  "explanation": "〜とは（感嘆） 的接续是「普通形（名詞・ナ形〜だ）＋とは」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "感叹强调"
+ },
+ {
+  "grammar_pattern": "〜とは（感嘆）",
+  "type": "continuation",
+  "question": "「〜とは（感嘆）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "お＋とは",
+   "普通形（名詞・ナ形〜だ）＋とは",
+   "動詞ない形語幹＋とは",
+   "動詞普通形＋とは"
+  ],
+  "correct": 1,
+  "explanation": "〜とは（感嘆） 的接续是「普通形（名詞・ナ形〜だ）＋とは」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "感叹强调"
+ },
+ {
+  "grammar_pattern": "〜とは（感嘆）",
+  "type": "continuation",
+  "question": "「〜とは（感嘆）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "文＋とは",
+   "動詞ない形＋とは",
+   "普通形（名詞・ナ形〜だ）＋とは",
+   "感情名詞＋とは"
+  ],
+  "correct": 2,
+  "explanation": "〜とは（感嘆） 的接续是「普通形（名詞・ナ形〜だ）＋とは」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "感叹强调"
+ },
+ {
+  "grammar_pattern": "〜お〜になる（尊敬語）／お帰りになる",
+  "type": "continuation",
+  "question": "「〜お〜になる（尊敬語）／お帰りになる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "名詞・年齢＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "動詞普通形＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "動詞ます形（去ます）＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる"
+  ],
+  "correct": 3,
+  "explanation": "〜お〜になる（尊敬語）／お帰りになる 的接续是「お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜お〜になる（尊敬語）／お帰りになる",
+  "type": "continuation",
+  "question": "「〜お〜になる（尊敬語）／お帰りになる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "名詞（感情・状態）＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "動詞た形＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "動詞たい＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる"
+  ],
+  "correct": 1,
+  "explanation": "〜お〜になる（尊敬語）／お帰りになる 的接续是「お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜お〜になる（尊敬語）／お帰りになる",
+  "type": "continuation",
+  "question": "「〜お〜になる（尊敬語）／お帰りになる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "名詞＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "動詞辞書形＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "文＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる",
+   "お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる"
+  ],
+  "correct": 3,
+  "explanation": "〜お〜になる（尊敬語）／お帰りになる 的接续是「お＋動詞ます形語幹＋になる／ご＋サ変語幹＋になる」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜させていただく（謙譲語）",
+  "type": "continuation",
+  "question": "「〜させていただく（謙譲語）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞辞書形／名詞＋ていただく",
+   "たとえ＋ていただく",
+   "動詞ば形＋ていただく",
+   "動詞使役形＋ていただく"
+  ],
+  "correct": 3,
+  "explanation": "〜させていただく（謙譲語） 的接续是「動詞使役形＋ていただく」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜させていただく（謙譲語）",
+  "type": "continuation",
+  "question": "「〜させていただく（謙譲語）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞意向形＋ていただく",
+   "動詞使役形＋ていただく",
+   "名詞（感情）＋ていただく",
+   "動詞ば形＋ていただく"
+  ],
+  "correct": 1,
+  "explanation": "〜させていただく（謙譲語） 的接续是「動詞使役形＋ていただく」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜させていただく（謙譲語）",
+  "type": "continuation",
+  "question": "「〜させていただく（謙譲語）」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞使役形＋ていただく",
+   "い形容詞＋ていただく",
+   "動詞ば形＋ていただく",
+   "動詞普通形／名詞＋ていただく"
+  ],
+  "correct": 0,
+  "explanation": "〜させていただく（謙譲語） 的接续是「動詞使役形＋ていただく」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜に〜される（被害受身）／咬まれる",
+  "type": "continuation",
+  "question": "「〜に〜される（被害受身）／咬まれる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞た形／辞書形＋被害源名詞＋に＋動詞受身形",
+   "名詞／普通形の＋被害源名詞＋に＋動詞受身形",
+   "（被害者は）＋被害源名詞＋に＋動詞受身形",
+   "（というより）＋被害源名詞＋に＋動詞受身形"
+  ],
+  "correct": 2,
+  "explanation": "〜に〜される（被害受身）／咬まれる 的接续是「（被害者は）＋被害源名詞＋に＋動詞受身形」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "被动使役"
+ },
+ {
+  "grammar_pattern": "〜に〜される（被害受身）／咬まれる",
+  "type": "continuation",
+  "question": "「〜に〜される（被害受身）／咬まれる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞ない形語幹＋被害源名詞＋に＋動詞受身形",
+   "名詞（時点・出来事）＋被害源名詞＋に＋動詞受身形",
+   "（被害者は）＋被害源名詞＋に＋動詞受身形",
+   "なにしろ＋被害源名詞＋に＋動詞受身形"
+  ],
+  "correct": 2,
+  "explanation": "〜に〜される（被害受身）／咬まれる 的接续是「（被害者は）＋被害源名詞＋に＋動詞受身形」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "被动使役"
+ },
+ {
+  "grammar_pattern": "〜に〜される（被害受身）／咬まれる",
+  "type": "continuation",
+  "question": "「〜に〜される（被害受身）／咬まれる」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞ない形語幹＋被害源名詞＋に＋動詞受身形",
+   "動詞意向形／名詞＋被害源名詞＋に＋動詞受身形",
+   "（被害者は）＋被害源名詞＋に＋動詞受身形",
+   "名詞（感情・状態）＋被害源名詞＋に＋動詞受身形"
+  ],
+  "correct": 2,
+  "explanation": "〜に〜される（被害受身）／咬まれる 的接续是「（被害者は）＋被害源名詞＋に＋動詞受身形」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "被动使役"
+ },
+ {
+  "grammar_pattern": "〜とのことだ",
+  "type": "continuation",
+  "question": "「〜とのことだ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞辞書形／た形＋とのことだ",
+   "動詞ば形＋とのことだ",
+   "普通形/名詞＋とのことだ",
+   "動詞たい＋とのことだ"
+  ],
+  "correct": 2,
+  "explanation": "〜とのことだ 的接续是「普通形/名詞＋とのことだ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "传闻引用"
+ },
+ {
+  "grammar_pattern": "〜とのことだ",
+  "type": "continuation",
+  "question": "「〜とのことだ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞ない形（去ない）＋とのことだ",
+   "動詞辞書形／た形＋とのことだ",
+   "名詞（感情）＋とのことだ",
+   "普通形/名詞＋とのことだ"
+  ],
+  "correct": 3,
+  "explanation": "〜とのことだ 的接续是「普通形/名詞＋とのことだ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "传闻引用"
+ },
+ {
+  "grammar_pattern": "〜とのことだ",
+  "type": "continuation",
+  "question": "「〜とのことだ」的正确接续是？",
+  "question_zh": null,
+  "options": [
+   "動詞辞書形／た形＋とのことだ",
+   "動詞た形／辞書形＋とのことだ",
+   "普通形/名詞＋とのことだ",
+   "（というより）＋とのことだ"
+  ],
+  "correct": 2,
+  "explanation": "〜とのことだ 的接续是「普通形/名詞＋とのことだ」。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "传闻引用"
+ },
+ {
+  "grammar_pattern": "〜に至って",
+  "type": "context",
+  "question": "再三の注意＿＿＿、彼はようやく謝罪した。",
+  "question_zh": "到了再三警告的地步，他终于道歉了。",
+  "options": [
+   "〜に至って",
+   "〜以上のものではない",
+   "〜が／けど／けれども",
+   "〜ことに"
+  ],
+  "correct": 0,
+  "explanation": "句意为「到了再三警告的地步，他终于道歉了。」，此处应用 〜に至って（直到……才；到了……的地步）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "时间先后"
+ },
+ {
+  "grammar_pattern": "〜に至って",
+  "type": "context",
+  "question": "事態がここ＿＿＿、初めて危機感を覚えた。",
+  "question_zh": "事态发展到这个地步，才第一次感到危机感。",
+  "options": [
+   "〜ほかない",
+   "〜に至って",
+   "〜ならでは（の）",
+   "〜に行く / 〜に来る / 〜に帰る"
+  ],
+  "correct": 1,
+  "explanation": "句意为「事态发展到这个地步，才第一次感到危机感。」，此处应用 〜に至って（直到……才；到了……的地步）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "时间先后"
+ },
+ {
+  "grammar_pattern": "〜むしろ",
+  "type": "context",
+  "question": "これは失敗というより、＿＿＿学習のチャンスだ。",
+  "question_zh": "这与其说是失败，不如说是学习的机会。",
+  "options": [
+   "〜むしろ",
+   "〜どころか",
+   "〜ないことはない",
+   "〜そびれる"
+  ],
+  "correct": 0,
+  "explanation": "句意为「这与其说是失败，不如说是学习的机会。」，此处应用 〜むしろ（与其……不如……；宁可）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "比较对比"
+ },
+ {
+  "grammar_pattern": "〜むしろ",
+  "type": "context",
+  "question": "難しいというより、＿＿＿複雑だ。",
+  "question_zh": "与其说难，不如说复杂。",
+  "options": [
+   "〜むしろ",
+   "〜最中に",
+   "〜によって",
+   "〜ます・ません・ました・ませんでした／〜ます／〜ました"
+  ],
+  "correct": 0,
+  "explanation": "句意为「与其说难，不如说复杂。」，此处应用 〜むしろ（与其……不如……；宁可）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "比较对比"
+ },
+ {
+  "grammar_pattern": "〜きらいがある",
+  "type": "context",
+  "question": "彼は人の話を途中で遮る＿＿＿。",
+  "question_zh": "他有打断别人说话的毛病。",
+  "options": [
+   "〜ばよかった",
+   "〜きらいがある",
+   "〜をもとに",
+   "〜そうもない / 〜そうにない"
+  ],
+  "correct": 1,
+  "explanation": "句意为「他有打断别人说话的毛病。」，此处应用 〜きらいがある（有……的倾向（贬义））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "程度变化"
+ },
+ {
+  "grammar_pattern": "〜きらいがある",
+  "type": "context",
+  "question": "長時間のデスクワークは肩こりを招く＿＿＿。",
+  "question_zh": "长时间伏案工作容易引发肩颈酸痛。",
+  "options": [
+   "〜きらいがある",
+   "〜によって",
+   "〜つもりだ",
+   "意向形（〜よう／〜おう）"
+  ],
+  "correct": 0,
+  "explanation": "句意为「长时间伏案工作容易引发肩颈酸痛。」，此处应用 〜きらいがある（有……的倾向（贬义））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "程度变化"
+ },
+ {
+  "grammar_pattern": "〜とは（感嘆）",
+  "type": "context",
+  "question": "こんなに早く結果が出る＿＿＿驚いた。",
+  "question_zh": "没想到这么快就出结果了，真惊人。",
+  "options": [
+   "〜とは（感嘆）",
+   "〜がちだ",
+   "〜まで（终点）",
+   "〜に比べて"
+  ],
+  "correct": 0,
+  "explanation": "句意为「没想到这么快就出结果了，真惊人。」，此处应用 〜とは（感嘆）（竟然……！（对意外事实的感叹））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "感叹强调"
+ },
+ {
+  "grammar_pattern": "〜とは（感嘆）",
+  "type": "context",
+  "question": "これほど美しい景色＿＿＿思わなかった。",
+  "question_zh": "没想到景色这么美。",
+  "options": [
+   "〜あげく(に)",
+   "〜を込めて",
+   "〜とは（感嘆）",
+   "〜にわたって / 〜にわたる"
+  ],
+  "correct": 2,
+  "explanation": "句意为「没想到景色这么美。」，此处应用 〜とは（感嘆）（竟然……！（对意外事实的感叹））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "感叹强调"
+ },
+ {
+  "grammar_pattern": "〜お〜になる（尊敬語）／お帰りになる",
+  "type": "context",
+  "question": "部長はもう＿＿＿。",
+  "question_zh": "部长已经回去了。",
+  "options": [
+   "〜に則って",
+   "〜とみる",
+   "〜お〜になる（尊敬語）／お帰りになる",
+   "〜つつある"
+  ],
+  "correct": 2,
+  "explanation": "句意为「部长已经回去了。」，此处应用 〜お〜になる（尊敬語）／お帰りになる（（尊敬）对动作主体的敬语表达）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜させていただく（謙譲語）",
+  "type": "context",
+  "question": "まず自己紹介＿＿＿。",
+  "question_zh": "请允许我先做个自我介绍。",
+  "options": [
+   "〜ところだった",
+   "〜てでも",
+   "〜させていただく（謙譲語）",
+   "〜かと思うと"
+  ],
+  "correct": 2,
+  "explanation": "句意为「请允许我先做个自我介绍。」，此处应用 〜させていただく（謙譲語）（（谦让）请允许我做……）。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "敬语体系"
+ },
+ {
+  "grammar_pattern": "〜に〜される（被害受身）／咬まれる",
+  "type": "context",
+  "question": "散歩中に犬に手を＿＿＿。",
+  "question_zh": "散步时被狗咬了手。",
+  "options": [
+   "〜とみえる",
+   "〜ずにはいられない",
+   "お〜ください／ご〜ください",
+   "〜に〜される（被害受身）／咬まれる"
+  ],
+  "correct": 3,
+  "explanation": "句意为「散步时被狗咬了手。」，此处应用 〜に〜される（被害受身）／咬まれる（被……（蒙受不利/受害的被动））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "被动使役"
+ },
+ {
+  "grammar_pattern": "〜とのことだ",
+  "type": "context",
+  "question": "担当者の話によると、来月から料金が値上げされる＿＿＿。",
+  "question_zh": "据负责人说，下月起费用要上调。",
+  "options": [
+   "〜くらいなら〜ないほうがいい",
+   "〜てもいい",
+   "〜とのことだ",
+   "〜なりに"
+  ],
+  "correct": 2,
+  "explanation": "句意为「据负责人说，下月起费用要上调。」，此处应用 〜とのことだ（据……说（正式转述））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "传闻引用"
+ },
+ {
+  "grammar_pattern": "〜とのことだ",
+  "type": "context",
+  "question": "天気予報によると、明日は雨＿＿＿。",
+  "question_zh": "据天气预报说明天有雨。",
+  "options": [
+   "〜はおろか",
+   "〜たり〜たりする",
+   "〜みたい",
+   "〜とのことだ"
+  ],
+  "correct": 3,
+  "explanation": "句意为「据天气预报说明天有雨。」，此处应用 〜とのことだ（据……说（正式转述））。",
+  "source": "auto",
+  "reviewed": false,
+  "level": "N2",
+  "theme": "传闻引用"
+ }
+]

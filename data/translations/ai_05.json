@@ -1,0 +1,8 @@
+[
+ {"rowid":"ai:401","pattern":"〜にたえない","meaning_zh":"……得不得了（接感情名词，书面）：感激にたえない。","continuation":"名詞（感情）＋にたえない","example1":"皆様のご支援に感激にたえません。","example1_zh":"对各位的支持感激不尽。","example2":"この結果は残念にたえない。","example2_zh":"这个结果令人遗憾至极。","level":"N2","theme_order":12,"pos":"感叹强调"},
+ {"rowid":"ai:402","pattern":"〜に比例して","meaning_zh":"与……成正比。","continuation":"名詞＋に比例して","example1":"収入に比例して、生活水準も上がる。","example1_zh":"收入提高，生活水平也相应提高。","example2":"努力に比例して、成果が出る。","example2_zh":"成果与努力成正比。","level":"N2","theme_order":6,"pos":"比较对比"},
+ {"rowid":"ai:403","pattern":"〜かどうかは別として","meaning_zh":"……与否另当别论。","continuation":"普通形＋かどうかは別として","example1":"行くかどうかは別として、まず連絡だけは入れておこう。","example1_zh":"去不去另当别论，先联系一下。","example2":"好きかどうかは別として、仕事だからやる。","example2_zh":"喜欢与否另当别论，因为是工作所以要做。","level":"N2","theme_order":8,"pos":"让步转折"},
+ {"rowid":"ai:404","pattern":"〜は別として","meaning_zh":"……先另当别论／撇开……。","continuation":"名詞／普通形＋は別として","example1":"値段は別として、デザインは最高だ。","example1_zh":"价格另当别论，设计是最棒的。","example2":"過去は別として、これからのことを考えよう。","example2_zh":"过去的事先放一边，考虑今后的事吧。","level":"N2","theme_order":8,"pos":"让步转折"},
+ {"rowid":"ai:405","pattern":"〜ならともかく","meaning_zh":"……的话还另当别论，但……。","continuation":"名詞／普通形＋ならともかく","example1":"海外ならともかく、国内旅行はいつでも行ける。","example1_zh":"海外还另当别论，国内旅行随时都能去。","example2":"新人ならともかく、三年も働いているのに知らないとは。","example2_zh":"新人还情有可原，干了三年还不知道就说不过去了。","level":"N2","theme_order":8,"pos":"让步转折"},
+ {"rowid":"ai:406","pattern":"〜たら最後","meaning_zh":"一旦……就全完了。","continuation":"動詞た形＋ら最後","example1":"あいつに秘密を話したら最後、すぐ周りに言いふらす。","example1_zh":"一旦跟那家伙说了秘密，他马上就会到处传。","example2":"この橋を渡ったら最後、もう戻れない。","example2_zh":"一旦过了这座桥就回不去了。","level":"N2","theme_order":3,"pos":"条件假设"}
+]

@@ -1,0 +1,284 @@
+[
+ {
+  "rowid": "g:おかげで",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:おきに",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:おそれがある:43:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:かけ:42:0",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:がちだ:42:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:かどうか",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:きり",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:きる:45:0",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:くせに",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:くらい",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:げ",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "rb:ことか:57:0",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ことだ",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:ことに",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:ごとに",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "rb:ことになっている:55:0",
+  "theme_order": 4,
+  "pos": "目的意图"
+ },
+ {
+  "rowid": "rb:ことはが:55:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:ことはない",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:さえば:40:0",
+  "theme_order": 3,
+  "pos": "条件假设"
+ },
+ {
+  "rowid": "rb:しかない:41:0",
+  "action": "mergeinto:jk:shika-nai",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "rb:しかない:56:1",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:ずに",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ずに済む",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "rb:せいで:37:0",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:そうもない:53:0",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:だけあって",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:だけでなくも",
+  "theme_order": 9,
+  "pos": "递进并列"
+ },
+ {
+  "rowid": "g:だけに",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "g:たとたん",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:たびに",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:ために",
+  "theme_order": 2,
+  "pos": "原因理由"
+ },
+ {
+  "rowid": "rb:たらいい:54:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:だらけ",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:ついでに",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:っけ",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:っこない",
+  "theme_order": 10,
+  "pos": "推测判断"
+ },
+ {
+  "rowid": "g:っぱなし",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:っぽい",
+  "theme_order": 7,
+  "pos": "程度变化"
+ },
+ {
+  "rowid": "g:て初めて",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:て以来",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:てある",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:ておく",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:てごらん",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "g:てしょうがない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:てたまらない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:てならない",
+  "theme_order": 12,
+  "pos": "感叹强调"
+ },
+ {
+  "rowid": "g:てみる",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:ても",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:てもかまわない:57:0",
+  "theme_order": 11,
+  "pos": "命令禁止"
+ },
+ {
+  "rowid": "rb:というと:51:0",
+  "action": "mergeinto:rb:といえば:25:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:というより",
+  "theme_order": 6,
+  "pos": "比较对比"
+ },
+ {
+  "rowid": "rb:といっても:51:0",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "rb:とおり:51:0",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ },
+ {
+  "rowid": "g:どころか",
+  "theme_order": 8,
+  "pos": "让步转折"
+ },
+ {
+  "rowid": "g:ところだ",
+  "theme_order": 1,
+  "pos": "时间先后"
+ },
+ {
+  "rowid": "g:どころではない",
+  "theme_order": 16,
+  "pos": "其他/杂项"
+ }
+]

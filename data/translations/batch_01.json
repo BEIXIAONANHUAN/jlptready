@@ -1,0 +1,1450 @@
+[
+ {
+  "rowid": "rb:可能形:11:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "可能形",
+  "shortZh": "能力/可能",
+  "meaning_rb": "\"能做……\"、\"可以做……\"，表示能力或客观上的可能性。",
+  "examples": [
+   {
+    "ja": "日本語が話せますか？",
+    "zh": "你能说日语吗？"
+   },
+   {
+    "ja": "この漢字が読めない。",
+    "zh": "这个汉字读不了。"
+   },
+   {
+    "ja": "明日は来られますか？",
+    "zh": "明天能来吗？"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:予定だ:12:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜予定だ",
+  "shortZh": "预定/安排",
+  "meaning_rb": "\"按计划/按安排……\"，比つもり更客观、更正式。常用于工作/正式场合。",
+  "cont": [
+   "动词辞书形 + 予定だ；名词 + の予定だ"
+  ],
+  "examples": [
+   {
+    "ja": "来週出張する予定です。",
+    "zh": "下周按计划要出差。"
+   },
+   {
+    "ja": "会議は3時に始まる予定です。",
+    "zh": "会议预定3点开始。"
+   },
+   {
+    "ja": "来年卒業する予定だ。",
+    "zh": "预计明年毕业。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:がある:17:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜がある / 〜がいる",
+  "shortZh": "存在表达",
+  "meaning_rb": "表示某个地方存在某物/某人。\"在那里有……\"。\n- に = 存在的地点\n- が = 存在的主体\n核心区别：ある用于无生命的东西，いる用于有生命的东西。植物虽然有生命，但日语中用ある。",
+  "cont": [
+   "場所 に 物/人 が ある/いる；ある → 非生物（东西、植物、建筑等）；いる → 生物（人、动物等）"
+  ],
+  "examples": [
+   {
+    "ja": "机の上に本がある。",
+    "zh": "桌子上有书。"
+   },
+   {
+    "ja": "冷蔵庫にケーキがあるよ。",
+    "zh": "冰箱里有蛋糕哦。"
+   },
+   {
+    "ja": "駅の前にコンビニがあります。",
+    "zh": "车站前面有便利店。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:し:15:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜し",
+  "shortZh": "列举理由/并列",
+  "meaning_rb": "\"又……又……而且……\"，列举多个理由或特征。可以只列一个し，表示\"不只这个理由，还有别的\"。",
+  "examples": [
+   {
+    "ja": "あの店は安いし、美味しいし、よく行きます。",
+    "zh": "那家店又便宜又好吃，常去。"
+   },
+   {
+    "ja": "今日は雨だし、寒いし、出かけたくない。",
+    "zh": "今天又下雨又冷，不想出门。"
+   },
+   {
+    "ja": "彼は頭がいいし、スポーツもできるし、モテるだろう。",
+    "zh": "他又聪明又擅长运动，大概很受欢迎吧。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:そうだ①—看起来……:13:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜そうだ ①(样态)— \"看起来……\"",
+  "meaning_rb": "根据眼前的外观/迹象做判断，\"看起来……\"、\"快要……\"。",
+  "cont": [
+   "动词ます形（去ます）+ そうだ；い形容词（去い）+ そうだ；な形容词 语干 + そうだ"
+  ],
+  "lessonCat": "推测",
+  "examples": [
+   {
+    "ja": "雨が降りそうだ。",
+    "zh": "看起来要下雨了。→ 看天色判断"
+   },
+   {
+    "ja": "このケーキは美味しそうですね。",
+    "zh": "这个蛋糕看起来好吃。"
+   },
+   {
+    "ja": "彼は忙しそうだ。",
+    "zh": "他看起来很忙。→ 观察他的样子"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:そうだ②—听说……:13:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜そうだ ②(传闻)— \"听说……\"",
+  "meaning_rb": "\"据说/���说……\"，信息来源于别人或媒体。",
+  "cont": [
+   "动词/い形容词/な形容词 简体 + そうだ；名词 + だそうだ"
+  ],
+  "lessonCat": "推测",
+  "examples": [
+   {
+    "ja": "天気予報によると、明日は雨だそうです。",
+    "zh": "据天气预报说明天下雨。"
+   },
+   {
+    "ja": "彼は来月結婚するそうだ。",
+    "zh": "听说他下个月结婚。"
+   },
+   {
+    "ja": "あのレストランは美味しいそうです。",
+    "zh": "听说那家餐厅很好吃。→ 没自己去过"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:だけ",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜だけ",
+  "shortZh": "只 / 尽可能",
+  "meaning_rb": "1. 限定：\"只有……\"，限定范围。\n2. 尽可能：「できるだけ」「〜たいだけ〜たい」= 尽量……/想……多少就……多少。",
+  "cont": [
+   "動詞普通形 + だけ；い形容詞 + だけ；な形容詞 + な + だけ；名詞 + だけ；「できるだけ」=尽可能（固定搭配）",
+   "名詞 + だけ；動詞（辞書形/た形/ない形）+ だけ；い形容詞 + だけ；な形容詞 + な + だけ"
+  ],
+  "lessonCat": "程度范围2",
+  "examples": [
+   {
+    "ja": "日本語が話せるのは彼だけだ。",
+    "zh": "能说日语的只有他。"
+   },
+   {
+    "ja": "見るだけで買わなかった。",
+    "zh": "只看了没买。"
+   },
+   {
+    "ja": "できるだけ早く来てください。",
+    "zh": "请尽量早点来。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 2
+ },
+ {
+  "rowid": "rb:たことがある:07:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜たことがある",
+  "shortZh": "经验",
+  "meaning_rb": "\"曾经做过……\"，表示过去的经验。",
+  "examples": [
+   {
+    "ja": "日本に行ったことがあります。",
+    "zh": "我去过日本。"
+   },
+   {
+    "ja": "納豆を食べたことがありますか？",
+    "zh": "你吃过纳豆吗？"
+   },
+   {
+    "ja": "富士山に登ったことがある。",
+    "zh": "爬过富士山。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:たばかり:07:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜たばかり",
+  "shortZh": "刚刚做完",
+  "meaning_rb": "\"刚刚做完……\"，强调时间上刚发生不久。",
+  "examples": [
+   {
+    "ja": "さっき食べたばかりなのに、もうお腹が空いた。",
+    "zh": "刚吃完，肚子又饿了。"
+   },
+   {
+    "ja": "日本に来たばかりで、まだ何もわからない。",
+    "zh": "刚来日本，什么都不懂。"
+   },
+   {
+    "ja": "この本は買ったばかりです。",
+    "zh": "这本书是刚买的。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:たりたりする:07:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜たり〜たりする",
+  "shortZh": "列举动作",
+  "meaning_rb": "\"又做A又做B（之类的）\"，从多个动作中举出代表性的几个。\n暗示\"不只做了这些，还做了其他事\"，和て形并列不同。",
+  "examples": [
+   {
+    "ja": "休みの日は本を読んだり、映画を見たりします。",
+    "zh": "休息日看看书、看看电影什么的。"
+   },
+   {
+    "ja": "週末は友達と遊んだり、買い物したりした。",
+    "zh": "周末和朋友玩了玩、逛了逛街。"
+   },
+   {
+    "ja": "最近、天気が暑かったり、寒かったりする。",
+    "zh": "最近天气忽冷忽热。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:てください",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜てください / 〜ないでください",
+  "shortZh": "請求",
+  "meaning_rb": "- てください = \"请你做……\"，礼貌的请求。\n- ないでください = \"请不要做……\"，礼貌的否定请求。",
+  "cont": [
+   "肯定请求：动词て形 + ください；否定请求：动词ない形 + でください"
+  ],
+  "examples": [
+   {
+    "ja": "ちょっと待ってください。",
+    "zh": "请稍等。"
+   },
+   {
+    "ja": "この漢字の読み方を教えてください。",
+    "zh": "请教我这个汉字的读法。"
+   },
+   {
+    "ja": "名前をここに書いてください。",
+    "zh": "请在这里写名字。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:でしょう:13:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜でしょう / 〜だろう",
+  "shortZh": "推测",
+  "meaning_rb": "\"大概是……吧\"，说话人基于一定根据的推测。",
+  "cont": [
+   "动词/い形容词 简体 + でしょう；な形容词/名词 + でしょう（去だ）"
+  ],
+  "lessonCat": "推测",
+  "examples": [
+   {
+    "ja": "明日は雨でしょう。",
+    "zh": "明天大概会下雨吧。→ 天气预报常用"
+   },
+   {
+    "ja": "彼はもう帰ったでしょう。",
+    "zh": "他大概已经回去了吧。"
+   },
+   {
+    "ja": "この問題は難しいでしょう。",
+    "zh": "这个问题大概很难吧。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:です",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜です / 〜ではありません",
+  "shortZh": "名词/な形容词判断句",
+  "meaning_rb": "表示\"是……\"，最基本的判断句。です是敬体（丁寧語），对应的简体是「だ」。",
+  "cont": [
+   "名詞 or な形容詞 + です",
+   "語幹 + です (polite) or + だ (plain). Attributive form adds な before a following 名詞",
+   "い形容詞 (辞書形 or conjugated form) + です. Past: 〜かったです. Negative: 〜くないです or 〜くありません"
+  ],
+  "examples": [
+   {
+    "ja": "私は田中です。",
+    "zh": "我是田中。"
+   },
+   {
+    "ja": "これは本ではありません。ノートです。",
+    "zh": "这不是书，是笔记本。"
+   },
+   {
+    "ja": "昨日は暇でした。",
+    "zh": "昨天很闲。"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 3,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:てもいい:05:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜てもいい",
+  "shortZh": "許可",
+  "meaning_rb": "\"可以做……\"，表示许可。",
+  "examples": [
+   {
+    "ja": "ここで写真を撮ってもいいですか。",
+    "zh": "可以在这里拍照吗？"
+   },
+   {
+    "ja": "この辞書を使ってもいいですか。",
+    "zh": "可以用这本词典吗？"
+   },
+   {
+    "ja": "窓を開けてもいいですか。",
+    "zh": "可以开窗吗？"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "g:とき",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜とき",
+  "shortZh": "……的时候",
+  "meaning_rb": "\"……的时候\"，表示某个时间点或时间段。\n重要：辞書形+とき vs た形+とき 的区别\n- 辞書形+とき → 动作之前/还没完成时\n- た形+とき → 动作之后/已经完成时\n例：\n- 日本に行くとき、カメラを買った。（去日本之前买了相机。→ 还没去）\n- 日本に行ったとき、富士山を見た。（去日本的时候看到了富士山。→ 已经到了日本）",
+  "cont": [
+   "動詞普通形 + とき（辞書形/た形/ない形/ている形）；い形容詞 + とき；な形容詞な + とき；名詞の + とき"
+  ],
+  "examples": [
+   {
+    "ja": "日本に行ったとき、富士山を見た。",
+    "zh": "去日本的时候看到了富士山。"
+   },
+   {
+    "ja": "困ったとき、いつでも相談してください。",
+    "zh": "有困难的时候随时来商量。"
+   },
+   {
+    "ja": "暇なとき、映画を見る。",
+    "zh": "有空的时候看电影。"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:なくてもいい:06:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜なくてもいい",
+  "shortZh": "不必",
+  "meaning_rb": "\"不做也可以\"、\"不必做……\"",
+  "examples": [
+   {
+    "ja": "明日は来なくてもいいですよ。",
+    "zh": "明天不来也行。"
+   },
+   {
+    "ja": "全部食べなくてもいい。",
+    "zh": "不用全部吃完。"
+   },
+   {
+    "ja": "急がなくてもいいです。ゆっくりでいいですよ。",
+    "zh": "不用着急，慢慢来就好。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:に行く:17:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜に行く / 〜に来る / 〜に帰る",
+  "shortZh": "目的移动",
+  "meaning_rb": "\"去/来/回去做某事\"。に表示移动的目的。",
+  "examples": [
+   {
+    "ja": "映画を見に行きます。",
+    "zh": "去看电影。"
+   },
+   {
+    "ja": "友達に会いに行った。",
+    "zh": "去见了朋友。"
+   },
+   {
+    "ja": "ご飯を食べに来ました。",
+    "zh": "来吃饭的。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:のが好き:17:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜のが好き / 上手 / 下手 / 得意 / 苦手",
+  "meaning_rb": "| 表达 | 含义 | 语感 |\n|---|---|---|\n| 〜のが好き | 喜欢做〜 | 个人喜好 |\n| 〜のが嫌い | 讨厌做〜 | 个人喜好 |\n| 〜のが上手 | 做〜做得好 | 客观评价他人 |\n| 〜のが下手 | 做〜做得差 | 客观评价他人 |\n| 〜のが得意 | 擅长做〜 | 自我评价也可 |\n| 〜のが苦手 | 不擅长做〜 | 自我评价也可 |",
+  "examples": [
+   {
+    "ja": "本を読むのが好きです。",
+    "zh": "喜欢读书。"
+   },
+   {
+    "ja": "朝早く起きるのが嫌いです。",
+    "zh": "讨厌早起。"
+   },
+   {
+    "ja": "田中さんは料理を作るのが上手です。",
+    "zh": "田中做菜做得好。"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ます形:03:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "ます形",
+  "shortZh": "敬体现在/将来",
+  "meaning_rb": "动词的礼貌体，表示现在的习惯、将来的动作。你在课本、日剧里听到的「〜ます」就是这个。",
+  "examples": [
+   {
+    "ja": "毎日コーヒーを飲みます。",
+    "zh": "每天喝咖啡。→ 习惯"
+   },
+   {
+    "ja": "7時に起きます。",
+    "zh": "7点起床。→ 习惯"
+   },
+   {
+    "ja": "毎朝、公園を走ります。",
+    "zh": "每天早上在公园跑步。→ 习惯"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:や:17:0",
+  "type": "A",
+  "level": "N5",
+  "pattern": "〜や〜(など)",
+  "shortZh": "部分列举",
+  "meaning_rb": "\"……和……等（之类的）\"。非穷举列举。",
+  "examples": [
+   {
+    "ja": "りんごやバナナなどを買いました。",
+    "zh": "买了苹果和香蕉等。"
+   },
+   {
+    "ja": "週末は映画や買い物をします。",
+    "zh": "周末看电影、买东西之类的。"
+   },
+   {
+    "ja": "日本語や英語を勉強しています。（在学日语和英语（等语言）。）"
+   }
+  ],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:受身形:11:0",
+  "type": "B-mean",
+  "level": "N5",
+  "pattern": "受身形",
+  "shortZh": "被动态",
+  "meaning_rb": "\"被……做\"，表示主语是动作的承受者。",
+  "meaning_en": null,
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:意向形:12:0",
+  "type": "B-mean",
+  "level": "N5",
+  "pattern": "意向形",
+  "shortZh": "意志/邀请",
+  "meaning_rb": "\"我要做……\" / \"一起做……吧\"，表示说话人的意志或邀请。",
+  "meaning_en": null,
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ている:05:0",
+  "type": "B-mean",
+  "level": "N5",
+  "pattern": "〜ている",
+  "shortZh": "进行/状态/习惯",
+  "meaning_rb": "ている有三种完全不同的含义，取决于动词的类型：",
+  "meaning_en": null,
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:ない形:06:0",
+  "type": "B-mean",
+  "level": "N5",
+  "pattern": "ない形",
+  "shortZh": "否定形",
+  "meaning_rb": "动词的简体否定形，\"不做……\"。是很多语法的接续基础。",
+  "meaning_en": null,
+  "cont": [
+   "食べる → 食べない；見る → 見ない；起きる → 起きない"
+  ],
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "rb:のだ:15:0",
+  "type": "B-mean",
+  "level": "N5",
+  "pattern": "〜のだ / 〜んだ",
+  "shortZh": "说明/强调/求解释",
+  "meaning_rb": "「のだ」（口语：んだ，敬体：んです）是日语最重要的语气表达之一。核心有三大功能：",
+  "meaning_en": null,
+  "cont": [
+   "动词/い形容词 简体 + のだ（んだ）；な形容词 + な + のだ（んだ）；名词 + な + のだ（んだ）"
+  ],
+  "examples": [],
+  "nJk": 0,
+  "nRb": 1
+ },
+ {
+  "rowid": "jk:i-adjective-nonpast",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "い-adjective + (です)",
+  "pattern_jk": "い-adjective + (です)",
+  "meaning_en": "い-adjective non-past (affirmative)",
+  "cont": [
+   "語幹 + い (e.g., 高い, 新しい, 美味しい)"
+  ],
+  "examples": [
+   {
+    "ja": "この本は高いです。",
+    "en": "This book is expensive."
+   },
+   {
+    "ja": "その映画は面白い。",
+    "en": "That movie is interesting. (plain)"
+   },
+   {
+    "ja": "今日は暑いです。",
+    "en": "It is hot today."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:location-nouns-ue-shita",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + の + 上/下/中/前/後ろ/横/隣/間 + (に/で/へ)",
+  "pattern_jk": "Noun + の + 上/下/中/前/後ろ/横/隣/間 + (に/で/へ)",
+  "meaning_en": "location relative to a reference (above, below, inside, in front, behind, next to)",
+  "cont": [
+   "Reference 名詞 + の + location 名詞 + に/で/へ + 動詞"
+  ],
+  "examples": [
+   {
+    "ja": "机の上に本があります。",
+    "en": "There is a book on the desk."
+   },
+   {
+    "ja": "学校の前で会いましょう。",
+    "en": "Let's meet in front of the school."
+   },
+   {
+    "ja": "私の家は駅の近くにあります。",
+    "en": "My house is near the station."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-hon-long",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 本",
+  "pattern_jk": "Number + 本",
+  "meaning_en": "counter for long, thin objects",
+  "cont": [
+   "数字 + 本. Readings: 1ぽん, 2ほん, 3ぼん, 4ほん, 5ほん, 6ぽん, 7ほん, 8ぽん, 9ほん, 10ぽん"
+  ],
+  "examples": [
+   {
+    "ja": "鉛筆を3本買いました。",
+    "en": "I bought 3 pencils."
+   },
+   {
+    "ja": "水を2本ください。",
+    "en": "Please give me 2 bottles of water."
+   },
+   {
+    "ja": "傘を何本持っていますか。",
+    "en": "How many umbrellas do you have?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-fun-minute",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 分",
+  "pattern_jk": "Number + 分",
+  "meaning_en": "minute (time / duration counter)",
+  "cont": [
+   "数字 + 分. Reading: ぷん after 1/3/4/6/8/10; ふん after 2/5/7/9. Half-hour fixed form: 半 (はん, for 30 minutes)"
+  ],
+  "examples": [
+   {
+    "ja": "10分待ってください。",
+    "en": "Please wait 10 minutes."
+   },
+   {
+    "ja": "今、3時15分です。",
+    "en": "It's 3:15 now."
+   },
+   {
+    "ja": "駅まで5分かかります。",
+    "en": "It takes 5 minutes to the station."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:question-words-basic",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "何 / 誰 / どこ / いつ / どう / どうして",
+  "pattern_jk": "何 / 誰 / どこ / いつ / どう / どうして",
+  "meaning_en": "basic interrogatives: what / who / where / when / how / why",
+  "cont": [
+   "Place the question word where the unknown information would go in the answer. End with か in polite speech"
+  ],
+  "examples": [
+   {
+    "ja": "これは何ですか。",
+    "en": "What is this?"
+   },
+   {
+    "ja": "誰が来ましたか。",
+    "en": "Who came?"
+   },
+   {
+    "ja": "トイレはどこですか。",
+    "en": "Where is the restroom?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nanyoubi-day-of-week",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "何曜日 / 曜日 system",
+  "pattern_jk": "何曜日 / 曜日 system",
+  "meaning_en": "what day of the week / days of the week",
+  "cont": [
+   "Question: 何曜日. Each day: [element kanji] + 曜日. Time marker: 〜曜日 + に ('on [day]')"
+  ],
+  "examples": [
+   {
+    "ja": "今日は何曜日ですか。",
+    "en": "What day of the week is it today?"
+   },
+   {
+    "ja": "月曜日に会議があります。",
+    "en": "There is a meeting on Monday."
+   },
+   {
+    "ja": "土曜日と日曜日は休みです。",
+    "en": "Saturday and Sunday are days off."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-mai-flat",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 枚",
+  "pattern_jk": "Number + 枚",
+  "meaning_en": "counter for flat, thin objects",
+  "cont": [
+   "数字 + 枚. No sound changes — attaches cleanly to all numbers"
+  ],
+  "examples": [
+   {
+    "ja": "紙を3枚ください。",
+    "en": "Please give me 3 sheets of paper."
+   },
+   {
+    "ja": "切符を2枚買いました。",
+    "en": "I bought 2 tickets."
+   },
+   {
+    "ja": "写真を何枚撮りましたか。",
+    "en": "How many photos did you take?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-people-nin",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 人 (にん)",
+  "pattern_jk": "Number + 人 (にん)",
+  "meaning_en": "counter for people",
+  "cont": [
+   "Sino-Japanese 数字 + 人 (にん). Exceptions: 一人 = ひとり, 二人 = ふたり, 四人 = よにん"
+  ],
+  "examples": [
+   {
+    "ja": "家族は四人です。",
+    "en": "There are four people in my family."
+   },
+   {
+    "ja": "二人で行きます。",
+    "en": "We'll go as a pair."
+   },
+   {
+    "ja": "パーティーに十人来ました。",
+    "en": "Ten people came to the party."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-ji-oclock",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 時",
+  "pattern_jk": "Number + 時",
+  "meaning_en": "o'clock (hour counter)",
+  "cont": [
+   "数字 + 時. Irregulars: 4 → よ, 7 → しち, 9 → く"
+  ],
+  "examples": [
+   {
+    "ja": "今、3時です。",
+    "en": "It's 3 o'clock now."
+   },
+   {
+    "ja": "9時に学校へ行きます。",
+    "en": "I go to school at 9 o'clock."
+   },
+   {
+    "ja": "4時の電車に乗ります。",
+    "en": "I'll take the 4 o'clock train."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:jikan-time-duration",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 時間",
+  "pattern_jk": "Number + 時間",
+  "meaning_en": "hour (duration counter)",
+  "cont": [
+   "数字 + 時間. No sound changes"
+  ],
+  "examples": [
+   {
+    "ja": "毎日、2時間勉強します。",
+    "en": "I study for 2 hours every day."
+   },
+   {
+    "ja": "東京まで3時間かかります。",
+    "en": "It takes 3 hours to Tokyo."
+   },
+   {
+    "ja": "昨日は8時間寝ました。",
+    "en": "I slept 8 hours yesterday."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-sai-age",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 歳 / 才",
+  "pattern_jk": "Number + 歳 / 才",
+  "meaning_en": "year of age (age counter)",
+  "cont": [
+   "数字 + 歳 (or 才). Irregulars: 1→いっ, 8→はっ, 10→じっ/じゅっ, 20→はたち"
+  ],
+  "examples": [
+   {
+    "ja": "私は20歳です。",
+    "en": "I am 20 years old."
+   },
+   {
+    "ja": "弟は12歳です。",
+    "en": "My younger brother is 12 years old."
+   },
+   {
+    "ja": "彼は何歳ですか。",
+    "en": "How old is he?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:issho-ni-together",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + と + 一緒に",
+  "pattern_jk": "Noun + と + 一緒に",
+  "meaning_en": "together with",
+  "cont": [
+   "名詞 + と + 一緒に + main-clause 動詞"
+  ],
+  "examples": [
+   {
+    "ja": "友達と一緒に映画を見ました。",
+    "en": "I watched a movie together with a friend."
+   },
+   {
+    "ja": "家族と一緒に日本へ行きたい。",
+    "en": "I want to go to Japan together with my family."
+   },
+   {
+    "ja": "一緒に食事しませんか。",
+    "en": "Shall we eat together?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:counter-en-money",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Number + 円",
+  "pattern_jk": "Number + 円",
+  "meaning_en": "yen (Japanese currency counter)",
+  "cont": [
+   "数字 + 円. No sound changes"
+  ],
+  "examples": [
+   {
+    "ja": "このケーキは500円です。",
+    "en": "This cake is 500 yen."
+   },
+   {
+    "ja": "財布に3000円あります。",
+    "en": "I have 3000 yen in my wallet."
+   },
+   {
+    "ja": "これは1万円です。",
+    "en": "This is 10,000 yen."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:hou-ga-comparative",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "A のほうが B より + adjective",
+  "pattern_jk": "A のほうが B より + adjective",
+  "meaning_en": "A is more ___ than B (comparative)",
+  "cont": [
+   "A のほうが B より + adjective (or B より A のほうが + adjective)"
+  ],
+  "examples": [
+   {
+    "ja": "犬のほうが猫より大きいです。",
+    "en": "Dogs are bigger than cats."
+   },
+   {
+    "ja": "コーヒーよりお茶のほうが好きです。",
+    "en": "I like tea more than coffee."
+   },
+   {
+    "ja": "電車のほうがバスより速いです。",
+    "en": "Trains are faster than buses."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ichiban-superlative",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "一番 + adjective",
+  "pattern_jk": "一番 + adjective",
+  "meaning_en": "the most / the best (superlative)",
+  "cont": [
+   "(の中で) + 一番 + adjective"
+  ],
+  "examples": [
+   {
+    "ja": "富士山は日本で一番高い山です。",
+    "en": "Mt. Fuji is the tallest mountain in Japan."
+   },
+   {
+    "ja": "寿司が一番好きです。",
+    "en": "I like sushi the most."
+   },
+   {
+    "ja": "このクラスで田中さんが一番背が高いです。",
+    "en": "Tanaka is the tallest in this class."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:kono-sono-ano-dono-attributive",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "この / その / あの / どの + Noun",
+  "pattern_jk": "この / その / あの / どの + Noun",
+  "meaning_en": "this / that / that ___ over there / which ___ (attributive demonstratives)",
+  "cont": [
+   "この/その/あの/どの + 名詞 (directly, no particle)"
+  ],
+  "examples": [
+   {
+    "ja": "この本は高いです。",
+    "en": "This book is expensive."
+   },
+   {
+    "ja": "あの人は誰ですか。",
+    "en": "Who is that person (over there)?"
+   },
+   {
+    "ja": "どの電車に乗りますか。",
+    "en": "Which train will you take?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:na-adjective-attributive",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "な-adjective + な + Noun",
+  "pattern_jk": "な-adjective + な + Noun",
+  "meaning_en": "な-adjective modifying a noun directly",
+  "cont": [
+   "な-adjective + な + 名詞"
+  ],
+  "examples": [
+   {
+    "ja": "静かな部屋がほしいです。",
+    "en": "I want a quiet room."
+   },
+   {
+    "ja": "有名な歌手が来ました。",
+    "en": "A famous singer came."
+   },
+   {
+    "ja": "きれいな花を買いました。",
+    "en": "I bought beautiful flowers."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:to-exhaustive-listing",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Noun + と + Noun",
+  "pattern_jk": "Noun + と + Noun",
+  "meaning_en": "X and Y (exhaustive listing of nouns)",
+  "cont": [
+   "名詞 + と + 名詞 (+ と + 名詞 ...)"
+  ],
+  "examples": [
+   {
+    "ja": "りんごとバナナを買いました。",
+    "en": "I bought an apple and a banana."
+   },
+   {
+    "ja": "田中さんと鈴木さんと山田さんが来ました。",
+    "en": "Mr. Tanaka, Mr. Suzuki, and Mr. Yamada came."
+   },
+   {
+    "ja": "本と鉛筆が必要です。",
+    "en": "I need a book and a pencil."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nanji-what-time",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "何時 (+ optional 〜分)",
+  "pattern_jk": "何時 (+ optional 〜分)",
+  "meaning_en": "what time / when (specific clock time)",
+  "cont": [
+   "何時 (question alone); 何時 + に (at what time); 何時 + 何分"
+  ],
+  "examples": [
+   {
+    "ja": "今、何時ですか。",
+    "en": "What time is it now?"
+   },
+   {
+    "ja": "何時に会いましょうか。",
+    "en": "What time shall we meet?"
+   },
+   {
+    "ja": "授業は何時からですか。",
+    "en": "What time does class start?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ikutsu-how-many",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "いくつ (+ optional counter-specific form)",
+  "pattern_jk": "いくつ (+ optional counter-specific form)",
+  "meaning_en": "how many / how old",
+  "cont": [
+   "いくつ (as standalone question word). For polite age: お + いくつ"
+  ],
+  "examples": [
+   {
+    "ja": "りんごはいくつありますか。",
+    "en": "How many apples are there?"
+   },
+   {
+    "ja": "おいくつですか。",
+    "en": "How old are you? (polite)"
+   },
+   {
+    "ja": "いくつ食べますか。",
+    "en": "How many will you eat?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:imasu-existence-animate",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Place に Animate が います",
+  "pattern_jk": "Place に Animate が います",
+  "meaning_en": "there is / exists (for animate beings: people and animals)",
+  "cont": [
+   "Place + に + Animate + が + います"
+  ],
+  "examples": [
+   {
+    "ja": "庭に犬がいます。",
+    "en": "There is a dog in the garden."
+   },
+   {
+    "ja": "教室に学生がいます。",
+    "en": "There are students in the classroom."
+   },
+   {
+    "ja": "あそこに猫がいます。",
+    "en": "There is a cat over there."
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:arimasu-existence-inanimate",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Place に Noun が あります",
+  "pattern_jk": "Place に Noun が あります",
+  "meaning_en": "there is / exists (for inanimate things)",
+  "cont": [
+   "Place + に + Thing + が + あります"
+  ],
+  "examples": [
+   {
+    "ja": "机の上に本があります。",
+    "en": "There is a book on the desk."
+   },
+   {
+    "ja": "部屋にテレビがあります。",
+    "en": "There's a TV in the room."
+   },
+   {
+    "ja": "何かありますか。",
+    "en": "Is there something?"
+   }
+  ],
+  "formality": "formal",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mai-every-prefix",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "毎 + time noun",
+  "pattern_jk": "毎 + time noun",
+  "meaning_en": "every / each (time period)",
+  "cont": [
+   "毎 + time period 名詞: 毎日, 毎週, 毎月, 毎年, 毎朝, 毎晩, 毎時, 毎回"
+  ],
+  "examples": [
+   {
+    "ja": "毎日、コーヒーを飲みます。",
+    "en": "I drink coffee every day."
+   },
+   {
+    "ja": "毎朝、6時に起きます。",
+    "en": "I get up at 6 every morning."
+   },
+   {
+    "ja": "毎週末、買い物に行きます。",
+    "en": "I go shopping every weekend."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:ta-form",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb-た",
+  "pattern_jk": "Verb-た",
+  "meaning_en": "plain (casual) past verb form",
+  "cont": [
+   "Ichidan: drop る, add た (食べる → 食べた). Godan: same pattern as the て-form, with た/だ instead of て/で (行く → 行った, 話す → 話した, 飲む → 飲んだ). 行く is irregular: 行った. Irregular: する → した, くる → きた"
+  ],
+  "examples": [
+   {
+    "ja": "昨日、映画を見た。",
+    "en": "I watched a movie yesterday. (plain)"
+   },
+   {
+    "ja": "もう食べた。",
+    "en": "I already ate. (plain)"
+   },
+   {
+    "ja": "宿題を忘れた。",
+    "en": "I forgot my homework. (plain)"
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mou-ta-already",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "もう + Verb-た / ました",
+  "pattern_jk": "もう + Verb-た / ました",
+  "meaning_en": "already did",
+  "cont": [
+   "もう + 動詞 た (plain past) or 動詞 ました (polite past)"
+  ],
+  "examples": [
+   {
+    "ja": "もう宿題をしました。",
+    "en": "I already did my homework."
+   },
+   {
+    "ja": "もうご飯を食べました。",
+    "en": "I've already eaten."
+   },
+   {
+    "ja": "もう読みましたか。",
+    "en": "Have you already read it?"
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:te-form-basic",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb-て",
+  "pattern_jk": "Verb-て",
+  "meaning_en": "connecting form (basis for many compound constructions)",
+  "cont": [
+   "Ichidan: drop る, add て (食べる → 食べて). Godan: depends on ending — う/つ/る → って; ぬ/ぶ/む → んで; く → いて; ぐ → いで; す → して. Irregular: する → して, くる → きて"
+  ],
+  "examples": [
+   {
+    "ja": "毎朝コーヒーを飲んで新聞を読みます。",
+    "en": "I drink coffee and read the newspaper every morning."
+   },
+   {
+    "ja": "学校に行って勉強します。",
+    "en": "I go to school and study."
+   },
+   {
+    "ja": "手を洗って食べます。",
+    "en": "I wash my hands and then eat."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:mada-not-yet",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "まだ + Verb-ていない / まだ + Verb-ている",
+  "pattern_jk": "まだ + Verb-ていない / まだ + Verb-ている",
+  "meaning_en": "not yet / still",
+  "cont": [
+   "Not yet: まだ + 動詞 ていない / まだ + 動詞 ていません. Still: まだ + 動詞 ている / まだ + 動詞 ています"
+  ],
+  "examples": [
+   {
+    "ja": "まだ宿題をしていません。",
+    "en": "I haven't done my homework yet."
+   },
+   {
+    "ja": "まだ食べていません。",
+    "en": "I haven't eaten yet."
+   },
+   {
+    "ja": "弟はまだ寝ています。",
+    "en": "My little brother is still sleeping."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:nai-form",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "Verb-ない",
+  "pattern_jk": "Verb-ない",
+  "meaning_en": "plain (casual) negative verb form",
+  "cont": [
+   "Ichidan: drop る, add ない (食べる → 食べない). Godan: change the final う-row kana to the a-row, add ない (行く → 行かない, 話す → 話さない). Exception: ある → ない (suppletive, no あらない). Irregular: する → しない, くる → こない"
+  ],
+  "examples": [
+   {
+    "ja": "今日は学校に行かない。",
+    "en": "I'm not going to school today. (plain)"
+   },
+   {
+    "ja": "彼は分からない。",
+    "en": "He doesn't understand. (plain)"
+   },
+   {
+    "ja": "明日は雨が降らない。",
+    "en": "It won't rain tomorrow. (plain)"
+   }
+  ],
+  "formality": "casual",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:i-adj-adverbial-ku",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "i-adjective stem + く (+ verb)",
+  "pattern_jk": "i-adjective stem + く (+ verb)",
+  "meaning_en": "adverbial form of i-adjectives",
+  "cont": [
+   "Drop final い from the い形容詞, add く: 早い → 早く, 大きい → 大きく, 高い → 高く. Irregular: いい → よく"
+  ],
+  "examples": [
+   {
+    "ja": "早く起きてください。",
+    "en": "Please wake up early."
+   },
+   {
+    "ja": "大きく書いてください。",
+    "en": "Please write it large."
+   },
+   {
+    "ja": "よく勉強します。",
+    "en": "I study a lot / often."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:na-adj-adverbial-ni",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "na-adjective root + に (+ verb)",
+  "pattern_jk": "na-adjective root + に (+ verb)",
+  "meaning_en": "adverbial form of na-adjectives",
+  "cont": [
+   "な形容詞語幹 + に: 静か → 静かに, 上手 → 上手に, 元気 → 元気に, きれい → きれいに"
+  ],
+  "examples": [
+   {
+    "ja": "静かにしてください。",
+    "en": "Please be quiet."
+   },
+   {
+    "ja": "日本語を上手に話します。",
+    "en": "(He) speaks Japanese skillfully."
+   },
+   {
+    "ja": "元気に歌いました。",
+    "en": "(They) sang energetically."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ },
+ {
+  "rowid": "jk:particle-to-and-with",
+  "type": "C-jk",
+  "level": "N5",
+  "pattern": "X と Y",
+  "pattern_jk": "X と Y",
+  "meaning_en": "and (exhaustive listing); with (accompanying person/thing)",
+  "cont": [
+   "名詞 + と + 名詞 (listing); Person + と + 動詞 (accompaniment)"
+  ],
+  "examples": [
+   {
+    "ja": "パンと牛乳を買いました。",
+    "en": "I bought bread and milk."
+   },
+   {
+    "ja": "友だちと食事をしました。",
+    "en": "I had a meal with a friend."
+   },
+   {
+    "ja": "母と電話で話しました。",
+    "en": "I talked with my mother on the phone."
+   }
+  ],
+  "formality": "neutral",
+  "nJk": 1,
+  "nRb": 0
+ }
+]

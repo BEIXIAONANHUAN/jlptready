@@ -6,7 +6,7 @@
 //
 // 【重要】每次修改部署任何 js/css/html 后，把下面 CACHE 版本号 +1，
 // 否则用户端会继续用旧缓存，新代码不生效。
-const CACHE = 'jlptready-v18';
+const CACHE = 'jlptready-v21';
 
 const CORE = [
   './',
@@ -24,7 +24,17 @@ const CORE = [
   'js/stats.js',
   'js/checkin.js',
   'js/share.js',
+  'js/landing.js',
   'js/home.js',
+  'js/grammar-core.js',
+  'js/grammar-home.js',
+  'js/grammar-new.js',
+  'js/grammar-review.js',
+  'js/grammar-exam.js',
+  'js/grammar-wrongbook.js',
+  'js/grammar-search.js',
+  'js/grammar-stats.js',
+  'js/grammar-checkin.js',
   'js/router.js',
   'js/app.js',
   'icon-192x192.png',
